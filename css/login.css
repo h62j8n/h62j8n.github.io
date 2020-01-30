@@ -198,14 +198,28 @@ th, b, strong {
   overflow: hidden;
 }
 
+/* popup */
+#popup {
+  background: #fff;
+  width: 100px;
+  height: 100px;
+}
+
 /* common */
-.msg_err {
+.msg_err, .msg_ok {
   margin-top: 5px;
   font-size: 14px;
-  color: #c00000;
   opacity: 0;
   -webkit-transition: opacity .3s linear;
   transition: opacity .3s linear;
+}
+
+.msg_err {
+  color: #ff0000;
+}
+
+.msg_ok {
+  color: #08a600;
 }
 
 input[type=text], input[type=password], input[type=email], select {

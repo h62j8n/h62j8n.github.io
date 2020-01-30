@@ -198,6 +198,13 @@ th, b, strong {
   overflow: hidden;
 }
 
+/* popup */
+#popup {
+  background: #fff;
+  width: 100px;
+  height: 100px;
+}
+
 /* header */
 #header {
   position: relative;

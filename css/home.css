@@ -200,9 +200,48 @@ th, b, strong {
 
 /* popup */
 #popup {
+  display: none;
+  border-top: 8px solid #0b5098;
   background: #fff;
+  width: 512px;
+  padding: 30px 10px 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-height: 100px;
+  text-align: center;
+}
+
+#popup .alert {
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+#popup .list_btns {
+  display: table;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#popup button {
   width: 100px;
-  height: 100px;
+  height: 30px;
+  margin-left: 10px;
+  background: #eee;
+  font-size: 14px;
+}
+
+#popup button:first-child {
+  margin: 0;
+}
+
+#popup button.yes {
+  background: #0b5098;
+  font-family: "noto-sans-scott-l";
+  color: #fff;
+}
+
+#popup button:focus {
+  outline: none;
 }
 
 /* header */

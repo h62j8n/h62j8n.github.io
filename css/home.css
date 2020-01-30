@@ -146,6 +146,16 @@ th, b, strong {
   font-family: "noto-sans-scott-m";
 }
 
+input[type=text], input[type=password], input[type=email], select {
+  height: 45px;
+  padding: 0 10px;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, select:focus {
+  outline: none;
+  border-color: #0b5098;
+}
+
 ::-moz-selection {
   background: #0b5098;
   color: #fff;
@@ -163,17 +173,17 @@ th, b, strong {
 
 ::-webkit-input-placeholder {
   font-size: 13px;
-  color: #ccc;
+  color: #666;
 }
 
 ::-moz-placeholder {
   font-size: 13px;
-  color: #ccc;
+  color: #666;
 }
 
 :-ms-input-placeholder {
   font-size: 13px;
-  color: #ccc;
+  color: #666;
 }
 
 .lock {

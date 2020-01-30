@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../js/site.js"></script>
+	<link href="../css/login.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<title>비트캠프 구리센터</title>
+</head>
+<body>
+<div id="wrap">
+	<div class="join_wrap">
+		<div id="header">
+			<h1><a href="../lms"><img src="../images/ico/logo_big.png" alt="" width="300"></a></h1>
+		</div>
+		<div id="container">
+			<form class="form_join">
+				<h2>회원가입</h2>
+				<dl class="list_chks">
+					<dt>
+						<input type="checkbox" id="logTerms1">
+						<label for="logTerms1" class="label_chk">홈페이지 이용약관 동의</label>
+					</dt>
+					<dd><textarea readonly="readonly">홈페이지 이용약관 내용</textarea></dd>
+					<dt>
+						<input type="checkbox" id="logTerms2">
+						<label for="logTerms2" class="label_chk">개인정보처리방침 동의</label>
+					</dt>
+					<dd><textarea readonly="readonly">개인정보 처리방침 내용</textarea readonly="readonly"></dd>
+					<dt>
+						<input type="checkbox" id="logTermsAll">
+						<label for="logTermsAll" class="label_chk">이용약관, 개인정보처리방침에 모두 동의합니다.</label>
+					</dt>
+				</dl>
+				<p class="msg_err"></p>
+				<ul class="list_btns">
+					<li><button type="button" id="btnHistoryBack">돌아가기</button></li>
+					<li><button type="button" class="btn_next" onclick="next('join_step2.html')">다음으로</button></li>
+				</ul>
+			</form>
+		</div>
+	</div>
+	<div id="footer">
+		<p>Copyright &copy; 비트캠프 All rights reserved.</p>
+	</div>
+</div>
+</body>
+</html>

@@ -137,6 +137,7 @@ a {
 select, button, input, textarea {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  border: 1px solid #ddd;
   font-family: "noto-sans-scott-dl";
   color: #666;
 }
@@ -146,17 +147,17 @@ th, b, strong {
 }
 
 ::-moz-selection {
-  background: #222;
+  background: #0b5098;
   color: #fff;
 }
 
 ::selection {
-  background: #222;
+  background: #0b5098;
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #222;
+  background: #0b5098;
   color: #fff;
 }
 

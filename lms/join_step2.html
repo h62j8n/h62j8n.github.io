@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../js/site.js"></script>
+	<link href="../css/login.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<title>비트캠프 구리센터</title>
+</head>
+<body>
+<div id="wrap">
+	<div class="join_wrap">
+		<div id="header">
+			<h1><a href="../lms"><img src="../images/ico/logo_big.png" alt="" width="300"></a></h1>
+		</div>
+		<div id="container">
+			<form class="form_join">
+				<h2>회원가입</h2>
+				<ul class="list_ipts">
+					<li>
+						<label for="logId" class="out">아이디(이메일)</label>
+						<input type="email" id="logId">
+						<!-- #툴팁 -->
+						<p class="msg_err"></p>
+					</li>
+					<li class="phd_box">
+						<label for="logPw1" class="out">비밀번호</label>
+						<input type="password" id="logPw1" placeholder="8자리 이상 (영문 숫자 조합)"
+						>
+						<!-- #툴팁 -->
+						<p class="msg_err"></p>
+					</li>
+					<li>
+						<label for="logPw2" class="out">비밀번호 확인</label>
+						<input type="password" id="logPw2">
+						<!-- #툴팁 -->
+						<p class="msg_err"></p>
+					</li>
+					<li>
+						<label for="logName" class="out">이름</label>
+						<input type="text" id="logName">
+						<!-- #툴팁 -->
+						<p class="msg_err"></p>
+					</li>
+					<li class="phd_box">
+						<label for="logNum" class="out">연락처</label>
+						<input type="text" id="logNum" placeholder="예) 010-0000-0000">
+						<!-- #툴팁 -->
+						<p class="msg_err"></p>
+					</li>
+					<li>
+						<label for="logQuest" class="out">비밀번호 확인 질문</label>
+						<select id="logQuest">
+							<option value="">자신의 인생 좌우명은?</option>
+						</select>
+					</li>
+					<li>
+						<label for="logAnswer" class="out">비밀번호 확인 답변</label>
+						<input type="text" id="logAnswer">
+						<!-- #툴팁 -->
+						<p class="msg_err"></p>
+					</li>
+				</ul>
+				<ul class="list_btns">
+					<li><button type="button">돌아가기</button></li>
+					<li><button type="submit">가입하기</button></li>
+				</ul>
+			</form>
+		</div>
+	</div>
+	<div id="footer">
+		<p>Copyright &copy; 비트캠프 All rights reserved.</p>
+	</div>
+</div>
+<script type="text/javascript">
+	addCommMsg("아이디 또는 비밀번호가 일치하지 않습니다.");
+</script>
+</body>
+</html>

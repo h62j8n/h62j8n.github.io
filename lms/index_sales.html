@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
-	<script type="text/javascript" src="../js/util.js"></script>
 	<script type="text/javascript" src="../js/site.js"></script>
 	<link href="../css/site.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
@@ -28,26 +27,26 @@
 				<ul>
 					<li>
 						<a href="">
-							<i class="xi-book-o"></i>
-							<span>나의 교육과정</span>
+							<i class="xi-school"></i>
+							<span>모집공고 관리</span>
 						</a>
 					</li>
 					<li>
 						<a href="">
-							<i class="xi-calendar-check"></i>
-							<span>나의 출결현황</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<i class="xi-presentation"></i>
-							<span>나의 성적조회</span>
+							<i class="xi-folder-shared"></i>
+							<span>수강등록 관리</span>
 						</a>
 					</li>
 					<li>
 						<a href="">
 							<i class="xi-list-square"></i>
-							<span>강의실 공지사항</span>
+							<span>홈 게시판 관리</span>
+						</a>
+					</li>
+					<li>
+						<a href="xi-list-square">
+							<i class="xi-info-o"></i>
+							<span>학원정보 관리</span>
 						</a>
 					</li>
 				</ul>
@@ -55,69 +54,46 @@
 			<div class="content_area">
 				<div class="dashboard_wrap">
 					<h2 class="hidden">대시보드 메인</h2>
-					<!-- 학생 (수강생) -->
+					<!-- 영업팀 -->
 					<div>
 						<div class="profile box">
 							<h3>나의 프로필</h3>
 							<div>
 								<dl>
 									<dt><b>홍길동</b> 님, 환영합니다</dt>
+									<dd>업무부서 : 영업팀</dd>
 									<dd>이메일 : user01@email.com</dd>
 									<dd>연락처 : 010-0000-0000</dd>
 								</dl>
 							</div>
 							<p class="btn_go"><a href="lock.html">내 정보 수정 <i class="xi-arrow-right"></i></a></p>
 						</div>
-						<div class="class box">
-							<h3>나의 교육과정</h3>
-							<div>
-								<dl>
-									<dt>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</dt>
-									<dd>2020.01.01 ~ 2020.03.31 <span>[수강 진행 중]</span></dd>
-								</dl>
-							</div>
-							<p class="btn_go"><a href="">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
-						</div>
-						<div class="attend box">
-							<h3>오늘의 출결관리</h3>
-							<dl>
-								<dt>
-									2020년 01월 01일
-									<span>입실 &nbsp; : &nbsp; <b>08:59</b></span>
-									<span>퇴실 &nbsp; : &nbsp; <b>18:31</b></span>
-								</dt>
-								<dd>
-									<button type="button" id="btnAttend" class="btn_pop in"><span></span></button>
-								</dd>
-							</dl>
-							<p class="btn_go"><a href="">자세히 보기 <i class="xi-arrow-right"></i></a></p>
-						</div>
 						<div class="board box">
-							<h3>강의실 공지사항</h3>
+							<h3>모집공고</h3>
 							<div>
 								<ul>
 									<li>
 										<a href="">
-											<span>공지사항 게시판입니다. 게시물을 작성해주세요.</span>
-											<span>2020-01-01</span>
+											<span>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</span>
+											<span>(0/30)</span>
 										</a>
 									</li>
 									<li>
 										<a href="">
-											<span>공지사항 게시판입니다. 게시물을 작성해주세요.</span>
-											<span>2020-01-01</span>
+											<span>디지털컨버전스 기반 Smart Web & Content 개발자 양성과정 - 3월</span>
+											<span>(0/30)</span>
 										</a>
 									</li>
 									<li>
 										<a href="">
-											<span>공지사항 게시판입니다. 게시물을 작성해주세요.</span>
-											<span>2020-01-01</span>
+											<span>디지털컨버전스 기반 Framework 전문 개발자 양성과정 - 2월</span>
+											<span>모집기한 마감</span>
 										</a>
 									</li>
 									<li>
 										<a href="">
-											<span>공지사항 게시판입니다. 게시물을 작성해주세요.</span>
-											<span>2020-01-01</span>
+											<span>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 2월</span>
+											<span>모집기한 마감</span>
 										</a>
 									</li>
 									<!-- 게시물이 없을 때
@@ -125,32 +101,6 @@
 								</ul>
 							</div>
 							<p class="btn_go"><a href="">자세히 보기 <i class="xi-arrow-right"></i></a></p>
-						</div>
-						<div class="status box">
-							<h3>나의 출결현황</h3>
-							<div>
-								<ul>
-									<li>
-										나의 출석률 (<span>45.2</span>%)
-										<p class="progress"><b></b></p>
-									</li>
-									<li>
-										과정 진행률 (<span>51.4</span>%)
-										<p class="progress"><b></b></p>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="stats box">
-							<h3>나의 출결통계</h3>
-							<div>
-								<ul>
-									<li><span>38</span>출석</li>
-									<li><span>7</span>지각</li>
-									<li><span>0</span>조퇴</li>
-									<li><span>2</span>결석</li>
-								</ul>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -181,21 +131,5 @@
 		</div>
 	</div>
 </div>
-<div id="popup">
-	<p class="alert">
-		현재 시간 : [2020년 01월 01일 08:59:00]<br>
-		입/퇴실 체크하시겠습니까?<br>
-		※ 한 번 처리된 기록은 수정할 수 없습니다.
-	</p>
-	<div class="btns">
-		<button type="button" class="btn_off yes">확인</button>
-		<button type="button" class="btn_off no">확인</button>
-	</div>
-</div>
-<script type="text/javascript">
-	attend();
-	progress();
-	count();
-</script>
 </body>
 </html>

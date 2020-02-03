@@ -1099,7 +1099,7 @@ body {
   text-align: center;
 }
 
-.board_wrap.list .bd_pages a, .board_wrap.list .bd_pages span {
+.board_wrap.list .bd_pages a, .board_wrap.list .bd_pages b {
   display: block;
   width: 25px;
   height: 25px;
@@ -1107,10 +1107,31 @@ body {
   font-size: 15px;
 }
 
-.board_wrap.list .bd_pages span {
+.board_wrap.list .bd_pages b {
   border-radius: 3px;
   background: #083c72;
   color: #fff;
+}
+
+.board_wrap.list .bd_pages .pg_start, .board_wrap.list .bd_pages .pg_prev, .board_wrap.list .bd_pages .pg_next, .board_wrap.list .bd_pages .pg_end {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.board_wrap.list .bd_pages .pg_prev {
+  background-image: url(../images/ico/shp_prev.png);
+}
+
+.board_wrap.list .bd_pages .pg_start {
+  background-image: url(../images/ico/shp_start.png);
+}
+
+.board_wrap.list .bd_pages .pg_next {
+  background-image: url(../images/ico/shp_next.png);
+}
+
+.board_wrap.list .bd_pages .pg_end {
+  background-image: url(../images/ico/shp_end.png);
 }
 
 .board_wrap.write .table.box th, .board_wrap.write .table.box td {

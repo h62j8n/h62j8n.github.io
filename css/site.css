@@ -1383,6 +1383,11 @@ body {
 #member.board_wrap .table.box td select {
   width: 100px;
   height: 25px;
+  margin-top: 5px;
+}
+
+#member.board_wrap .table.box td select:first-child {
+  margin: 0;
 }
 
 #member.board_wrap .table.box td button {

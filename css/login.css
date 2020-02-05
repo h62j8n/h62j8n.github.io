@@ -264,6 +264,22 @@ input[type=checkbox]:checked + label:after {
   overflow: hidden;
 }
 
+.msg {
+  margin-top: 5px;
+  font-size: 14px;
+  opacity: 0;
+  -webkit-transition: opacity .3s linear;
+  transition: opacity .3s linear;
+}
+
+.msg.err {
+  color: #ff0000;
+}
+
+.msg.ok {
+  color: #08a600;
+}
+
 /* popup */
 #popup {
   display: none;
@@ -356,6 +372,7 @@ input[type=checkbox]:checked + label:after {
 .board_wrap .bd_pages li {
   display: table-cell;
   vertical-align: middle;
+  padding: 0 2px;
   text-align: center;
 }
 
@@ -394,8 +411,10 @@ input[type=checkbox]:checked + label:after {
   background-image: url(../images/ico/shp_end.png);
 }
 
-.board_wrap .bd_btns {
-  overflow: hidden;
+.board_wrap .bd_btns:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .board_wrap .bd_btns a, .board_wrap .bd_btns button {
@@ -462,6 +481,12 @@ input[type=checkbox]:checked + label:after {
 .board_wrap.list .table.box td a:hover {
   text-decoration: underline;
   color: #0b5098;
+}
+
+.board_wrap.list .table.box .bd_empty {
+  padding: 100px 0;
+  text-align: center;
+  color: #666;
 }
 
 .board_wrap.detail .title.box, .board_wrap.detail .content.box {
@@ -621,8 +646,10 @@ input[type=checkbox]:checked + label:after {
   color: #fff;
 }
 
-#curriculum.cr2 .list.box li {
-  padding: 10px;
+#curriculum .list.box .bd_empty {
+  padding: 100px 0;
+  text-align: center;
+  color: #666;
 }
 
 /* header , footer */
@@ -661,22 +688,6 @@ h2:before {
 }
 
 /* common */
-.msg {
-  margin-top: 5px;
-  font-size: 14px;
-  opacity: 0;
-  -webkit-transition: opacity .3s linear;
-  transition: opacity .3s linear;
-}
-
-.msg.err {
-  color: #ff0000;
-}
-
-.msg.ok {
-  color: #08a600;
-}
-
 .mid {
   display: table;
   height: calc(100vh - 35px);

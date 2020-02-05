@@ -157,6 +157,12 @@ function popLogout() {
 	btnBox.append(no);
 }
 
+/* 숫자포멧 */
+function pad(n, width) {
+	n = n + '';
+	return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+}
+
 /* 출결관리 팝업 */
 function popAttend() {
 	// 버튼 기능 체크
@@ -171,11 +177,18 @@ function popAttend() {
 	// 현재 시간
 	var day = new Date(),
 		year = day.getFullYear(),
-		month = day.getMonth(),
-		date = day.getDate(),
-		hours = day.getHours(),
-		minutes = day.getMinutes();
+		month = pad(day.getMonth()+1, 2),
+		date = pad(day.getDate(), 2),
+		hours = pad(day.getHours(), 2),
+		minutes = pad(day.getMinutes(), 2);
 	var times = year+"년 "+month+"월 "+date+"일 "+hours+"시 "+minutes+"분";
+
+	// 인풋 값
+	var dateVal = year+"/"+month+"/"+date,
+		statusVal = status;
+	$("#atDate").val(dateVal);
+	$("#atStatus").val(statusVal);
+
 	// 팝업 세팅
 	var questBox = $("#popup .alert"),
 		btnBox = $("#popup .btns");
@@ -197,9 +210,11 @@ function popAttend() {
 	$(".yes").on("click", function() {
 		if (btnIn) {
 			$("#btnAttend").removeClass("in").addClass("out");
+			$("#atForm").submit();
 		}
 		if (btnOut) {
 			$("#btnAttend").removeClass("out");
+			$("#atForm").submit();
 		}
 	});
 }

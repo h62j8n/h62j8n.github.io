@@ -6,7 +6,7 @@
 ---------------------------------------------------------------
 */
 
-function scrX(){
+function scrX() {
 	$(window).on('scroll', function(){
 		var supportPageOffset = (window.pageXOffset !== undefined),
 			Xaxis = supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft;
@@ -15,9 +15,24 @@ function scrX(){
     });
 }
 
+function userMenu() {
+	var btn = $('#userMenu').find('.btn_menu'),
+		box = $('#userMenu').find('.menu_box');
+		$('.btn_menu').on('click', function() {
+		if (box.is(':visible')) {
+			box.hide();
+		} else {
+			box.fadeIn(300);
+		}
+	});
+}
+
 $(document).ready(function() {
 	scrX();
+	userMenu();
 });
+
+
 
 /*
 ---------------------------------------------------------------
@@ -46,17 +61,17 @@ function mainSlider() {
 }
 
 function main() {
+	$('#header').addClass('bg');
 	mainSlider();
 
 	setTimeout(function(){
 		$('.visual_area').removeClass('off');
 	}, 300);
 
+	headerBg($(window).scrollTop());
 	$(window).on('scroll', function(){
-		var scrTop = $(window).scrollTop();
-
-		headerBg(scrTop);
-		scrEffect(scrTop);
+		headerBg($(window).scrollTop());
+		// scrEffect(scrTop);
 	});
 }
 
@@ -89,3 +104,9 @@ function scrEffect(scrTop){
 *
 ---------------------------------------------------------------
 */
+
+
+/* delete */
+$(document).ready(function () {
+	w3.includeHTML();
+});

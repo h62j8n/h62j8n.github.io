@@ -16,10 +16,6 @@
   font-style: normal;
 }
 
-:root {
-  --swiper-theme-color:#007aff;
-}
-
 .swiper-container {
   margin-left: auto;
   margin-right: auto;
@@ -170,10 +166,6 @@
 .swiper-container-vertical.swiper-container-css-mode > .swiper-wrapper {
   -ms-scroll-snap-type: y mandatory;
       scroll-snap-type: y mandatory;
-}
-
-:root {
-  --swiper-navigation-size:44px;
 }
 
 .swiper-button-next, .swiper-button-prev {
@@ -879,17 +871,17 @@ input[type=checkbox]:checked + label:after {
 
 ::-webkit-input-placeholder {
   font-size: 13px;
-  color: #666;
+  color: #bbb;
 }
 
 ::-moz-placeholder {
   font-size: 13px;
-  color: #666;
+  color: #bbb;
 }
 
 :-ms-input-placeholder {
   font-size: 13px;
-  color: #666;
+  color: #bbb;
 }
 
 .lock {
@@ -901,11 +893,11 @@ input[type=checkbox]:checked + label:after {
 }
 
 .container {
-  width: 1100px;
+  width: 1024px;
   margin: 0 auto;
 }
 
-.hidden {
+.snd_only {
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -1299,42 +1291,53 @@ input[type=checkbox]:checked + label:after {
 *
 ---------------------------------------------------------------
 */
+/* header */
 #header {
+  position: relative;
+  height: 100px;
+}
+
+#header > div {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 9999;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: 100px;
   min-width: 1100px;
-  padding: 0 100px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  padding: 33px 3% 0;
+  box-sizing: border-box;
   -webkit-transition: padding .5s;
   transition: padding .5s;
 }
 
-#header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-#header:before {
+#header > div:before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
   width: 100%;
+  min-width: 1200px;
   height: 100px;
+  margin-left: -50%;
   background: #fff;
   z-index: -1;
   -webkit-transition: height .2s ease-in-out;
   transition: height .2s ease-in-out;
 }
 
-#header h1, #header #gnb {
-  margin-top: 33px;
+#header .container {
+  position: relative;
+  width: 100%;
+}
+
+#header .container:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 #header h1 {
@@ -1352,8 +1355,59 @@ input[type=checkbox]:checked + label:after {
   transition: background .5s linear;
 }
 
+#header .search_box {
+  position: relative;
+  float: left;
+  height: 60px;
+  max-width: 740px;
+  padding: 12px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fff;
+  overflow: hidden;
+  margin-top: -14px;
+  -webkit-transition: margin-top .2s ease-in-out;
+  transition: margin-top .2s ease-in-out;
+}
+
+#header .search_box:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: #1edeb9;
+  border-radius: 5px 0 5px 0;
+}
+
+#header .search_box input, #header .search_box button {
+  float: left;
+  border: none;
+  background: none;
+}
+
+#header .search_box input {
+  width: 100%;
+  height: 100%;
+  padding: 0 36px 0 0;
+  font-size: 20px;
+}
+
+#header .search_box ::-webkit-input-placeholder {
+  font-size: 20px;
+}
+
+#header .search_box button {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  margin-top: -18px;
+}
+
 #gnb {
   float: right;
+  width: 485px;
 }
 
 #gnb:after {
@@ -1364,15 +1418,15 @@ input[type=checkbox]:checked + label:after {
 
 #gnb li {
   float: left;
-  margin-left: 80px;
+  margin-left: 50px;
   height: 34px;
   line-height: 34px;
   font-family: "noto-sans-scott-r";
-  font-size: 22px;
+  font-size: 20px;
 }
 
 #gnb li:first-child {
-  margin: 0;
+  margin: 0 !important;
 }
 
 #gnb a {
@@ -1380,11 +1434,133 @@ input[type=checkbox]:checked + label:after {
   transition: color .5s linear;
 }
 
-#header.bg {
+#userMenu {
+  position: absolute;
+  top: 7px;
+  right: 0;
+  margin-left: 0;
+}
+
+#userMenu input, #userMenu button {
+  border: none;
   background: none;
 }
 
-#header.bg:before {
+#userMenu input:focus, #userMenu button:focus {
+  outline: none;
+}
+
+#userMenu .btn_menu {
+  width: 20px;
+  height: 20px;
+}
+
+#userMenu .btn_menu:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 7px 0 0 5px;
+  border-top: 7px solid #171717;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  -webkit-transition: border .5s linear;
+  transition: border .5s linear;
+}
+
+#userMenu .menu_box {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: -36px;
+  width: 300px;
+  border-radius: 20px;
+  border: 1px solid #bfbfbf;
+  background: #fff;
+  z-index: 0;
+}
+
+#userMenu .menu_box:before {
+  content: '';
+  position: absolute;
+  top: -17px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  border-left: 1px solid #bfbfbf;
+  border-top: 1px solid #bfbfbf;
+  background: #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  z-index: 1;
+}
+
+#userMenu dt {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 75px;
+  margin-bottom: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 1px solid #dcdcdc;
+  font-size: 26px;
+  color: #262626;
+}
+
+#userMenu dt:before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 100px;
+  height: 5px;
+  margin-left: -50px;
+  background: #1edeb9;
+}
+
+#userMenu dt b {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#userMenu dd button {
+  width: 100%;
+  height: 50px;
+  font-family: "noto-sans-scott-m";
+  font-size: 24px;
+  color: #656565;
+}
+
+#userMenu dd button:hover, #userMenu dd button.act {
+  color: #2f2f2f;
+}
+
+#userMenu dd button.act {
+  text-decoration: underline;
+}
+
+#userMenu .btn_logout {
+  margin-top: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #dcdcdc;
+}
+
+#userMenu .btn_logout input {
+  display: block;
+  width: 250px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 60px;
+  background: #1edeb9;
+  text-align: center;
+  font-family: "noto-sans-scott-m";
+  font-size: 26px;
+  color: #fff;
+}
+
+#header.bg > div:before {
   height: 0;
 }
 
@@ -1392,16 +1568,57 @@ input[type=checkbox]:checked + label:after {
   background-image: url(../images/ico/logo_w.png);
 }
 
+#header.bg .search_box {
+  margin-top: -100px;
+}
+
 #header.bg #gnb a {
   color: #fff;
 }
 
-@media (max-width: 1100px) {
-  #header {
-    padding: 0;
+#header.bg #userMenu .btn_menu:before {
+  border-top: 7px solid #fff;
+}
+
+@media (min-width: 1101px) {
+  #header .search_box {
+    width: calc(94% - 691px);
+    margin-left: 30px;
   }
 }
 
+@media (min-width: 1535px) {
+  #header .search_box {
+    position: absolute;
+    left: 50%;
+    margin-left: -512px;
+  }
+}
+
+@media (max-width: 1200px) {
+  #header > div {
+    padding: 33px 0 0;
+  }
+  #header .container {
+    width: 1024px;
+  }
+  #header h1 a {
+    width: 167px;
+    background-size: 167px;
+  }
+  #header #gnb {
+    width: 425px;
+  }
+  #header #gnb li {
+    margin-left: 30px;
+  }
+  #header .search_box {
+    width: 372px;
+    margin-left: 30px;
+  }
+}
+
+/* footer */
 #footer {
   height: 170px;
   background: #3b3b3b;
@@ -1420,6 +1637,10 @@ input[type=checkbox]:checked + label:after {
 #footer .img_box {
   width: 275px;
   margin-left: 45px;
+}
+
+#footer .img_box img {
+  width: 167px;
 }
 
 #footer .text_box p {
@@ -1458,6 +1679,7 @@ input[type=checkbox]:checked + label:after {
   margin-top: 25px;
 }
 
+/* common */
 .cp_liked {
   position: absolute;
   top: 20px;
@@ -1495,6 +1717,10 @@ input[type=checkbox]:checked + label:after {
   background-repeat: no-repeat;
   background-position: 0 50%;
   font-size: 28px;
+}
+
+#main {
+  margin-top: -100px;
 }
 
 #main section {
@@ -1536,7 +1762,7 @@ input[type=checkbox]:checked + label:after {
   text-align: center;
 }
 
-#main .visual_area .form_box {
+#main .visual_area .search_box {
   width: 940px;
   height: 70px;
   margin: 65px auto 0;
@@ -1547,13 +1773,13 @@ input[type=checkbox]:checked + label:after {
   background-color: #fff;
 }
 
-#main .visual_area .form_box:after {
+#main .visual_area .search_box:after {
   content: "";
   display: table;
   clear: both;
 }
 
-#main .visual_area .form_box button, #main .visual_area .form_box input {
+#main .visual_area .search_box button, #main .visual_area .search_box input {
   float: left;
   height: 100%;
   font-family: "noto-sans-scott-r";
@@ -1561,12 +1787,11 @@ input[type=checkbox]:checked + label:after {
   border: none;
 }
 
-#main .visual_area .form_box ::-webkit-input-placeholder {
+#main .visual_area .search_box ::-webkit-input-placeholder {
   font-size: 30px;
-  color: #bbb;
 }
 
-#main .visual_area .form_box input {
+#main .visual_area .search_box input {
   width: 700px;
   padding-left: 95px;
   border-radius: 70px 0 0 70px;
@@ -1576,7 +1801,7 @@ input[type=checkbox]:checked + label:after {
   background-position: 40px 50%;
 }
 
-#main .visual_area .form_box button {
+#main .visual_area .search_box button {
   width: 230px;
   border-radius: 70px;
   background: #1edeb9;
@@ -1597,7 +1822,7 @@ input[type=checkbox]:checked + label:after {
 #main .group_area .list_box dl {
   position: relative;
   float: left;
-  width: 510px;
+  width: 472px;
   margin: 40px 0 0 40px;
 }
 
@@ -1658,13 +1883,17 @@ input[type=checkbox]:checked + label:after {
 
 #main .group_area .list_box dd {
   display: table;
-  width: 340px;
+  width: 342px;
   margin-left: 20px;
 }
 
 #main .group_area .list_box dd a {
   display: table-cell;
   vertical-align: middle;
+  width: 100%;
+  padding-right: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #main .group_area .list_box dd strong {
@@ -1705,7 +1934,7 @@ input[type=checkbox]:checked + label:after {
 
 #main .place_area .slide_box {
   width: 100%;
-  height: 570px;
+  height: 545px;
   position: relative;
   overflow: hidden;
   z-index: 0;
@@ -1713,7 +1942,7 @@ input[type=checkbox]:checked + label:after {
 
 #main .place_area .swiper-slide {
   position: relative;
-  height: 240px;
+  height: 223px;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -1736,6 +1965,10 @@ input[type=checkbox]:checked + label:after {
 #main .place_area dt {
   position: relative;
   z-index: 0;
+}
+
+#main .place_area dt img {
+  max-width: 100%;
 }
 
 #main .place_area dd {

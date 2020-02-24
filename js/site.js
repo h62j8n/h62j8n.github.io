@@ -18,7 +18,7 @@ function scrX() {
 function userMenu() {
 	var btn = $('#userMenu').find('.btn_menu'),
 		box = $('#userMenu').find('.menu_box');
-		$('.btn_menu').on('click', function() {
+		btn.on('click', function() {
 		if (box.is(':visible')) {
 			box.hide();
 		} else {
@@ -56,7 +56,7 @@ function mainSlider() {
 		autoplay: {
 			delay: 5000,
 		},
-		// loop: true,
+		allowTouchMove: false,
 	});
 }
 

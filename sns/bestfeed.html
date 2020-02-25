@@ -15,44 +15,83 @@
 	<div w3-include-html="../include/header.html"></div>
 	<div id="container">
 		<div class="container">
-			<section class="content_wrap">
-				<div class="post_area">
-					<div class="tit_box">
-						<dl>
-							<dt><img src="../images/thumb/no_profile.png" alt="프로필 썸네일"></dt>
-							<dd class="fd_name">
-								<b>김덕수</b>
-								<span>입돌아간다</span>
+			<section class="content_area">
+				<div class="post_wrap">
+					<div class="tit box">
+						<dl class="info_box">
+							<dt>
+								<a href="" class="pf_picture"><img src="../images/thumb/main_gp01.jpg" alt="김덕수님의 프로필 썸네일"></a>
+								<a href="" class="fd_name">김덕수</a>
+								<a href="" class="fd_group">입돌아간다</a>
+							</dt>
+							<dd>
+								<span class="fd_date">2020년 01월 01일 12시 59분</span>
+								<b class="fd_liked">550</b>
 							</dd>
-							<dd class="fd_date">2020년 01월 01일 12시 59분</dd>
-							<dd class="fd_liked">550</dd>
 						</dl>
-						<form>
-							<ul>
-								<li class="btn_fd_liked"><button><em class="snd_only">좋아요</em></button></li>
-								<li class="btn_fd_report"><button><em class="snd_only">신고</em></button></li>
-								<li class="btn_fd_delete"><button><em class="snd_only">삭제</em></button></li>
-							</ul>
-						</form>
+						<ul class="btn_box">
+							<li><button class="fd_btn_liked"><em class="snd_only">좋아요</em></button></li>
+							<li><button class="fd_btn_report"><em class="snd_only">신고</em></button></li>
+							<li><button class="fd_btn_delete"><em class="snd_only">삭제</em></button></li>
+						</ul>
 					</div>
-					<div class="text_box">
-						<div class="cont_box"></div>
+					<div class="text box"> <!--  class="mCustomScrollbar" -->
+						<div class="cont_box">
+							<ul class="fd_hashtag">
+								<li><a href="">동계캠핑</a></li>
+								<li><a href="">눈밭</a></li>
+							</ul>
+							<p class="fd_content">내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요.</p>
+						</div>
 						<div class="cmmt_box">
-							<form>
-								<input type="text" placeholder="댓글을 입력해주세요">
-								<button type="submit"></button>
+							<dl class="cmt_list">
+								<dt>
+									<a href="" class="pf_picture">
+										<img src="../images/thumb/main_gp02.jpg" alt="김진혁님의 프로필 썸네일">
+									</a>
+								</dt>
+								<dd>
+									<a href="" class="cmt_name">김진혁</a>
+									댓글을 입력해주세요.
+									<span class="cmt_date">2020년 01월 01일 12시 59분</span>
+									<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
+								</dd>
+								<dt>
+									<a href="" class="pf_picture">
+										<img src="../images/thumb/main_gp03.jpg" alt="고재현님의 프로필 썸네일">
+									</a>
+								</dt>
+								<dd>
+									<a href="" class="cmt_name">고재현</a>
+									댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요.
+									<span class="cmt_date">2020년 01월 01일 12시 59분</span>
+									<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
+								</dd>
+							</dl>
+							<button class="cmt_btn_more">3개의 댓글 더 보기</button>
+							<form class="cmt_form">
+								<dl>
+									<dt>
+										<a href="" class="pf_picture"></a>
+									</dt>
+									<dd>
+										<input type="text" placeholder="댓글을 입력해주세요">
+										<button type="submit" class="cmt_btn_add"></button>
+									</dd>
+								</dl>
 							</form>
 						</div>
 					</div>
-					<div class="thumb_box">
+					<div class="thumb box">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
+								<img src="../images/thumb/main_gp01.jpg" alt="">
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section class="side_wrap"></section>
+			<section class="side_area"></section>
 		</div>
 	</div>
 	<div w3-include-html="../include/footer.html"></div>

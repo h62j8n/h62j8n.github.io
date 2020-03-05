@@ -86,6 +86,7 @@ function myList() {
 		}
 	});
 }
+
 function myListOff() {
 	var btn = $('.btn_mylist'),
 		list = $('.my_list');
@@ -110,6 +111,7 @@ function thumbnail() {
 			clickable: true,
 		},
 		speed: 600,
+		preventClicks: false,
 		allowTouchMove: false,
 	});
 }
@@ -250,6 +252,7 @@ function mainSlider() {
 		autoplay: {
 			delay: 5000,
 		},
+		preventClicks: false,
 		allowTouchMove: false,
 	});
 }
@@ -312,8 +315,15 @@ function campSlider() {
 		autoplay: {
 			delay: 5000,
 		},
+		preventClicks: false,
 		allowTouchMove: false,
 	});
+	
+	// var anchor = $('.swiper-slide a');
+	// anchor.on('click', function() {
+	// 	console.log("aaa");
+	// 	window.lo
+	// });
 }
 
 function numbering(target) {
@@ -327,7 +337,7 @@ function numbering(target) {
 
 function starRating() {
 	var target = $('.rt_rates');
-	var star = $('input[name=rt_rate]');
+	var star = $('input[name=rtRate]');
 	var margin = -20;
 	star.on('change', function() {
 		var length = 5 - $(this).val();

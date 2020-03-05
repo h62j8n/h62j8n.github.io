@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="/js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="/js/util.js"></script>
+	<script type="text/javascript" src="/js/site.js"></script>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<link rel="stylesheet" href="/css/site.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<title>FESTA</title>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="scrX">
+			<div class="container">
+				<h1>
+					<a href="/"><em class="snd_only">FESTA</em></a>
+				</h1>
+				<form class="search_box">
+					<input type="text" placeholder="캠핑장 또는 그룹을 검색해보세요!">
+					<button type="submit"><img src="/images/ico/btn_search.png" alt="검색"></button>
+				</form>
+				<ul id="gnb">
+					<li><a href="/camp/">캠핑정보</a></li>
+					<li><a href="/hot/">인기피드</a></li>
+					<li><a href="/news/">뉴스피드</a></li>
+					<li><a href="/member/login" class="btn_pop">로그인</a></li>
+				</ul>
+				<button type="button" id="btnTop"><em class="snd_only">맨 위로</em></button>
+			</div>
+		</div>
+	</div>
+	<!-- #인기피드 #뉴스피드 (공통구조) -->
+	<!-- 서브페이지 시작 { -->
+	<div id="container">
+		<div class="container">
+			<!-- 컨텐츠영역 시작 { -->
+			<section class="content_area">
+				<h2 class="snd_only">뉴스피드 목록</h2>
+				<div>
+					<!-- #텍스트+썸네일 피드 시작 { -->
+					<div class="feed_wrap">
+						<div class="tit box">
+							<dl class="info_box">
+								<dt>
+									<a href="" class="pf_picture"><img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일"></a>
+									<a href="" class="fd_name">김덕수</a>
+									<a href="" class="fd_group">입돌아간다</a>
+								</dt>
+								<dd>
+									<span class="fd_date">2020년 01월 01일 12시 59분</span>
+									<b class="fd_liked">550</b>
+								</dd>
+							</dl>
+							<ul class="fd_options">
+								<li><button class="btn_liked act"><em class="snd_only">하트</em></button></li>
+								<li><button class="btn_report"><em class="snd_only">신고</em></button></li>
+								<li><button class="btn_delete"><em class="snd_only">삭제</em></button></li>
+							</ul>
+						</div>
+						<div class="text box scrBar">
+							<div class="cont_box">
+								<ul class="fd_hashtag">
+									<li><a href="">동계캠핑</a></li>
+									<li><a href="">눈밭</a></li>
+								</ul>
+								<p class="fd_content">내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요.</p>
+							</div>
+							<dl class="cmmt_list">
+								<dt>
+									<!-- # 프로필 이미지 없음 { -->
+									<a href="" class="pf_picture">
+										<img src="/images/thumb/no_profile.png" alt="김진혁님의 프로필 썸네일">
+									</a>
+									<!-- } # 프로필 이미지 없음 -->
+								</dt>
+								<dd>
+									<a href="" class="cmt_name">김진혁</a>
+									댓글을 입력해주세요.
+									<span class="cmt_date">2020년 01월 01일 12시 59분</span>
+									<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
+								</dd>
+								<dt>
+									<a href="" class="pf_picture">
+										<img src="http://placehold.it/30x30" alt="고재현님의 프로필 썸네일">
+									</a>
+								</dt>
+								<dd>
+									<a href="" class="cmt_name">고재현</a>
+									댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요.
+									<span class="cmt_date">2020년 01월 01일 12시 59분</span>
+									<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
+								</dd>
+							</dl>
+							<button class="cmt_btn_more">3개의 댓글 더 보기</button>
+						</div>
+						<form class="cmmt_form">
+							<dl>
+								<dt>
+									<a href="" class="pf_picture">
+										<img src="http://placehold.it/30x30" alt="나의 프로필 썸네일">
+									</a>
+								</dt>
+								<dd>
+									<input type="text" class="cmt_input" name="cmt_input" placeholder="댓글을 입력해주세요">
+									<button type="submit" class="cmt_btn_send"></button>
+								</dd>
+							</dl>
+						</form>
+						<!-- # 썸네일 영역 { -->
+						<div class="thumb_slide box">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<img src="http://placehold.it/360x360" alt="">
+								</div>
+								<div class="swiper-slide">
+									<img src="http://placehold.it/360x360" alt="">
+								</div>
+								<div class="swiper-slide">
+									<img src="http://placehold.it/360x360" alt="">
+								</div>
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+						<!--  } # 썸네일 영역 -->
+					</div>
+					<!-- } # 텍스트+썸네일 피드 끝 -->
+					<!-- # 텍스트 피드 시작 { -->
+					<div class="feed_wrap">
+						<div class="tit box">
+							<dl class="info_box">
+								<dt>
+									<a href="" class="pf_picture"><img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일"></a>
+									<a href="" class="fd_name">김덕수</a>
+									<a href="" class="fd_group">입돌아간다</a>
+								</dt>
+								<dd>
+									<span class="fd_date">2020년 01월 01일 12시 59분</span>
+									<b class="fd_liked">550</b>
+								</dd>
+							</dl>
+							<ul class="fd_options">
+								<li><button class="btn_liked"><em class="snd_only">하트</em></button></li>
+								<li><button class="btn_report"><em class="snd_only">신고</em></button></li>
+								<li><button class="btn_delete"><em class="snd_only">삭제</em></button></li>
+							</ul>
+						</div>
+						<div class="text box scrBar">
+							<div class="cont_box">
+								<ul class="fd_hashtag">
+									<li><a href="">동계캠핑</a></li>
+									<li><a href="">눈밭</a></li>
+								</ul>
+								<p class="fd_content">내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요.</p>
+							</div>
+							<dl class="cmmt_list">
+								<dt>
+									<a href="" class="pf_picture">
+										<img src="http://placehold.it/30x30" alt="김진혁님의 프로필 썸네일">
+									</a>
+								</dt>
+								<dd>
+									<a href="" class="cmt_name">김진혁</a>
+									댓글을 입력해주세요.
+									<span class="cmt_date">2020년 01월 01일 12시 59분</span>
+									<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
+								</dd>
+								<dt>
+									<a href="" class="pf_picture">
+										<img src="http://placehold.it/30x30" alt="고재현님의 프로필 썸네일">
+									</a>
+								</dt>
+								<dd>
+									<a href="" class="cmt_name">고재현</a>
+									댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요.
+									<span class="cmt_date">2020년 01월 01일 12시 59분</span>
+									<button class="cmt_btn_option layer"><em class="snd_only">댓글 옵션</em></button>
+								</dd>
+							</dl>
+						</div>
+						<form class="cmmt_form">
+							<dl>
+								<dt>
+									<a href="" class="pf_picture">
+										<img src="http://placehold.it/30x30" alt="나의 프로필 썸네일">
+									</a>
+								</dt>
+								<dd>
+									<input type="text" class="cmt_input" placeholder="댓글을 입력해주세요">
+									<button type="submit" class="cmt_btn_send"></button>
+								</dd>
+							</dl>
+						</form>
+					</div>
+					<!-- } # 텍스트 피드 끝 -->
+				</div>
+			</section>
+			<!-- } 컨텐츠영역 끝 -->
+			<!-- 우측 사이드영역 시작 { -->
+			<section class="side_area">
+				<div class="rcmm_wrap">
+					<h2><em class="snd_only">추천그룹 목록</em>나홀로 캠핑이 심심하신가요?</h2>
+					<ul>
+						<li>
+							<a class="rc_thumb" href="">
+								<img src="http://placehold.it/55x55" alt="입돌아간다 그룹 썸네일">
+							</a>
+							<a class="rc_text" href="">
+								<b class="rc_name">입돌아간다</b>
+								<span class="rc_intro">안녕하세요 ㅇㅇㅇ입니다. 안녕하세요</span>
+							</a>
+						</li>
+						<li>
+							<a class="rc_thumb" href="">
+								<img src="http://placehold.it/55x55" alt="그룹 썸네일">
+							</a>
+							<a class="rc_text" href="">
+								<b class="rc_name">그룹</b>
+								<span class="rc_intro">그룹 소개글을 작성해주세요.</span>
+							</a>
+						</li>
+						<li>
+							<a class="rc_thumb" href="">
+								<img src="http://placehold.it/55x55" alt="그룹 썸네일">
+							</a>
+							<a class="rc_text" href="">
+								<b class="rc_name">그룹</b>
+								<span class="rc_intro">그룹 소개글을 작성해주세요.</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="rcmm_wrap">
+					<h2><em class="snd_only">추천캠핑장 목록</em>이 캠핑장에도 가보셨나요?</h2>
+					<ul>
+						<li>
+							<a class="rc_thumb" href="">
+								<img src="http://placehold.it/55x55" alt="바다애캠핑장 썸네일">
+							</a>
+							<a class="rc_text" href="">
+								<b class="rc_name">바다애캠핑장</b>
+								<span class="rc_hashtag">경기도</span>
+							</a>
+						</li>
+						<li>
+							<a class="rc_thumb" href="">
+								<img src="http://placehold.it/55x55" alt="캠핑장 썸네일">
+							</a>
+							<a class="rc_text" href="">
+								<b class="rc_name">캠핑장</b>
+								<span class="rc_hashtag">경기도</span>
+							</a>
+						</li>
+						<li>
+							<a class="rc_thumb" href="">
+								<img src="http://placehold.it/55x55" alt="캠핑장 썸네일">
+							</a>
+							<a class="rc_text" href="">
+								<b class="rc_name">캠핑장</b>
+								<span class="rc_hashtag">경기도</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!-- } 우측 사이드영역 끝 -->
+		</div>
+	</div>
+	<!-- } 서브페이지 -->
+	<div id="footer">
+		<div class="container">
+			<div class="img_box">
+				<img src="/images/ico/logo_w.png" alt="FESTA">
+			</div>
+			<div class="text_box">
+				<p>
+					<span>경기도 성남시 분당구 느티로 2, AK와이즈플레이스</span>
+					<span>김채찍과노예들</span>
+					<span>사업자등록번호 : 123-45-67890</span>
+				</p>
+				<p>
+					<span>통신판매신고번호 : 제 2020-서울강남-0000</span>
+					<span>대표번호 : 010-3332-8616</span>
+					<span>담당자 : 김덕수</span>
+					<span>문의 : 010-3332-8616</span>
+				</p>
+				<p>&copy; DEOKSOORR. All RIGHTS RESERVED.</p>
+			</div>
+		</div>
+	</div>
+	<div class="fstPop"></div>
+</div>
+<script type="text/javascript">
+	feedType('feed_wrap');
+</script>
+</body>
+</html>

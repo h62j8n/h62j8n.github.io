@@ -1236,10 +1236,14 @@ input[type=checkbox]:checked + label {
   width: 100%;
   height: 40px;
   margin: 0 auto;
+  padding-right: 5px;
   border-radius: 40px;
-  background: #1edeb9;
+  background: url(../images/ico/shp_logout.png) no-repeat;
+  background-position: 140px 50%;
+  background-size: 16px;
+  background-color: #1edeb9;
   text-align: center;
-  font-family: "noto-sans-scott-m";
+  font-family: "noto-sans-scott-r";
   font-size: 16px;
   color: #fff;
 }
@@ -2120,7 +2124,7 @@ img {
 .feed_wrap {
   position: relative;
   width: 720px;
-  height: 465px;
+  height: 395px;
   margin-top: 40px;
   padding-top: 25px;
   -webkit-box-sizing: border-box;
@@ -2225,15 +2229,15 @@ img {
 }
 
 .feed_wrap .thumb_slide {
-  width: 360px;
-  height: 360px;
+  width: 290px;
+  height: 290px;
   float: left;
 }
 
 .feed_wrap .text.box {
   float: left;
   width: 100%;
-  max-height: 307px;
+  max-height: 237px;
   padding-left: 25px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -2385,11 +2389,11 @@ img {
 }
 
 .feed_wrap.half .text.box {
-  width: 360px;
+  width: 430px;
 }
 
 .feed_wrap.half .cmmt_form {
-  width: calc(100% - 360px);
+  width: calc(100% - 290px);
 }
 
 .rcmm_wrap {
@@ -2763,6 +2767,7 @@ img {
   float: left;
   width: 200px;
   height: 60px;
+  display: table;
   margin: -1px 0 0 -1px;
   background: #fff;
   border: 1px solid #ddd;
@@ -2770,10 +2775,11 @@ img {
           box-sizing: border-box;
 }
 
-.camp_wrap.list .tab_list button {
+.camp_wrap.list .tab_list a {
   position: relative;
-  width: 100%;
-  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
   font-family: "noto-sans-scott-m";
   font-size: 18px;
   color: #999;
@@ -2781,21 +2787,22 @@ img {
   transition: color .1s;
 }
 
-.camp_wrap.list .tab_list button:before {
+.camp_wrap.list .tab_list a:before {
   content: '#';
   color: #1edeb9;
 }
 
-.camp_wrap.list .tab_list button:hover {
+.camp_wrap.list .tab_list a:hover {
   color: #1edeb9;
 }
 
-.camp_wrap.list .tab_list button.on {
+.camp_wrap.list .tab_list a.on {
   background: #1edeb9;
+  font-family: "noto-sans-scott-r";
   color: #fff;
 }
 
-.camp_wrap.list .tab_list button.on:before {
+.camp_wrap.list .tab_list a.on:before {
   color: #fff;
 }
 
@@ -3272,6 +3279,11 @@ img {
 .search_wrap section {
   padding: 60px 0 80px;
   background: #fff;
+}
+
+.search_wrap .title_area {
+  padding: 0;
+  background: none;
 }
 
 .search_wrap .group_area {

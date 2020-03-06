@@ -33,10 +33,42 @@
 			</div>
 		</div>
 	</div>
-	<!-- #인기피드 -->
+	<!-- #유저 홈 -->
 	<!-- 서브페이지 시작 { -->
-	<div id="container">
-		<h2 class="snd_only">인기피드</h2>
+	<div id="container" class="user_wrap">
+		<h2 class="snd_only">김덕수 님의 계정 홈</h2>
+		<!-- 프로필영역 시작 { -->
+		<section class="profile_area">
+			<div class="container">
+				<dl class="info_box">
+					<dt class="pf_tit">
+						<b class="pf_name">김덕수</b>
+						<!-- 마이페이지일 경우 톱니바퀴 버튼 { -->
+						<a class="go_settings" href="/user/profile.html"><em class="snd_only">설정</em></a>
+						<!-- } 마이페이지일 경우 톱니바퀴 버튼 -->
+					</dt>
+					<dd class="pf_intro">나는 정자동 어둠의 빵쟁이다</dd>
+					<dd class="pf_hashtag">
+						<a href="">경기도</a>
+					</dd>
+					<dd class="pf_picture">
+						<img src="http://placehold.it/120x120" alt="김덕수님의 프로필 썸네일">
+					</dd>
+				</dl>
+				<ul class="cnt_list">
+					<li>피드<b>102</b></li>
+					<li>팔로워<a class="btn_pop" href="/user/follower">50</a></li>
+					<li>팔로우<a class="btn_pop" href="/user/following">9</a></li>
+				</ul>
+				<p class="social_btns">
+					<button type="button" class="btn_follow">팔로우</button>
+					<!-- 이미 팔로우 했을 때 버튼 {
+					<button type="button" class="btn_follow act">팔로잉</button>
+					} 이미 팔로우 했을 때 버튼 -->
+				</p>
+			</div>
+		</section>
+		<!-- } 프로필영역 끝 -->
 		<div class="container">
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
@@ -45,11 +77,9 @@
 					<div class="tit box">
 						<dl class="info_box">
 							<dt>
-								<a href="">
-									<span class="pf_picture"><img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일"></span>
-									<span class="fd_name">김덕수</span>
-									<span class="fd_group">입돌아간다</span>
-								</a>
+								<a href="" class="pf_picture"><img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일"></a>
+								<a href="" class="fd_name">김덕수</a>
+								<a href="" class="fd_group">입돌아간다</a>
 							</dt>
 							<dd>
 								<span class="fd_date">2020년 01월 01일 12시 59분</span>

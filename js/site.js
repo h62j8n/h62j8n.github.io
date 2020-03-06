@@ -161,12 +161,35 @@ function popUp() {
 	}
 }
 
+// 하트
+function btnLiked() {
+	$('.btn_liked').on('click', function() {
+		var liked = $(this).hasClass('act');
+		if (liked) {
+			$(this).removeClass('act');
+		} else {
+			$(this).addClass('act');
+		}
+	});
+}
+
+// 팔로잉
+function btnFollow() {
+	$('.btn_follow').on('click', function() {
+		var following = $(this).hasClass('act');
+		if (following) {
+			$(this).removeClass('act').text('팔로우');
+		} else {
+			$(this).addClass('act').text('팔로잉');
+		}
+	});
+}
+
 $(document).ready(function() {	
 	var topBtn = $('#btnTop');
 	var userMenuBtn = $('#userMenu .btn_menu');
 	var mylistBtn = $('#userMenu .btn_mylist');
 	var popupBtn = $('.btn_pop');
-	var likedBtn = $('.btn_liked');
 
 	scrX();
 	scrBar();
@@ -218,14 +241,9 @@ $(document).ready(function() {
 	});
 
 	// 하트
-	likedBtn.on('click', function() {
-		var liked = $(this).hasClass('act');
-		if (liked) {
-			$(this).removeClass('act');
-		} else {
-			$(this).addClass('act');
-		}
-	});
+	btnLiked();
+	// 팔로잉
+	btnFollow();
 });
 
 
@@ -403,12 +421,6 @@ function campSlider() {
 		preventClicks: false,
 		allowTouchMove: false,
 	});
-	
-	// var anchor = $('.swiper-slide a');
-	// anchor.on('click', function() {
-	// 	console.log("aaa");
-	// 	window.lo
-	// });
 }
 
 function numbering(target) {

@@ -842,12 +842,12 @@ textarea:focus {
   border-color: #1edeb9;
 }
 
-input[type=radio], input[type=checkbox] {
+.comm_rdo, .comm_chk {
   position: absolute;
   visibility: hidden;
 }
 
-input[type=radio] + label, input[type=checkbox] + label {
+.comm_rdo + label, .comm_chk + label {
   position: relative;
   display: inline-block;
   padding-left: 30px;
@@ -855,13 +855,13 @@ input[type=radio] + label, input[type=checkbox] + label {
   cursor: pointer;
 }
 
-input[type=radio] + label:before, input[type=radio] + label:after {
+.comm_rdo + label:before, .comm_rdo + label:after {
   content: '';
   position: absolute;
   border-radius: 50%;
 }
 
-input[type=radio] + label:before {
+.comm_rdo + label:before {
   top: 0;
   left: 0;
   width: 20px;
@@ -872,25 +872,25 @@ input[type=radio] + label:before {
   background: #fff;
 }
 
-input[type=radio] + label:after {
+.comm_rdo + label:after {
   top: 4px;
   left: 4px;
   width: 12px;
   height: 12px;
 }
 
-input[type=radio]:checked + label:after {
+.comm_rdo:checked + label:after {
   background: #1edeb9;
 }
 
-input[type=checkbox] + label:before, input[type=checkbox] + label:after {
+.comm_chk + label:before, .comm_chk + label:after {
   content: '';
   position: absolute;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-input[type=checkbox] + label:before {
+.comm_chk + label:before {
   top: 0;
   left: 0;
   width: 20px;
@@ -899,7 +899,7 @@ input[type=checkbox] + label:before {
   background: #fff;
 }
 
-input[type=checkbox] + label:after {
+.comm_chk + label:after {
   top: 3px;
   left: 2px;
   width: 15px;
@@ -908,7 +908,7 @@ input[type=checkbox] + label:after {
           transform: rotate(-45deg);
 }
 
-input[type=checkbox]:checked + label:after {
+.comm_chk:checked + label:after {
   border-left: 3px solid #1edeb9;
   border-bottom: 3px solid #1edeb9;
 }
@@ -1804,6 +1804,22 @@ img {
   background-image: url(../images/ico/btn_back.png);
 }
 
+.btn_follow {
+  width: 70px;
+  height: 30px;
+  border-radius: 5px;
+  background: #1edeb9;
+  font-family: "noto-sans-scott-r";
+  font-size: 14px;
+  color: #fff;
+}
+
+.btn_follow.act {
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #222;
+}
+
 .camp_list {
   margin: -50px 0 0 -32px;
 }
@@ -1853,7 +1869,6 @@ img {
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 15px;
-  font-family: "noto-sans-scott-b";
   font-size: 20px;
 }
 
@@ -2012,7 +2027,6 @@ img {
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 10px;
-  font-family: "noto-sans-scott-b";
   font-size: 20px;
 }
 
@@ -2031,9 +2045,11 @@ img {
   line-height: 25px;
   border-radius: 25px;
   margin-top: 5px;
-  padding: 0 18px;
+  padding: 0 15px;
   border: 1px solid #ddd;
   background: #fff;
+  font-family: "noto-sans-scott-r";
+  font-size: 15px;
 }
 
 .group_list .gp_text b:before {
@@ -2223,7 +2239,8 @@ img {
 
 .feed_wrap .fd_group {
   position: relative;
-  margin-left: 25px;
+  margin-left: 10px;
+  padding-left: 18px;
   color: #888;
 }
 
@@ -2231,7 +2248,7 @@ img {
   content: '';
   position: absolute;
   top: 50%;
-  left: -18px;
+  left: 0;
   margin-top: -5px;
   border-left: 8px solid #1edeb9;
   border-top: 5px solid transparent;
@@ -2362,7 +2379,7 @@ img {
 }
 
 .feed_wrap .cmt_name {
-  font-family: "noto-sans-scott-b";
+  font-family: "noto-sans-scott-m";
 }
 
 .feed_wrap .cmt_date {
@@ -2450,7 +2467,7 @@ img {
   margin: 0;
 }
 
-.rcmm_wrap h2 {
+.rcmm_wrap h3 {
   position: relative;
   height: 50px;
   line-height: 50px;
@@ -2821,7 +2838,7 @@ img {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-  font-family: "noto-sans-scott-m";
+  font-family: "noto-sans-scott-r";
   font-size: 18px;
   color: #999;
   -webkit-transition: color .1s;
@@ -2839,7 +2856,6 @@ img {
 
 .camp_wrap.list .tab_list a.on {
   background: #1edeb9;
-  font-family: "noto-sans-scott-r";
   color: #fff;
 }
 
@@ -3726,7 +3742,306 @@ img {
 
 .user_wrap .profile_area {
   height: 200px;
+  margin-bottom: 30px;
   background: url(../images/bg/home.jpg) no-repeat center;
   background-size: cover;
+  color: #fff;
+}
+
+.user_wrap .profile_area button, .user_wrap .profile_area a {
+  color: #fff;
+}
+
+.user_wrap .profile_area .container {
+  position: relative;
+  display: table;
+  height: inherit;
+}
+
+.user_wrap .profile_area .info_box, .user_wrap .profile_area .cnt_list, .user_wrap .profile_area .social_btns {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.user_wrap .profile_area .info_box {
+  position: relative;
+  width: 544px;
+  padding-left: 150px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.user_wrap .profile_area .info_box.gp {
+  width: 904px;
+}
+
+.user_wrap .profile_area .info_box .pf_tit {
+  overflow: hidden;
+}
+
+.user_wrap .profile_area .info_box .pf_name, .user_wrap .profile_area .info_box .gp_official, .user_wrap .profile_area .info_box .go_settings {
+  float: left;
+  margin-left: 5px;
+}
+
+.user_wrap .profile_area .info_box .pf_name {
+  margin: 0;
+  line-height: 38px;
+  font-size: 28px;
+  color: #7dffe6;
+}
+
+.user_wrap .profile_area .info_box .gp_official {
+  width: 34px;
+  height: 38px;
+  background: url(../images/ico/shp_campfire.png) no-repeat center;
+}
+
+.user_wrap .profile_area .info_box .go_settings {
+  width: 20px;
+  height: 20px;
+  margin-top: 8px;
+  background: url(../images/ico/shp_gear.png) no-repeat center;
+}
+
+.user_wrap .profile_area .info_box .pf_intro {
+  margin: 10px 0;
+  font-family: "noto-sans-scott-l";
+  font-size: 15px;
+}
+
+.user_wrap .profile_area .info_box .pf_picture {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 120px;
+  margin-top: -60px;
+  border-radius: 20px;
+}
+
+.user_wrap .profile_area .info_box .pf_picture:before {
+  display: none;
+}
+
+.user_wrap .profile_area .info_box .pf_hashtag {
+  overflow: hidden;
+}
+
+.user_wrap .profile_area .info_box .pf_hashtag a {
+  float: left;
+  height: 26px;
+  line-height: 26px;
+  margin-left: 10px;
+  padding: 0 15px;
+  border-radius: 10px;
+  background: #fff;
+  font-family: "noto-sans-scott-m";
+  font-size: 15px;
+  color: #333;
+}
+
+.user_wrap .profile_area .info_box .pf_hashtag a:before {
+  content: '#';
+}
+
+.user_wrap .profile_area .info_box .pf_hashtag a:first-child {
+  margin: 0;
+}
+
+.user_wrap .profile_area .info_box .gp_list {
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.user_wrap .profile_area .info_box .gp_list span {
+  position: relative;
+  float: left;
+  margin-left: 10px;
+  padding-left: 10px;
+  font-family: "noto-sans-scott-l";
+  font-size: 14px;
+}
+
+.user_wrap .profile_area .info_box .gp_list span:before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 1px;
+  height: 12px;
+  background: #fff;
+}
+
+.user_wrap .profile_area .info_box .gp_list span:first-child {
+  margin: 0;
+  padding: 0;
+}
+
+.user_wrap .profile_area .info_box .gp_list span:first-child:before {
+  display: none;
+}
+
+.user_wrap .profile_area .cnt_list {
+  width: 360px;
+}
+
+.user_wrap .profile_area .cnt_list:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.user_wrap .profile_area .cnt_list li {
+  position: relative;
+  float: left;
+  min-width: 80px;
+  margin-left: 30px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.user_wrap .profile_area .cnt_list li:first-child {
+  margin: 0;
+}
+
+.user_wrap .profile_area .cnt_list b, .user_wrap .profile_area .cnt_list a {
+  display: block;
+  margin: 0 auto;
+  height: 1.2em;
+  line-height: 1.2em;
+  font-family: "GothamM";
+  font-size: 34px;
+}
+
+.user_wrap .profile_area .social_btns {
+  width: 120px;
+}
+
+.user_wrap .profile_area .social_btns button {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 10px;
+  background: #1edeb9;
+  color: #222;
+}
+
+.user_wrap .profile_area .social_btns button:first-child {
+  margin: 0;
+}
+
+.user_wrap .profile_area .social_btns .btn_follow {
+  height: 35px;
+  font-family: "noto-sans-scott-m";
+  font-size: 18px;
+  color: #222;
+}
+
+.user_wrap .profile_area .social_btns .btn_follow.act {
+  background: #fff;
+}
+
+.user_wrap .profile_area .social_btns .btn_chat {
+  width: 120px;
+  height: 60px;
+  font-family: "noto-sans-scott-b";
+  font-size: 22px;
+}
+
+.follow_wrap {
+  border-radius: 30px 0 30px 0;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  width: 350px;
+  background: #fff;
+}
+
+.follow_wrap h3 {
+  height: 60px;
+  line-height: 60px;
+  font-family: "noto-sans-scott-m";
+  font-size: 20px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.follow_wrap h3 span {
+  padding-left: 25px;
+  background: url(../images/ico/shp_tit.png) no-repeat left center;
+  background-size: 17px;
+}
+
+.follow_wrap > div {
+  max-height: 330px;
+  padding: 20px 25px;
+  padding-right: 0;
+}
+
+.follow_wrap li {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  padding-right: 80px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.follow_wrap li:first-child {
+  margin: 0;
+}
+
+.follow_wrap li a {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  padding-left: 60px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.follow_wrap li .pf_picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  border-radius: 10px;
+}
+
+.follow_wrap li .pf_picture:before {
+  border-radius: 10px;
+}
+
+.follow_wrap li .fw_name, .follow_wrap li .fw_intro {
+  display: block;
+  width: 160px;
+  line-height: 1.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.follow_wrap li .fw_name {
+  font-family: "noto-sans-scott-r";
+}
+
+.follow_wrap li .fw_intro {
+  margin-top: 5px;
+  font-size: 13px;
+  color: #999;
+}
+
+.follow_wrap li .btn_follow {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -15px;
+}
+
+.follow_wrap li .btn_close {
+  top: 15px;
 }
 /*# sourceMappingURL=site.css.map */

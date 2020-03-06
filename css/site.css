@@ -776,9 +776,40 @@ th, b, strong {
   font-family: "noto-sans-scott-m";
 }
 
+::-moz-selection {
+  background: #1edeb9;
+  color: #fff;
+}
+
+::selection {
+  background: #1edeb9;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #1edeb9;
+  color: #fff;
+}
+
+::-webkit-input-placeholder {
+  font-size: 15px;
+  color: #bbb;
+}
+
+::-moz-placeholder {
+  font-size: 15px;
+  color: #bbb;
+}
+
+:-ms-input-placeholder {
+  font-size: 15px;
+  color: #bbb;
+}
+
 button, input[type=submit] {
   border: none;
   background: none;
+  font-family: "noto-sans-scott-dl";
 }
 
 button:focus, input[type=submit]:focus {
@@ -798,6 +829,10 @@ textarea:focus, input[type=text]:focus, input[type=password]:focus, input[type=e
   border-color: #1edeb9;
 }
 
+input[type=text], input[type=password], input[type=email], select {
+  height: 45px;
+}
+
 textarea {
   display: block;
   width: 100%;
@@ -809,74 +844,94 @@ textarea:focus {
   border-color: #1edeb9;
 }
 
-/*
-input[type=checkbox] {
-	position: absolute;
-	visibility: hidden;
+input[type=radio], input[type=checkbox] {
+  position: absolute;
+  visibility: hidden;
 }
-input[type=checkbox] + label {
-	position: relative;
-	display: inline-block;
-	padding-left: 28px;
-	line-height: 20px;
-	&:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 20px;
-		height: 20px;
-		box-sizing: border-box;
-		border: 1px solid #ddd;
-		background: #fff;
-	}
-	&:after {
-		content: '';
-		display: none;
-		position: absolute;
-		top: 3px;
-		left: 2px;
-		width: 15px;
-		height: 10px;
-		box-sizing: border-box;
-		border-left: 3px solid $festa;
-		border-bottom: 3px solid $festa;
-		transform: rotate(-45deg);
-	}
+
+input[type=radio] + label, input[type=checkbox] + label {
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
+  line-height: 20px;
+  cursor: pointer;
 }
-input[type=checkbox]:checked + label {
-	&:after {
-		display: block;
-	}
+
+input[type=radio] + label:before, input[type=radio] + label:after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
 }
-*/
-::-moz-selection {
+
+input[type=radio] + label:before {
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+input[type=radio] + label:after {
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+}
+
+input[type=radio]:checked + label:after {
   background: #1edeb9;
+}
+
+input[type=checkbox] + label:before, input[type=checkbox] + label:after {
+  content: '';
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input[type=checkbox] + label:before {
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+input[type=checkbox] + label:after {
+  top: 3px;
+  left: 2px;
+  width: 15px;
+  height: 10px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+input[type=checkbox]:checked + label:after {
+  border-left: 3px solid #1edeb9;
+  border-bottom: 3px solid #1edeb9;
+}
+
+.comm_btn_submit {
+  display: block;
+  width: 280px;
+  height: 50px;
+  border-radius: 25px;
+  font-family: "noto-sans-scott-r";
+  font-size: 20px;
   color: #fff;
 }
-::selection {
+
+.comm_btn_submit[type=button] {
+  background: #bbb;
+  cursor: default;
+}
+
+.comm_btn_submit[type=submit] {
   background: #1edeb9;
-  color: #fff;
-}
-
-::-moz-selection {
-  background: #1edeb9;
-  color: #fff;
-}
-
-::-webkit-input-placeholder {
-  font-size: 16px;
-  color: #bbb;
-}
-
-::-moz-placeholder {
-  font-size: 16px;
-  color: #bbb;
-}
-
-:-ms-input-placeholder {
-  font-size: 16px;
-  color: #bbb;
 }
 
 .lock {
@@ -1071,7 +1126,7 @@ input[type=checkbox]:checked + label {
   top: 0;
   left: 0;
   margin: 7px 0 0 5px;
-  border-top: 7px solid #171717;
+  border-top: 7px solid #222;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   -webkit-transition: border .5s linear;
@@ -2054,19 +2109,6 @@ img {
   width: 400px;
 }
 
-.login_wrap .lg_form input {
-  height: 45px;
-}
-
-.login_wrap .lg_form button {
-  height: 50px;
-  border-radius: 45px;
-  background: #1edeb9;
-  font-family: "noto-sans-scott-r";
-  font-size: 20px;
-  color: #fff;
-}
-
 .login_wrap .lg_sns, .login_wrap .lg_find {
   display: table;
   margin: 0 auto;
@@ -2373,6 +2415,7 @@ img {
 
 .feed_wrap .cmt_input {
   width: 100%;
+  height: 20px;
   padding: 0;
   border: none;
 }
@@ -3403,5 +3446,279 @@ img {
   float: right;
   font-size: 14px;
   color: #999;
+}
+
+.join_wrap .title_area {
+  margin-top: -80px;
+  padding: 80px 0;
+  background: #fff;
+}
+
+.join_wrap .title_area > div > div {
+  display: table;
+}
+
+.join_wrap .title_area h2, .join_wrap .title_area p {
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.join_wrap .title_area h2 {
+  padding-right: 30px;
+  line-height: 1em;
+}
+
+.join_wrap .title_area p {
+  position: relative;
+  padding-left: 80px;
+  line-height: 1.3em;
+  font-size: 14px;
+  color: #888;
+}
+
+.join_wrap .title_area p:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 55px;
+  height: 2px;
+  border-radius: 2px 0 2px 0;
+  background: #222;
+}
+
+.join_wrap .form_area {
+  padding-top: 80px;
+}
+
+.join_wrap .form_area form {
+  padding: 30px 0;
+  background: #fff;
+}
+
+.join_wrap .form_area .input_wrap, .join_wrap .form_area .check_wrap {
+  padding: 0 42px;
+}
+
+.join_wrap .form_area .input_wrap {
+  color: #666;
+}
+
+.join_wrap .form_area .input_wrap:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.join_wrap .form_area .input_wrap > div {
+  float: left;
+  width: 360px;
+  margin-left: 40px;
+}
+
+.join_wrap .form_area .input_wrap > div:first-child {
+  width: 540px;
+  margin: 0;
+}
+
+.join_wrap .form_area .input_wrap > div > div {
+  position: relative;
+  padding-bottom: 45px;
+}
+
+.join_wrap .form_area .f_message {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  padding: 0 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 13px;
+  color: #ff0000;
+}
+
+.join_wrap .form_area .f_message .ok {
+  color: #08a600;
+}
+
+.join_wrap .form_area label, .join_wrap .form_area .sel_label {
+  font-size: 15px;
+}
+
+.join_wrap .form_area .sel_label {
+  position: relative;
+  padding: 0 30px 0 15px;
+  line-height: 48px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #ddd;
+}
+
+.join_wrap .form_area .sel_label:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  margin-top: -4px;
+  border-top: 8px solid #888;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.join_wrap .form_area input[type=text], .join_wrap .form_area input[type=email], .join_wrap .form_area input[type=password], .join_wrap .form_area select, .join_wrap .form_area .sel_label {
+  width: 100%;
+  height: 50px;
+}
+
+.join_wrap .form_area input[type=text], .join_wrap .form_area input[type=email], .join_wrap .form_area input[type=password] {
+  padding: 0 15px;
+  font-size: 16px;
+  background: #fff;
+}
+
+.join_wrap .form_area input[type=text]:focus + label, .join_wrap .form_area input[type=email]:focus + label, .join_wrap .form_area input[type=password]:focus + label {
+  font-size: 13px;
+  top: -12px;
+}
+
+.join_wrap .form_area input[type=text]:focus + label span, .join_wrap .form_area input[type=email]:focus + label span, .join_wrap .form_area input[type=password]:focus + label span {
+  display: none;
+}
+
+.join_wrap .form_area select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.join_wrap .form_area select:focus + .sel_label {
+  border-color: #1edeb9;
+}
+
+.join_wrap .form_area select:focus + .sel_label:before {
+  border-top-color: #1edeb9;
+}
+
+.join_wrap .form_area .ip_box label {
+  position: absolute;
+  top: 13px;
+  left: 10px;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 5px;
+  background: #fff;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.join_wrap .form_area .ip_box label.size_s {
+  font-size: 13px;
+  top: -12px;
+}
+
+.join_wrap .form_area .ip_box label.size_s span {
+  display: none;
+}
+
+.join_wrap .form_area .ip_id:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.join_wrap .form_area .ip_id input {
+  float: left;
+  width: 425px;
+}
+
+.join_wrap .form_area .ip_id button {
+  float: left;
+  width: 100px;
+  height: 46px;
+  margin: 2px 0;
+  margin-left: 15px;
+  background: #1edeb9;
+  border-radius: 23px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.join_wrap .form_area .rdo_jnd dl {
+  display: table;
+  height: 45px;
+  margin: 0 auto;
+}
+
+.join_wrap .form_area .rdo_jnd dt, .join_wrap .form_area .rdo_jnd dd {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.join_wrap .form_area .rdo_jnd dt {
+  padding-right: 40px;
+  font-family: "noto-sans-scott-r";
+  font-size: 18px;
+}
+
+.join_wrap .form_area .rdo_jnd dd {
+  padding-right: 30px;
+}
+
+.join_wrap .form_area .rdo_jnd dd:last-child {
+  padding: 0;
+}
+
+.join_wrap .form_area .rdo_jnd .f_message {
+  text-align: center;
+}
+
+.join_wrap .form_area .check_wrap dt, .join_wrap .form_area .check_wrap dd {
+  padding: 20px 0;
+}
+
+.join_wrap .form_area .check_wrap label {
+  font-size: 18px;
+}
+
+.join_wrap .form_area .check_wrap dt {
+  position: relative;
+  font-family: "noto-sans-scott-r";
+  color: #333;
+}
+
+.join_wrap .form_area .check_wrap dt:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px 0 4px 0;
+  background: #666;
+}
+
+.join_wrap .form_area .check_wrap dd {
+  border-bottom: 1px solid #eee;
+}
+
+.join_wrap .form_area .check_wrap dd > div {
+  height: 200px;
+  margin-top: 20px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.join_wrap .form_area .check_wrap dd:last-child {
+  border: none;
+}
+
+.join_wrap .form_area .comm_btn_submit {
+  margin: 30px auto 50px;
 }
 /*# sourceMappingURL=site.css.map */

@@ -302,6 +302,91 @@ function scrEffect(scrTop){
 ---------------------------------------------------------------
 */
 
+/* 회원가입 */
+function validation(form) {
+	var result, label, value;
+	var form = $('.'+form),
+		input = {
+			all: form.find('input').not(':input[type=radio]'),
+			id: form.find('#userId'),
+			name: form.find('#userName'),
+			pw1: form.find('#userPw1'),
+			pw2: form.find('#userPw2'),
+			btd: form.find('#userBtd'),
+			loc: form.find('#userLoc'),
+			job: form.find('#userJob'),
+			jnd: form.find('#userJndr')
+		},
+		select = {
+			all: form.find('select'),
+		},
+		radio = form.find('input[type=radio]'),
+		check = {};
+	var msgs = {
+		errNull: '필수 입력사항입니다.',
+		errId: '올바른 형식의 아이디가 아닙니다.',
+		errPw1: '8~13자 이내, 영문(대소문자), 숫자를 사용하세요.',
+		errPw2: '비밀번호가 일치하지 않습니다.',
+		errBtd: '생년월일을 올바르게 입력해주세요.',
+	};
+
+	// 필수입력
+	input.all.on('change', function() {
+		value = $(this).val();
+		result = $(this).siblings('.f_message');
+		label = $(this).siblings('label');
+		if (value == '') {
+			label.removeClass('size_s');
+			result.text(msgs.errNull);
+		} else {
+			label.addClass('size_s');
+		}
+	});
+	
+	// 아이디 이메일형식
+	input.id.on('change', function() {
+		var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+		if (value != '' && !re.test(value)) {
+			result.text(msgs.errId);
+		} else {
+			result.text('');
+		}
+	});
+
+	// 비밀번호 일치
+	function password(pwThis, pwPair) {
+		var pwThis = pwThis.val(),
+			pwPair = pwPair.val();
+		var result = input.pw2.siblings('.f_message');
+		if (pwThis != '') {
+			if (pwThis != pwPair) {
+				result.text(msgs.errPw2);
+			} else {
+				result.text('');
+			}
+		}
+	}
+	input.pw1.on('change', function() {
+		password(input.pw1, input.pw2);
+	});
+	input.pw2.on('change', function() {
+		password(input.pw2, input.pw1);
+	});
+
+	// 셀렉트박스 효과
+	function selectValue(select) {
+		var text = select.find('option:checked').text();
+		var label = select.siblings('.sel_label');
+		label.text(text);
+	}
+	select.all.each(function() {
+		selectValue($(this));
+	});
+	select.all.on('change', function() {
+		selectValue($(this));
+	});
+}
+
 /* 캠핑장 정보 (메인, 상세) { */
 function campSlider() {
 	var swiper = new Swiper('.camp_slide > div', {

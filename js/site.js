@@ -481,3 +481,5 @@ function campDetail() {
 	kakaoMap();
 }
 /* } 캠핑장 정보 (메인, 상세) */
+
+/* 이미지/동영상 업로드 */

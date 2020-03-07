@@ -79,6 +79,79 @@
 		<div class="container">
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
+				<!-- #공지사항 시작 {  -->
+				<div class="feed_notice">
+					<h3>공지사항</h3>
+					<ul>
+						<li><a href="">공지사항을 입력해주세요. 공지사항을 입력해주세요. 공지사항을 입력해주세요. 공지사항을 입력해주세요. 공지사항을 입력해주세요.</a></li>
+						<li><a href="">공지사항을 입력해주세요.</a></li>
+						<li><a href="">공지사항을 입력해주세요.</a></li>
+						<li><a href="">공지사항을 입력해주세요.</a></li>
+						<li><a href="">공지사항을 입력해주세요.</a></li>
+						<!-- 공지사항이 없을 경우 {
+						<li class="fstEmpty">등록된 공지사항이 없습니다.</li>
+						} 공지사항이 없을 경우 -->
+					</ul>
+				</div>
+				<!-- } #공지사항 끝 -->
+				<!-- #피드만들기 시작 { -->
+				<div class="feed_maker">
+					<h3>피드 만들기<span>입돌아간다</span></h3>
+					<form class="write_form">
+						<!-- 그룹장에게만 표시 { -->
+						<p class="wr_noti">
+							<input type="checkbox" class="comm_chk" id="wrNotice" name="wrNotice">
+							<label for="wrNotice">공지</label>
+						</p>
+						<!-- } 그룹장에게만 표시 -->
+						<div class="cont_box">
+							<p class="pf_picture">
+								<img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일">
+							</p>
+							<textarea id="wrText" name="wrText" placeholder="김덕수 님, 무슨 생각을 하고 계신가요?"></textarea>
+						</div>
+						<div class="thumb_box">
+							<ul>
+								<li>
+									<img src="http://placehold.it/80x80" alt="">
+									<button class="wr_btn_cancle" type="button"><em class="snd_only">업로드 취소하기</em></button>
+								</li>
+								<li>
+									<img src="http://placehold.it/80x80" alt="">
+									<button class="wr_btn_cancle" type="button"><em class="snd_only">업로드 취소하기</em></button>
+								</li>
+								<li>
+									<img src="http://placehold.it/80x80" alt="">
+									<button class="wr_btn_cancle" type="button"><em class="snd_only">업로드 취소하기</em></button>
+								</li>
+								<li>
+									<img src="http://placehold.it/80x80" alt="">
+									<button class="wr_btn_cancle" type="button"><em class="snd_only">업로드 취소하기</em></button>
+								</li>
+								<li>
+									<label for="wrFiles" class="wr_btn_file"><em class="snd_only">사진/동영상 업로드하기</em></label>
+								</li>
+							</ul>
+						</div>
+						<div class="btm_box">
+							<ul class="wr_tags">
+								<li><input type="text" id="wrHash1" name="wrHash1"></li>
+								<li><input type="text" id="wrHash2" name="wrHash2"></li>
+								<li><input type="text" id="wrHash3" name="wrHash3"></li>
+							</ul>
+							<ul class="wr_btns">
+								<li>
+									<input type="file" id="wrFiles" name="wrFiles" accept="video/*, image/*" multiple="multiple">
+									<label for="wrFile1" class="wr_btn_file"><em class="snd_only">사진/동영상 업로드하기</em></label>
+								</li>
+								<li>
+									<button type="submit" class="wr_btn_send"><em class="snd_only">피드 게시하기</em></button>
+								</li>
+							</ul>
+						</div>
+					</form>
+				</div>
+				<!-- } #피드만들기 끝 -->
 				<!-- #텍스트+썸네일 피드 시작 { -->
 				<div class="feed_wrap">
 					<div class="tit box">
@@ -152,13 +225,13 @@
 					<div class="thumb_slide box">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
-								<img src="http://placehold.it/360x360" alt="">
+								<img src="http://placehold.it/290x290" alt="">
 							</div>
 							<div class="swiper-slide">
-								<img src="http://placehold.it/360x360" alt="">
+								<img src="http://placehold.it/290x290" alt="">
 							</div>
 							<div class="swiper-slide">
-								<img src="http://placehold.it/360x360" alt="">
+								<img src="http://placehold.it/290x290" alt="">
 							</div>
 						</div>
 						<div class="swiper-pagination"></div>

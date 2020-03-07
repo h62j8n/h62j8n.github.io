@@ -38,6 +38,7 @@ function layerOff() {
 	});
 }
 
+/* #나의 메뉴 (상단 더보기) { */
 function userMenu() {
 	var menu = $('#userMenu'),
 		box = menu.find('.menu_box');
@@ -56,7 +57,6 @@ function userMenu() {
 		box.focusout();
 	}
 }
-
 function setMyList() {
 	var list = $('.my_list');
 	var listH,
@@ -73,7 +73,6 @@ function setMyList() {
 		}
 	});
 }
-
 function myList() {
 	var btn = $('.btn_mylist'),
 		list = $('.my_list');
@@ -86,14 +85,15 @@ function myList() {
 		}
 	});
 }
-
 function myListOff() {
 	var btn = $('.btn_mylist'),
 		list = $('.my_list');
 	btn.removeClass('act');
 	list.hide();
 }
+/* } #나의 메뉴 (상단 더보기) */
 
+/* #피드 { */
 function feedType(target) {
 	var feed = $('.' + target);
 	feed.each(function() {
@@ -103,7 +103,6 @@ function feedType(target) {
 		}
 	});
 }
-
 function thumbnail() {
 	var swiper = new Swiper('.thumb_slide', {
 		pagination: {
@@ -115,7 +114,7 @@ function thumbnail() {
 		allowTouchMove: false,
 	});
 }
-
+// 댓글 더보기 (미완)
 function commentOption() {
 	var btnMore = $('.cmt_btn_option');
 	var optionBox = '<ul class="cmt_options fstLyr"></ul>';
@@ -135,12 +134,13 @@ function commentOption() {
 		optionBox.show();
 	});
 }
+/* #피드 { */
 
+/* #레이어 팝업 { */
 function addBtnClose() {
 	var btnClose = '<button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>';
 	$('.fstPop').prepend(btnClose);
 }
-
 function popUp() {
 	var url = arguments[0];
 	if (arguments.length == 0) {
@@ -160,8 +160,9 @@ function popUp() {
 		});
 	}
 }
+/* } #레이어 팝업 */
 
-// 하트
+// #하트
 function btnLiked() {
 	$('.btn_liked').on('click', function() {
 		var liked = $(this).hasClass('act');
@@ -172,8 +173,7 @@ function btnLiked() {
 		}
 	});
 }
-
-// 팔로잉
+// #팔로잉
 function btnFollow() {
 	$('.btn_follow').on('click', function() {
 		var following = $(this).hasClass('act');
@@ -181,6 +181,23 @@ function btnFollow() {
 			$(this).removeClass('act').text('팔로우');
 		} else {
 			$(this).addClass('act').text('팔로잉');
+		}
+	});
+}
+
+// 신고하기-텍스트 입력
+function writeReason() {
+	var radio = $('input[name=rpReason]'),
+		textBox = $('.txt_box'),
+		target = $('#rpReason10');
+		radio.on('change', function() {
+		var checked = $(this).val();
+		if (checked == '기타') {
+			textBox.slideDown(150);
+			target.focus();
+		} else {
+			textBox.hide();
+			target.focusout();
 		}
 	});
 }

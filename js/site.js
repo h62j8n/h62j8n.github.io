@@ -337,10 +337,10 @@ function scrEffect(scrTop){
 ---------------------------------------------------------------
 */
 
-/* 회원가입 */
+/* 회원가입/그룹가입 */
 function validation(form) {
 	var result, label, value;
-	var form = $('.'+form),
+	var form = $('.join_form'),
 		input = {
 			all: form.find('input').not(':input[type=radio]'),
 			id: form.find('#userId'),
@@ -364,7 +364,7 @@ function validation(form) {
 		errPw2: '비밀번호가 일치하지 않습니다.',
 		errBtd: '생년월일을 올바르게 입력해주세요.',
 	};
-
+	
 	// 필수입력
 	input.all.on('change', function() {
 		value = $(this).val();

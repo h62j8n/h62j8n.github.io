@@ -913,6 +913,17 @@ textarea:focus {
   border-bottom: 3px solid #666;
 }
 
+.comm_btn_list {
+  display: table;
+  margin: 25px auto 0;
+}
+
+.comm_btn_list li {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 15px;
+}
+
 .comm_btn_submit, .comm_btn_cancle {
   display: block;
   width: 220px;
@@ -923,12 +934,17 @@ textarea:focus {
   color: #fff;
 }
 
+a.comm_btn_submit {
+  line-height: 55px;
+  text-align: center;
+}
+
 .comm_btn_submit[type=button] {
   background: #bbb;
   cursor: default;
 }
 
-.comm_btn_submit[type=submit] {
+.comm_btn_submit[type=submit], a.comm_btn_submit {
   background: #1edeb9;
 }
 
@@ -3665,11 +3681,6 @@ img {
   padding-top: 80px;
 }
 
-.join_wrap .form_area form {
-  padding: 30px 0;
-  background: #fff;
-}
-
 .join_wrap .form_area .input_wrap, .join_wrap .form_area .check_wrap {
   padding: 0 42px;
 }
@@ -3695,31 +3706,6 @@ img {
   margin: 0;
 }
 
-.join_wrap .form_area .input_wrap > div > div {
-  position: relative;
-  padding-bottom: 45px;
-}
-
-.join_wrap .form_area .f_message {
-  position: absolute;
-  top: 55px;
-  left: 0;
-  width: 100%;
-  padding: 0 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-size: 13px;
-  color: #ff0000;
-}
-
-.join_wrap .form_area .f_message .ok {
-  color: #08a600;
-}
-
-.join_wrap .form_area label, .join_wrap .form_area .sel_label {
-  font-size: 15px;
-}
-
 .join_wrap .form_area .sel_label {
   position: relative;
   padding: 0 30px 0 15px;
@@ -3740,26 +3726,6 @@ img {
   border-right: 5px solid transparent;
 }
 
-.join_wrap .form_area input[type=text], .join_wrap .form_area input[type=email], .join_wrap .form_area input[type=password], .join_wrap .form_area select, .join_wrap .form_area .sel_label {
-  width: 100%;
-  height: 50px;
-}
-
-.join_wrap .form_area input[type=text], .join_wrap .form_area input[type=email], .join_wrap .form_area input[type=password] {
-  padding: 0 15px;
-  font-size: 16px;
-  background: #fff;
-}
-
-.join_wrap .form_area input[type=text]:focus + label, .join_wrap .form_area input[type=email]:focus + label, .join_wrap .form_area input[type=password]:focus + label {
-  font-size: 13px;
-  top: -12px;
-}
-
-.join_wrap .form_area input[type=text]:focus + label span, .join_wrap .form_area input[type=email]:focus + label span, .join_wrap .form_area input[type=password]:focus + label span {
-  display: none;
-}
-
 .join_wrap .form_area select {
   position: absolute;
   top: 0;
@@ -3774,27 +3740,6 @@ img {
 
 .join_wrap .form_area select:focus + .sel_label:before {
   border-top-color: #1edeb9;
-}
-
-.join_wrap .form_area .ip_box label {
-  position: absolute;
-  top: 13px;
-  left: 10px;
-  height: 24px;
-  line-height: 24px;
-  padding: 0 5px;
-  background: #fff;
-  -webkit-transition: all .2s;
-  transition: all .2s;
-}
-
-.join_wrap .form_area .ip_box label.size_s {
-  font-size: 13px;
-  top: -12px;
-}
-
-.join_wrap .form_area .ip_box label.size_s span {
-  display: none;
 }
 
 .join_wrap .form_area .ip_id:after {
@@ -3895,6 +3840,78 @@ img {
 
 .join_wrap .form_area .comm_btn_submit {
   margin: 30px auto 50px;
+}
+
+.join_form {
+  padding: 30px 0;
+  background: #fff;
+}
+
+.join_form .f_message {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  padding: 0 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 13px;
+  color: #ff0000;
+}
+
+.join_form .f_message .ok {
+  color: #08a600;
+}
+
+.join_form .ip_box {
+  position: relative;
+  padding-bottom: 45px;
+}
+
+.join_form .ip_box label {
+  position: absolute;
+  top: 13px;
+  left: 10px;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 5px;
+  background: #fff;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: text;
+}
+
+.join_form .ip_box label.size_s {
+  font-size: 13px;
+  top: -12px;
+}
+
+.join_form .ip_box label.size_s span {
+  display: none;
+}
+
+.join_form label, .join_form .sel_label {
+  font-size: 15px;
+}
+
+.join_form input[type=text], .join_form input[type=email], .join_form input[type=password], .join_form select, .join_form .sel_label {
+  width: 100%;
+  height: 50px;
+}
+
+.join_form input[type=text], .join_form input[type=email], .join_form input[type=password] {
+  padding: 0 15px;
+  font-size: 16px;
+  background: #fff;
+}
+
+.join_form input[type=text]:focus + label, .join_form input[type=email]:focus + label, .join_form input[type=password]:focus + label {
+  font-size: 13px;
+  top: -12px;
+}
+
+.join_form input[type=text]:focus + label span, .join_form input[type=email]:focus + label span, .join_form input[type=password]:focus + label span {
+  display: none;
 }
 
 .user_wrap {
@@ -4109,6 +4126,52 @@ img {
   font-size: 22px;
 }
 
+.readme_wrap {
+  padding: 60px 30px;
+  border-radius: 30px 0 30px 0;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.readme_wrap h3 {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 0 0 25px 30px;
+  line-height: 1.2em;
+  font-size: 26px;
+  font-family: "noto-sans-scott-b";
+  background: url(../images/ico/shp_tit.png) no-repeat left 5px;
+}
+
+.readme_wrap h3:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 150px;
+  height: 4px;
+  border-radius: 4px 0 4px 0;
+  background: #1edeb9;
+}
+
+.readme_wrap dt {
+  font-family: "noto-sans-scott-r";
+  font-size: 22px;
+}
+
+.readme_wrap dt span {
+  color: #1edeb9;
+}
+
+.readme_wrap dd {
+  color: #666;
+}
+
+.readme_wrap .comm_btn_list {
+  margin-top: 50px;
+}
+
 .fstPop {
   position: relative;
   display: none;
@@ -4131,17 +4194,6 @@ img {
   padding-left: 25px;
   background: url(../images/ico/shp_tit.png) no-repeat left center;
   background-size: 17px;
-}
-
-.fstPop .comm_btn_list {
-  display: table;
-  margin: 25px auto 0;
-}
-
-.fstPop .comm_btn_list li {
-  display: table-cell;
-  vertical-align: middle;
-  padding: 0 15px;
 }
 
 .fstPop .comm_btn_submit, .fstPop .comm_btn_cancle {
@@ -4170,7 +4222,6 @@ img {
   background: #fff;
   width: 500px;
   padding: 50px;
-  font-size: 15px;
 }
 
 .login_wrap {
@@ -4250,6 +4301,10 @@ img {
 
 .login_wrap .lg_find li:first-child:before {
   display: none;
+}
+
+.login_wrap .comm_btn_submit {
+  font-size: 20px;
 }
 
 .report_wrap .rdo_list {
@@ -4399,5 +4454,24 @@ img {
 
 .follow_wrap + .btn_close {
   top: 15px;
+}
+
+.gp_join_wrap .info_box p {
+  margin-bottom: 15px;
+  font-family: "noto-sans-scott-r";
+  font-size: 17px;
+}
+
+.gp_join_wrap .info_box ul {
+  padding: 15px 20px;
+  background: #eee;
+}
+
+.gp_join_wrap .info_box li {
+  color: #666;
+}
+
+.gp_join_wrap .ip_box label span:first-child {
+  color: #ff0000;
 }
 /*# sourceMappingURL=site.css.map */

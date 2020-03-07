@@ -10,21 +10,24 @@
 			<li>보유기간 : 해당 그룹 탈퇴 시 지체없이 파기</li>
 		</ul>
 	</div>
-	<form class="join_form">
+	<form class="comm_form">
 		<div class="ip_box">
 			<input type="text" id="gpJoinCmmt" name="gpJoinCmmt">
-			<label for="gpJoinCmmt"><span>(필수)</span> <span>가입신청 동기 또는 </span>하고싶은 말<span>을 입력해주세요.</span></label>
+			<label for="gpJoinCmmt" class="comm_label"><span>(필수)</span> <span>가입신청 동기 또는 </span>하고싶은 말<span>을 입력해주세요.</span></label>
 			<p class="f_message"></p>
 		</div>
 		<div class="btn_box">
 			<ul class="comm_btn_list">
-				<li><button type="button" class="btn_close comm_btn_cancle">닫기</button></li>
-				<li><button type="button" class="comm_btn_submit">신청하기</button></li>
+				<li><button type="button" class="btn_close comm_btn cnc">닫기</button></li>
+				<li><button type="button" class="comm_btn sbm">신청하기</button></li>
+				<!-- 유효성검사 충족 시 버튼타입 변경 {
+				<button type="submit" class="comm_btn sbm">신청하기</button>
+				} 유효성검사 충족 시 버튼타입 변경 -->
 			</ul>
 		</div>
 	</form>
 </div>
 <button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>
 <script type="text/javascript">
-	validation();
+	groupForm();
 </script>

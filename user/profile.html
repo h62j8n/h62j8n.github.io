@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:image" content="/images/ico/logo.png">
+	<script type="text/javascript" src="/js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="/js/util.js"></script>
+	<script type="text/javascript" src="/js/site.js"></script>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<link rel="stylesheet" href="/css/site.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<title>FESTA</title>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="scrX">
+			<div class="container">
+				<h1>
+					<a href="/"><em class="snd_only">FESTA</em></a>
+				</h1>
+				<form class="search_box">
+					<input type="text" placeholder="캠핑장 또는 그룹을 검색해보세요!">
+					<button type="submit"><img src="/images/ico/btn_search.png" alt="검색"></button>
+				</form>
+				<ul id="gnb">
+					<li><a href="/camp/">캠핑정보</a></li>
+					<li><a href="/hot/">인기피드</a></li>
+					<li><a href="/news/">뉴스피드</a></li>
+					<li><a href="/member/login" class="btn_pop">로그인</a></li>
+				</ul>
+				<button type="button" id="btnTop"><em class="snd_only">맨 위로</em></button>
+			</div>
+		</div>
+	</div>
+	<!-- #유저 홈 -->
+	<!-- 서브페이지 시작 { -->
+	<div id="container" class="setting_wrap">
+		<!-- 프로필영역 시작 { -->
+		<section class="profile_area">
+			<div class="container">
+				<dl class="info_box">
+					<dt class="pf_tit">
+						<b class="pf_name">김덕수</b>
+						<!-- 마이페이지일 경우 톱니바퀴 버튼 { -->
+						<a class="go_settings" href="/user/profile.html"><em class="snd_only">설정</em></a>
+						<!-- } 마이페이지일 경우 톱니바퀴 버튼 -->
+					</dt>
+					<dd class="pf_intro">나는 정자동 어둠의 빵쟁이다</dd>
+					<dd class="pf_hashtag">
+						<a href="">경기도</a>
+					</dd>
+					<dd class="pf_picture">
+						<img src="http://placehold.it/120x120" alt="김덕수님의 프로필 썸네일">
+					</dd>
+				</dl>
+				<ul class="cnt_list">
+					<li>피드<b>102</b></li>
+					<li>팔로워<a class="btn_pop" href="/user/follower">50</a></li>
+					<li>팔로우<a class="btn_pop" href="/user/following">9</a></li>
+				</ul>
+				<p class="social_btns">
+					<button type="button" class="btn_follow">팔로우</button>
+					<!-- 이미 팔로우 했을 때 버튼 {
+					<button type="button" class="btn_follow act">팔로잉</button>
+					} 이미 팔로우 했을 때 버튼 -->
+				</p>
+			</div>
+		</section>
+		<!-- } 프로필영역 끝 -->
+		<div class="container">
+			<!-- 좌측 사이드메뉴 시작 { -->
+			<section class="side_area">
+				<ul class="lnb_list">
+					<li><a href="/user/profile.html" class="act">프로필 관리</a></li>
+					<li><a href="">계정 관리</a></li>
+					<!-- 그룹장이 아닌 경우 { -->
+					<li><a href="">그룹 생성</a></li>
+					<!-- } 그룹장이 아닌 경우 -->
+					<li><a href="">사업자 계정 관리</a></li>
+					<!-- 사업자계정 신청 전 {
+					<li><a href="">사업자 계정 신청</a></li>
+					사업자계정 신청 전 { -->
+					<li><a href="">캠핑장 관리</a></li>
+					<!-- 캠핑장 등록 전 {
+					<li><a href="">캠핑장 등록</a></li>
+					사업자계정 등록 전 { -->
+					</ul>
+			</section>
+			<!-- } 좌측 사이드메뉴 시작 -->
+			<!-- 컨텐츠영역 시작 { -->
+			<section class="content_area">
+				<h2 class="set_tit">프로필 관리</h2>
+				<form class="edit_form">
+					<dl>
+						<dt>내 사진 등록</dt>
+						<dd>
+							<p class="pf_picture">
+								<img src="/images/thumb/no_profile.png" alt="김덕수님의 프로필 썸네일">
+							</p>
+							<ul>
+								<li class="">
+									<input type="file" id="pfPicture" name="pfPicture" accept="image/*">
+									<label for="pfPicture">등록</label>
+								</li>
+								<li>
+									<button type="button">삭제</button>
+								</li>
+							</ul>
+						</dd>
+						<dt>자기소개</dt>
+						<dd>
+							<textarea id="pfIntro" name="pfIntro" placeholder="??자 이내로 작성해주세요."></textarea>
+						</dd>
+					</dl>
+					<dl>
+						<dt>아이디</dt>
+						<dd><input type="text" value="user01@email.com" readonly="readonly"></dd>
+						<dt>이름</dt>
+						<dd><input type="text" value="김덕수" readonly="readonly"></dd>
+						<dt>비밀번호</dt>
+						<dd><input type="password"></dd>
+						<dt>비밀번호 확인</dt>
+						<dd><input type="password"></dd>
+					</dl>
+					<dl>
+						<dt>성별</dt>
+						<dd><input type="text" value="남성" readonly="readonly"></dd>
+						<dt>생년월일</dt>
+						<dd><input type="text" value="1991년 02월 17일" readonly="readonly"></dd>
+					</dl>
+					<dl>
+						<dt>관심지역</dt>
+						<dd>
+							<select id="userLoc" name="userLoc" required="required">
+								<option value="서울">서울</option>
+								<option value="경기도">경기도</option>
+								<option value="강원도">강원도</option>
+								<option value="충청도">충청도</option>
+								<option value="전라도">전라도</option>
+								<option value="경상도">경상도</option>
+								<option value="제주도">제주도</option>
+								<option value="인천">인천</option>
+								<option value="세종">세종</option>
+								<option value="대구">대구</option>
+								<option value="울산">울산</option>
+								<option value="광주">광주</option>
+								<option value="대전">대전</option>
+							</select>
+						</dd>
+						<dt>직종</dt>
+						<dd>
+							<select id="userJob" name="userJob">
+								<option value="경영·사무">경영·사무</option>
+								<option value="영업·고객상담">영업·고객상담</option>
+								<option value="IT·인터넷">IT·인터넷</option>
+								<option value="디자인">디자인</option>
+								<option value="서비스">서비스</option>
+								<option value="전문직">전문직</option>
+								<option value="의료">의료</option>
+								<option value="생산·제조">생산·제조</option>
+								<option value="건설">건설</option>
+								<option value="유통·무역">유통·무역</option>
+								<option value="미디어">미디어</option>
+								<option value="교육">교육</option>
+								<option value="특수계층·공공">특수계층·공공</option>
+								<option value="학생">학생</option>
+								<option value="기타">기타</option>
+							</select>
+						</dd>
+					</dl>
+					<ul class="comm_btn_list">
+						<li><button type="reset" class="btn_close comm_btn cnc">취소</button></li>
+						<li><button type="submit" class="comm_btn sbm">저장</button></li>
+					</ul>
+				</form>
+			</section>
+			<!-- } 컨텐츠영역 끝 -->
+		</div>
+	</div>
+	<!-- } 서브페이지 -->
+	<div id="footer">
+		<div class="container">
+			<div class="img_box">
+				<img src="/images/ico/logo_w.png" alt="FESTA">
+			</div>
+			<div class="text_box">
+				<p>
+					<span>경기도 성남시 분당구 느티로 2, AK와이즈플레이스</span>
+					<span>김채찍과노예들</span>
+					<span>사업자등록번호 : 123-45-67890</span>
+				</p>
+				<p>
+					<span>통신판매신고번호 : 제 2020-서울강남-0000</span>
+					<span>대표번호 : 010-3332-8616</span>
+					<span>담당자 : 김덕수</span>
+					<span>문의 : 010-3332-8616</span>
+				</p>
+				<p>&copy; DEOKSOORR. All RIGHTS RESERVED.</p>
+			</div>
+		</div>
+	</div>
+	<div class="fstPop"></div>
+</div>
+<script type="text/javascript">
+	feedType('feed_wrap');
+</script>
+</body>
+</html>

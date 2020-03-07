@@ -185,23 +185,6 @@ function btnFollow() {
 	});
 }
 
-// 신고하기-텍스트 입력
-function writeReason() {
-	var radio = $('input[name=rpReason]'),
-		textBox = $('.txt_box'),
-		target = $('#rpReason10');
-		radio.on('change', function() {
-		var checked = $(this).val();
-		if (checked == '기타') {
-			textBox.slideDown(150);
-			target.focus();
-		} else {
-			textBox.hide();
-			target.focusout();
-		}
-	});
-}
-
 $(document).ready(function() {	
 	var topBtn = $('#btnTop');
 	var userMenuBtn = $('#userMenu .btn_menu');
@@ -337,10 +320,105 @@ function scrEffect(scrTop){
 ---------------------------------------------------------------
 */
 
+var form, input, inputT, inputR, inputC, select, textarea, label, submit;
+var formTags = function(form) {
+	form = $('.'+form);
+	inputT = form.find('input[type=text], input[type=email], input[type=password]');
+	inputR = form.find('input[type=radio]');
+	inputC = form.find('input[type=checkbox]');
+	select = form.find('select');
+	textarea = form.find('textarea');
+	submit = form.find('.comm_btn.sbm[type=button]');
+};
+var value, result, required;
+
 /* 회원가입/그룹가입 */
-function validation(form) {
-	var result, label, value;
-	var form = $('.join_form'),
+var labelSet = function(target, value) {
+	label = target.siblings('.comm_label');
+	if (value == '') {
+		label.removeClass('size_s');
+	} else {
+		label.addClass('size_s');
+	}
+}
+var selectCss = function(target, value) {
+	var println = target.siblings('.comm_sel_label');
+	println.text(value);
+}
+// 하나의 값만 받는 폼의 버튼 처리
+var submitBtnActive1 = function(target, value) {
+	if (value != '') {
+		submit.attr('type', 'submit');
+	} else {
+		submit.attr('type', 'button');
+	}
+}
+// 회원가입 폼 CSS
+function joinFormCss() {
+	formTags('comm_form');
+	
+	inputT.on('change', function() {
+		value = $(this).val();
+		labelSet($(this), value);
+	});
+	select.on('change', function() {
+		value = $(this).val();
+		labelSet($(this), value);
+		selectCss($(this), value);
+	});
+}
+// 그룹가입 폼 CSS + 유효성검사
+function groupForm() {
+	formTags('comm_form');
+	
+	inputT.on('change', function() {
+		value = $(this).val();
+		labelSet($(this), value);
+	});
+	inputT.on('focusout', function() {
+		submitBtnActive1($(this), value);
+	});
+}
+// 신고하기-텍스트 입력
+function writeReason() {
+	var radio = $('input[name=rpReason]'),
+		textBox = $('.txt_box'),
+		target = $('#rpReason10');
+		radio.on('change', function() {
+		var checked = $(this).val();
+		if (checked == '기타') {
+			textBox.slideDown(150);
+			target.focus();
+		} else {
+			textBox.hide();
+			target.focusout();
+		}
+	});
+}
+// 신고하기 폼 CSS + 유효성검사
+function reportForm() {
+	formTags('report_form');
+	var textBtn = 'rpReasonMore';
+	var textBox = $('.txt_box');
+	var reason = $('.report_form [name=rpReason]');
+	reason.on('change', function() {
+		value = $(this).val();
+		var id = $(this).attr('id');
+		if (id != 'rpReason10') {
+			textBox.slideUp(150);
+			textarea.val('');
+		}
+		if (id == textBtn) {
+			textBox.slideDown(150);
+			textarea.focus();
+		}
+		submitBtnActive1($(this), value);
+	});
+}
+function validation() {
+	var label, result;
+	var value, required;
+	var form = $('.comm_form'),
 		input = {
 			all: form.find('input').not(':input[type=radio]'),
 			id: form.find('#userId'),
@@ -364,27 +442,26 @@ function validation(form) {
 		errPw2: '비밀번호가 일치하지 않습니다.',
 		errBtd: '생년월일을 올바르게 입력해주세요.',
 	};
-	
+
 	// 필수입력
 	input.all.on('change', function() {
-		value = $(this).val();
 		result = $(this).siblings('.f_message');
-		label = $(this).siblings('label');
-		if (value == '') {
-			label.removeClass('size_s');
+		required = $(this).attr('required');
+
+		if (value == '' && required == 'required') {
 			result.text(msgs.errNull);
-		} else {
-			label.addClass('size_s');
 		}
 	});
 	
 	// 아이디 이메일형식
 	input.id.on('change', function() {
 		var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-		if (value != '' && !re.test(value)) {
-			result.text(msgs.errId);
-		} else {
-			result.text('');
+		if (value != '') {
+			if (!re.test(value)) {
+				result.text(msgs.errId);
+			} else {
+				result.text('');
+			}
 		}
 	});
 
@@ -406,19 +483,6 @@ function validation(form) {
 	});
 	input.pw2.on('change', function() {
 		password(input.pw2, input.pw1);
-	});
-
-	// 셀렉트박스 효과
-	function selectValue(select) {
-		var text = select.find('option:checked').text();
-		var label = select.siblings('.sel_label');
-		label.text(text);
-	}
-	select.all.each(function() {
-		selectValue($(this));
-	});
-	select.all.on('change', function() {
-		selectValue($(this));
 	});
 }
 

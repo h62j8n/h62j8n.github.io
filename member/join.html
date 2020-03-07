@@ -48,42 +48,42 @@
 		</section>
 		<section class="form_area">
 			<div class="container">
-				<form class="join_form">
+				<form class="comm_form">
 					<div class="input_wrap">
 						<div>
 							<div class="ip_id ip_box">
 								<input type="email" id="userId" name="userId" required="required">
-								<label for="userId">아이디<span> (이메일)</span></label>
-								<button type="button">중복확인</button>
+								<label for="userId" class="comm_label">아이디<span> (이메일)</span></label>
+								<button type="button" class="btn_id">중복확인</button>
 								<!-- 유효성검사 후 메세지 출력 { -->
 								<p class="f_message"></p>
 								<!-- } 유효성검사 후 메세지 출력 -->
 							</div>
 							<div class="ip_name ip_box">
 								<input type="text" id="userName" name="userName" required="required">
-								<label for="userName">이름</label>
+								<label for="userName" class="comm_label">이름</label>
 								<p class="f_message"></p>
 							</div>
 							<div class="ip_pw ip_box">
 								<input type="password" id="userPw1" name="userPw1" required="required">
-								<label for="userPw1">비밀번호<span> 8~13자 이내, 영문(대소문자)+숫자 조합</span></label>
+								<label for="userPw1" class="comm_label">비밀번호<span> 8~13자 이내, 영문(대소문자)+숫자 조합</span></label>
 								<p class="f_message"></p>
 							</div>
 							<div class="ip_pw ip_box">
 								<input type="password" id="userPw2" name="userPw2" required="required">
-								<label for="userPw2">비밀번호 확인</label>
+								<label for="userPw2" class="comm_label">비밀번호 확인</label>
 								<p class="f_message"></p>
 							</div>
 						</div>
 						<div>
 							<div class="ip_btd ip_box">
 								<input type="text" id="userBtd" name="userBtd" required="required">
-								<label for="userBtd">생년월일<span>을 입력해주세요 (예: 19940415)</span></label>
+								<label for="userBtd" class="comm_label">생년월일<span>을 입력해주세요 (예: 19940415)</span></label>
 								<p class="f_message"></p>
 							</div>
-							<div class="sel_loc">
-								<select id="userLoc" name="userLoc" required="required">
-									<option value="">관심지역을 선택해주세요</option>
+							<div class="sel_loc sel_box">
+								<select class="comm_sel" id="userLoc" name="userLoc" required="required">
+									<option value="">관심지역</option>
 									<option value="서울">서울</option>
 									<option value="경기도">경기도</option>
 									<option value="강원도">강원도</option>
@@ -98,14 +98,15 @@
 									<option value="광주">광주</option>
 									<option value="대전">대전</option>
 								</select>
+								<label for="userLoc" class="comm_label">관심지역</label>
 								<!-- 셀렉트박스 선택값 출력 { -->
-								<p class="sel_label"></p>
+								<p class="comm_sel_label"></p>
 								<!-- } 셀렉트박스 선택값 출력 -->
 								<p class="f_message"></p>
 							</div>
-							<div class="sel_job">
-								<select id="userJob" name="userJob">
-									<option value="">(선택) 직종을 선택해주세요.</option>
+							<div class="sel_job sel_box">
+								<select class="comm_sel" id="userJob" name="userJob">
+									<option value="">(선택) 직종</option>
 									<option value="경영·사무">경영·사무</option>
 									<option value="영업·고객상담">영업·고객상담</option>
 									<option value="IT·인터넷">IT·인터넷</option>
@@ -122,11 +123,12 @@
 									<option value="학생">학생</option>
 									<option value="기타">기타</option>
 								</select>
+								<label for="userJob" class="comm_label"><span>(선택) </span>직종</label>
 								<!-- 셀렉트박스 선택값 출력 { -->
-								<p class="sel_label"></p>
+								<p class="comm_sel_label"></p>
 								<!-- } 셀렉트박스 선택값 출력 -->
 							</div>
-							<div class="rdo_jnd">
+							<div class="rdo_jnd rdo_box">
 								<dl>
 									<dt>성별</dt>
 									<dd>
@@ -164,9 +166,9 @@
 							</dd>
 						</dl>
 					</div>
-					<button type="button" class="comm_btn_submit">가입하기</button>
+					<button type="button" class="comm_btn sbm">가입하기</button>
 					<!-- 유효성검사 충족 시 버튼타입 변경 {
-					<button type="submit" class="comm_btn_submit">가입하기</button>
+					<button type="submit" class="comm_btn sbm">가입하기</button>
 					} 유효성검사 충족 시 버튼타입 변경 -->
 				</form>
 			</div>
@@ -199,7 +201,8 @@
 </div>
 
 <script type="text/javascript">
-	validation();
+	// validation();
+	joinFormCss();
 </script>
 </body>
 </html>

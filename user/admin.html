@@ -73,8 +73,8 @@
 			<!-- 좌측 사이드메뉴 시작 { -->
 			<section class="side_area">
 				<ul class="lnb_list">
-					<li><a href="/user/profile.html" class="act">프로필 관리</a></li>
-					<li><a href="/user/admin.html">계정 관리</a></li>
+					<li><a href="/user/profile.html">프로필 관리</a></li>
+					<li><a href="/user/admin.html" class="act">계정 관리</a></li>
 					<!-- 그룹장이 아닌 경우 { -->
 					<li><a href="/user/group.html">그룹 생성</a></li>
 					<!-- } 그룹장이 아닌 경우 -->
@@ -91,27 +91,64 @@
 			<!-- } 좌측 사이드메뉴 시작 -->
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
-				<h2 class="set_tit">프로필 관리</h2>
+				<h2 class="set_tit">계정 관리</h2>
 				<form class="edit_form">
 					<dl>
-						<dt>내 사진 등록</dt>
-						<dd class="file_box">
-							<p class="pf_picture">
-								<img src="/images/thumb/no_profile.png" alt="김덕수님의 프로필 썸네일">
-							</p>
-							<ul class="file_btns">
-								<li>
-									<input type="file" id="pfPicture" name="pfPicture" accept="image/*">
-									<label for="pfPicture">등록</label>
-								</li>
-								<li>
-									<button type="button">삭제</button>
-								</li>
-							</ul>
-						</dd>
-						<dt>자기소개</dt>
+						<dt>아이디</dt>
+						<dd><input type="text" class="rd_only" value="user01@email.com" readonly="readonly"></dd>
+						<dt>이름</dt>
+						<dd><input type="text" class="rd_only" value="김덕수" readonly="readonly"></dd>
+						<dt>비밀번호</dt>
+						<dd><input type="password" placeholder="비밀번호"></dd>
+						<dt>비밀번호 확인</dt>
+						<dd><input type="password" placeholder="비밀번호 확인"></dd>
+					</dl>
+					<dl>
+						<dt>성별</dt>
+						<dd><input type="text" class="rd_only" value="남성" readonly="readonly"></dd>
+						<dt>생년월일</dt>
+						<dd><input type="text" class="rd_only" value="1991년 02월 17일" readonly="readonly"></dd>
+					</dl>
+					<dl>
+						<dt>관심지역</dt>
 						<dd>
-							<textarea id="pfIntro" name="pfIntro" placeholder="??자 이내로 작성해주세요."></textarea>
+							<select class="comm_sel" id="userLoc" name="userLoc" required="required">
+								<option value="서울">서울</option>
+								<option value="경기도">경기도</option>
+								<option value="강원도">강원도</option>
+								<option value="충청도">충청도</option>
+								<option value="전라도">전라도</option>
+								<option value="경상도">경상도</option>
+								<option value="제주도">제주도</option>
+								<option value="인천">인천</option>
+								<option value="세종">세종</option>
+								<option value="대구">대구</option>
+								<option value="울산">울산</option>
+								<option value="광주">광주</option>
+								<option value="대전">대전</option>
+							</select>
+							<p class="comm_sel_label">서울</p>
+						</dd>
+						<dt>직종</dt>
+						<dd>
+							<select class="comm_sel" id="userJob" name="userJob">
+								<option value="경영·사무">경영·사무</option>
+								<option value="영업·고객상담">영업·고객상담</option>
+								<option value="IT·인터넷">IT·인터넷</option>
+								<option value="디자인">디자인</option>
+								<option value="서비스">서비스</option>
+								<option value="전문직">전문직</option>
+								<option value="의료">의료</option>
+								<option value="생산·제조">생산·제조</option>
+								<option value="건설">건설</option>
+								<option value="유통·무역">유통·무역</option>
+								<option value="미디어">미디어</option>
+								<option value="교육">교육</option>
+								<option value="특수계층·공공">특수계층·공공</option>
+								<option value="학생">학생</option>
+								<option value="기타">기타</option>
+							</select>
+							<p class="comm_sel_label">IT·인터넷</p>
 						</dd>
 					</dl>
 					<ul class="comm_btn_list">

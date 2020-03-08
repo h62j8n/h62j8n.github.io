@@ -73,10 +73,10 @@
 			<!-- 좌측 사이드메뉴 시작 { -->
 			<section class="side_area">
 				<ul class="lnb_list">
-					<li><a href="/user/profile.html" class="act">프로필 관리</a></li>
+					<li><a href="/user/profile.html">프로필 관리</a></li>
 					<li><a href="/user/admin.html">계정 관리</a></li>
 					<!-- 그룹장이 아닌 경우 { -->
-					<li><a href="/user/group.html">그룹 생성</a></li>
+					<li><a href="/user/group.html" class="act">그룹 생성</a></li>
 					<!-- } 그룹장이 아닌 경우 -->
 					<li><a href="">사업자 계정 관리</a></li>
 					<!-- 사업자계정 신청 전 {
@@ -91,10 +91,12 @@
 			<!-- } 좌측 사이드메뉴 시작 -->
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
-				<h2 class="set_tit">프로필 관리</h2>
+				<h2 class="set_tit">그룹 생성</h2>
 				<form class="edit_form">
 					<dl>
-						<dt>내 사진 등록</dt>
+						<dt>그룹 이름</dt>
+						<dd><input type="text"></dd>
+						<dt>대표사진 등록</dt>
 						<dd class="file_box">
 							<p class="pf_picture">
 								<img src="/images/thumb/no_profile.png" alt="김덕수님의 프로필 썸네일">
@@ -109,14 +111,39 @@
 								</li>
 							</ul>
 						</dd>
-						<dt>자기소개</dt>
+					</dl>
+					<dl>
+						<dt>그룹 관심지역</dt>
 						<dd>
-							<textarea id="pfIntro" name="pfIntro" placeholder="??자 이내로 작성해주세요."></textarea>
+							<select class="comm_sel" id="userLoc" name="userLoc" required="required">
+								<option value="">지역을 선택해주세요.</option>
+								<option value="서울">서울</option>
+								<option value="경기도">경기도</option>
+								<option value="강원도">강원도</option>
+								<option value="충청도">충청도</option>
+								<option value="전라도">전라도</option>
+								<option value="경상도">경상도</option>
+								<option value="제주도">제주도</option>
+								<option value="인천">인천</option>
+								<option value="세종">세종</option>
+								<option value="대구">대구</option>
+								<option value="울산">울산</option>
+								<option value="광주">광주</option>
+								<option value="대전">대전</option>
+							</select>
+							<p class="comm_sel_label">지역을 선택해주세요.</p>
+						</dd>
+						<dt>해시태그 등록</dt>
+						<dd class="tag_box">
+							<ul>
+								<li><input type="text"></li>
+								<li><input type="text"></li>
+								<li><input type="text"></li>
+							</ul>
 						</dd>
 					</dl>
 					<ul class="comm_btn_list">
-						<li><button type="reset" class="btn_close comm_btn cnc">취소</button></li>
-						<li><button type="submit" class="comm_btn sbm">저장</button></li>
+						<li><button type="submit" class="comm_btn sbm">그룹 생성</button></li>
 					</ul>
 				</form>
 			</section>

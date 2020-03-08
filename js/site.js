@@ -137,28 +137,49 @@ function commentOption() {
 /* #피드 { */
 
 /* #레이어 팝업 { */
-function addBtnClose() {
-	var btnClose = '<button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>';
-	$('.fstPop').prepend(btnClose);
-}
-function popUp() {
-	var url = arguments[0];
-	if (arguments.length == 0) {
-		// <button>태그 (내부 컨텐츠)
-		$('.fstPop').bPopup({
-			positionStyle: 'fixed',
-			closeClass: 'btn_close',
-			onOpen: addBtnClose,
-		});
-	} else {
-		// <a>태그 (외부 컨텐츠 로드)
-		$('.fstPop').bPopup({
-			positionStyle: 'fixed',
-			closeClass: 'btn_close',
-			contentContainer: '.fstPop',
-			loadUrl: url,
-		});
+function btnPop() {
+	var layer;
+	var cnt = 0;
+	var closeBtn = '<button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>';
+	var close = function(target, i) {
+		cnt--;
+		target.remove();
 	}
+
+	$('.btn_pop').on('click', function(e) {
+		cnt++;
+		layer = '<div class="fstPop pop'+cnt+'"><div></div></div>';
+		var url = $(this).attr('href');
+		if (url == undefined) {
+			// <button>태그 (내부 컨텐츠)
+			// popUp(popTag);
+			$(layer).bPopup({
+				positionStyle: 'fixed',
+				closeClass: 'btn_close',
+				onOpen: function() {
+					closeBtn.appendTo($(this));
+				},
+				// onClose: close($(this), i),
+				onClose: function() {
+					cnt--;
+					$(this).remove();
+				},
+			});
+		} else {
+			url += '.html';
+			// <a>태그 (외부 컨텐츠 로드)
+			e.preventDefault();
+			$(layer).bPopup({
+				positionStyle: 'fixed',
+				closeClass: 'btn_close',
+				loadUrl: url,
+				onClose: function() {
+					cnt--;
+					$(this).remove();
+				},
+			});
+		}
+	});
 }
 /* } #레이어 팝업 */
 
@@ -189,7 +210,6 @@ $(document).ready(function() {
 	var topBtn = $('#btnTop');
 	var userMenuBtn = $('#userMenu .btn_menu');
 	var mylistBtn = $('#userMenu .btn_mylist');
-	var popupBtn = $('.btn_pop');
 
 	scrX();
 	scrBar();
@@ -200,20 +220,6 @@ $(document).ready(function() {
 	// 맨 위로
 	topBtn.on('click', function() {
 		$('html, body').animate({scrollTop: '0'}, 500);
-	});
-
-	// 레이어팝업 (공통)
-	popupBtn.on('click', function(e) {
-		var url = $(this).attr('href');
-		if (url == undefined) {
-			// <button>태그 (내부 컨텐츠)
-			popUp();
-		} else {
-			url += '.html';
-			// <a>태그 (외부 컨텐츠 로드)
-			e.preventDefault();
-			popUp(url);
-		}
 	});
 
 	// 나의 메뉴 (상단 더보기)
@@ -239,6 +245,9 @@ $(document).ready(function() {
 		}
 		myList();
 	});
+
+	// 레이어팝업 (공통)
+	btnPop();
 
 	// 하트
 	btnLiked();
@@ -379,22 +388,6 @@ function groupForm() {
 		submitBtnActive1($(this), value);
 	});
 }
-// 신고하기-텍스트 입력
-function writeReason() {
-	var radio = $('input[name=rpReason]'),
-		textBox = $('.txt_box'),
-		target = $('#rpReason10');
-		radio.on('change', function() {
-		var checked = $(this).val();
-		if (checked == '기타') {
-			textBox.slideDown(150);
-			target.focus();
-		} else {
-			textBox.hide();
-			target.focusout();
-		}
-	});
-}
 // 신고하기 폼 CSS + 유효성검사
 function reportForm() {
 	formTags('report_form');
@@ -413,6 +406,16 @@ function reportForm() {
 			textarea.focus();
 		}
 		submitBtnActive1($(this), value);
+	});
+}
+// 회원 톱니바퀴 폼 CSS
+function userFormCss() {
+	formTags('edit_form');
+
+	select.on('change', function() {
+		value = $(this).val();
+		labelSet($(this), value);
+		selectCss($(this), value);
 	});
 }
 function validation() {

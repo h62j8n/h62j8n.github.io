@@ -849,8 +849,16 @@ textarea:focus, input[type=text]:focus, input[type=password]:focus, input[type=e
   border-color: #1edeb9;
 }
 
+textarea.rd_only, input[type=text].rd_only, input[type=password].rd_only, input[type=email].rd_only, select.rd_only {
+  background: #eee;
+}
+
+textarea.rd_only:focus, input[type=text].rd_only:focus, input[type=password].rd_only:focus, input[type=email].rd_only:focus, select.rd_only:focus {
+  border-color: #ddd;
+}
+
 input[type=text], input[type=password], input[type=email], select {
-  height: 45px;
+  height: 50px;
 }
 
 input[type=file] {
@@ -957,7 +965,7 @@ textarea:focus {
 
 .comm_btn {
   display: block;
-  width: 220px;
+  width: 200px;
   height: 55px;
   border-radius: 25px;
   font-family: "noto-sans-scott-r";
@@ -986,7 +994,8 @@ a.comm_btn {
 .comm_sel_label {
   position: relative;
   padding: 0 30px 0 15px;
-  line-height: 43px;
+  height: 50px;
+  line-height: 48px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 1px solid #ddd;
@@ -1003,7 +1012,7 @@ a.comm_btn {
   border-right: 5px solid transparent;
 }
 
-select {
+.comm_sel {
   position: absolute;
   top: 0;
   left: 0;
@@ -1011,11 +1020,11 @@ select {
   z-index: 1;
 }
 
-select:focus ~ .comm_sel_label {
+.comm_sel:focus ~ .comm_sel_label {
   border-color: #1edeb9;
 }
 
-select:focus ~ .comm_sel_label:before {
+.comm_sel:focus ~ .comm_sel_label:before {
   border-top-color: #1edeb9;
 }
 
@@ -1072,11 +1081,6 @@ select:focus ~ .comm_sel_label:before {
   font-size: 15px;
 }
 
-.comm_form input[type=text], .comm_form input[type=email], .comm_form input[type=password], .comm_form select, .comm_form .comm_sel_label {
-  width: 100%;
-  height: 50px;
-}
-
 .comm_form input[type=text]:focus ~ .comm_label, .comm_form input[type=email]:focus ~ .comm_label, .comm_form input[type=password]:focus ~ .comm_label, .comm_form select:focus ~ .comm_label {
   font-size: 13px;
   top: -12px;
@@ -1086,7 +1090,11 @@ select:focus ~ .comm_sel_label:before {
   display: none;
 }
 
-.comm_form input[type=text], .comm_form input[type=email], .comm_form input[type=password] {
+form input[type=text], form input[type=email], form input[type=password], form select, form .comm_sel_label {
+  width: 100%;
+}
+
+form input[type=text], form input[type=email], form input[type=password] {
   padding: 0 15px;
   font-size: 16px;
   background: #fff;
@@ -1135,7 +1143,7 @@ select:focus ~ .comm_sel_label:before {
 
 .set_tit {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   padding: 0 0 25px 30px;
   line-height: 1.2em;
   font-size: 26px;
@@ -2879,29 +2887,36 @@ img {
   color: #fff;
 }
 
+.edit_form dl {
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
 .edit_form dl:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.edit_form dt, .edit_form dd {
-  float: left;
-  padding: 20px 0;
-  border-top: 1px solid #ddd;
+.edit_form dl:first-child {
+  padding: 0;
+  border: none;
 }
 
-.edit_form dt:nth-child(1), .edit_form dt:nth-child(2), .edit_form dd:nth-child(1), .edit_form dd:nth-child(2) {
-  border: none;
+.edit_form dt, .edit_form dd {
+  float: left;
+  padding-bottom: 20px;
 }
 
 .edit_form dt {
   clear: both;
   width: 120px;
+  line-height: 50px;
   color: #666;
 }
 
 .edit_form dd {
+  position: relative;
   width: 520px;
 }
 
@@ -2914,6 +2929,96 @@ img {
 
 .edit_form .pf_picture:before {
   border-radius: 20px;
+}
+
+.edit_form textarea {
+  height: 80px;
+}
+
+.edit_form .comm_sel {
+  top: 20px;
+}
+
+.edit_form .file_box {
+  display: table;
+  height: 120px;
+}
+
+.edit_form .pf_picture, .edit_form .file_btns {
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.edit_form .file_btns {
+  padding-left: 30px;
+  overflow: hidden;
+}
+
+.edit_form .file_btns li {
+  float: left;
+  margin-left: 20px;
+}
+
+.edit_form .file_btns li:first-child {
+  margin: 0;
+}
+
+.edit_form .file_btns label, .edit_form .file_btns button {
+  display: block;
+  width: 80px;
+  height: 35px;
+  border-radius: 15px;
+  font-size: 15px;
+}
+
+.edit_form .file_btns label {
+  line-height: 35px;
+  background: #1edeb9;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.edit_form .file_btns button {
+  border: 1px solid #ddd;
+}
+
+.edit_form .tag_box ul {
+  overflow: hidden;
+}
+
+.edit_form .tag_box li {
+  position: relative;
+  float: left;
+  width: 160px;
+  height: 35px;
+  margin: 7px 0 0 20px;
+  padding-left: 25px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}
+
+.edit_form .tag_box li:first-child {
+  margin-left: 0;
+}
+
+.edit_form .tag_box li:before {
+  content: '#';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  height: 30px;
+  line-height: 30px;
+  color: #666;
+}
+
+.edit_form .tag_box input {
+  height: 100%;
+  border: none;
+  padding: 0;
+  border-radius: 0 15px 15px 0;
 }
 
 /*
@@ -3913,10 +4018,6 @@ img {
 .join_wrap .input_wrap > div:first-child {
   width: 540px;
   margin: 0;
-}
-
-.join_wrap .comm_sel_label {
-  line-height: 48px;
 }
 
 .join_wrap .ip_id:after {

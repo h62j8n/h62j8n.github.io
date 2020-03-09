@@ -1,12 +1,14 @@
 <!-- #팝업 피드 -->
 <!-- #텍스트+썸네일 피드 시작 { -->
-<div class="feed_wrap">
+<div class="feed_viewer">
 	<div class="tit box">
 		<dl class="info_box">
 			<dt>
 				<a href="">
 					<span class="pf_picture"><img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일"></span>
 					<span class="fd_name">김덕수</span>
+				</a>
+				<a href="">
 					<span class="fd_group">입돌아간다</span>
 				</a>
 			</dt>
@@ -18,6 +20,7 @@
 		<ul class="fd_options">
 			<li><button class="btn_liked act"><em class="snd_only">하트</em></button></li>
 			<li><a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a></li>
+			<li><a href="/common/maker" class="btn_pop btn_edit"><em class="snd_only">수정하기</em></a></li>
 			<li><button class="btn_delete"><em class="snd_only">삭제하기</em></button></li>
 		</ul>
 	</div>
@@ -91,7 +94,7 @@
 <button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>
 <script type="text/javascript">
 	scrBar();
-	feedType('feed_wrap');
+	feedType('feed_viewer');
 	commentOption();
 	btnLiked();
 	btnPop();

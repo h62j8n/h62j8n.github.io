@@ -153,13 +153,17 @@
 				</div>
 				<!-- } #피드만들기 끝 -->
 				<!-- #텍스트+썸네일 피드 시작 { -->
-				<div class="feed_wrap">
+				<div class="feed_viewer">
 					<div class="tit box">
 						<dl class="info_box">
 							<dt>
-								<a href="" class="pf_picture"><img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일"></a>
-								<a href="" class="fd_name">김덕수</a>
-								<a href="" class="fd_group">입돌아간다</a>
+								<a href="">
+									<span class="pf_picture"><img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일"></span>
+									<span class="fd_name">김덕수</span>
+								</a>
+								<a href="">
+									<span class="fd_group">입돌아간다</span>
+								</a>
 							</dt>
 							<dd>
 								<span class="fd_date">2020년 01월 01일 12시 59분</span>
@@ -169,6 +173,7 @@
 						<ul class="fd_options">
 							<li><button class="btn_liked act"><em class="snd_only">하트</em></button></li>
 							<li><a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a></li>
+							<li><a href="/common/maker" class="btn_pop btn_edit"><em class="snd_only">수정하기</em></a></li>
 							<li><button class="btn_delete"><em class="snd_only">삭제하기</em></button></li>
 						</ul>
 					</div>
@@ -240,13 +245,17 @@
 				</div>
 				<!-- } #텍스트+썸네일 피드 끝 -->
 				<!-- #텍스트 피드 시작 { -->
-				<div class="feed_wrap">
+				<div class="feed_viewer">
 					<div class="tit box">
 						<dl class="info_box">
 							<dt>
-								<a href="" class="pf_picture"><img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일"></a>
-								<a href="" class="fd_name">김덕수</a>
-								<a href="" class="fd_group">입돌아간다</a>
+								<a href="">
+									<span class="pf_picture"><img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일"></span>
+									<span class="fd_name">김덕수</span>
+								</a>
+								<a href="">
+									<span class="fd_group">입돌아간다</span>
+								</a>
 							</dt>
 							<dd>
 								<span class="fd_date">2020년 01월 01일 12시 59분</span>
@@ -254,8 +263,9 @@
 							</dd>
 						</dl>
 						<ul class="fd_options">
-							<li><button class="btn_liked"><em class="snd_only">하트</em></button></li>
+							<li><button class="btn_liked act"><em class="snd_only">하트</em></button></li>
 							<li><a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a></li>
+							<li><a href="/common/maker" class="btn_pop btn_edit"><em class="snd_only">수정하기</em></a></li>
 							<li><button class="btn_delete"><em class="snd_only">삭제하기</em></button></li>
 						</ul>
 					</div>
@@ -311,7 +321,7 @@
 			<!-- } 컨텐츠영역 끝 -->
 			<!-- 우측 사이드영역 시작 { -->
 			<section class="side_area">
-				<div class="rcmm_wrap">
+				<div class="rcmm_list">
 					<h3><em class="snd_only">추천그룹 목록</em>나홀로 캠핑이 심심하신가요?</h3>
 					<ul>
 						<li>
@@ -343,7 +353,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="rcmm_wrap">
+				<div class="rcmm_list">
 					<h3><em class="snd_only">추천캠핑장 목록</em>이 캠핑장에도 가보셨나요?</h3>
 					<ul>
 						<li>
@@ -404,7 +414,7 @@
 </div>
 
 <script type="text/javascript">
-	feedType('feed_wrap');
+	feedType('feed_viewer');
 </script>
 </body>
 </html>

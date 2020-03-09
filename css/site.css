@@ -2295,6 +2295,7 @@ img {
 
 .feed_maker {
   position: relative;
+  width: 720px;
 }
 
 .feed_maker .wr_noti {
@@ -4426,20 +4427,6 @@ img {
   background-size: 17px;
 }
 
-.pop_wrap .comm_btn {
-  width: 150px;
-  height: 50px;
-  border-radius: 20px;
-  font-size: 18px;
-}
-
-.pop_wrap .btn_close.comm_btn {
-  position: relative;
-  top: auto;
-  right: auto;
-  background-image: none;
-}
-
 .pop_wrap .pop_msg {
   position: relative;
   display: table;
@@ -4456,6 +4443,28 @@ img {
   height: 5px;
   background: #1edeb9;
   border-radius: 5px 0 5px 0;
+}
+
+.pop_wrap .comm_btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 20px;
+  font-size: 18px;
+}
+
+.pop_wrap .btn_close.comm_btn {
+  position: relative;
+  top: auto;
+  right: auto;
+  background-image: none;
+}
+
+.feed_maker ~ .btn_close {
+  top: 8px;
+}
+
+.follow_wrap + .btn_close {
+  top: 15px;
 }
 
 .login_wrap {
@@ -4697,10 +4706,6 @@ img {
   line-height: 330px;
   text-align: center;
   font-family: "noto-sans-scott-dl";
-}
-
-.follow_wrap + .btn_close {
-  top: 15px;
 }
 
 .gp_join_wrap .info_box p {

@@ -137,33 +137,27 @@ function commentOption() {
 /* #피드 { */
 
 /* #레이어 팝업 { */
-function btnPop() {
-	var layer;
-	var cnt = 0;
+function btnPop(button) {
+	var layer = '<div class="fstPop"></div>';
 	var closeBtn = '<button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>';
-	var close = function(target, i) {
-		cnt--;
-		target.remove();
-	}
+	var spiner = '<p class="fstLoad"><i class="xi-spinner-5 xi-spin"></i></p>';
+	$('.'+button).on('click', function(e) {
 
-	$('.btn_pop').on('click', function(e) {
-		cnt++;
-		layer = '<div class="fstPop pop'+cnt+'"><div></div></div>';
 		var url = $(this).attr('href');
 		if (url == undefined) {
 			// <button>태그 (내부 컨텐츠)
-			// popUp(popTag);
 			$(layer).bPopup({
 				positionStyle: 'fixed',
 				closeClass: 'btn_close',
 				onOpen: function() {
 					closeBtn.appendTo($(this));
+					$('body').append(spiner);
 				},
-				// onClose: close($(this), i),
 				onClose: function() {
-					cnt--;
 					$(this).remove();
 				},
+			}, function() {
+				$('.fstLoad').remove();
 			});
 		} else {
 			url += '.html';
@@ -173,10 +167,14 @@ function btnPop() {
 				positionStyle: 'fixed',
 				closeClass: 'btn_close',
 				loadUrl: url,
+				onOpen: function() {
+					$('body').append(spiner);
+				},
 				onClose: function() {
-					cnt--;
 					$(this).remove();
 				},
+			}, function() {
+				$('.fstLoad').remove();
 			});
 		}
 	});
@@ -222,6 +220,9 @@ $(document).ready(function() {
 		$('html, body').animate({scrollTop: '0'}, 500);
 	});
 
+	// 레이어팝업 (공통)
+	btnPop('btn_pop');
+
 	// 나의 메뉴 (상단 더보기)
 	userMenuBtn.on('click', function() {
 		var menu = $('#userMenu');
@@ -245,9 +246,6 @@ $(document).ready(function() {
 		}
 		myList();
 	});
-
-	// 레이어팝업 (공통)
-	btnPop();
 
 	// 하트
 	btnLiked();

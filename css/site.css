@@ -3909,7 +3909,7 @@ img {
   border-radius: 0 0 20px 0;
 }
 
-.search_wrap .feed_list .info.box span {
+.search_wrap .feed_list .info.box span, .search_wrap .feed_list .info.box a {
   float: left;
   margin-left: 20px;
 }
@@ -3956,6 +3956,7 @@ img {
 
 .search_wrap .feed_list .info.box .fd_date {
   float: right;
+  font-family: "noto-sans-scott-l";
   font-size: 14px;
   color: #999;
 }
@@ -4374,6 +4375,22 @@ img {
   margin-top: 50px;
 }
 
+.b-modal {
+  z-index: 9997 !important;
+}
+
+.fstLoad {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  margin: -95px 0 0 -15px;
+  color: #fff;
+  z-index: 9998;
+}
+
 .fstPop {
   position: relative;
   display: none;
@@ -4412,7 +4429,7 @@ img {
   background: #555;
 }
 
-.fstPop .feed_wrap .fd_options {
+.fstPop .feed_viewer .fd_options {
   top: auto;
   bottom: 0;
 }

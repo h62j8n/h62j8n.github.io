@@ -151,13 +151,13 @@ function btnPop(button) {
 				closeClass: 'btn_close',
 				onOpen: function() {
 					closeBtn.appendTo($(this));
-					$('body').append(spiner);
+					$(this).append(spiner);
 				},
 				onClose: function() {
 					$(this).remove();
 				},
 			}, function() {
-				$('.fstLoad').remove();
+				$('.fstLoad').fadeOut(150);
 			});
 		} else {
 			url += '.html';
@@ -168,13 +168,13 @@ function btnPop(button) {
 				closeClass: 'btn_close',
 				loadUrl: url,
 				onOpen: function() {
-					$('body').append(spiner);
+					$(this).append(spiner);
 				},
 				onClose: function() {
 					$(this).remove();
 				},
 			}, function() {
-				$('.fstLoad').remove();
+				$('.fstLoad').fadeOut(150);
 			});
 		}
 	});

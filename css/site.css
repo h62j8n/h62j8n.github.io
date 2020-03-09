@@ -1946,6 +1946,13 @@ img {
   color: #222;
 }
 
+.btn_view_more {
+  display: block;
+  margin: 80px auto 0;
+  width: 350px;
+  background: #1edeb9;
+}
+
 .camp_list {
   margin: -50px 0 0 -32px;
 }
@@ -2070,18 +2077,6 @@ img {
   border-top: 10px solid #ed4956;
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
-}
-
-.cp_btn_more {
-  display: block;
-  margin: 80px auto 0;
-  width: 350px;
-  height: 50px;
-  border-radius: 50px;
-  background: #1edeb9;
-  font-family: "noto-sans-scott-r";
-  font-size: 20px;
-  color: #fff;
 }
 
 .group_list {
@@ -3286,7 +3281,7 @@ img {
 }
 
 .camp_wrap.list .new_area {
-  padding-bottom: 70px;
+  padding: 80px 0 70px;
 }
 
 .camp_wrap.list .new_area .cp_thumb:before {
@@ -3412,7 +3407,7 @@ img {
 
 .camp_wrap.detail .info_area {
   margin-top: -50px;
-  padding: 75px 0 60px;
+  padding: 150px 0 60px;
   background: #f6f6f6;
 }
 
@@ -4375,20 +4370,15 @@ img {
   margin-top: 50px;
 }
 
-.b-modal {
-  z-index: 9997 !important;
-}
-
 .fstLoad {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   width: 30px;
   height: 30px;
   font-size: 30px;
-  margin: -95px 0 0 -15px;
+  margin: -15px 0 0 -15px;
   color: #fff;
-  z-index: 9998;
 }
 
 .fstPop {

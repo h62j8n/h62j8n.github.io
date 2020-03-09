@@ -138,34 +138,31 @@ function commentOption() {
 
 /* #레이어 팝업 { */
 function btnPop(button) {
-	var layer = '<div class="fstPop"></div>';
+	var layer;
 	var closeBtn = '<button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>';
-	var spiner = '<p class="fstLoad"><i class="xi-spinner-5 xi-spin"></i></p>';
+	var spiner = '<p id="fstLoad"><i class="xi-spinner-5 xi-spin"></i></p>';
 	$('.'+button).on('click', function(e) {
-
 		var url = $(this).attr('href');
 		if (url == undefined) {
+			layer = '.fstPop.pop2';
 			// <button>태그 (내부 컨텐츠)
 			$(layer).bPopup({
 				positionStyle: 'fixed',
 				closeClass: 'btn_close',
+				opacity: 0.3,
 				onOpen: function() {
-					closeBtn.appendTo($(this));
-					$(this).append(spiner);
+					$(this).append(closeBtn);
 				},
-				onClose: function() {
-					$(this).remove();
-				},
-			}, function() {
-				$('.fstLoad').fadeOut(150);
 			});
 		} else {
 			url += '.html';
+			layer = '<div class="fstPop"></div>';
 			// <a>태그 (외부 컨텐츠 로드)
 			e.preventDefault();
 			$(layer).bPopup({
 				positionStyle: 'fixed',
 				closeClass: 'btn_close',
+				opacity: 0.6,
 				loadUrl: url,
 				onOpen: function() {
 					$(this).append(spiner);
@@ -174,7 +171,7 @@ function btnPop(button) {
 					$(this).remove();
 				},
 			}, function() {
-				$('.fstLoad').fadeOut(150);
+				$('#fstLoad').fadeOut(300);
 			});
 		}
 	});
@@ -353,7 +350,7 @@ var selectCss = function(target, value) {
 	println.text(value);
 }
 // 하나의 값만 받는 폼의 버튼 처리
-var submitBtnActive1 = function(target, value) {
+var submitBtnActive1 = function(value) {
 	if (value != '') {
 		submit.attr('type', 'submit');
 	} else {
@@ -403,7 +400,7 @@ function reportForm() {
 			textBox.slideDown(150);
 			textarea.focus();
 		}
-		submitBtnActive1($(this), value);
+		submitBtnActive1(value);
 	});
 }
 // 회원 톱니바퀴 폼 CSS

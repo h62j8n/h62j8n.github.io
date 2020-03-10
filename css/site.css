@@ -888,9 +888,10 @@ textarea:focus {
 
 .comm_rdo + label, .comm_chk + label {
   position: relative;
-  display: inline-block;
+  display: block;
   padding-left: 25px;
   line-height: 20px;
+  font-size: 15px;
   cursor: pointer;
 }
 
@@ -988,7 +989,7 @@ a.comm_btn {
 }
 
 .comm_btn.cnc {
-  background: #555;
+  background: #666;
 }
 
 .comm_sel_label {
@@ -999,6 +1000,7 @@ a.comm_btn {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 1px solid #ddd;
+  font-size: 15px;
 }
 
 .comm_sel_label:before {
@@ -1064,6 +1066,7 @@ a.comm_btn {
   background: #fff;
   -webkit-transition: all .2s;
   transition: all .2s;
+  font-size: 15px;
   z-index: 2;
   cursor: text;
 }
@@ -1075,10 +1078,6 @@ a.comm_btn {
 
 .comm_form .comm_label.size_s span {
   display: none;
-}
-
-.comm_form .comm_label, .comm_form .comm_sel_label {
-  font-size: 15px;
 }
 
 .comm_form input[type=text]:focus ~ .comm_label, .comm_form input[type=email]:focus ~ .comm_label, .comm_form input[type=password]:focus ~ .comm_label, .comm_form select:focus ~ .comm_label {
@@ -1096,7 +1095,7 @@ form input[type=text], form input[type=email], form input[type=password], form s
 
 form input[type=text], form input[type=email], form input[type=password] {
   padding: 0 15px;
-  font-size: 16px;
+  font-size: 15px;
   background: #fff;
 }
 
@@ -2295,7 +2294,6 @@ img {
 
 .feed_maker {
   position: relative;
-  width: 720px;
 }
 
 .feed_maker .wr_noti {
@@ -2435,7 +2433,7 @@ img {
   height: auto;
   padding: 0;
   border: none;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .feed_maker .wr_btns {
@@ -2858,83 +2856,156 @@ img {
   color: #fff;
 }
 
-.edit_form dl {
-  padding-top: 20px;
-  border-top: 1px solid #ddd;
+.set_recomm {
+  margin-bottom: 30px;
+  background: #fcfcfc;
+  padding: 20px;
+  border: 1px solid #ddd;
 }
 
-.edit_form dl:after {
+.set_recomm .txt_hl {
+  color: #1edeb9;
+}
+
+.set_recomm dt {
+  margin-bottom: 20px;
+  font-family: "noto-sans-scott-r";
+  color: #333;
+}
+
+.set_recomm dt p {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.set_recomm dd {
+  position: relative;
+  margin: 5px 0;
+  padding-left: 15px;
+  word-break: keep-all;
+  font-size: 15px;
+  color: #666;
+}
+
+.set_recomm dd:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 5px solid #1edeb9;
+}
+
+.set_recomm dd .txt_hl {
+  font-family: "noto-sans-scott-r";
+}
+
+.set_recomm dd .txt_img {
+  position: relative;
+  padding-left: 25px;
+}
+
+.set_recomm dd .txt_img:before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -5px;
+  width: 35px;
+  height: 36px;
+  background: url(../images/ico/shp_campfire.png) no-repeat center;
+  background-size: 100%;
+}
+
+.set_form .input_list {
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.set_form .input_list:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.edit_form dl:first-child {
-  padding: 0;
+.set_form .input_list:first-child {
+  padding-top: 0;
   border: none;
 }
 
-.edit_form dt, .edit_form dd {
-  float: left;
-  padding-bottom: 20px;
+.set_form .box {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 120px;
 }
 
-.edit_form dt {
-  clear: both;
-  width: 120px;
-  line-height: 50px;
+.set_form .box:first-child {
+  margin: 0;
+}
+
+.set_form .box > p {
+  position: absolute;
+  top: 14px;
+  left: 0;
+}
+
+.set_form .box > p span {
+  display: block;
+}
+
+.set_form .set_explan {
+  margin-top: 10px;
+  font-size: 14px;
   color: #666;
 }
 
-.edit_form dd {
-  position: relative;
+.set_form .comm_sel {
+  left: 120px;
   width: 520px;
 }
 
-.edit_form .pf_picture {
+.set_form textarea {
+  height: 80px;
+}
+
+.set_form .set_file1.box > div {
+  display: table;
+}
+
+.set_form .set_file1.box .pf_picture, .set_form .set_file1.box .file1_btns {
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.set_form .set_file1.box .pf_picture {
   width: 140px;
   height: 140px;
   border-radius: 20px;
   overflow: hidden;
 }
 
-.edit_form .pf_picture:before {
+.set_form .set_file1.box .pf_picture:before {
   border-radius: 20px;
 }
 
-.edit_form textarea {
-  height: 80px;
-}
-
-.edit_form .comm_sel {
-  top: 20px;
-}
-
-.edit_form .file_box {
-  display: table;
-  height: 120px;
-}
-
-.edit_form .pf_picture, .edit_form .file_btns {
-  display: table-cell;
-  vertical-align: bottom;
-}
-
-.edit_form .file_btns {
+.set_form .set_file1.box .file1_btns {
   padding-left: 30px;
   overflow: hidden;
 }
 
-.edit_form .file_btns li {
+.set_form .set_file1.box .file1_btns li {
   float: left;
   margin-left: 20px;
 }
 
-.edit_form .file_btns li:first-child {
+.set_form .set_file1.box .file1_btns li:first-child {
   margin: 0;
 }
 
-.edit_form .file_btns label, .edit_form .file_btns button {
+.set_form .set_file1.box .file1_btns label, .set_form .set_file1.box .file1_btns button {
   display: block;
   width: 80px;
   height: 35px;
@@ -2942,7 +3013,7 @@ img {
   font-size: 15px;
 }
 
-.edit_form .file_btns label {
+.set_form .set_file1.box .file1_btns label {
   line-height: 35px;
   background: #1edeb9;
   text-align: center;
@@ -2950,46 +3021,104 @@ img {
   cursor: pointer;
 }
 
-.edit_form .file_btns button {
+.set_form .set_file1.box .file1_btns button {
   border: 1px solid #ddd;
 }
 
-.edit_form .tag_box ul {
+.set_form .set_chk.box {
+  padding-top: 15px;
+}
+
+.set_form .set_tags.box ul {
   overflow: hidden;
 }
 
-.edit_form .tag_box li {
+.set_form .set_tags.box li {
   position: relative;
   float: left;
   width: 160px;
-  height: 35px;
-  margin: 7px 0 0 20px;
+  height: 45px;
+  line-height: 45px;
+  margin-left: 20px;
   padding-left: 25px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 1px solid #ddd;
-  border-radius: 15px;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
-.edit_form .tag_box li:first-child {
-  margin-left: 0;
+.set_form .set_tags.box li:first-child {
+  margin: 0;
 }
 
-.edit_form .tag_box li:before {
+.set_form .set_tags.box li:before {
   content: '#';
   position: absolute;
   top: 0;
   left: 10px;
-  height: 30px;
-  line-height: 30px;
+  height: 100%;
   color: #666;
 }
 
-.edit_form .tag_box input {
+.set_form .set_tags.box input {
   height: 100%;
   border: none;
   padding: 0;
-  border-radius: 0 15px 15px 0;
+}
+
+.set_form .set_terms.box {
+  padding: 0;
+}
+
+.set_form .set_terms.box > div {
+  height: 200px;
+  margin-top: 10px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.set_form .set_ip_btn.box > div {
+  overflow: hidden;
+}
+
+.set_form .set_ip_btn.box .file2_txt {
+  float: left;
+  width: 405px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 15px;
+  border: 1px solid #ddd;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.set_form .set_ip_btn.box .file2_txt.plc_holder {
+  color: #bbb;
+}
+
+.set_form .set_ip_btn.box .file2_btn {
+  float: left;
+  width: 100px;
+  height: 46px;
+  line-height: 46px;
+  margin: 2px 0;
+  margin-left: 15px;
+  background: #1edeb9;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.set_form .set_info.box {
+  padding: 0;
+  text-align: center;
+  color: #666;
 }
 
 /*
@@ -4133,6 +4262,35 @@ img {
           box-sizing: border-box;
 }
 
+.readme_wrap {
+  padding: 60px 30px;
+  border-radius: 30px 0 30px 0;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.readme_wrap .set_tit:before {
+  width: 150px;
+}
+
+.readme_wrap dt {
+  font-family: "noto-sans-scott-r";
+  font-size: 22px;
+}
+
+.readme_wrap dt span {
+  color: #1edeb9;
+}
+
+.readme_wrap dd {
+  color: #666;
+}
+
+.readme_wrap .comm_btn_list {
+  margin-top: 50px;
+}
+
 .profile_area {
   height: 200px;
   margin-bottom: 30px;
@@ -4341,35 +4499,6 @@ img {
   font-size: 22px;
 }
 
-.readme_wrap {
-  padding: 60px 30px;
-  border-radius: 30px 0 30px 0;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background: #fff;
-}
-
-.readme_wrap .set_tit:before {
-  width: 150px;
-}
-
-.readme_wrap dt {
-  font-family: "noto-sans-scott-r";
-  font-size: 22px;
-}
-
-.readme_wrap dt span {
-  color: #1edeb9;
-}
-
-.readme_wrap dd {
-  color: #666;
-}
-
-.readme_wrap .comm_btn_list {
-  margin-top: 50px;
-}
-
 #fstLoad {
   position: absolute;
   top: 50%;
@@ -4401,6 +4530,10 @@ img {
 .fstPop .feed_viewer .fd_options {
   top: auto;
   bottom: 0;
+}
+
+.fstPop .feed_maker {
+  width: 600px;
 }
 
 .pop_wrap {

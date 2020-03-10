@@ -34,7 +34,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- #유저 홈 -->
+	<!-- #유저 관리 -->
 	<!-- 서브페이지 시작 { -->
 	<div id="container" class="setting_wrap">
 		<!-- 프로필영역 시작 { -->
@@ -78,13 +78,13 @@
 					<!-- 그룹장이 아닌 경우 { -->
 					<li><a href="/user/group.html" class="act">그룹 생성</a></li>
 					<!-- } 그룹장이 아닌 경우 -->
-					<li><a href="">사업자 계정 관리</a></li>
+					<li><a href="/user/venture/admin.html">사업자 계정 관리</a></li>
 					<!-- 사업자계정 신청 전 {
-					<li><a href="">사업자 계정 신청</a></li>
+					<li><a href="/user/venture/add.html">사업자 계정 신청</a></li>
 					사업자계정 신청 전 { -->
-					<li><a href="">캠핑장 관리</a></li>
+					<li><a href="/user/camp/admin.html">캠핑장 관리</a></li>
 					<!-- 캠핑장 등록 전 {
-					<li><a href="">캠핑장 등록</a></li>
+					<li><a href="/user/camp/add.html">캠핑장 등록</a></li>
 					사업자계정 등록 전 { -->
 					</ul>
 			</section>
@@ -92,56 +92,72 @@
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
 				<h2 class="set_tit">그룹 생성</h2>
-				<form class="edit_form">
-					<dl>
-						<dt>그룹 이름</dt>
-						<dd><input type="text"></dd>
-						<dt>대표사진 등록</dt>
-						<dd class="file_box">
-							<p class="pf_picture">
-								<img src="/images/thumb/no_profile.png" alt="김덕수님의 프로필 썸네일">
-							</p>
-							<ul class="file_btns">
-								<li>
-									<input type="file" id="pfPicture" name="pfPicture" accept="image/*">
-									<label for="pfPicture">등록</label>
-								</li>
-								<li>
-									<button type="button">삭제</button>
-								</li>
-							</ul>
-						</dd>
-					</dl>
-					<dl>
-						<dt>그룹 관심지역</dt>
-						<dd>
-							<select class="comm_sel" id="userLoc" name="userLoc" required="required">
-								<option value="">지역을 선택해주세요.</option>
-								<option value="서울">서울</option>
-								<option value="경기도">경기도</option>
-								<option value="강원도">강원도</option>
-								<option value="충청도">충청도</option>
-								<option value="전라도">전라도</option>
-								<option value="경상도">경상도</option>
-								<option value="제주도">제주도</option>
-								<option value="인천">인천</option>
-								<option value="세종">세종</option>
-								<option value="대구">대구</option>
-								<option value="울산">울산</option>
-								<option value="광주">광주</option>
-								<option value="대전">대전</option>
-							</select>
-							<p class="comm_sel_label">지역을 선택해주세요.</p>
-						</dd>
-						<dt>해시태그 등록</dt>
-						<dd class="tag_box">
-							<ul>
-								<li><input type="text"></li>
-								<li><input type="text"></li>
-								<li><input type="text"></li>
-							</ul>
-						</dd>
-					</dl>
+				<form class="set_form">
+					<ul class="input_list">
+						<li class="box">
+							<p><label for="festaGp1">그룹 이름</label></p>
+							<div>
+								<input type="password" id="festaGp1" name="festaGp1" required="required">
+							</div>
+						</li>
+						<li class="set_file1 box">
+							<p>그룹 대표사진</p>
+							<div>
+								<p class="pf_picture">
+									<img src="/images/thumb/no_profile.png" alt="그룹의 프로필 썸네일">
+								</p>
+								<ul class="file1_btns">
+									<li>
+										<input type="file" id="festaGp2" name="festaGp2" accept="image/*">
+										<label for="festaGp2">등록</label>
+									</li>
+									<li>
+										<button type="button">삭제</button>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="box">
+							<p><label for="festaGp3">그룹 소개</label></p>
+							<div>
+								<textarea id="festaGp3" name="festaGp3" placeholder="??자 이내로 작성해주세요."></textarea>
+							</div>
+						</li>
+					</ul>
+					<ul class="input_list">
+						<li class="box">
+							<p><label for="festaGp4">그룹 관심지역</label></p>
+							<div>
+								<select class="comm_sel" id="festaGp4" name="festaGp4">
+									<option value="">관심지역</option>
+									<option value="서울">서울</option>
+									<option value="경기도">경기도</option>
+									<option value="강원도">강원도</option>
+									<option value="충청도">충청도</option>
+									<option value="전라도">전라도</option>
+									<option value="경상도">경상도</option>
+									<option value="제주도">제주도</option>
+									<option value="인천">인천</option>
+									<option value="세종">세종</option>
+									<option value="대구">대구</option>
+									<option value="울산">울산</option>
+									<option value="광주">광주</option>
+									<option value="대전">대전</option>
+								</select>
+								<p class="comm_sel_label">관심지역</p>
+							</div>
+						</li>
+						<li class="set_tags box">
+							<p>해시태그 등록</p>
+							<div>
+								<ul>
+									<li><input type="text" id="festaGp5" name="festaGp5"></li>
+									<li><input type="text" id="festaGp6" name="festaGp6"></li>
+									<li><input type="text" id="festaGp7" name="festaGp7"></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
 					<ul class="comm_btn_list">
 						<li><button type="submit" class="comm_btn sbm">그룹 생성</button></li>
 					</ul>
@@ -175,7 +191,7 @@
 </div>
 
 <script type="text/javascript">
-	userFormCss();
+	setFormCss();
 </script>
 </body>
 </html>

@@ -73,7 +73,7 @@
 			<!-- 좌측 사이드메뉴 시작 { -->
 			<section class="side_area">
 				<ul class="lnb_list">
-					<li><a href="/user/profile.html" class="act">프로필 관리</a></li>
+					<li><a href="/user/profile.html">프로필 관리</a></li>
 					<li><a href="/user/admin.html">계정 관리</a></li>
 					<!-- 그룹장이 아닌 경우 { -->
 					<li><a href="/user/group.html">그룹 생성</a></li>
@@ -82,7 +82,7 @@
 					<!-- 사업자계정 신청 전 {
 					<li><a href="/user/venture/add.html">사업자 계정 신청</a></li>
 					사업자계정 신청 전 { -->
-					<li><a href="/user/camp/admin.html">캠핑장 관리</a></li>
+					<li><a href="/user/camp/admin.html" class="act">캠핑장 관리</a></li>
 					<!-- 캠핑장 등록 전 {
 					<li><a href="/user/camp/add.html">캠핑장 등록</a></li>
 					사업자계정 등록 전 { -->
@@ -91,19 +91,31 @@
 			<!-- } 좌측 사이드메뉴 시작 -->
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
-				<h2 class="set_tit">프로필 관리</h2>
+				<h2 class="set_tit">캠핑장 관리</h2>
 				<form class="set_form">
 					<ul class="input_list">
+						<li class="box">
+							<p><label for="festaCpAdd1">캠핑장 이름</label></p>
+							<div>
+								<input type="text" id="festaCpAdd1" name="festaCpAdd1">
+							</div>
+						</li>
+						<li class="box">
+							<p><label for="festaCpAdd2">대표자</label></p>
+							<div>
+								<input type="text" class="rd_only" id="festaCpAdd2" name="festaCpAdd2" value="김덕수" readonly="readonly">
+							</div>
+						</li>
 						<li class="set_file1 box">
-							<p>프로필 사진</p>
+							<p>캠핑장<br>대표사진</p>
 							<div>
 								<p class="pf_picture">
-									<img src="/images/thumb/no_profile.png" alt="김덕수님의 프로필 썸네일">
+									<img src="/images/thumb/no_profile.png" alt="캠핑장 그룹의 프로필 썸네일">
 								</p>
 								<ul class="file1_btns">
 									<li>
-										<input type="file" id="festaPf1" name="festaPf1" accept="image/*">
-										<label for="festaPf1">등록</label>
+										<input type="file" id="festaCpAdd3" name="festaCpAdd3" accept="image/*">
+										<label for="festaCpAdd3">등록</label>
 									</li>
 									<li>
 										<button type="button">삭제</button>
@@ -111,16 +123,82 @@
 								</ul>
 							</div>
 						</li>
-						<li class="box">
-							<p><label for="festaPf2">자기소개</label></p>
+					</ul>
+					<ul class="input_list">
+						<li class="set_ip_btn box">
+							<p>지역권</p>
 							<div>
-								<textarea id="festaPf2" name="festaPf2" placeholder="??자 이내로 작성해주세요."></textarea>
+								<select class="comm_sel" id="festaCpAdd4" name="festaCpAdd4">
+									<option value="">관심지역</option>
+									<option value="서울">서울</option>
+									<option value="경기도">경기도</option>
+									<option value="강원도">강원도</option>
+									<option value="충청도">충청도</option>
+									<option value="전라도">전라도</option>
+									<option value="경상도">경상도</option>
+									<option value="제주도">제주도</option>
+									<option value="인천">인천</option>
+									<option value="세종">세종</option>
+									<option value="대구">대구</option>
+									<option value="울산">울산</option>
+									<option value="광주">광주</option>
+									<option value="대전">대전</option>
+								</select>
+								<p class="comm_sel_label">지역권을 선택해주세요</p>
 							</div>
+						</li>
+						<li class="box">
+							<p><label for="festaCpAdd5">캠핑장 주소</label></p>
+							<div>
+								<input type="text" id="festaCpAdd5" name="festaCpAdd5" placeholder="캠핑장 주소를 입력해주세요.">
+							</div>
+						</li>
+						<li class="box">
+							<p><label for="festaCpAdd6">한줄 소개</label></p>
+							<div>
+								<input type="text" id="festaCpAdd6" name="festaCpAdd6" placeholder="한줄 소개글을 입력해주세요.">
+							</div>
+						</li>
+						<li class="box">
+							<p><label for="festaCpAdd7">메인 소개</label></p>
+							<div>
+								<textarea id="festaCpAdd7" name="festaCpAdd7" placeholder="??자 이내로 작성해주세요."></textarea>
+							</div>
+						</li>
+						<li class="set_tags box">
+							<p>해시태그 등록</p>
+							<div>
+								<ul>
+									<li><input type="text" id="festaCpAdd8" name="festaCpAdd8"></li>
+									<li><input type="text" id="festaCpAdd9" name="festaCpAdd9"></li>
+									<li><input type="text" id="festaCpAdd10" name="festaCpAdd10"></li>
+								</ul>
+							</div>
+						</li>
+						<li class="box">
+							<p>캠핑장 사진</p>
+							<div>
+								<!-- 
+									festaCpAdd11
+									festaCpAdd12
+									festaCpAdd13
+									festaCpAdd14
+									festaCpAdd15
+								 -->
+							</div>
+						</li>
+						<li class="set_ip_btn box">
+							<p>시설 안내</p>
+							<!-- <div>
+								<p class="file2_txt plc_holder">최대 10개까지 등록 가능합니다.</p>
+								<input type="text" id="festaCpAdd16" name="festaCpAdd16">
+								<label for="festaCpAdd16" class="file2_btn">추가</label>
+							</div> -->
 						</li>
 					</ul>
 					<ul class="comm_btn_list">
 						<li><button type="reset" class="btn_close comm_btn cnc">취소</button></li>
-						<li><button type="submit" class="comm_btn sbm">저장</button></li>
+						<li><button type="submit" class="comm_btn sbm">신청</button></li>
 					</ul>
 				</form>
 			</section>
@@ -152,7 +230,7 @@
 </div>
 
 <script type="text/javascript">
-	// setFormCss();
+	setFormCss();
 </script>
 </body>
 </html>

@@ -73,12 +73,12 @@
 			<!-- 좌측 사이드메뉴 시작 { -->
 			<section class="side_area">
 				<ul class="lnb_list">
-					<li><a href="/user/profile.html" class="act">프로필 관리</a></li>
+					<li><a href="/user/profile.html">프로필 관리</a></li>
 					<li><a href="/user/admin.html">계정 관리</a></li>
 					<!-- 그룹장이 아닌 경우 { -->
 					<li><a href="/user/group.html">그룹 생성</a></li>
 					<!-- } 그룹장이 아닌 경우 -->
-					<li><a href="/user/venture/admin.html">사업자 계정 관리</a></li>
+					<li><a href="/user/venture/admin.html" class="act">사업자 계정 관리</a></li>
 					<!-- 사업자계정 신청 전 {
 					<li><a href="/user/venture/add.html">사업자 계정 신청</a></li>
 					사업자계정 신청 전 { -->
@@ -91,36 +91,65 @@
 			<!-- } 좌측 사이드메뉴 시작 -->
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
-				<h2 class="set_tit">프로필 관리</h2>
+				<h2 class="set_tit">사업자 계정 신청</h2>
+				<dl class="set_recomm">
+					<dt>
+						<p><b>페스타와 함께하는 <span class="txt_hl">우리 캠핑장 SNS스타 만들기</span> 프로젝트!</b></p>
+						캠핑 사업장을 운영 중이시라면 <b class="txt_hl">사업자 계정을 신청</b>하고 페스타에 <b class="txt_hl">캠핑장을 등록</b>해보세요.
+					</dt>
+					<dd>페스타만의 <span class="txt_hl">캠핑장 정보 제공 서비스</span>를 통해 보다 자세하게 우리 캠핑장을 알려주세요.</dd>
+					<dd>등록된 캠핑장 정보를 토대로 페스타 회원님들에게 <span class="txt_hl">캠핑장 추천 서비스</span>를 제공할 수 있습니다.</dd>
+					<dd>캠핑장을 직접 이용해본 페스타 회원님들의 생생한 <span class="txt_hl">한줄평과 별점</span>으로 우리 캠핑장을 홍보하고 개선해보세요.</dd>
+					<dd>
+						<span class="txt_hl">공식 그룹 혜택</span>으로 우리 캠핑장 그룹에 모닥불<span class="txt_img"></span>을 피우고 페스타 회원님들과 소통해요.<br>
+						(기존에 생성하신 그룹은 사업자 계정 승인 후 공식 그룹으로 자동 전환됩니다.)
+					</dd>
+				</dl>
 				<form class="set_form">
 					<ul class="input_list">
-						<li class="set_file1 box">
-							<p>프로필 사진</p>
-							<div>
-								<p class="pf_picture">
-									<img src="/images/thumb/no_profile.png" alt="김덕수님의 프로필 썸네일">
-								</p>
-								<ul class="file1_btns">
-									<li>
-										<input type="file" id="festaPf1" name="festaPf1" accept="image/*">
-										<label for="festaPf1">등록</label>
-									</li>
-									<li>
-										<button type="button">삭제</button>
-									</li>
-								</ul>
+						<li class="set_terms box">
+							<input type="checkbox" class="comm_chk" id="festaVtAdd1" name="festaVtAdd1">
+							<label for="festaVtAdd1">사업자 변경 신청 가이드 및 이용약관 동의</label>
+							<div class="scrBar">
+								이용약관을 입력해주세요.
 							</div>
 						</li>
 						<li class="box">
-							<p><label for="festaPf2">자기소개</label></p>
+							<p><label for="festaVtAdd2">이름</label></p>
 							<div>
-								<textarea id="festaPf2" name="festaPf2" placeholder="??자 이내로 작성해주세요."></textarea>
+								<input type="text" class="rd_only" id="festaVtAdd2" name="festaVtAdd2" value="김덕수" readonly="readonly">
+							</div>
+						</li>
+						<li class="box">
+							<p><label for="festaVtAdd3">사업자 등록번호</label></p>
+							<div>
+								<input type="text" id="festaVtAdd3" name="festaVtAdd3" placeholder="사업자 등록번호를 입력해주세요.">
+							</div>
+						</li>
+						<li class="set_ip_btn box">
+							<p>사업자등록증</p>
+							<div>
+								<p class="file2_txt plc_holder">사업자등록증 사본을 첨부해주세요.</p>
+								<input type="file" id="festaVtAdd4" name="festaVtAdd4" accept="image/*">
+								<label for="festaVtAdd4" class="file2_btn">첨부</label>
+							</div>
+						</li>
+						<li class="box">
+							<p><label for="festaVtAdd5">캠핑장 이름</label></p>
+							<div>
+								<input type="text" id="festaVtAdd5" name="festaVtAdd5" placeholder="캠핑장 이름을 입력해주세요.">
+							</div>
+						</li>
+						<li class="box">
+							<p><label for="festaVtAdd6">캠핑장 주소</label></p>
+							<div>
+								<input type="text" id="festaVtAdd6" name="festaVtAdd6" placeholder="캠핑장 주소를 입력해주세요.">
 							</div>
 						</li>
 					</ul>
 					<ul class="comm_btn_list">
 						<li><button type="reset" class="btn_close comm_btn cnc">취소</button></li>
-						<li><button type="submit" class="comm_btn sbm">저장</button></li>
+						<li><button type="submit" class="comm_btn sbm">신청</button></li>
 					</ul>
 				</form>
 			</section>
@@ -152,7 +181,7 @@
 </div>
 
 <script type="text/javascript">
-	// setFormCss();
+	setFormCss();
 </script>
 </body>
 </html>

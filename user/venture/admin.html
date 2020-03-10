@@ -73,12 +73,12 @@
 			<!-- 좌측 사이드메뉴 시작 { -->
 			<section class="side_area">
 				<ul class="lnb_list">
-					<li><a href="/user/profile.html" class="act">프로필 관리</a></li>
+					<li><a href="/user/profile.html">프로필 관리</a></li>
 					<li><a href="/user/admin.html">계정 관리</a></li>
 					<!-- 그룹장이 아닌 경우 { -->
 					<li><a href="/user/group.html">그룹 생성</a></li>
 					<!-- } 그룹장이 아닌 경우 -->
-					<li><a href="/user/venture/admin.html">사업자 계정 관리</a></li>
+					<li><a href="/user/venture/admin.html" class="act">사업자 계정 관리</a></li>
 					<!-- 사업자계정 신청 전 {
 					<li><a href="/user/venture/add.html">사업자 계정 신청</a></li>
 					사업자계정 신청 전 { -->
@@ -91,30 +91,42 @@
 			<!-- } 좌측 사이드메뉴 시작 -->
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
-				<h2 class="set_tit">프로필 관리</h2>
+				<h2 class="set_tit">사업자 계정 관리</h2>
 				<form class="set_form">
 					<ul class="input_list">
-						<li class="set_file1 box">
-							<p>프로필 사진</p>
+						<li class="box">
+							<p><label for="festaVtAdm2">이름</label></p>
 							<div>
-								<p class="pf_picture">
-									<img src="/images/thumb/no_profile.png" alt="김덕수님의 프로필 썸네일">
-								</p>
-								<ul class="file1_btns">
-									<li>
-										<input type="file" id="festaPf1" name="festaPf1" accept="image/*">
-										<label for="festaPf1">등록</label>
-									</li>
-									<li>
-										<button type="button">삭제</button>
-									</li>
-								</ul>
+								<input type="text" class="rd_only" id="festaVtAdm2" name="festaVtAdm2" value="김덕수" readonly="readonly">
 							</div>
 						</li>
 						<li class="box">
-							<p><label for="festaPf2">자기소개</label></p>
+							<p><label for="festaVtAdm3">사업자 등록번호</label></p>
 							<div>
-								<textarea id="festaPf2" name="festaPf2" placeholder="??자 이내로 작성해주세요."></textarea>
+								<input type="text" class="rd_only" id="festaVtAdm3" name="festaVtAdm3" value="123-45-67890" readonly="readonly">
+							</div>
+						</li>
+						<li class="set_ip_btn box">
+							<p>사업자등록증</p>
+							<div>
+								<input type="text" class="rd_only" id="festaVtAdm4" name="festaVtAdm4" value="photo01.jpg" readonly="readonly">
+							</div>
+						</li>
+						<li class="box">
+							<p><label for="festaVtAdm5">캠핑장 이름</label></p>
+							<div>
+								<input type="text" id="festaVtAdm5" name="festaVtAdm5" value="김채찍과노예들">
+							</div>
+						</li>
+						<li class="box">
+							<p><label for="festaVtAdm6">캠핑장 주소</label></p>
+							<div>
+								<input type="text" id="festaVtAdm6" name="festaVtAdm6" value="경기도 성남시 분당구 느티로 2, AK와이즈플레이스">
+							</div>
+						</li>
+						<li class="set_info box">
+							<div>
+								<p>사업자등록 정보 변경이 필요한 경우 고객센터에 문의하세요.</p>
 							</div>
 						</li>
 					</ul>
@@ -152,7 +164,7 @@
 </div>
 
 <script type="text/javascript">
-	// setFormCss();
+	setFormCss();
 </script>
 </body>
 </html>

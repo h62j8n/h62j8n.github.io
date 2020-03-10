@@ -114,7 +114,7 @@ function thumbnail() {
 		allowTouchMove: false,
 	});
 }
-// 댓글 더보기 (미완)
+// 댓글-더보기 버튼 (미완)
 function commentOption() {
 	var btnMore = $('.cmt_btn_option');
 	var optionBox = '<ul class="cmt_options fstLyr"></ul>';
@@ -134,29 +134,38 @@ function commentOption() {
 		optionBox.show();
 	});
 }
-/* #피드 { */
+/* } #피드 */
 
+var layerCnt = 0;
 /* #레이어 팝업 { */
 function btnPop(button) {
 	var layer;
 	var closeBtn = '<button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>';
 	var spiner = '<p id="fstLoad"><i class="xi-spinner-5 xi-spin"></i></p>';
 	$('.'+button).on('click', function(e) {
+		layerCnt++;
+		console.log(layerCnt);
 		var url = $(this).attr('href');
 		if (url == undefined) {
-			layer = '.fstPop.pop2';
+			var content = $(this).data('content');
+			layer = $('.'+content).parent('.fstPop');
+			layer.addClass('pop'+layerCnt);
 			// <button>태그 (내부 컨텐츠)
-			$(layer).bPopup({
+			layer.bPopup({
 				positionStyle: 'fixed',
 				closeClass: 'btn_close',
-				opacity: 0.3,
+				opacity: 0.6,
 				onOpen: function() {
+					$('#fstLoad').remove();
 					$(this).append(closeBtn);
+					layerCnt--;
 				},
+			}, function() {
+				$('#fstLoad').remove();
 			});
 		} else {
 			url += '.html';
-			layer = '<div class="fstPop"></div>';
+			layer = '<div class="fstPop pop'+layerCnt+'"></div>';
 			// <a>태그 (외부 컨텐츠 로드)
 			e.preventDefault();
 			$(layer).bPopup({
@@ -169,9 +178,10 @@ function btnPop(button) {
 				},
 				onClose: function() {
 					$(this).remove();
+					layerCnt--;
 				},
 			}, function() {
-				$('#fstLoad').fadeOut(300);
+				$('#fstLoad').remove();
 			});
 		}
 	});
@@ -403,10 +413,10 @@ function reportForm() {
 		submitBtnActive1(value);
 	});
 }
-// 회원 톱니바퀴 폼 CSS
-function userFormCss() {
-	formTags('edit_form');
-
+// 톱니바퀴 폼 CSS
+function setFormCss() {
+	formTags('set_form');
+	
 	select.on('change', function() {
 		value = $(this).val();
 		labelSet($(this), value);

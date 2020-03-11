@@ -579,20 +579,20 @@ function kakaoMap() {
 	});
 }
 // 카카오 주소API
-// function kakaoAddr(target, text, close) {
-// // 우편번호 찾기 찾기 화면을 넣을 element
-	
-// }
-function kakaoAddrClose(target, button) {
-
-}
-
 function kakaoAddr() {
 	var searchWrap = document.getElementById('kkoAddr');
 	var searchBtn = $('#btnKkoAddr'),
 		text = $('.kko_addr1').attr('id'),
 		next = $('.kko_addr2').attr('id'),
 		closeBtn = $('.kko_close');
+
+	$('#'+text).on('click', api);
+	searchBtn.on('click', api);
+
+	closeBtn.on('click', function() {
+		searchWrap.style.display = 'none';
+	});
+
 	function api() {
 		new daum.Postcode({
 			oncomplete : function(data) {
@@ -615,17 +615,4 @@ function kakaoAddr() {
 		}).embed(searchWrap);
 		searchWrap.style.display = 'block';
 	}
-	$('#'+text).on('click', function() {
-		var value = $(this).val();
-		if (value == '') {
-			api();
-		}
-	});
-	searchBtn.on('click', function() {
-		api();
-	});
-	closeBtn.on('click', function() {
-		searchWrap.style.display = 'none';
-	});
-	
 }

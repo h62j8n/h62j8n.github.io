@@ -82,7 +82,7 @@
 					<!-- 사업자계정 신청 전 {
 					<li><a href="/user/venture/add.html">사업자 계정 신청</a></li>
 					사업자계정 신청 전 { -->
-					<li><a href="/user/camp/adm.html">캠핑장 관리</a></li>
+					<li><a href="/user/camp/">캠핑장 관리</a></li>
 					<!-- 캠핑장 등록 전 {
 					<li><a href="/user/camp/add.html">캠핑장 등록</a></li>
 					사업자계정 등록 전 { -->
@@ -112,21 +112,31 @@
 								<input type="text" class="rd_only" id="festaVtAdm4" name="festaVtAdm4" value="photo01.jpg" readonly="readonly">
 							</div>
 						</li>
+						<li class="set_info box">
+							<div>
+								<p>사업자등록 정보 변경이 필요한 경우 고객센터에 문의하세요.</p>
+							</div>
+						</li>
+					</ul>
+					<ul class="input_list">
 						<li class="box">
 							<p><label for="festaVtAdm5">캠핑장 이름</label></p>
 							<div>
 								<input type="text" id="festaVtAdm5" name="festaVtAdm5" value="김채찍과노예들">
 							</div>
 						</li>
-						<li class="box">
-							<p><label for="festaVtAdm6">캠핑장 주소</label></p>
+						<li class="set_ip_btn box">
+							<p>캠핑장 주소</p>
 							<div>
-								<input type="text" id="festaVtAdm6" name="festaVtAdm6" value="경기도 성남시 분당구 느티로 2, AK와이즈플레이스">
-							</div>
+								<input type="text" class="file2_txt kko_addr1" id="festaVtAdm6" name="festaVtAdm6" value="경기도 성남시 분당구 느티로 2" placeholder="캠핑장 주소를 검색해주세요." readonly="readonly">
+								<button type="button" id="btnKkoAddr" class="file2_btn">검색</button>
+								<div id="kkoAddr">
+									<button type="button" class="kko_close"><img src="//t1.daumcdn.net/postcode/resource/images/close.png" alt="주소검색 닫기"></button>
+								</div>
 						</li>
-						<li class="set_info box">
+						<li class="box">
 							<div>
-								<p>사업자등록 정보 변경이 필요한 경우 고객센터에 문의하세요.</p>
+								<input type="text" class="kko_addr2" id="festaVtAdm7" name="festaVtAdm7" value="AK와이즈플레이스" placeholder="상세주소를 입력해주세요.">
 							</div>
 						</li>
 					</ul>
@@ -163,8 +173,10 @@
 	</div>
 </div>
 
+<script type="text/javascript" src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 	setFormCss();
+	kakaoAddr();
 </script>
 </body>
 </html>

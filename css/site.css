@@ -1750,6 +1750,25 @@ form input[type=text], form input[type=email], form input[type=password] {
   background-color: #f9f9f9;
 }
 
+#kkoAddr {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 520px;
+  border: 1px solid #ddd;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 10;
+}
+
+.kko_close {
+  position: absolute;
+  right: 0px;
+  top: -1px;
+  z-index: 1;
+}
+
 /* img_trim
 img {
 	max-width: 100%;

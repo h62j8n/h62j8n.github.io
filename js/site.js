@@ -334,7 +334,10 @@ function scrEffect(scrTop){
 ---------------------------------------------------------------
 */
 
+/* 폼 { */
 var form, input, inputT, inputR, inputC, select, textarea, label, submit;
+var value, result, required;
+
 var formTags = function(form) {
 	form = $('.'+form);
 	inputT = form.find('input[type=text], input[type=email], input[type=password]');
@@ -344,9 +347,7 @@ var formTags = function(form) {
 	textarea = form.find('textarea');
 	submit = form.find('.comm_btn.sbm[type=button]');
 };
-var value, result, required;
 
-/* 회원가입/그룹가입 */
 var labelSet = function(target, value) {
 	label = target.siblings('.comm_label');
 	if (value == '') {
@@ -493,8 +494,17 @@ function validation() {
 		password(input.pw2, input.pw1);
 	});
 }
+/* } 폼 */
+
+
 
 /* 캠핑장 정보 (메인, 상세) { */
+function campDetail() {
+	campSlider();
+	numbering('info_list');
+	starRating();
+	kakaoMap();
+}
 function campSlider() {
 	var swiper = new Swiper('.camp_slide > div', {
 		navigation: {
@@ -511,7 +521,7 @@ function campSlider() {
 		allowTouchMove: false,
 	});
 }
-
+// 시설안내 CSS
 function numbering(target) {
 	var list = $('.' + target),
 		li = list.find('li:not(".fstEmpty")');
@@ -520,7 +530,7 @@ function numbering(target) {
 		l.prepend('<span>' + (i+1) + '</span>');
 	}
 }
-
+// 별점 CSS
 function starRating() {
 	var target = $('.rt_rates');
 	var star = $('input[name=rtRate]');
@@ -531,44 +541,91 @@ function starRating() {
 		target.css('background-position-x', x);
 	});
 }
-
-function kakaoMap() {
-	var address = $('#mapAddress').text();
-    var imageSrc = '../images/ico/shp_marker.png',
-        imageSize = new daum.maps.Size(27, 39),	// 39, 51
-        imageOption = {offset: new daum.maps.Point(12, 40)};
-    var kakaoMap = document.getElementById('map'),
-        mapOption = {
-            center: new daum.maps.LatLng(37.499460, 127.029250),
-            level: 3,
-            mapTypeId : daum.maps.MapTypeId.ROADMAP
-        };
-    var map = new daum.maps.Map(kakaoMap, mapOption);
-    var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption);
-    var mapTypeControl = new daum.maps.MapTypeControl();
-    map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);    
-    var zoomControl = new daum.maps.ZoomControl();
-    map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
-    var geocoder = new daum.maps.services.Geocoder();
-    geocoder.addressSearch(address, function(result, status) {
-        if (status === daum.maps.services.Status.OK) {
-            var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-            var marker = new daum.maps.Marker({
-                map: map,
-                position: coords,
-                image: markerImage
-            });
-            map.setCenter(coords);
-        }
-    });
-}
-
-function campDetail() {
-	campSlider();
-	numbering('info_list');
-	starRating();
-	kakaoMap();
-}
 /* } 캠핑장 정보 (메인, 상세) */
 
 /* 이미지/동영상 업로드 */
+
+/* API */
+
+// 카카오 맵API
+function kakaoMap() {
+	var address = $('#mapAddress').text();
+	var imageSrc = '../images/ico/shp_marker.png',
+		imageSize = new daum.maps.Size(27, 39),	// 39, 51
+		imageOption = {offset: new daum.maps.Point(12, 40)};
+	var kakaoMap = document.getElementById('map'),
+		mapOption = {
+			center: new daum.maps.LatLng(37.499460, 127.029250),
+			level: 3,
+			mapTypeId : daum.maps.MapTypeId.ROADMAP
+		};
+	var map = new daum.maps.Map(kakaoMap, mapOption);
+	var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption);
+	var mapTypeControl = new daum.maps.MapTypeControl();
+	map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);    
+	var zoomControl = new daum.maps.ZoomControl();
+	map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+	var geocoder = new daum.maps.services.Geocoder();
+	geocoder.addressSearch(address, function(result, status) {
+		if (status === daum.maps.services.Status.OK) {
+			var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			var marker = new daum.maps.Marker({
+				map: map,
+				position: coords,
+				image: markerImage
+			});
+			map.setCenter(coords);
+		}
+	});
+}
+// 카카오 주소API
+// function kakaoAddr(target, text, close) {
+// // 우편번호 찾기 찾기 화면을 넣을 element
+	
+// }
+function kakaoAddrClose(target, button) {
+
+}
+
+function kakaoAddr() {
+	var searchWrap = document.getElementById('kkoAddr');
+	var searchBtn = $('#btnKkoAddr'),
+		text = $('.kko_addr1').attr('id'),
+		next = $('.kko_addr2').attr('id'),
+		closeBtn = $('.kko_close');
+	function api() {
+		new daum.Postcode({
+			oncomplete : function(data) {
+				var addr = '';
+				if (data.userSelectedType === 'R') { 
+					addr = data.roadAddress;
+				} else {
+					addr = data.jibunAddress;
+				}
+				document.getElementById(text).value = addr;
+				document.getElementById(next).focus();
+				searchWrap.style.display = 'none';
+			},
+			// 우편번호 찾기 화면 크기가 조정되었을때 실행할 코드를 작성하는 부분. iframe을 넣은 element의 높이값을 조정한다.
+			onresize : function(size) {
+				searchWrap.style.height = size.height + 'px';
+			},
+			width : '100%',
+			height : '100%'
+		}).embed(searchWrap);
+		searchWrap.style.display = 'block';
+	}
+	$('#'+text).on('click', function() {
+		var value = $(this).val();
+		if (value == '') {
+			api();
+		}
+	});
+	searchBtn.on('click', function() {
+		api();
+	});
+	closeBtn.on('click', function() {
+		searchWrap.style.display = 'none';
+	});
+	
+}

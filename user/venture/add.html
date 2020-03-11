@@ -140,10 +140,19 @@
 								<input type="text" id="festaVtAdd5" name="festaVtAdd5" placeholder="캠핑장 이름을 입력해주세요.">
 							</div>
 						</li>
-						<li class="box">
+						<li class="set_ip_btn box">
 							<p><label for="festaVtAdd6">캠핑장 주소</label></p>
 							<div>
-								<input type="text" id="festaVtAdd6" name="festaVtAdd6" placeholder="캠핑장 주소를 입력해주세요.">
+								<input type="text" class="rd_only file2_txt kko_addr1" id="festaVtAdd6" name="festaVtAdd6" placeholder="캠핑장 주소를 검색해주세요." readonly="readonly">
+								<button type="button" id="btnKkoAddr" class="file2_btn">검색</button>
+								<div id="kkoAddr">
+									<button type="button" class="kko_close"><img src="//t1.daumcdn.net/postcode/resource/images/close.png" alt="주소검색 닫기"></button>
+								</div>
+							</div>
+						</li>
+						<li class="box">
+							<div>
+								<input type="text" class="kko_addr2" id="festaVtAdd7" name="festaVtAdd7" placeholder="캠핑장 상세주소를 입력해주세요.">
 							</div>
 						</li>
 					</ul>
@@ -180,8 +189,10 @@
 	</div>
 </div>
 
+<script type="text/javascript" src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 	setFormCss();
+	kakaoAddr();
 </script>
 </body>
 </html>

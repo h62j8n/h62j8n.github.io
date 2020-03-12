@@ -188,7 +188,7 @@ function btnPop(button) {
 }
 /* } #레이어 팝업 */
 
-// #하트
+// #하트 CSS
 function btnLiked() {
 	$('.btn_liked').on('click', function() {
 		var liked = $(this).hasClass('act');
@@ -199,7 +199,7 @@ function btnLiked() {
 		}
 	});
 }
-// #팔로잉
+// #팔로잉 CSS
 function btnFollow() {
 	$('.btn_follow').on('click', function() {
 		var following = $(this).hasClass('act');
@@ -254,11 +254,76 @@ $(document).ready(function() {
 		myList();
 	});
 
-	// 하트
+	// 하트 CSS
 	btnLiked();
-	// 팔로잉
+	// 팔로잉 CSS
 	btnFollow();
 });
+
+function test() {
+	var target = $('.pf_label');
+	var text, textW;
+	$('.pf_name').on('mouseover', function() {
+		text = $(this).text();
+		target.text(text).show();
+		textW = target.outerWidth();
+	});
+	$('.pf_name').on('mousemove', function(e) {
+		target.css({
+			'top': e.pageY+5,
+			'left': e.pageX-textW+5,
+		});
+	});
+	$('.pf_name').on('mouseout', function() {
+		target.hide().text();
+	});
+}
+
+
+
+function feedMaker() {
+	var file = document.getElementsByName('festafiles');
+	$(file).on('change', upload);
+	
+	function upload(e) {
+		var files;
+		var images = [],
+			imagesLength = 0;
+
+		files = e.target.files;
+
+		var imgFile, vdoFile, fileSize;
+		var megabyte5 = 5242880;
+		for (var i=0; i<files.length; i++) {
+			imgFile = files[i].type.match('image.*');
+			vdoFile = files[i].type.match('video.*');
+			fileSize = files[i].size;
+			
+			if (fileSize == megabyte5) {
+				continue;
+			} else {
+				if ((imgFile || vdoFile) && (imagesLength < 5)) {
+					imagesLength++;
+					images.push(files[i]);
+				}
+			}
+		}
+	
+		function imgTag(e) {
+			var src = e.target.result;
+			var container = $('.wr_thumb ul');
+			var tag = '<li><img src="'+src+'" alt=""></li>';
+			container.append(tag);
+		}
+		
+		for (var i=0; i<images.length; i++) {
+			console.log(images[i]);
+			var fileReader = new FileReader();
+			fileReader.onload = imgTag;
+			fileReader.readAsDataURL(images[i]);
+		}
+	}
+}
 
 
 
@@ -288,7 +353,15 @@ function mainSlider() {
 		allowTouchMove: false,
 	});
 }
-
+function headerBg(scrTop) {
+	var visualH = $('.visual_area').height(),
+		headerH = $('#header').height();
+	if (scrTop > visualH-headerH) {
+		$('#header').removeClass('bg');
+	} else {
+		$('#header').addClass('bg');
+	}
+}
 function main() {
 	$('#header').addClass('bg');
 	mainSlider();
@@ -300,29 +373,6 @@ function main() {
 	headerBg($(window).scrollTop());
 	$(window).on('scroll', function(){
 		headerBg($(window).scrollTop());
-		// scrEffect(scrTop);
-	});
-}
-
-function headerBg(scrTop) {
-	var visualH = $('.visual_area').height(),
-		headerH = $('#header').height();
-	if (scrTop > visualH-headerH) {
-		$('#header').removeClass('bg');
-	} else {
-		$('#header').addClass('bg');
-	}
-}
-
-function scrEffect(scrTop){
-	var wdwMid = $(window).height() / 2,
-		eftStart = scrTop + wdwMid;
-		object = $('section.off');
-	object.each(function(){
-		var objTop = $(this).offset().top;
-		if (eftStart > objTop) {
-			$(this).removeClass('off');
-		}
 	});
 }
 
@@ -338,8 +388,8 @@ function scrEffect(scrTop){
 var form, input, inputT, inputR, inputC, select, textarea, label, submit;
 var value, result, required;
 
-var formTags = function(form) {
-	form = $('.'+form);
+var formTags = function(formTag) {
+	form = $('.'+formTag);
 	inputT = form.find('input[type=text], input[type=email], input[type=password]');
 	inputR = form.find('input[type=radio]');
 	inputC = form.find('input[type=checkbox]');
@@ -417,13 +467,46 @@ function reportForm() {
 // 톱니바퀴 폼 CSS
 function setFormCss() {
 	formTags('set_form');
-	
 	select.on('change', function() {
 		value = $(this).val();
 		labelSet($(this), value);
 		selectCss($(this), value);
 	});
+	addInputs();
 }
+function addInputs() {
+	var field, tag,
+		num = 1;
+	$('#btnAddInput').on('click', function() {
+		var container = $(this).siblings('ul');
+		field = $(this).data('field');
+		num++;
+		tag = '<li><input type="text" id="'+field+num+'" name="'+field+num+'"></li>';
+		if (num == 7) {
+			$(this).hide();
+		}
+		if (num <= 7) {
+			$(tag).appendTo(container);
+		}
+	});
+}
+
+// 댓글입력/채팅입력 CSS
+function shortMessage() {
+	formTags('message_form');
+	var id = textarea.attr('id');
+	textarea.on('keydown', function(e) {
+		console.log('down');
+		var scrHeight = textarea.prop('scrollHeight');
+		textarea.css('height', scrHeight);
+		console.log(e.which);
+		// if (e.which == )
+	});
+	// textarea.keypress(function(e) {
+	// 	console.log(e.which);
+	// });
+};
+
 function validation() {
 	var label, result;
 	var value, required;
@@ -606,7 +689,6 @@ function kakaoAddr() {
 				document.getElementById(next).focus();
 				searchWrap.style.display = 'none';
 			},
-			// 우편번호 찾기 화면 크기가 조정되었을때 실행할 코드를 작성하는 부분. iframe을 넣은 element의 높이값을 조정한다.
 			onresize : function(size) {
 				searchWrap.style.height = size.height + 'px';
 			},

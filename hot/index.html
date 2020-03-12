@@ -44,7 +44,7 @@
 				<!-- #텍스트+썸네일 피드 시작 { -->
 				<div class="feed_viewer">
 					<div class="tit box">
-						<dl class="info_box">
+						<dl class="feed_inform">
 							<dt>
 								<a href="">
 									<span class="pf_picture"><img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일"></span>
@@ -59,153 +59,80 @@
 								<b class="fd_liked">550</b>
 							</dd>
 						</dl>
-						<ul class="fd_options">
+						<ul class="feed_options">
 							<li><button class="btn_liked act"><em class="snd_only">하트</em></button></li>
 							<li><a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a></li>
 							<li><a href="/common/maker" class="btn_pop btn_edit"><em class="snd_only">수정하기</em></a></li>
 							<li><button class="btn_delete"><em class="snd_only">삭제하기</em></button></li>
 						</ul>
 					</div>
-					<div class="text box scrBar">
-						<div class="cont_box">
-							<ul class="fd_hashtag">
-								<li><a href="">동계캠핑</a></li>
-								<li><a href="">눈밭</a></li>
+					<div class="text box">
+						<div class="scrBar">
+							<div class="feed_content">
+								<ul class="fd_hashtag">
+									<li><a href="">동계캠핑</a></li>
+									<li><a href="">눈밭</a></li>
+								</ul>
+								<p class="fd_content">내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요.</p>
+							</div>
+							<ul class="comment_list">
+								<li>
+									<!-- # 프로필 이미지 없음 { -->
+									<a href="" class="pf_picture">
+										<img src="/images/thumb/no_profile.png" alt="김진혁님의 프로필 썸네일">
+									</a>
+									<!-- } # 프로필 이미지 없음 -->
+									<p class="cmt_content">
+										<a href="" class="cmt_name">김진혁</a>
+										댓글을 입력해주세요.
+										<span class="cmt_date">2020년 01월 01일 12시 59분</span>
+										<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
+									</p>
+								</li>
+								<li>
+									<a href="" class="pf_picture">
+										<img src="http://placehold.it/30x30" alt="고재현님의 프로필 썸네일">
+									</a>
+									<p class="cmt_content">
+										<a href="" class="cmt_name">고재현</a>
+										댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요.
+										<span class="cmt_date">2020년 01월 01일 12시 59분</span>
+										<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
+									</p>
+								</li>
 							</ul>
-							<p class="fd_content">내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요.</p>
+							<button class="cmt_btn_more">3개의 댓글 더 보기</button>
 						</div>
-						<dl class="cmmt_list">
-							<dt>
-								<!-- # 프로필 이미지 없음 { -->
-								<a href="" class="pf_picture">
-									<img src="/images/thumb/no_profile.png" alt="김진혁님의 프로필 썸네일">
-								</a>
-								<!-- } # 프로필 이미지 없음 -->
-							</dt>
-							<dd>
-								<a href="" class="cmt_name">김진혁</a>
-								댓글을 입력해주세요.
-								<span class="cmt_date">2020년 01월 01일 12시 59분</span>
-								<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
-							</dd>
-							<dt>
-								<a href="" class="pf_picture">
-									<img src="http://placehold.it/30x30" alt="고재현님의 프로필 썸네일">
-								</a>
-							</dt>
-							<dd>
-								<a href="" class="cmt_name">고재현</a>
-								댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요.
-								<span class="cmt_date">2020년 01월 01일 12시 59분</span>
-								<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
-							</dd>
-						</dl>
-						<button class="cmt_btn_more">3개의 댓글 더 보기</button>
+						<form class="message_form">
+							<a class="pf_picture" href="">
+								<img src="http://placehold.it/30x30" alt="나의 프로필 썸네일">
+							</a>
+							<p class="msg_input">
+								<textarea id="festaFd1" name="festaFd1" placeholder="메세지를 입력해주세요"></textarea>
+								<button type="submit" class="btn_send"><em class="snd_only">전송</em></button>
+							</p>
+						</form>
 					</div>
-					<form class="cmmt_form">
-						<dl>
-							<dt>
-								<a href="" class="pf_picture">
-									<img src="http://placehold.it/30x30" alt="나의 프로필 썸네일">
-								</a>
-							</dt>
-							<dd>
-								<input type="text" class="cmt_input" name="cmt_input" placeholder="댓글을 입력해주세요">
-								<button type="submit" class="cmt_btn_send"></button>
-							</dd>
-						</dl>
-					</form>
 					<!-- # 썸네일 영역 { -->
-					<div class="thumb_slide box">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">
-								<img src="http://placehold.it/290x290" alt="">
+					<div class="img box">
+						<div class="thumb_slide">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<img src="http://placehold.it/290x290" alt="">
+								</div>
+								<div class="swiper-slide">
+									<img src="http://placehold.it/290x290" alt="">
+								</div>
+								<div class="swiper-slide">
+									<img src="http://placehold.it/290x290" alt="">
+								</div>
 							</div>
-							<div class="swiper-slide">
-								<img src="http://placehold.it/290x290" alt="">
-							</div>
-							<div class="swiper-slide">
-								<img src="http://placehold.it/290x290" alt="">
-							</div>
+							<div class="swiper-pagination"></div>
 						</div>
-						<div class="swiper-pagination"></div>
 					</div>
 					<!--  } # 썸네일 영역 -->
 				</div>
-				<!-- } # 텍스트+썸네일 피드 끝 -->
-				<!-- # 텍스트 피드 시작 { -->
-				<div class="feed_viewer">
-					<div class="tit box">
-						<dl class="info_box">
-							<dt>
-								<a href="">
-									<span class="pf_picture"><img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일"></span>
-									<span class="fd_name">김덕수</span>
-								</a>
-								<a href="">
-									<span class="fd_group">입돌아간다</span>
-								</a>
-							</dt>
-							<dd>
-								<span class="fd_date">2020년 01월 01일 12시 59분</span>
-								<b class="fd_liked">550</b>
-							</dd>
-						</dl>
-						<ul class="fd_options">
-							<li><button class="btn_liked act"><em class="snd_only">하트</em></button></li>
-							<li><a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a></li>
-							<li><a href="/common/maker" class="btn_pop btn_edit"><em class="snd_only">수정하기</em></a></li>
-							<li><button class="btn_delete"><em class="snd_only">삭제하기</em></button></li>
-						</ul>
-					</div>
-					<div class="text box scrBar">
-						<div class="cont_box">
-							<ul class="fd_hashtag">
-								<li><a href="">동계캠핑</a></li>
-								<li><a href="">눈밭</a></li>
-							</ul>
-							<p class="fd_content">내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요. 내용을 입력해주세요.</p>
-						</div>
-						<dl class="cmmt_list">
-							<dt>
-								<a href="" class="pf_picture">
-									<img src="http://placehold.it/30x30" alt="김진혁님의 프로필 썸네일">
-								</a>
-							</dt>
-							<dd>
-								<a href="" class="cmt_name">김진혁</a>
-								댓글을 입력해주세요.
-								<span class="cmt_date">2020년 01월 01일 12시 59분</span>
-								<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
-							</dd>
-							<dt>
-								<a href="" class="pf_picture">
-									<img src="http://placehold.it/30x30" alt="고재현님의 프로필 썸네일">
-								</a>
-							</dt>
-							<dd>
-								<a href="" class="cmt_name">고재현</a>
-								댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요.
-								<span class="cmt_date">2020년 01월 01일 12시 59분</span>
-								<button class="cmt_btn_option layer"><em class="snd_only">댓글 옵션</em></button>
-							</dd>
-						</dl>
-					</div>
-					<form class="cmmt_form">
-						<dl>
-							<dt>
-								<a href="" class="pf_picture">
-									<img src="http://placehold.it/30x30" alt="나의 프로필 썸네일">
-								</a>
-							</dt>
-							<dd>
-								<input type="text" class="cmt_input" placeholder="댓글을 입력해주세요">
-								<button type="submit" class="cmt_btn_send"></button>
-							</dd>
-						</dl>
-					</form>
-				</div>
-				<!-- } # 텍스트 피드 끝 -->
+				<!-- } #텍스트+썸네일 피드 끝 -->
 			</section>
 			<!-- } 컨텐츠영역 끝 -->
 			<!-- 우측 사이드영역 시작 { -->
@@ -304,6 +231,7 @@
 
 <script type="text/javascript">
 	feedType('feed_viewer');
+	shortMessage();
 </script>
 </body>
 </html>

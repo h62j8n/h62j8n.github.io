@@ -34,41 +34,35 @@
 			</div>
 		</div>
 	</div>
-	<!-- #유저 관리 -->
+	<!-- #그룹 관리 -->
 	<!-- 서브페이지 시작 { -->
 	<div id="container" class="setting_wrap">
 		<!-- 프로필영역 시작 { -->
 		<section class="profile_area">
 			<div class="container">
-				<dl class="info_box">
+				<dl class="info_box gp">
 					<dt class="pf_tit">
-						<b class="pf_name">김덕수</b>
-						<!-- 마이페이지일 경우 톱니바퀴 버튼 { -->
-						<a class="pf_opt go_settings" href="/user/profile.html"><em class="snd_only">설정</em></a>
-						<!-- } 마이페이지일 경우 톱니바퀴 버튼 -->
-						<!-- 유저페이지일 경우 신고하기 { -->
+						<b class="pf_name">입돌아간다</b>
+						<!-- 캠핑장 공식그룹일 경우 { -->
+						<span class="gp_official"></span>
+						<!-- } 캠핑장 공식그룹일 경우 -->
 						<a href="/common/report" class="pf_opt btn_pop btn_report"><em class="snd_only">신고하기</em></a>
-						<!-- } 유저페이지일 경우 신고하기 -->
 					</dt>
-					<dd class="pf_intro">나는 정자동 어둠의 빵쟁이다</dd>
+					<dd class="pf_intro">안녕하세요 ㅇㅇㅇ입니다. 그룹 소개글을 입력해주세요. 그룹 소개글을 입력해주세요.</dd>
 					<dd class="pf_hashtag">
-						<a href="">경기도</a>
+						<a href="">해시태그</a>
+						<a href="">해시태그</a>
+						<a href="">해시태그</a>
+					</dd>
+					<dd class="gp_list">
+						<span>그룹장 : 고재현</span>
+						<a class="btn_pop btn_member" href="/group/member">멤버 : 33명</a>
+						<span>개설일 : 2020년 02월 03일</span>
 					</dd>
 					<dd class="pf_picture">
-						<img src="http://placehold.it/120x120" alt="김덕수님의 프로필 썸네일">
+						<img src="http://placehold.it/120x120" alt="입돌아간다 그룹 썸네일">
 					</dd>
 				</dl>
-				<ul class="cnt_list">
-					<li>피드<b>102</b></li>
-					<li>팔로워<a class="btn_pop" href="/user/follower">50</a></li>
-					<li>팔로우<a class="btn_pop" href="/user/following">9</a></li>
-				</ul>
-				<p class="social_btns">
-					<button type="button" class="btn_follow">팔로우</button>
-					<!-- 이미 팔로우 했을 때 버튼 {
-					<button type="button" class="btn_follow act">팔로잉</button>
-					} 이미 팔로우 했을 때 버튼 -->
-				</p>
 			</div>
 		</section>
 		<!-- } 프로필영역 끝 -->
@@ -76,25 +70,15 @@
 			<!-- 좌측 사이드메뉴 시작 { -->
 			<section class="side_area">
 				<ul class="lnb_list">
-					<li><a href="/user/profile.html">프로필 관리</a></li>
-					<li><a href="/user/adm.html">계정 관리</a></li>
-					<!-- 그룹장이 아닌 경우 { -->
-					<li><a href="/user/group.html" class="act">그룹 생성</a></li>
-					<!-- } 그룹장이 아닌 경우 -->
-					<li><a href="/user/venture/">사업자 계정 관리</a></li>
-					<!-- 사업자계정 신청 전 {
-					<li><a href="/user/venture/add.html">사업자 계정 신청</a></li>
-					사업자계정 신청 전 { -->
-					<li><a href="/user/camp/">캠핑장 관리</a></li>
-					<!-- 캠핑장 등록 전 {
-					<li><a href="/user/camp/add.html">캠핑장 등록</a></li>
-					사업자계정 등록 전 { -->
+					<li><a href="/group/profile.html" class="act">그룹 관리</a></li>
+					<li><a href="/group/member.html">그룹원 관리</a></li>
+					<li><a href="/group/req.html">가입신청 조회</a></li>
 				</ul>
 			</section>
 			<!-- } 좌측 사이드메뉴 시작 -->
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
-				<h2 class="set_tit">그룹 생성</h2>
+				<h2 class="set_tit">그룹 관리</h2>
 				<form class="set_form">
 					<ul class="input_list">
 						<li class="set_file1 box">
@@ -132,7 +116,6 @@
 							<p><label for="festa4">그룹 관심지역</label></p>
 							<div>
 								<select class="comm_sel" id="festa4" name="festa4">
-									<option value="">관심지역을 선택해주세요</option>
 									<option value="서울">서울</option>
 									<option value="경기도">경기도</option>
 									<option value="강원도">강원도</option>
@@ -147,7 +130,7 @@
 									<option value="광주">광주</option>
 									<option value="대전">대전</option>
 								</select>
-								<p class="comm_sel_label">관심지역을 선택해주세요</p>
+								<p class="comm_sel_label">서울</p>
 							</div>
 						</li>
 						<li class="set_tags box">
@@ -161,8 +144,25 @@
 							</div>
 						</li>
 					</ul>
+					<ul class="input_list">
+						<li class="set_chk box">
+							<p>그룹 설정</p>
+							<div>
+								<input type="radio" class="comm_rdo" id="festa9" name="festa9">
+								<label for="festa9">그룹 삭제</label>
+								<p class="txt_explan">
+									그룹 삭제 시 프로필 및 공유한 피드가 모두 삭제되며, 복구가 불가능합니다.<br>
+								</p>
+								<p class="txt_explan">
+									※ 그룹 삭제는 그룹 멤버가 없는 상태에서만 가능하므로 <span class="err">가입한 멤버가 있을 경우</span><br>
+									<span class="err">그룹원 관리에서 모두 추방</span> 후 진행해주세요.<br>
+								</p>
+							</div>
+						</li>
+					</ul>
 					<ul class="comm_btn_list">
-						<li><button type="submit" class="comm_btn sbm">그룹 생성</button></li>
+						<li><button type="reset" class="btn_close comm_btn cnc">취소</button></li>
+						<li><button type="submit" class="comm_btn sbm">저장</button></li>
 					</ul>
 				</form>
 			</section>
@@ -194,7 +194,8 @@
 </div>
 
 <script type="text/javascript">
-	setFormCss();
+	feedType('feed_viewer');
+	fileThumbnail();
 </script>
 </body>
 </html>

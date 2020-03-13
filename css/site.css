@@ -1047,7 +1047,7 @@ a.comm_btn {
   color: #ff0000;
 }
 
-.comm_form .f_message .ok {
+.comm_form .f_message.ok {
   color: #08a600;
 }
 
@@ -1141,7 +1141,6 @@ form input[type=text], form input[type=email], form input[type=password] {
 }
 
 .set_tit {
-  display: none;
   position: relative;
   margin-bottom: 40px;
   padding: 0 0 25px 30px;
@@ -3164,6 +3163,10 @@ img {
   margin-top: 10px;
   font-size: 14px;
   color: #666;
+}
+
+.set_form .txt_explan.err, .set_form .txt_explan .err {
+  color: #ff0000;
 }
 
 .set_form .txt_hf {

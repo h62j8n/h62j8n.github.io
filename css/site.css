@@ -2261,7 +2261,6 @@ img {
   height: 30px;
   line-height: 20px;
   font-size: 13px;
-  overflow: hidden;
   background: none;
   border: none;
   -webkit-transition: height .1s;
@@ -2400,7 +2399,7 @@ img {
   color: #666;
 }
 
-.feed_maker .wr_cont.box {
+.feed_maker .mk_cont.box {
   position: relative;
 }
 
@@ -2416,17 +2415,17 @@ img {
   border: none;
 }
 
-.feed_maker .wr_thumb.box {
+.feed_maker .mk_thumb.box {
   border-top: 1px solid #eee;
   padding: 10px 25px;
 }
 
-.feed_maker .wr_thumb.box ul {
+.feed_maker .mk_thumb.box ul {
   display: table;
   overflow: hidden;
 }
 
-.feed_maker .wr_thumb.box li {
+.feed_maker .mk_thumb.box li {
   position: relative;
   float: left;
   margin-right: 10px;
@@ -2437,12 +2436,12 @@ img {
   overflow: hidden;
 }
 
-.feed_maker .wr_thumb.box li:nth-child(2) {
+.feed_maker .mk_thumb.box li:nth-child(2) {
   margin: 0;
   float: right;
 }
 
-.feed_maker .wr_thumb.box .wr_btn_cancle {
+.feed_maker .mk_thumb.box .wr_btn_cancle {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -2452,7 +2451,7 @@ img {
   background-size: 100%;
 }
 
-.feed_maker .wr_thumb.box .btn_file {
+.feed_maker .mk_thumb.box .btn_file {
   display: block;
   position: relative;
   width: 100%;
@@ -2460,7 +2459,7 @@ img {
   cursor: pointer;
 }
 
-.feed_maker .wr_thumb.box .btn_file:before, .feed_maker .wr_thumb.box .btn_file:after {
+.feed_maker .mk_thumb.box .btn_file:before, .feed_maker .mk_thumb.box .btn_file:after {
   content: '';
   position: absolute;
   top: 50%;
@@ -2468,43 +2467,43 @@ img {
   background: #ddd;
 }
 
-.feed_maker .wr_thumb.box .btn_file:before {
+.feed_maker .mk_thumb.box .btn_file:before {
   width: 22px;
   height: 4px;
   margin: -2px 0 0 -11px;
 }
 
-.feed_maker .wr_thumb.box .btn_file:after {
+.feed_maker .mk_thumb.box .btn_file:after {
   width: 4px;
   height: 22px;
   margin: -11px 0 0 -2px;
 }
 
-.feed_maker .wr_bottom.box {
+.feed_maker .mk_bottom.box {
   padding: 0 25px;
   border-top: 1px solid #eee;
 }
 
-.feed_maker .wr_bottom.box:after {
+.feed_maker .mk_bottom.box:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.feed_maker .wr_bottom.box ul {
+.feed_maker .mk_bottom.box ul {
   overflow: hidden;
 }
 
-.feed_maker .wr_bottom.box ul li {
+.feed_maker .mk_bottom.box ul li {
   float: left;
   margin-left: 15px;
 }
 
-.feed_maker .wr_bottom.box ul li:first-child {
+.feed_maker .mk_bottom.box ul li:first-child {
   margin: 0;
 }
 
-.feed_maker .wr_tags {
+.feed_maker .mk_tags {
   float: left;
   padding: 9px 0;
   -webkit-box-sizing: border-box;
@@ -2512,7 +2511,7 @@ img {
   overflow: hidden;
 }
 
-.feed_maker .wr_tags li {
+.feed_maker .mk_tags li {
   padding: 3px 10px;
   border-radius: 10px;
   -webkit-box-sizing: border-box;
@@ -2522,14 +2521,14 @@ img {
   overflow: hidden;
 }
 
-.feed_maker .wr_tags li:before {
+.feed_maker .mk_tags li:before {
   content: '#';
   float: left;
   margin-right: 5px;
   line-height: 22px;
 }
 
-.feed_maker .wr_tags input[type=text] {
+.feed_maker .mk_tags input[type=text] {
   float: left;
   width: 110px;
   height: 22px;
@@ -2538,26 +2537,22 @@ img {
   font-size: 14px;
 }
 
-.feed_maker .wr_btns {
+.feed_maker .mk_btns {
   float: right;
 }
 
-.feed_maker .wr_btns button, .feed_maker .wr_btns label {
+.feed_maker .mk_btns button, .feed_maker .mk_btns label {
   display: block;
   width: 30px;
   height: 50px;
 }
 
-.feed_maker .wr_btns label {
+.feed_maker .mk_btns label {
   cursor: pointer;
 }
 
-.feed_maker .wr_btns .wr_btn_file {
+.feed_maker .mk_btns .btn_file {
   background: url(../images/ico/btn_file.png) no-repeat center;
-}
-
-.feed_maker .wr_btns .wr_btn_send {
-  background: url(../images/ico/btn_send.png) no-repeat center;
 }
 
 .feed_viewer {
@@ -4589,7 +4584,7 @@ img {
   overflow: hidden;
 }
 
-.chat_wrap .scrBar {
+.chat_wrap .chat_content.box .scrBar, .chat_wrap .chat_user.box .scrBar {
   padding-left: 25px;
 }
 

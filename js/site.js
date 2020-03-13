@@ -260,73 +260,6 @@ $(document).ready(function() {
 	btnFollow();
 });
 
-function test() {
-	var target = $('.pf_label');
-	var text, textW;
-	$('.pf_name').on('mouseover', function() {
-		text = $(this).text();
-		target.text(text).show();
-		textW = target.outerWidth();
-	});
-	$('.pf_name').on('mousemove', function(e) {
-		target.css({
-			'top': e.pageY+5,
-			'left': e.pageX-textW+5,
-		});
-	});
-	$('.pf_name').on('mouseout', function() {
-		target.hide().text();
-	});
-}
-
-
-
-function feedMaker() {
-	var file = document.getElementsByName('festafiles');
-	$(file).on('change', upload);
-	
-	function upload(e) {
-		var files;
-		var images = [],
-			imagesLength = 0;
-
-		files = e.target.files;
-
-		var imgFile, vdoFile, fileSize;
-		var megabyte5 = 5242880;
-		for (var i=0; i<files.length; i++) {
-			imgFile = files[i].type.match('image.*');
-			vdoFile = files[i].type.match('video.*');
-			fileSize = files[i].size;
-			
-			if (fileSize == megabyte5) {
-				continue;
-			} else {
-				if ((imgFile || vdoFile) && (imagesLength < 5)) {
-					imagesLength++;
-					images.push(files[i]);
-				}
-			}
-		}
-	
-		function imgTag(e) {
-			var src = e.target.result;
-			var container = $('.wr_thumb ul');
-			var tag = '<li><img src="'+src+'" alt=""></li>';
-			container.append(tag);
-		}
-		
-		for (var i=0; i<images.length; i++) {
-			console.log(images[i]);
-			var fileReader = new FileReader();
-			fileReader.onload = imgTag;
-			fileReader.readAsDataURL(images[i]);
-		}
-	}
-}
-
-
-
 /*
 ---------------------------------------------------------------
 *
@@ -385,7 +318,7 @@ function main() {
 */
 
 /* 폼 { */
-var form, input, inputT, inputR, inputC, select, textarea, label, submit;
+var form, input, inputT, inputR, inputC, inputF, select, textarea, label, submit;
 var value, result, required;
 
 var formTags = function(formTag) {
@@ -393,6 +326,7 @@ var formTags = function(formTag) {
 	inputT = form.find('input[type=text], input[type=email], input[type=password]');
 	inputR = form.find('input[type=radio]');
 	inputC = form.find('input[type=checkbox]');
+	inputF = form.find('input[type=file]');
 	select = form.find('select');
 	textarea = form.find('textarea');
 	submit = form.find('.comm_btn.sbm[type=button]');
@@ -494,18 +428,81 @@ function addInputs() {
 // 댓글입력/채팅입력 CSS
 function shortMessage() {
 	formTags('message_form');
-	var id = textarea.attr('id');
 	textarea.on('keydown', function(e) {
-		console.log('down');
 		var scrHeight = textarea.prop('scrollHeight');
-		textarea.css('height', scrHeight);
-		console.log(e.which);
+		// textarea.css('height', scrHeight);
+		// console.log(scrHeight);
+		// console.log(e.which);
 		// if (e.which == )
 	});
 	// textarea.keypress(function(e) {
 	// 	console.log(e.which);
 	// });
 };
+
+// 채팅창 접속자 정보 CSS
+function userInform() {
+	var target = $('.pf_label');
+	var text, textW;
+	$('.pf_name').on('mouseover', function() {
+		text = $(this).text();
+		target.text(text).show();
+		textW = target.outerWidth();
+	});
+	$('.pf_name').on('mousemove', function(e) {
+		target.css({
+			'top': e.pageY+5,
+			'left': e.pageX-textW+5,
+		});
+	});
+	$('.pf_name').on('mouseout', function() {
+		target.hide().text();
+	});
+}
+
+function feedMaker() {
+	var file = document.getElementsByName(name);
+	$(file).on('change', upload);
+	
+	function upload(e) {
+		var files;
+		var images = [],
+			imagesLength = 0;
+
+		files = e.target.files;
+
+		var imgFile, vdoFile, fileSize;
+		var megabyte5 = 5242880;
+		for (var i=0; i<files.length; i++) {
+			imgFile = files[i].type.match('image.*');
+			vdoFile = files[i].type.match('video.*');
+			fileSize = files[i].size;
+			
+			if (fileSize == megabyte5) {
+				continue;
+			} else {
+				if ((imgFile || vdoFile) && (imagesLength < 5)) {
+					imagesLength++;
+					images.push(files[i]);
+				}
+			}
+		}
+	
+		function imgTag(e) {
+			var src = e.target.result;
+			var container = $('.wr_thumb ul');
+			var tag = '<li><img src="'+src+'" alt=""></li>';
+			container.append(tag);
+		}
+		
+		for (var i=0; i<images.length; i++) {
+			console.log(images[i]);
+			var fileReader = new FileReader();
+			fileReader.onload = imgTag;
+			fileReader.readAsDataURL(images[i]);
+		}
+	}
+}
 
 function validation() {
 	var label, result;

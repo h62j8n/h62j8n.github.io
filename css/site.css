@@ -4337,8 +4337,21 @@ img {
           box-sizing: border-box;
 }
 
+.offer_wrap {
+  display: table;
+  height: 295px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.offer_wrap > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 .readme_wrap {
-  padding: 60px 30px;
+  padding: 0 30px;
   border-radius: 30px 0 30px 0;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -4350,6 +4363,7 @@ img {
 }
 
 .readme_wrap dt {
+  margin-bottom: 25px;
   font-family: "noto-sans-scott-r";
   font-size: 22px;
 }
@@ -4480,7 +4494,7 @@ img {
   overflow: hidden;
 }
 
-.profile_area .info_box .gp_list span {
+.profile_area .info_box .gp_list span, .profile_area .info_box .gp_list a {
   position: relative;
   float: left;
   margin-left: 10px;
@@ -4489,23 +4503,33 @@ img {
   font-size: 14px;
 }
 
-.profile_area .info_box .gp_list span:before {
+.profile_area .info_box .gp_list span:before, .profile_area .info_box .gp_list a:before {
   content: '';
   position: absolute;
-  top: 6px;
+  top: 7px;
   left: 0;
   width: 1px;
   height: 12px;
   background: #fff;
 }
 
-.profile_area .info_box .gp_list span:first-child {
+.profile_area .info_box .gp_list span:first-child, .profile_area .info_box .gp_list a:first-child {
   margin: 0;
   padding: 0;
 }
 
-.profile_area .info_box .gp_list span:first-child:before {
+.profile_area .info_box .gp_list span:first-child:before, .profile_area .info_box .gp_list a:first-child:before {
   display: none;
+}
+
+.profile_area .info_box .gp_list .btn_member:hover {
+  text-decoration: underline;
+}
+
+.profile_area .info_box .gp_list .btn_out {
+  font-family: "noto-sans-scott-l";
+  font-size: 12px;
+  color: #aaa;
 }
 
 .profile_area .cnt_list {
@@ -4544,17 +4568,20 @@ img {
   width: 120px;
 }
 
-.profile_area .social_btns button {
+.profile_area .social_btns button, .profile_area .social_btns a {
   display: block;
-  width: 100%;
   margin-top: 15px;
+}
+
+.profile_area .social_btns button:first-child, .profile_area .social_btns a:first-child {
+  margin: 0;
+}
+
+.profile_area .social_btns button {
+  width: 100%;
   border-radius: 10px;
   background: #1edeb9;
   color: #222;
-}
-
-.profile_area .social_btns button:first-child {
-  margin: 0;
 }
 
 .profile_area .social_btns .btn_follow {

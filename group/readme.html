@@ -34,9 +34,9 @@
 			</div>
 		</div>
 	</div>
-	<!-- #그룹 홈 (가입하지 않은 회원) -->
+	<!-- #그룹 홈 (미가입 회원) -->
 	<!-- 서브페이지 시작 { -->
-	<div id="container" class="user_wrap">
+	<div id="container" class="home_wrap">
 		<h2 class="snd_only">입돌아간다 그룹 홈</h2>
 		<!-- 프로필영역 시작 { -->
 		<section class="profile_area">
@@ -47,13 +47,8 @@
 						<!-- 캠핑장 공식그룹일 경우 { -->
 						<span class="gp_official"></span>
 						<!-- } 캠핑장 공식그룹일 경우 -->
-						<!-- 그룹장일 경우 톱니바퀴 버튼 { -->
-						<a class="pf_opt go_settings" href="/group/profile.html"><em class="snd_only">설정</em></a>
-						<!-- } 그룹장일 경우 톱니바퀴 버튼 -->
-						<!-- 그룹페이지일 경우 신고하기 { -->
 						<a href="/common/report" class="pf_opt btn_pop btn_report"><em class="snd_only">신고하기</em></a>
-						<!-- } 그룹페이지일 경우 신고하기 -->
-						</dt>
+					</dt>
 					<dd class="pf_intro">안녕하세요 ㅇㅇㅇ입니다. 그룹 소개글을 입력해주세요. 그룹 소개글을 입력해주세요.</dd>
 					<dd class="pf_hashtag">
 						<a href="">해시태그</a>
@@ -62,20 +57,13 @@
 					</dd>
 					<dd class="gp_list">
 						<span>그룹장 : 고재현</span>
-						<span>인원 : 33명</span>
+						<a class="btn_pop btn_member" href="/group/member">멤버 : 33명</a>
 						<span>개설일 : 2020년 02월 03일</span>
 					</dd>
 					<dd class="pf_picture">
-						<img src="http://placehold.it/120x120" alt="김덕수님의 프로필 썸네일">
+						<img src="http://placehold.it/120x120" alt="입돌아간다 그룹 썸네일">
 					</dd>
 				</dl>
-				<p class="social_btns">
-					<button type="button" class="btn_follow act">팔로잉</button>
-					<button type="button" class="btn_chat">그룹채팅</button>
-					<!-- 팔로우하지 않았을 때 버튼 {
-					<button type="button" class="btn_follow">팔로우</button>
-					} 팔로우하지 않았을 때 버튼 -->
-				</p>
 			</div>
 		</section>
 		<!-- } 프로필영역 끝 -->
@@ -83,22 +71,24 @@
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
 				<!-- #비공개 시작 {  -->
-				<div class="readme_wrap">
-					<h3 class="set_tit">그룹 멤버에게만 공개된 페이지입니다.</h3>
-					<dl>
-						<dt><span>입돌아간다</span> 그룹에 가입해보세요!</dt>
-						<dd>안녕하세요. ㅇㅇㅇ입니다. 그룹 소개글을 입력해주세요. 그룹 소개글을 입력해주세요.</dd>
-					</dl>
-					<ul class="comm_btn_list">
-						<li><a href="/group/join" class="btn_pop comm_btn">가입 신청하기</a></li>
-					</ul>
+				<div class="readme_wrap offer_wrap">
+					<div>
+						<h3 class="set_tit">그룹 멤버에게만 공개된 페이지입니다.</h3>
+						<dl>
+							<dt><span>입돌아간다</span> 그룹에 가입해보세요!</dt>
+							<dd>안녕하세요. ㅇㅇㅇ입니다. 그룹 소개글을 입력해주세요. 그룹 소개글을 입력해주세요.</dd>
+						</dl>
+						<ul class="comm_btn_list">
+							<li><a href="/group/join" class="btn_pop comm_btn">가입 신청하기</a></li>
+						</ul>
+					</div>
 				</div>
 				<!-- } #비공개 끝 -->
 			</section>
 			<!-- } 컨텐츠영역 끝 -->
 			<!-- 우측 사이드영역 시작 { -->
 			<section class="side_area">
-				<div class="rcmm_wrap">
+				<div class="rcmm_list">
 					<h3><em class="snd_only">추천그룹 목록</em>나홀로 캠핑이 심심하신가요?</h3>
 					<ul>
 						<li>
@@ -130,7 +120,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="rcmm_wrap">
+				<div class="rcmm_list">
 					<h3><em class="snd_only">추천캠핑장 목록</em>이 캠핑장에도 가보셨나요?</h3>
 					<ul>
 						<li>
@@ -191,7 +181,8 @@
 </div>
 
 <script type="text/javascript">
-	feedType('feed_wrap');
+	feedType('feed_viewer');
+	fileThumbnail();
 </script>
 </body>
 </html>

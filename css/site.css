@@ -4405,7 +4405,7 @@ img {
   overflow: hidden;
 }
 
-.profile_area .info_box .pf_name, .profile_area .info_box .gp_official, .profile_area .info_box .go_settings {
+.profile_area .info_box .pf_name, .profile_area .info_box .gp_official, .profile_area .info_box .pf_opt {
   float: left;
   margin-left: 5px;
 }
@@ -4422,6 +4422,13 @@ img {
   height: 20px;
   margin-top: 8px;
   background: url(../images/ico/shp_gear.png) no-repeat center;
+}
+
+.profile_area .info_box .btn_report {
+  width: 22px;
+  height: 24px;
+  margin-top: 5px;
+  background: url(../images/ico/shp_report.png) no-repeat center;
 }
 
 .profile_area .info_box .pf_intro {

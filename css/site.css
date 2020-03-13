@@ -2289,6 +2289,65 @@ img {
   background-size: 20px;
 }
 
+.file_thumbnail ul {
+  display: table;
+  overflow: hidden;
+}
+
+.file_thumbnail li {
+  position: relative;
+  float: left;
+  margin-right: 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  border: 2px dashed #ddd;
+  overflow: hidden;
+}
+
+.file_thumbnail li:nth-child(2) {
+  margin: 0;
+  float: right;
+}
+
+.file_thumbnail .btn_cancle {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 10px;
+  height: 10px;
+  background: url(../images/ico/btn_close.png) no-repeat center;
+  background-size: 100%;
+}
+
+.file_thumbnail .btn_file {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file_thumbnail .btn_file:before, .file_thumbnail .btn_file:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #ddd;
+}
+
+.file_thumbnail .btn_file:before {
+  width: 22px;
+  height: 4px;
+  margin: -2px 0 0 -11px;
+}
+
+.file_thumbnail .btn_file:after {
+  width: 4px;
+  height: 22px;
+  margin: -11px 0 0 -2px;
+}
+
 .feed_maker, .feed_notice {
   border-radius: 30px 0 30px 0;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -2390,7 +2449,7 @@ img {
   position: relative;
 }
 
-.feed_maker .wr_noti {
+.feed_maker .mk_noti {
   position: absolute;
   top: 12px;
   right: 25px;
@@ -2418,65 +2477,6 @@ img {
 .feed_maker .mk_thumb.box {
   border-top: 1px solid #eee;
   padding: 10px 25px;
-}
-
-.feed_maker .mk_thumb.box ul {
-  display: table;
-  overflow: hidden;
-}
-
-.feed_maker .mk_thumb.box li {
-  position: relative;
-  float: left;
-  margin-right: 10px;
-  width: 80px;
-  height: 80px;
-  border-radius: 10px;
-  border: 2px dashed #ddd;
-  overflow: hidden;
-}
-
-.feed_maker .mk_thumb.box li:nth-child(2) {
-  margin: 0;
-  float: right;
-}
-
-.feed_maker .mk_thumb.box .wr_btn_cancle {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 10px;
-  height: 10px;
-  background: url(../images/ico/btn_close.png) no-repeat center;
-  background-size: 100%;
-}
-
-.feed_maker .mk_thumb.box .btn_file {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
-.feed_maker .mk_thumb.box .btn_file:before, .feed_maker .mk_thumb.box .btn_file:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background: #ddd;
-}
-
-.feed_maker .mk_thumb.box .btn_file:before {
-  width: 22px;
-  height: 4px;
-  margin: -2px 0 0 -11px;
-}
-
-.feed_maker .mk_thumb.box .btn_file:after {
-  width: 4px;
-  height: 22px;
-  margin: -11px 0 0 -2px;
 }
 
 .feed_maker .mk_bottom.box {

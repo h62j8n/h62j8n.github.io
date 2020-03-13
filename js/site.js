@@ -440,27 +440,7 @@ function shortMessage() {
 	// });
 };
 
-// 채팅창 접속자 정보 CSS
-function userInform() {
-	var target = $('.pf_label');
-	var text, textW;
-	$('.pf_name').on('mouseover', function() {
-		text = $(this).text();
-		target.text(text).show();
-		textW = target.outerWidth();
-	});
-	$('.pf_name').on('mousemove', function(e) {
-		target.css({
-			'top': e.pageY+5,
-			'left': e.pageX-textW+5,
-		});
-	});
-	$('.pf_name').on('mouseout', function() {
-		target.hide().text();
-	});
-}
-
-function feedMaker() {
+function fileThumbnail() {
 	var file = document.getElementsByName(name);
 	$(file).on('change', upload);
 	
@@ -576,8 +556,6 @@ function validation() {
 }
 /* } 폼 */
 
-
-
 /* 캠핑장 정보 (메인, 상세) { */
 function campDetail() {
 	campSlider();
@@ -625,8 +603,29 @@ function starRating() {
 
 /* 이미지/동영상 업로드 */
 
-/* API */
+/* 채팅창 { */
+// 접속자 정보 CSS
+function userInform() {
+	var target = $('.pf_label');
+	var text, textW;
+	$('.pf_name').on('mouseover', function() {
+		text = $(this).text();
+		target.text(text).show();
+		textW = target.outerWidth();
+	});
+	$('.pf_name').on('mousemove', function(e) {
+		target.css({
+			'top': e.pageY+5,
+			'left': e.pageX-textW+5,
+		});
+	});
+	$('.pf_name').on('mouseout', function() {
+		target.hide().text();
+	});
+}
+/* } 채팅창 */
 
+/* API { */
 // 카카오 맵API
 function kakaoMap() {
 	var address = $('#mapAddress').text();
@@ -695,3 +694,4 @@ function kakaoAddr() {
 		searchWrap.style.display = 'block';
 	}
 }
+/* } API */

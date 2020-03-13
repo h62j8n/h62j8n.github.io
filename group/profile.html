@@ -71,7 +71,7 @@
 			<section class="side_area">
 				<ul class="lnb_list">
 					<li><a href="/group/profile.html" class="act">그룹 관리</a></li>
-					<li><a href="/group/member.html">그룹원 관리</a></li>
+					<li><a href="/group/user.html">그룹원 관리</a></li>
 					<li><a href="/group/req.html">가입신청 조회</a></li>
 				</ul>
 			</section>
@@ -87,7 +87,7 @@
 								<p class="pf_picture">
 									<img src="/images/thumb/no_profile.png" alt="그룹의 프로필 썸네일">
 								</p>
-								<ul class="file1_btns">
+								<ul class="comm_buttons_s">
 									<li>
 										<input type="file" id="festa2" name="festa2" accept="image/*">
 										<label for="festa2">등록</label>
@@ -148,8 +148,8 @@
 						<li class="set_chk box">
 							<p>그룹 설정</p>
 							<div>
-								<input type="radio" class="comm_rdo" id="festa9" name="festa9">
-								<label for="festa9">그룹 삭제</label>
+								<input type="radio" class="comm_rdo" id="festa8" name="festa8">
+								<label for="festa8">그룹 삭제</label>
 								<p class="txt_explan">
 									그룹 삭제 시 프로필 및 공유한 피드가 모두 삭제되며, 복구가 불가능합니다.<br>
 								</p>
@@ -160,7 +160,7 @@
 							</div>
 						</li>
 					</ul>
-					<ul class="comm_btn_list">
+					<ul class="comm_buttons">
 						<li><button type="reset" class="btn_close comm_btn cnc">취소</button></li>
 						<li><button type="submit" class="comm_btn sbm">저장</button></li>
 					</ul>
@@ -194,8 +194,7 @@
 </div>
 
 <script type="text/javascript">
-	feedType('feed_viewer');
-	fileThumbnail();
+	setFormCss();
 </script>
 </body>
 </html>

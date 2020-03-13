@@ -974,7 +974,7 @@ textarea:focus {
   border: 1px solid #ddd;
   border-radius: 15px;
   font-family: "noto-sans-scott-dl";
-  font-size: 15px;
+  font-size: 14px;
   color: #222;
 }
 
@@ -3337,6 +3337,10 @@ img {
   padding: 80px 0;
   background: #f9f9f9;
   font-size: 15px;
+}
+
+.set_form .table_options {
+  margin-top: 15px;
 }
 
 .set_form .mb_table .tb_name a {

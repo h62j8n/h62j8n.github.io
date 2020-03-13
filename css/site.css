@@ -959,7 +959,7 @@ textarea:focus {
 
 .comm_buttons_s li {
   float: left;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .comm_buttons_s li:first-child {
@@ -978,21 +978,9 @@ textarea:focus {
   color: #222;
 }
 
-.comm_buttons_s .comm_btn.cfm {
+.comm_buttons_s .comm_btn.cfm, .comm_buttons_s .comm_btn.cnc {
   border: none;
   color: #fff;
-}
-
-.comm_buttons_s label {
-  line-height: 35px;
-  background: #1edeb9;
-  text-align: center;
-  color: #fff;
-  cursor: pointer;
-}
-
-.comm_buttons_s button {
-  border: 1px solid #ddd;
 }
 
 .comm_buttons {
@@ -2976,10 +2964,8 @@ img {
 
 .setting_wrap .search_form button {
   width: 40px;
-  margin-left: 10px;
-  border-radius: 17px;
-  background: #1edeb9;
-  font-size: 18px;
+  background: #666;
+  font-size: 22px;
   color: #fff;
 }
 

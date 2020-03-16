@@ -5235,7 +5235,7 @@ img {
   background-position: center;
 }
 
-.fstPop .feed_viewer .fd_options {
+.fstPop .feed_viewer .feed_options {
   top: auto;
   bottom: 0;
 }
@@ -5458,6 +5458,46 @@ img {
 
 .confirm_wrap .comm_buttons {
   margin-top: 50px;
+}
+
+.report_wrap .file_box {
+  overflow: hidden;
+}
+
+.report_wrap .file_box .txt_hf {
+  float: left;
+  width: 439px;
+  height: 50px;
+  line-height: 48px;
+  padding: 0 15px;
+  border: 1px solid #ddd;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: left;
+  font-size: 15px;
+}
+
+.report_wrap .file_box .txt_hf span {
+  color: #ff0000;
+}
+
+.report_wrap .file_box .txt_hf.plc_holder {
+  color: #bbb;
+}
+
+.report_wrap .file_box .btn_hf {
+  float: left;
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  margin: 2px 0;
+  margin-left: 15px;
+  background: #1edeb9;
+  border-radius: 18px;
+  text-align: center;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
 }
 
 .report_wrap .rdo_list {

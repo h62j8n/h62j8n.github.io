@@ -144,7 +144,6 @@ function btnPop(button) {
 	var spiner = '<p id="fstLoad"><i class="xi-spinner-5 xi-spin"></i></p>';
 	$('.'+button).on('click', function(e) {
 		layerCnt++;
-		console.log(layerCnt);
 		var url = $(this).attr('href');
 		if (url == undefined) {
 			// <button>태그 (내부 컨텐츠)

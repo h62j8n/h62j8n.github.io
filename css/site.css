@@ -4765,7 +4765,7 @@ img {
   float: right;
 }
 
-.setting_wrap .table_options .search_form, .setting_wrap .table_options .comm_buttons_s:first-child {
+.setting_wrap .table_options .search_form, .setting_wrap .table_options .sub_nav, .setting_wrap .table_options .comm_buttons_s:first-child {
   float: left;
 }
 
@@ -4802,6 +4802,45 @@ img {
 .setting_wrap .sort_select {
   position: relative;
   width: 120px;
+}
+
+.setting_wrap .sub_nav {
+  overflow: hidden;
+}
+
+.setting_wrap .sub_nav li {
+  position: relative;
+  float: left;
+  padding-left: 36px;
+}
+
+.setting_wrap .sub_nav li:before {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: 18px;
+  width: 1px;
+  height: 12px;
+  background: #666;
+}
+
+.setting_wrap .sub_nav li:first-child {
+  padding: 0;
+}
+
+.setting_wrap .sub_nav li:first-child:before {
+  display: none;
+}
+
+.setting_wrap .sub_nav li a {
+  line-height: 35px;
+  font-size: 14px;
+  color: #666;
+}
+
+.setting_wrap .sub_nav li a.act {
+  font-family: "noto-sans-scott-m";
+  color: #222;
 }
 
 .set_form .input_list {

@@ -58,12 +58,17 @@
 			<section class="content_area">
 				<h2 class="set_tit">신고 관리</h2>
 				<div class="table_options">
+					<ul class="sub_nav">
+						<li><a href="" class="act">전체</a></li>
+						<li><a href="">그룹</a></li>
+						<li><a href="">캠핑장</a></li>
+						<li><a href="">피드</a></li>
+					</ul>
 					<div class="sort_select">
-						<select class="comm_sel" id="" name="">
+						<select class="comm_sel" id="" name="festa">
 							<option value="">전체</option>
-							<option value="">그룹</option>
-							<option value="">캠핑장</option>
-							<option value="">피드</option>
+							<option value="">접수</option>
+							<option value="">처리완료</option>
 						</select>
 						<p class="comm_sel_label">전체</p>
 					</div>
@@ -74,8 +79,8 @@
 						<thead>
 							<tr>
 								<th class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl0">
-									<label for="festaTbl0"><em class="snd_only">전체선택</em></label>
+									<input type="checkbox" class="comm_chk" name="allChecked" id="allChecked">
+									<label for="allChecked"><em class="snd_only">전체선택</em></label>
 								</th>
 								<th class="w60">No</th>
 								<th class="w110">분류</th>
@@ -88,8 +93,8 @@
 						<tbody>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl0">
-									<label for="festaTbl0"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl10">
+									<label for="festaTbl10"><em class="snd_only">선택</em></label>
 								</td>
 								<td>10</td>
 								<td>캠핑장</td>
@@ -102,8 +107,8 @@
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl0">
-									<label for="festaTbl0"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl9">
+									<label for="festaTbl9"><em class="snd_only">선택</em></label>
 								</td>
 								<td>9</td>
 								<td>캠핑장</td>
@@ -116,8 +121,8 @@
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl0">
-									<label for="festaTbl0"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl8">
+									<label for="festaTbl8"><em class="snd_only">선택</em></label>
 								</td>
 								<td>8</td>
 								<td>캠핑장</td>
@@ -130,8 +135,8 @@
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl0">
-									<label for="festaTbl0"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl7">
+									<label for="festaTbl7"><em class="snd_only">선택</em></label>
 								</td>
 								<td>7</td>
 								<td>캠핑장</td>
@@ -144,8 +149,8 @@
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl0">
-									<label for="festaTbl0"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl6">
+									<label for="festaTbl6"><em class="snd_only">선택</em></label>
 								</td>
 								<td>6</td>
 								<td>캠핑장</td>
@@ -158,8 +163,8 @@
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl0">
-									<label for="festaTbl0"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl5">
+									<label for="festaTbl5"><em class="snd_only">선택</em></label>
 								</td>
 								<td>5</td>
 								<td>캠핑장</td>
@@ -172,7 +177,7 @@
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl0">
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl4">
 									<label for="festaTbl0"><em class="snd_only">선택</em></label>
 								</td>
 								<td>4</td>
@@ -186,8 +191,8 @@
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl0">
-									<label for="festaTbl0"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl3">
+									<label for="festaTbl3"><em class="snd_only">선택</em></label>
 								</td>
 								<td>3</td>
 								<td>캠핑장</td>
@@ -200,8 +205,8 @@
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl0">
-									<label for="festaTbl0"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl2">
+									<label for="festaTbl2"><em class="snd_only">선택</em></label>
 								</td>
 								<td>2</td>
 								<td>캠핑장</td>
@@ -214,8 +219,8 @@
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl0">
-									<label for="festaTbl0"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl1">
+									<label for="festaTbl1"><em class="snd_only">선택</em></label>
 								</td>
 								<td>1</td>
 								<td>캠핑장</td>

@@ -77,22 +77,5 @@
 	btnPop('btn_pop2');
 
 	reportForm();
-	function fileName() {
-		var name;
-		var inputF = $('.fl_name'),
-			label = inputF.siblings('.txt_hf');
-		var resetText = label.html();
-		inputF.on('change', function(e) {
-			var file = e.target.files;
-			if (file.length == 0) {
-				name = resetText;
-				label.addClass('plc_holder');
-			} else {
-				name = file[0].name;
-				label.removeClass('plc_holder');
-			}
-			label.html(name);
-		});
-	}
 	fileName();
 </script>

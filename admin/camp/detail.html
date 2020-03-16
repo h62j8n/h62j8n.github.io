@@ -13,21 +13,15 @@
 	<title>FESTA</title>
 </head>
 <body>
-<div id="wrap">
-	<div id="header">
-		<div class="scrX">
-			<div class="container">
-				<h1>
-					<a href="/"><em class="snd_only">FESTA</em></a>
-				</h1>
-				<ul id="gnb">
-					<li><a href="/admin/"><b>관리자</b></a></li>
-					<li><a href="/member/logout" class="btn_pop">로그아웃</a></li>
-				</ul>
-				<button type="button" id="btnTop"><em class="snd_only">맨 위로</em></button>
-			</div>
+<div id="wrap" class="adm">
+	<section class="banner_area">
+		<div class="container">
+			<dl>
+				<dt><span>관리자페이지 이용 시 주의사항</span></dt>
+				<dd>회원 징계 시 다시 한번 확인하고 처리할 것 / 모든 삭제 기능 처리 시 신중하게 처리할 것</dd>
+			</dl>
 		</div>
-	</div>
+	</section>
 	<!-- #캠핑정보 (상세) -->
 	<!-- 서브페이지 시작 { -->
 	<div id="container" class="camp_wrap detail">
@@ -48,13 +42,7 @@
 							<li>
 								<b class="cp_liked">99</b>
 								<button class="btn_liked"><em class="snd_only">하트</em></button>
-								<!-- 하트 누른 경우 {
-								<button class="btn_liked act"><em class="snd_only">하트</em></button>
-								} 하트 누른 경우 -->
 							</li>
-							<li><button class="btn_bookmark"><em class="snd_only">저장하기</em></button></li>
-							<li><a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a></li>
-							<li><a class="btn_back" href="/camp/"><em class="snd_only">목록으로</em></a></li>
 						</ul>
 						<ul class="cp_date">
 							<li>정보 등록일 2020년 20월 20일</li>
@@ -205,127 +193,6 @@
 						<li><a class="pg_next" href=""><em class="snd_only">다음 페이지</em></a></li>
 						<li><a class="pg_end" href=""><em class="snd_only">맨 끝으로</em></a></li>
 					</ul>
-				</div>
-				<h4 class="snd_only">한줄평 작성</h4>
-				<form class="rate_form">
-					<div>
-						<p class="rt_name">김덕수</p>
-						<ul class="rt_rates">
-							<li>
-								<input type="radio" id="rtRate1" name="rtRate" value="1">
-								<label for="rtRate1"><em class="snd_only">별 1개</em></label>
-							<li>
-								<input type="radio" id="rtRate2" name="rtRate" value="2">
-								<label for="rtRate2"><em class="snd_only">별 2개</em></label>
-							</li>
-							<li>
-								<input type="radio" id="rtRate3" name="rtRate" value="3">
-								<label for="rtRate3"><em class="snd_only">별 3개</em></label>
-							</li>
-							<li>
-								<input type="radio" id="rtRate4" name="rtRate" value="4">
-								<label for="rtRate4"><em class="snd_only">별 4개</em></label>
-							</li>
-							<li>
-								<input type="radio" id="rtRate5" name="rtRate" value="5" checked="checked">
-								<label for="rtRate5"><em class="snd_only">별 5개</em></label>
-							</li>
-						</ul>
-						<textarea class="rt_input" name="rt_input" placeholder="주제와 무관한 댓글, 허위 사실은 삭제될 수 있습니다."></textarea>
-					</div>
-					<button type="submit" class="rt_btn_send">등록</button>
-					<p class="rt_caution"><span>캠핑장에 관련된 내용이 아니거나 허위사실 기재 시 운영원칙에 따라 삭제될 수 있습니다.</span></p>
-				</form>
-			</div>
-		</section>
-		<section class="others_area">
-			<div class="container">
-				<h3 class="comm_tit">경기도의 <b>또 다른 캠핑장</b></h3>
-				<div class="camp_slide">
-					<div>
-						<ul class="camp_list swiper-wrapper">
-							<li class="swiper-slide">
-								<a class="cp_thumb" href="">
-									<img src="http://placehold.it/320x180" alt="몽산포 패밀리데이 캠핑장 썸네일">
-									<b class="cp_liked">99</b>
-								</a>
-								<a class="cp_text" href="">
-									<b class="cp_name">몽산포 패밀리데이 캠핑장</b>
-									<span>
-										<b class="cp_loc">경기도</b>
-										#바다뷰 #경치좋은 #감성캠핑
-									</span>
-								</a>
-							</li>
-							<li class="swiper-slide">
-								<a class="cp_thumb" href="">
-									<img src="http://placehold.it/320x180" alt="캠핑장 썸네일">
-									<b class="cp_liked">99</b>
-								</a>
-								<a class="cp_text" href="">
-									<b class="cp_name">캠핑장명</b>
-									<span>
-										<b class="cp_loc">지역</b>
-										#해시태그 #해시태그 #해시태그
-									</span>
-								</a>
-							</li>
-							<li class="swiper-slide">
-								<a class="cp_thumb" href="">
-									<img src="http://placehold.it/320x180" alt="캠핑장 썸네일">
-									<b class="cp_liked">99</b>
-								</a>
-								<a class="cp_text" href="">
-									<b class="cp_name">캠핑장명</b>
-									<span>
-										<b class="cp_loc">지역</b>
-										#해시태그 #해시태그 #해시태그
-									</span>
-								</a>
-							</li>
-							<li class="swiper-slide">
-								<a class="cp_thumb" href="">
-									<img src="http://placehold.it/320x180" alt="캠핑장 썸네일">
-									<b class="cp_liked">99</b>
-								</a>
-								<a class="cp_text" href="">
-									<b class="cp_name">캠핑장명</b>
-									<span>
-										<b class="cp_loc">지역</b>
-										#해시태그 #해시태그 #해시태그
-									</span>
-								</a>
-							</li>
-							<li class="swiper-slide">
-								<a class="cp_thumb" href="">
-									<img src="http://placehold.it/320x180" alt="캠핑장 썸네일">
-									<b class="cp_liked">99</b>
-								</a>
-								<a class="cp_text" href="">
-									<b class="cp_name">캠핑장명</b>
-									<span>
-										<b class="cp_loc">지역</b>
-										#해시태그 #해시태그 #해시태그
-									</span>
-								</a>
-							</li>
-							<li class="swiper-slide">
-								<a class="cp_thumb" href="">
-									<img src="http://placehold.it/320x180" alt="캠핑장 썸네일">
-									<b class="cp_liked">99</b>
-								</a>
-								<a class="cp_text" href="">
-									<b class="cp_name">캠핑장명</b>
-									<span>
-										<b class="cp_loc">지역</b>
-										#해시태그 #해시태그 #해시태그
-									</span>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<button type="button" class="swiper-prev"><em class="snd_only">이전</em></button>
-					<button type="button" class="swiper-next"><em class="snd_only">다음</em></button>
 				</div>
 			</div>
 		</section>

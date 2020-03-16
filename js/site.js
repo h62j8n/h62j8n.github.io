@@ -337,28 +337,7 @@ function main() {
 */
 
 /* 폼 { */
-var form, input, inputT, inputR, inputC, inputF, select, textarea, label, submit;
-var value, result, required;
-
-var formTags = function() {
-	inputT = form.find('input[type=text], input[type=email], input[type=password]');
-	inputR = form.find('input[type=radio]');
-	inputC = form.find('input[type=checkbox]');
-	inputF = form.find('input[type=file]');
-	select = form.find('select');
-	textarea = form.find('textarea');
-	submit = form.find('.comm_btn.sbm[type=button]');
-};
-
-
-// 하나의 값만 받는 폼의 버튼 처리
-var submitBtnActive1 = function(value) {
-	if (value != '') {
-		submit.attr('type', 'submit');
-	} else {
-		submit.attr('type', 'button');
-	}
-}
+// 공통 폼 CSS
 function formTagCss() {
 	var inputT = $('input[type=text], input[type=email], input[type=password]');
 	var select = $('.comm_sel');
@@ -401,7 +380,22 @@ function formTagCss() {
 	// 전체선택 기능
 	inputAllChecked();
 }
-
+// 신고 폼 CSS
+function reportForm() {
+	var form = $('.comm_form'),
+		inputR = form.find('input[type=radio]'),
+		textarea = form.find('textarea');
+	var target = textarea.parent('.txt_box');
+	inputR.on('change', function() {
+		var value = $(this).val();
+		if (value == '기타') {
+			target.slideDown(250);
+			textarea.focus();
+		} else {
+			target.hide();
+		}
+	});
+}
 // 전체선택 기능
 function inputAllChecked() {
 	var form = $('.comm_form, .set_form'),
@@ -436,28 +430,7 @@ function inputAllChecked() {
 
 function formRequired() {}
 
-// 신고하기 폼 CSS + 유효성검사
-function reportForm() {
-	formTags('report_form');
-	var textBtn = 'rpReasonMore';
-	var textBox = $('.txt_box');
-	var reason = $('.report_form [name=rpReason]');
-	reason.on('change', function() {
-		value = $(this).val();
-		var id = $(this).attr('id');
-		if (id != 'rpReason10') {
-			textBox.slideUp(150);
-			textarea.val('');
-		}
-		if (id == textBtn) {
-			textBox.slideDown(150);
-			textarea.focus();
-		}
-		submitBtnActive1(value);
-	});
-}
-
-// 유저관리-캠핑장 시설안내 추가 CSS
+// 유저관리-캠핑장 시설안내 추가
 function addInputs() {
 	var field, tag,
 		num = 1;
@@ -475,20 +448,24 @@ function addInputs() {
 	});
 }
 
-// 댓글입력/채팅입력 CSS
-function shortMessage() {
-	formTags('message_form');
-	textarea.on('keydown', function(e) {
-		var scrHeight = textarea.prop('scrollHeight');
-		// textarea.css('height', scrHeight);
-		// console.log(scrHeight);
-		// console.log(e.which);
-		// if (e.which == )
+// 파일 업로드 시 파일명 출력
+function fileName() {
+	var name;
+	var inputF = $('.fl_name'),
+		label = inputF.siblings('.txt_hf');
+	var resetText = label.html();
+	inputF.on('change', function(e) {
+		var file = e.target.files;
+		if (file.length == 0) {
+			name = resetText;
+			label.addClass('plc_holder');
+		} else {
+			name = file[0].name;
+			label.removeClass('plc_holder');
+		}
+		label.html(name);
 	});
-	// textarea.keypress(function(e) {
-	// 	console.log(e.which);
-	// });
-};
+}
 
 function fileThumbnail() {
 	var file = document.getElementsByName(name);
@@ -533,8 +510,22 @@ function fileThumbnail() {
 		}
 	}
 }
-
 /* } 폼 */
+
+// 댓글입력/채팅입력 CSS
+function shortMessage() {
+	// formTags('message_form');
+	// textarea.on('keydown', function(e) {
+		// var scrHeight = textarea.prop('scrollHeight');
+		// textarea.css('height', scrHeight);
+		// console.log(scrHeight);
+		// console.log(e.which);
+		// if (e.which == )
+	// });
+	// textarea.keypress(function(e) {
+	// 	console.log(e.which);
+	// });
+};
 
 /* 캠핑장 정보 (메인, 상세) { */
 function campDetail() {

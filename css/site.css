@@ -5501,6 +5501,7 @@ img {
 }
 
 .report_wrap .rdo_list {
+  margin-top: 15px;
   padding: 25px;
   border: 1px solid #ddd;
   background: #eee;

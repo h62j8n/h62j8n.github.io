@@ -5164,7 +5164,7 @@ img {
   cursor: default;
 }
 
-.set_form table a.comm_btn, .set_form table span.comm_btn {
+.set_form table a.comm_btn {
   line-height: 28px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

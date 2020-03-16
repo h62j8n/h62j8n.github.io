@@ -79,133 +79,35 @@
 			<section class="side_area">
 				<ul class="lnb_list">
 					<li><a href="/group/profile.html">그룹 관리</a></li>
-					<li><a href="/group/user.html" class="act">그룹원 관리</a></li>
-					<li><a href="/group/req.html">가입신청 조회</a></li>
+					<li><a href="/group/user.html">그룹원 관리</a></li>
+					<li><a href="/group/req.html" class="act">가입신청 조회</a></li>
 				</ul>
 			</section>
 			<!-- } 좌측 사이드메뉴 시작 -->
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
-				<h2 class="set_tit">그룹원 관리</h2>
-				<div class="table_options">
-					<form class="search_form">
-						<input type="text" id="" name="" placeholder="이름을 입력해주세요">
-						<button type="submit"><i class="xi-search"></i></button>
-					</form>
-				</div>
+				<h2 class="set_tit">가입신청 조회</h2>
 				<form class="set_form">
-					<table class="gp us_table one">
-						<caption class="snd_only">그룹원 목록</caption>
+					<table class="gp req_table two">
+						<caption class="snd_only">가입신청 목록</caption>
 						<thead>
+							<tr>
+								<th class="w60">No</th>
+								<th>이름 (ID)</th>
+								<th class="w120">생년월일</th>
+								<th class="w60">성별</th>
+								<th class="w120">관심지역</th>
+							</tr>
 							<tr>
 								<th class="tb_chk">
 									<input type="checkbox" class="comm_chk" name="allChecked" id="festaTbl0">
 									<label for="festaTbl0"><em class="snd_only">전체선택</em></label>
 								</th>
-								<th class="w60">No</th>
-								<th>이름 (ID)</th>
-								<th class="w120">생년월일</th>
-								<th class="w60">성별</th>
-								<th class="w100">관심지역</th>
-								<th class="w120">가입일</th>
+								<th class="tb_content" colspan="4">가입 동기</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl10">
-									<label for="festaTbl10"><em class="snd_only">선택</em></label>
-								</td>
-								<td>10</td>
-								<td>
-									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
-									</p>
-								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
-								<td>2020-01-01</td>
-							</tr>
-							<tr>
-								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl9">
-									<label for="festaTbl9"><em class="snd_only">선택</em></label>
-								</td>
-								<td>9</td>
-								<td>
-									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
-									</p>
-								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
-								<td>2020-01-01</td>
-							</tr>
-							<tr>
-								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl8">
-									<label for="festaTbl8"><em class="snd_only">선택</em></label>
-								</td>
-								<td>8</td>
-								<td>
-									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
-									</p>
-								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
-								<td>2020-01-01</td>
-							</tr>
-							<tr>
-								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl7">
-									<label for="festaTbl7"><em class="snd_only">선택</em></label>
-								</td>
-								<td>7</td>
-								<td>
-									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
-									</p>
-								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
-								<td>2020-01-01</td>
-							</tr>
-							<tr>
-								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl6">
-									<label for="festaTbl6"><em class="snd_only">선택</em></label>
-								</td>
-								<td>6</td>
-								<td>
-									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
-									</p>
-								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
-								<td>2020-01-01</td>
-							</tr>
-							<tr>
-								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl5">
-									<label for="festaTbl5"><em class="snd_only">선택</em></label>
-								</td>
 								<td>5</td>
 								<td>
 									<p>
@@ -217,13 +119,17 @@
 								<td>1994-01-01</td>
 								<td>남</td>
 								<td>경기도</td>
-								<td>2020-01-01</td>
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl4">
-									<label for="festaTbl4"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl5">
+									<label for="festaTbl5"><em class="snd_only">선택</em></label>
 								</td>
+								<td class="tb_content" colspan="4">
+									가입신청 동기 또는 하고싶은 말을 입력해주세요. 가입신청 동기 또는 하고싶은 말을 입력해주세요. 가입신청 동기 또는 하고싶은 말을 입력해주세요.
+								</td>
+							</tr>
+							<tr>
 								<td>4</td>
 								<td>
 									<p>
@@ -235,13 +141,17 @@
 								<td>1994-01-01</td>
 								<td>남</td>
 								<td>경기도</td>
-								<td>2020-01-01</td>
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl3">
-									<label for="festaTbl3"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl4">
+									<label for="festaTbl4"><em class="snd_only">선택</em></label>
 								</td>
+								<td class="tb_content" colspan="4">
+									가입신청 동기 또는 하고싶은 말을 입력해주세요.
+								</td>
+							</tr>
+							<tr>
 								<td>3</td>
 								<td>
 									<p>
@@ -253,13 +163,17 @@
 								<td>1994-01-01</td>
 								<td>남</td>
 								<td>경기도</td>
-								<td>2020-01-01</td>
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl2">
-									<label for="festaTbl2"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl3">
+									<label for="festaTbl3"><em class="snd_only">선택</em></label>
 								</td>
+								<td class="tb_content" colspan="4">
+									가입신청 동기 또는 하고싶은 말을 입력해주세요.
+								</td>
+							</tr>
+							<tr>
 								<td>2</td>
 								<td>
 									<p>
@@ -271,13 +185,17 @@
 								<td>1994-01-01</td>
 								<td>남</td>
 								<td>경기도</td>
-								<td>2020-01-01</td>
 							</tr>
 							<tr>
 								<td class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="" id="festaTbl1">
-									<label for="festaTbl1"><em class="snd_only">선택</em></label>
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl2">
+									<label for="festaTbl2"><em class="snd_only">선택</em></label>
 								</td>
+								<td class="tb_content" colspan="4">
+									가입신청 동기 또는 하고싶은 말을 입력해주세요.
+								</td>
+							</tr>
+							<tr>
 								<td>1</td>
 								<td>
 									<p>
@@ -289,21 +207,34 @@
 								<td>1994-01-01</td>
 								<td>남</td>
 								<td>경기도</td>
-								<td>2020-01-01</td>
+							</tr>
+							<tr>
+								<td class="tb_chk">
+									<input type="checkbox" class="comm_chk" name="" id="festaTbl1">
+									<label for="festaTbl1"><em class="snd_only">선택</em></label>
+								</td>
+								<td class="tb_content" colspan="4">
+									가입신청 동기 또는 하고싶은 말을 입력해주세요.
+								</td>
 							</tr>
 							<!-- 빈 테이블 {
 							<tr>
-								<td colspan="7" class="fstEmpty">가입한 그룹원이 없습니다.</td>
-								<td colspan="7" class="fstEmpty">검색한 그룹원이 없습니다.</td>
+								<td colspan="5" class="fstEmpty">가입 신청 건이 없습니다.</td>
 							</tr>
 							} 빈 테이블 -->
 						</tbody>
 					</table>
-					<ul class="table_options comm_buttons_s">
-						<li><button type="submit" class="comm_btn cnc">추방</button></li>
-						<li><button type="submit" class="comm_btn">전체 추방</button></li>
-					</ul>
 				</form>
+				<div class="table_options">
+					<ul class="comm_buttons_s">
+						<li><button type="submit" class="comm_btn cnc">승인</button></li>
+						<li><button type="submit" class="comm_btn">거절</button></li>
+					</ul>
+					<ul class="comm_buttons_s">
+						<li><button type="submit" class="comm_btn cnc">전체 승인</button></li>
+						<li><button type="submit" class="comm_btn">전체 거절</button></li>
+					</ul>
+				</div>
 				<div class="fstPage">
 					<ul>
 						<li><a class="pg_start off" href=""><em class="snd_only">맨 앞으로</em></a></li>

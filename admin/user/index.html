@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:image" content="/images/ico/logo.png">
+	<script type="text/javascript" src="/js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="/js/util.js"></script>
+	<script type="text/javascript" src="/js/site.js"></script>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<link rel="stylesheet" href="/css/site.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<title>FESTA</title>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="scrX">
+			<div class="container">
+				<h1>
+					<a href="/"><em class="snd_only">FESTA</em></a>
+				</h1>
+				<ul id="gnb">
+					<li><a href="/admin/"><b>관리자</b></a></li>
+					<li><a href="/member/logout" class="btn_pop">로그아웃</a></li>
+				</ul>
+				<button type="button" id="btnTop"><em class="snd_only">맨 위로</em></button>
+			</div>
+		</div>
+	</div>
+	<!-- #관리자 -->
+	<!-- 서브페이지 시작 { -->
+	<div id="container" class="setting_wrap">
+		<!-- 관리자 상단배너 시작 { -->
+		<section class="banner_area">
+			<div class="container">
+				<dl>
+					<dt><span>관리자페이지 이용 시 주의사항</span></dt>
+					<dd>회원 징계 시 다시 한번 확인하고 처리할 것 / 모든 삭제 기능 처리 시 신중하게 처리할 것</dd>
+				</dl>
+			</div>
+		</section>
+		<!-- } 관리자 상단배너 끝 -->
+			<div class="container">
+			<!-- 좌측 사이드메뉴 시작 { -->
+			<section class="side_area">
+				<ul class="lnb_list">
+					<li><a href="/admin/">관리자 홈</a></li>
+					<li><a href="/admin/user/" class="act">회원 관리</a></li>
+					<li><a href="/admin/group/">그룹 관리</a></li>
+					<li><a href="/admin/camp/">캠핑장 관리</a></li>
+					<li><a href="/admin/venture/">사업자 계정 관리</a></li>
+					<li><a href="/admin/report/">신고 관리</a></li>
+				</ul>
+			</section>
+			<!-- } 좌측 사이드메뉴 시작 -->
+			<!-- 컨텐츠영역 시작 { -->
+			<section class="content_area">
+				<h2 class="set_tit">회원 관리</h2>
+				<div class="table_options">
+					<form class="search_form">
+						<input type="text" id="" name="" placeholder="이름을 입력해주세요">
+						<button type="submit"><i class="xi-search"></i></button>
+					</form>
+					<div class="sort_select">
+						<select class="comm_sel" id="" name="festa1">
+							<option value="">전체</option>
+							<option value="">정지 중</option>
+						</select>
+						<p class="comm_sel_label">전체</p>
+					</div>
+				</div>
+				<form class="set_form">
+					<table class="adm us_table two">
+						<caption class="snd_only">회원 목록</caption>
+						<thead>
+							<tr>
+								<th class="w60" rowspan="2">No</th>
+								<th>이름</th>
+								<th class="w120">생년월일</th>
+								<th class="w120">성별</th>
+								<th class="w100">정지 횟수</th>
+								<th class="w100" rowspan="2">관리</th>
+							</tr>
+							<tr>
+								<th>아이디</th>
+								<th>관심지역</th>
+								<th>직종</th>
+								<th>신고 횟수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td rowspan="2">5</td>
+								<td>
+									<p>
+										<a href="/admin/user/detail.html" target="_blank">김진혁</a>
+									</p>
+								</td>
+								<td>1994-01-01</td>
+								<td>남</td>
+								<td>1</td>
+								<td rowspan="2">
+									<ul class="comm_buttons_s">
+										<li><button type="button" class="comm_btn sbm">정지 중</button></li>
+										<li><button type="button" class="comm_btn btn_pop" data-content="kick_wrap">추방</button></li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td><p>user01@email.com</p></td>
+								<td>경기도</td>
+								<td></td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td rowspan="2">4</td>
+								<td>
+									<p>
+										<a href="" target="_blank">김진혁</a>
+									</p>
+								</td>
+								<td>1994-01-01</td>
+								<td>남</td>
+								<td>0</td>
+								<td rowspan="2">
+									<ul class="comm_buttons_s">
+										<li><button type="button" class="comm_btn btn_pop" data-content="stop_wrap">정지</button></li>
+										<li><button type="button" class="comm_btn btn_pop" data-content="kick_wrap">추방</button></li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td><p>user01@email.com</p></td>
+								<td>경기도</td>
+								<td></td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td rowspan="2">3</td>
+								<td>
+									<p>
+										<a href="" target="_blank">김진혁</a>
+									</p>
+								</td>
+								<td>1994-01-01</td>
+								<td>남</td>
+								<td>0</td>
+								<td rowspan="2">
+									<ul class="comm_buttons_s">
+										<li><button type="button" class="comm_btn btn_pop" data-content="stop_wrap">정지</button></li>
+										<li><button type="button" class="comm_btn btn_pop" data-content="kick_wrap">추방</button></li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td><p>user01@email.com</p></td>
+								<td>경기도</td>
+								<td></td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td rowspan="2">2</td>
+								<td>
+									<p>
+										<a href="" target="_blank">김진혁</a>
+									</p>
+								</td>
+								<td>1994-01-01</td>
+								<td>남</td>
+								<td>0</td>
+								<td rowspan="2">
+									<ul class="comm_buttons_s">
+										<li><button type="button" class="comm_btn btn_pop" data-content="stop_wrap">정지</button></li>
+										<li><button type="button" class="comm_btn btn_pop" data-content="kick_wrap">추방</button></li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td><p>user01@email.com</p></td>
+								<td>경기도</td>
+								<td></td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td rowspan="2">1</td>
+								<td>
+									<p>
+										<a href="" target="_blank">김진혁</a>
+									</p>
+								</td>
+								<td>1994-01-01</td>
+								<td>남</td>
+								<td>0</td>
+								<td rowspan="2">
+									<ul class="comm_buttons_s">
+										<li><button type="button" class="comm_btn btn_pop" data-content="stop_wrap">정지</button></li>
+										<li><button type="button" class="comm_btn btn_pop" data-content="kick_wrap">추방</button></li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td><p>user01@email.com</p></td>
+								<td>경기도</td>
+								<td></td>
+								<td>0</td>
+							</tr>
+							<!-- 빈 테이블 {
+							<tr>
+								<td colspan="6" class="fstEmpty">가입한 회원이 없습니다.</td>
+							</tr>
+							} 빈 테이블 -->
+						</tbody>
+					</table>
+				</form>
+				<div class="fstPage">
+					<ul>
+						<li><a class="pg_start off" href=""><em class="snd_only">맨 앞으로</em></a></li>
+						<li><a class="pg_prev off" href=""><em class="snd_only">이전 페이지</em></a></li>
+						<li><b>1</b></li>
+						<li><a href="">2</a></li>
+						<li><a href="">3</a></li>
+						<li><a href="">4</a></li>
+						<li><a href="">5</a></li>
+						<li><a class="pg_next" href=""><em class="snd_only">다음 페이지</em></a></li>
+						<li><a class="pg_end" href=""><em class="snd_only">맨 끝으로</em></a></li>
+					</ul>
+				</div>
+			</section>
+			<!-- } 컨텐츠영역 끝 -->
+		</div>
+	</div>
+	<!-- } 서브페이지 -->
+	<div id="footer">
+		<div class="container">
+			<div class="img_box">
+				<img src="/images/ico/logo_w.png" alt="FESTA">
+			</div>
+			<div class="text_box">
+				<p>
+					<span>경기도 성남시 분당구 느티로 2, AK와이즈플레이스</span>
+					<span>김채찍과노예들</span>
+					<span>사업자등록번호 : 123-45-67890</span>
+				</p>
+				<p>
+					<span>통신판매신고번호 : 제 2020-서울강남-0000</span>
+					<span>대표번호 : 010-3332-8616</span>
+					<span>담당자 : 김덕수</span>
+					<span>문의 : 010-3332-8616</span>
+				</p>
+				<p>&copy; DEOKSOORR. All RIGHTS RESERVED.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- #팝업 정지하기 { -->
+<div class="fstPop">
+	<div class="stop_wrap pop_wrap">
+		<h4 class="pop_tit">해당 회원의 페스타 이용을 정지하시겠습니까?</h4>
+		<form>
+			<dl class="rdo_list">
+				<dt>정지 기간</dt>
+				<dd>
+					<input type="radio" class="comm_rdo" id="festaSt1" name="festaStop1" value="3">
+					<label for="festaSt1">3일</label>
+				</dd>
+				<dd>
+					<input type="radio" class="comm_rdo" id="festaSt2" name="festaStop1" value="7">
+					<label for="festaSt2">7일</label>
+				</dd>
+				<dd>
+					<input type="radio" class="comm_rdo" id="festaSt3" name="festaStop1" value="15">
+					<label for="festaSt3">15일</label>
+				</dd>
+				<dd>
+					<input type="radio" class="comm_rdo" id="festaSt4" name="festaStop1" value="30">
+					<label for="festaSt4">30일</label>
+				</dd>
+				<dd>
+					<input type="radio" class="comm_rdo" id="festaSt5" name="festaStop1" value="90">
+					<label for="festaSt5">90일</label>
+				</dd>
+			</dl>
+			<dl class="txt_box">
+				<dt>정지 사유</dt>
+				<dd>
+					<textarea id="" name=""></textarea>
+				</dd>
+			</dl>
+			<div class="btn_box">
+				<p>회원 제재 시 신중히 확인 바랍니다.</p>
+				<ul class="comm_buttons">
+					<li><button type="button" class="btn_close comm_btn cnc">닫기</button></li>
+					<li><button type="button" class="btn_pop comm_btn sbm" data-content="confirm_wrap">정지하기</button></li>
+				</ul>
+			</div>
+		</form>
+	</div>
+	<button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>
+</div>
+<!-- } #팝업 정지하기 -->
+<!-- #팝업 추방하기 { -->
+<div class="fstPop">
+	<div class="kick_wrap pop_wrap">
+		<h4 class="pop_tit">해당 회원을 영구적으로 추방하시겠습니까?</h4>
+		<form>
+			<dl class="txt_box">
+				<dt>추방 사유</dt>
+				<dd>
+					<textarea id="" name=""></textarea>
+				</dd>
+			</dl>
+			<div class="btn_box">
+				<p>회원 제재 시 신중히 확인 바랍니다.</p>
+				<ul class="comm_buttons">
+					<li><button type="button" class="btn_close comm_btn cnc">닫기</button></li>
+					<li><button type="button" class="btn_pop comm_btn sbm" data-content="confirm_wrap">추방하기</button></li>
+				</ul>
+			</div>
+		</form>
+	</div>
+	<button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>
+</div>
+<!-- } #팝업 추방하기 -->
+<!-- #팝업 처리완료 { -->
+<div class="fstPop">
+	<div class="confirm_wrap pop_wrap">
+		<p class="pop_tit">처리가 완료되었습니다.</p>
+		<ul class="comm_buttons">
+			<li><button type="button" class="btn_close comm_btn cfm">확인</button></li>
+		</ul>
+	</div>
+</div>
+<!-- } #팝업 처리완료 -->
+</body>
+</html>

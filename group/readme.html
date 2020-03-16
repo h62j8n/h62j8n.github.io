@@ -41,29 +41,33 @@
 		<!-- 프로필영역 시작 { -->
 		<section class="profile_area">
 			<div class="container">
-				<dl class="info_box gp">
-					<dt class="pf_tit">
-						<b class="pf_name">입돌아간다</b>
-						<!-- 캠핑장 공식그룹일 경우 { -->
-						<span class="gp_official"></span>
-						<!-- } 캠핑장 공식그룹일 경우 -->
-						<a href="/common/report" class="pf_opt btn_pop btn_report"><em class="snd_only">신고하기</em></a>
-					</dt>
-					<dd class="pf_intro">안녕하세요 ㅇㅇㅇ입니다. 그룹 소개글을 입력해주세요. 그룹 소개글을 입력해주세요.</dd>
-					<dd class="pf_hashtag">
-						<a href="">해시태그</a>
-						<a href="">해시태그</a>
-						<a href="">해시태그</a>
-					</dd>
-					<dd class="gp_list">
-						<span>그룹장 : 고재현</span>
-						<a class="btn_pop btn_member" href="/group/member">멤버 : 33명</a>
-						<span>개설일 : 2020년 02월 03일</span>
-					</dd>
-					<dd class="pf_picture">
-						<img src="http://placehold.it/120x120" alt="입돌아간다 그룹 썸네일">
-					</dd>
-				</dl>
+				<div class="info_box">
+					<dl>
+						<dt class="pf_tit">
+							<b class="pf_name">입돌아간다</b>
+							<!-- 캠핑장 공식그룹일 경우 { -->
+							<span class="gp_official"></span>
+							<!-- } 캠핑장 공식그룹일 경우 -->
+							<!-- 그룹페이지일 경우 신고하기 { -->
+							<a href="/common/report" class="pf_opt btn_pop btn_report"><em class="snd_only">신고하기</em></a>
+							<!-- } 그룹페이지일 경우 신고하기 -->
+						</dt>
+						<dd class="pf_intro">안녕하세요 ㅇㅇㅇ입니다. 그룹 소개글을 입력해주세요. 그룹 소개글을 입력해주세요.</dd>
+						<dd class="pf_hashtag">
+							<a href="">해시태그</a>
+							<a href="">해시태그</a>
+							<a href="">해시태그</a>
+						</dd>
+						<dd class="gp_list">
+							<span>그룹장 : 고재현</span>
+							<a class="btn_pop btn_member" href="/group/member">멤버 : 33명</a>
+							<span>개설일 : 2020년 02월 03일</span>
+						</dd>
+						<dd class="pf_picture">
+							<img src="http://placehold.it/120x120" alt="입돌아간다 그룹 썸네일">
+						</dd>
+					</dl>
+				</div>
 			</div>
 		</section>
 		<!-- } 프로필영역 끝 -->
@@ -79,7 +83,7 @@
 							<dd>안녕하세요. ㅇㅇㅇ입니다. 그룹 소개글을 입력해주세요. 그룹 소개글을 입력해주세요.</dd>
 						</dl>
 						<ul class="comm_buttons">
-							<li><a href="/group/join" class="btn_pop comm_btn">가입 신청하기</a></li>
+							<li><button class="btn_pop comm_btn cfm" data-layer="gpJoin">가입 신청하기</button>
 						</ul>
 					</div>
 				</div>
@@ -179,7 +183,34 @@
 		</div>
 	</div>
 </div>
-
+<!-- #팝업 그룹 가입신청 { -->
+<div id="gpJoin" class="fstPop">
+	<div class="gp_join_wrap pop_wrap">
+		<h4 class="pop_tit">페스타 개인정보 제 3자 제공 동의</h4>
+		<div class="info_box">
+			<p>이 서비스는 아래 개인정보를 요청합니다.</p>
+			<ul>
+				<li>제공받는 자 : 그룹장</li>
+				<li>제공받는 정보 : 프로필 정보(이름, 관심지역,  프로필 사진, 성별)</li>
+				<li>제공받는 목적 : 그룹 서비스 제공</li>
+				<li>보유기간 : 해당 그룹 탈퇴 시 지체없이 파기</li>
+			</ul>
+		</div>
+		<form class="comm_form">
+			<div class="ip_box">
+				<input type="text" id="festa1" name="" required="required">
+				<label for="festa1" class="comm_label"><span>(필수)</span> <span>가입신청 동기 또는 </span>하고싶은 말<span>을 입력해주세요.</span></label>
+			</div>
+			<div class="btn_box">
+				<ul class="comm_buttons">
+					<li><button type="button" class="btn_close comm_btn cnc">닫기</button></li>
+					<li><button type="button" class="comm_btn sbm">신청하기</button></li>
+				</ul>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- } #팝업 그룹 가입신청 -->
 <script type="text/javascript">
 	feedType('feed_viewer');
 	fileThumbnail();

@@ -20,94 +20,74 @@
 				<h1>
 					<a href="/"><em class="snd_only">FESTA</em></a>
 				</h1>
-				<form class="search_box">
-					<input type="text" placeholder="캠핑장 또는 그룹을 검색해보세요!">
-					<button type="submit"><img src="/images/ico/btn_search.png" alt="검색"></button>
-				</form>
 				<ul id="gnb">
-					<li><a href="/camp/">캠핑정보</a></li>
-					<li><a href="/hot/">인기피드</a></li>
-					<li><a href="/news/">뉴스피드</a></li>
-					<li><a href="/member/login" class="btn_pop">로그인</a></li>
+					<li><a href="/admin/"><b>관리자</b></a></li>
+					<li><a href="/member/logout" class="btn_pop">로그아웃</a></li>
 				</ul>
 				<button type="button" id="btnTop"><em class="snd_only">맨 위로</em></button>
 			</div>
 		</div>
 	</div>
-	<!-- #그룹 관리 -->
+	<!-- #관리자 -->
 	<!-- 서브페이지 시작 { -->
 	<div id="container" class="setting_wrap">
-		<!-- 프로필영역 시작 { -->
-		<section class="profile_area">
+		<!-- 관리자 상단배너 시작 { -->
+		<section class="banner_area">
 			<div class="container">
-				<div class="info_box">
-					<dl>
-						<dt class="pf_tit">
-							<b class="pf_name">입돌아간다</b>
-							<!-- 캠핑장 공식그룹일 경우 { -->
-							<span class="gp_official"></span>
-							<!-- } 캠핑장 공식그룹일 경우 -->
-							<!-- 그룹장일 경우 톱니바퀴 버튼 { -->
-							<a class="pf_opt go_settings" href="/group/profile.html"><em class="snd_only">설정</em></a>
-							<!-- } 그룹장일 경우 톱니바퀴 버튼 -->
-						</dt>
-						<dd class="pf_intro">안녕하세요 ㅇㅇㅇ입니다. 그룹 소개글을 입력해주세요. 그룹 소개글을 입력해주세요.</dd>
-						<dd class="pf_hashtag">
-							<a href="">해시태그</a>
-							<a href="">해시태그</a>
-							<a href="">해시태그</a>
-						</dd>
-						<dd class="gp_list">
-							<span>그룹장 : 고재현</span>
-							<a class="btn_pop btn_member" href="/group/member">멤버 : 33명</a>
-							<span>개설일 : 2020년 02월 03일</span>
-							<a class="btn_pop btn_out" href="/group/out">탈퇴</a>
-						</dd>
-						<dd class="pf_picture">
-							<img src="http://placehold.it/120x120" alt="입돌아간다 그룹 썸네일">
-						</dd>
-					</dl>
-				</div>
-				<p class="social_btns">
-					<button type="button" class="btn_chat">그룹채팅</button>
-				</p>
+				<dl>
+					<dt><span>관리자페이지 이용 시 주의사항</span></dt>
+					<dd>회원 징계 시 다시 한번 확인하고 처리할 것 / 모든 삭제 기능 처리 시 신중하게 처리할 것</dd>
+				</dl>
 			</div>
 		</section>
-		<!-- } 프로필영역 끝 -->
-		<div class="container">
+		<!-- } 관리자 상단배너 끝 -->
+			<div class="container">
 			<!-- 좌측 사이드메뉴 시작 { -->
 			<section class="side_area">
 				<ul class="lnb_list">
-					<li><a href="/group/profile.html">그룹 관리</a></li>
-					<li><a href="/group/user.html" class="act">그룹원 관리</a></li>
-					<li><a href="/group/req.html">가입신청 조회</a></li>
+					<li><a href="/admin/">관리자 홈</a></li>
+					<li><a href="/admin/user/">회원 관리</a></li>
+					<li><a href="/admin/group/">그룹 관리</a></li>
+					<li><a href="/admin/camp/">캠핑장 관리</a></li>
+					<li>
+						<a href="/admin/venture/" class="act">사업자 계정 관리</a>
+						<ul>
+							<li><a href="/admin/venture/" class="act">사업자계정 관리</a></li>
+							<li><a href="/admin/venture/req.html">사업자계정 신청 조회</a></li>
+						</ul>
+					</li>
+					<li><a href="/admin/report/">신고 관리</a></li>
 				</ul>
 			</section>
 			<!-- } 좌측 사이드메뉴 시작 -->
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
-				<h2 class="set_tit">그룹원 관리</h2>
+				<h2 class="set_tit">사업자계정 관리</h2>
 				<div class="table_options">
 					<form class="search_form">
-						<input type="text" id="" name="" placeholder="이름을 입력해주세요">
+						<select class="comm_sel" id="" name="festa1">
+							<option value="">캠핑장명</option>
+							<option value="">사업자등록번호</option>
+						</select>
+						<p class="comm_sel_label">캠핑장명</p>
+						<input type="text" id="" name="" placeholder="검색어를 입력해주세요">
 						<button type="submit"><i class="xi-search"></i></button>
 					</form>
 				</div>
 				<form class="set_form">
-					<table class="gp us_table one">
-						<caption class="snd_only">그룹원 목록</caption>
+					<table class="adm vt_table one">
+						<caption class="snd_only">사업자계정 목록</caption>
 						<thead>
 							<tr>
 								<th class="tb_chk">
-									<input type="checkbox" class="comm_chk" name="allChecked" id="festaTbl0">
-									<label for="festaTbl0"><em class="snd_only">전체선택</em></label>
+									<input type="checkbox" class="comm_chk" name="allChecked" id="allChecked">
+									<label for="allChecked"><em class="snd_only">전체선택</em></label>
 								</th>
 								<th class="w60">No</th>
-								<th>이름 (ID)</th>
-								<th class="w120">생년월일</th>
-								<th class="w60">성별</th>
-								<th class="w100">관심지역</th>
-								<th class="w120">가입일</th>
+								<th class="w120">사업자 등록번호</th>
+								<th>캠핑장명</th>
+								<th class="w100">대표자</th>
+								<th class="w120">등록일</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -117,16 +97,13 @@
 									<label for="festaTbl10"><em class="snd_only">선택</em></label>
 								</td>
 								<td>10</td>
+								<td><button type="button" class="btn_pop">123-45-67890</button></td>
 								<td>
 									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
+										<a href="/admin/camp/detail.html" target="_blank">입돌아간다</a>
 									</p>
 								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
+								<td>고재현</td>
 								<td>2020-01-01</td>
 							</tr>
 							<tr>
@@ -135,16 +112,13 @@
 									<label for="festaTbl9"><em class="snd_only">선택</em></label>
 								</td>
 								<td>9</td>
+								<td><button type="button" class="btn_pop">123-45-67890</button></td>
 								<td>
 									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
+										<a href="" target="_blank">입돌아간다</a>
 									</p>
 								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
+								<td>고재현</td>
 								<td>2020-01-01</td>
 							</tr>
 							<tr>
@@ -153,16 +127,13 @@
 									<label for="festaTbl8"><em class="snd_only">선택</em></label>
 								</td>
 								<td>8</td>
+								<td><button type="button" class="btn_pop">123-45-67890</button></td>
 								<td>
 									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
+										<a href="" target="_blank">입돌아간다</a>
 									</p>
 								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
+								<td>고재현</td>
 								<td>2020-01-01</td>
 							</tr>
 							<tr>
@@ -171,16 +142,13 @@
 									<label for="festaTbl7"><em class="snd_only">선택</em></label>
 								</td>
 								<td>7</td>
+								<td><button type="button" class="btn_pop">123-45-67890</button></td>
 								<td>
 									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
+										<a href="" target="_blank">입돌아간다</a>
 									</p>
 								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
+								<td>고재현</td>
 								<td>2020-01-01</td>
 							</tr>
 							<tr>
@@ -189,16 +157,13 @@
 									<label for="festaTbl6"><em class="snd_only">선택</em></label>
 								</td>
 								<td>6</td>
+								<td><button type="button" class="btn_pop">123-45-67890</button></td>
 								<td>
 									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
+										<a href="" target="_blank">입돌아간다</a>
 									</p>
 								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
+								<td>고재현</td>
 								<td>2020-01-01</td>
 							</tr>
 							<tr>
@@ -207,16 +172,13 @@
 									<label for="festaTbl5"><em class="snd_only">선택</em></label>
 								</td>
 								<td>5</td>
+								<td><button type="button" class="btn_pop">123-45-67890</button></td>
 								<td>
 									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
+										<a href="" target="_blank">입돌아간다</a>
 									</p>
 								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
+								<td>고재현</td>
 								<td>2020-01-01</td>
 							</tr>
 							<tr>
@@ -225,16 +187,13 @@
 									<label for="festaTbl4"><em class="snd_only">선택</em></label>
 								</td>
 								<td>4</td>
+								<td><button type="button" class="btn_pop">123-45-67890</button></td>
 								<td>
 									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
+										<a href="" target="_blank">입돌아간다</a>
 									</p>
 								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
+								<td>고재현</td>
 								<td>2020-01-01</td>
 							</tr>
 							<tr>
@@ -243,16 +202,13 @@
 									<label for="festaTbl3"><em class="snd_only">선택</em></label>
 								</td>
 								<td>3</td>
+								<td><button type="button" class="btn_pop">123-45-67890</button></td>
 								<td>
 									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
+										<a href="" target="_blank">입돌아간다</a>
 									</p>
 								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
+								<td>고재현</td>
 								<td>2020-01-01</td>
 							</tr>
 							<tr>
@@ -261,16 +217,13 @@
 									<label for="festaTbl2"><em class="snd_only">선택</em></label>
 								</td>
 								<td>2</td>
+								<td><button type="button" class="btn_pop">123-45-67890</button></td>
 								<td>
 									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
+										<a href="" target="_blank">입돌아간다</a>
 									</p>
 								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
+								<td>고재현</td>
 								<td>2020-01-01</td>
 							</tr>
 							<tr>
@@ -279,30 +232,27 @@
 									<label for="festaTbl1"><em class="snd_only">선택</em></label>
 								</td>
 								<td>1</td>
+								<td><button type="button" class="btn_pop">123-45-67890</button></td>
 								<td>
 									<p>
-										<a href="" target="_blank">
-											김진혁 (user01@email.com)
-										</a>
+										<a href="" target="_blank">입돌아간다</a>
 									</p>
 								</td>
-								<td>1994-01-01</td>
-								<td>남</td>
-								<td>경기도</td>
+								<td>고재현</td>
 								<td>2020-01-01</td>
 							</tr>
 							<!-- 빈 테이블 {
 							<tr>
-								<td colspan="7" class="fstEmpty">가입한 그룹원이 없습니다.</td>
-								<td colspan="7" class="fstEmpty">검색한 그룹원이 없습니다.</td>
+								<td colspan="6" class="fstEmpty">등록된 캠핑장이 없습니다.</td>
 							</tr>
 							} 빈 테이블 -->
 						</tbody>
 					</table>
-					<ul class="table_options comm_buttons_s">
-						<li><button type="submit" class="comm_btn cnc">추방</button></li>
-						<li><button type="submit" class="comm_btn">전체 추방</button></li>
-					</ul>
+					<div class="table_options">
+						<ul class="comm_buttons_s">
+							<li><button type="button" class="comm_btn btn_pop" data-content="del_wrap">삭제</button></li>
+						</ul>
+					</div>
 				</form>
 				<div class="fstPage">
 					<ul>
@@ -344,6 +294,29 @@
 		</div>
 	</div>
 </div>
-
+<!-- #팝업 삭제하기 { -->
+<div class="fstPop">
+	<div class="del_wrap pop_wrap">
+		<h4 class="pop_tit">선택하신 사업자 계정을 삭제하시겠습니까?</h4>
+		<form>
+			<ul class="comm_buttons">
+				<li><button type="button" class="btn_close comm_btn cnc">닫기</button></li>
+				<li><button type="button" class="btn_pop comm_btn sbm" data-content="confirm_wrap">삭제하기</button></li>
+			</ul>
+		</form>
+	</div>
+	<button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>
+</div>
+<!-- } #팝업 삭제하기 -->
+<!-- #팝업 처리완료 { -->
+<div class="fstPop">
+	<div class="confirm_wrap pop_wrap">
+		<p class="pop_tit">처리가 완료되었습니다.</p>
+		<ul class="comm_buttons">
+			<li><button type="button" class="btn_close comm_btn cfm">확인</button></li>
+		</ul>
+	</div>
+</div>
+<!-- } #팝업 처리완료 -->
 </body>
 </html>

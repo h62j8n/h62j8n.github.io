@@ -20,129 +20,48 @@
 				<h1>
 					<a href="/"><em class="snd_only">FESTA</em></a>
 				</h1>
-				<form class="search_box">
-					<input type="text" placeholder="캠핑장 또는 그룹을 검색해보세요!">
-					<button type="submit"><img src="/images/ico/btn_search.png" alt="검색"></button>
-				</form>
 				<ul id="gnb">
-					<li><a href="/camp/">캠핑정보</a></li>
-					<li><a href="/hot/">인기피드</a></li>
-					<li><a href="/news/">뉴스피드</a></li>
-					<li><a href="/member/login" class="btn_pop">로그인</a></li>
+					<li><a href="/admin/"><b>관리자</b></a></li>
+					<li><a href="/member/logout" class="btn_pop">로그아웃</a></li>
 				</ul>
 				<button type="button" id="btnTop"><em class="snd_only">맨 위로</em></button>
 			</div>
 		</div>
 	</div>
-	<!-- #그룹 홈 (가입한 회원) -->
+	<!-- #유저 홈 -->
 	<!-- 서브페이지 시작 { -->
 	<div id="container" class="home_wrap">
-		<h2 class="snd_only">입돌아간다 그룹 홈</h2>
+		<h2 class="snd_only">김덕수 님의 계정 홈</h2>
 		<!-- 프로필영역 시작 { -->
 		<section class="profile_area">
-			<div class="container">
+			<div class="container w720">
 				<div class="info_box">
 					<dl>
 						<dt class="pf_tit">
-							<b class="pf_name">입돌아간다</b>
-							<!-- 캠핑장 공식그룹일 경우 { -->
-							<span class="gp_official"></span>
-							<!-- } 캠핑장 공식그룹일 경우 -->
-							<!-- 그룹장일 경우 톱니바퀴 버튼 {
-							<a class="pf_opt go_settings" href="/group/profile.html"><em class="snd_only">설정</em></a>
-							} 그룹장일 경우 톱니바퀴 버튼 -->
-							<!-- 그룹페이지일 경우 신고하기 { -->
-							<a href="/common/report" class="pf_opt btn_pop btn_report"><em class="snd_only">신고하기</em></a>
-							<!-- } 그룹페이지일 경우 신고하기 -->
+							<b class="pf_name">김덕수</b>
 						</dt>
-						<dd class="pf_intro">안녕하세요 ㅇㅇㅇ입니다. 그룹 소개글을 입력해주세요. 그룹 소개글을 입력해주세요.</dd>
+						<dd class="pf_intro">나는 정자동 어둠의 빵쟁이다</dd>
 						<dd class="pf_hashtag">
-							<a href="">해시태그</a>
-							<a href="">해시태그</a>
-							<a href="">해시태그</a>
-						</dd>
-						<dd class="gp_list">
-							<span>그룹장 : 고재현</span>
-							<a class="btn_pop btn_member" href="/group/member">멤버 : 33명</a>
-							<span>개설일 : 2020년 02월 03일</span>
-							<a class="btn_pop btn_out" href="/group/out">탈퇴</a>
+							<a href="">경기도</a>
 						</dd>
 						<dd class="pf_picture">
-							<img src="http://placehold.it/120x120" alt="입돌아간다 그룹 썸네일">
+							<img src="http://placehold.it/120x120" alt="김덕수님의 프로필 썸네일">
 						</dd>
 					</dl>
 				</div>
-				<p class="social_btns">
-					<button type="button" class="btn_chat">그룹채팅</button>
-				</p>
+				<div class="cnt_list">
+					<ul>
+						<li>피드<b>102</b></li>
+						<li>팔로워<a class="btn_pop" href="/user/follower">50</a></li>
+						<li>팔로우<a class="btn_pop" href="/user/following">9</a></li>
+					</ul>
+				</div>
 			</div>
 		</section>
 		<!-- } 프로필영역 끝 -->
-		<div class="container">
+		<div class="container w720">
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
-				<!-- #공지사항 시작 {  -->
-				<div class="feed_notice">
-					<h3>공지사항</h3>
-					<ul>
-						<li><a class="btn_pop" href="/common/feed">공지사항을 입력해주세요. 공지사항을 입력해주세요. 공지사항을 입력해주세요. 공지사항을 입력해주세요. 공지사항을 입력해주세요.</a></li>
-						<li><a class="btn_pop" href="/common/feed">공지사항을 입력해주세요.</a></li>
-						<li><a class="btn_pop" href="/common/feed">공지사항을 입력해주세요.</a></li>
-						<li><a class="btn_pop" href="/common/feed">공지사항을 입력해주세요.</a></li>
-						<li><a class="btn_pop" href="/common/feed">공지사항을 입력해주세요.</a></li>
-						<!-- 공지사항이 없을 경우 {
-						<li class="fstEmpty">등록된 공지사항이 없습니다.</li>
-						} 공지사항이 없을 경우 -->
-					</ul>
-				</div>
-				<!-- } #공지사항 끝 -->
-				<!-- #피드만들기 시작 { -->
-				<div class="feed_maker">
-					<h3>피드 만들기</h3>
-					<form class="maker_form">
-						<p class="mk_noti">
-							<input type="checkbox" class="comm_chk" id="festaNt" name="">
-							<label for="festaNt">공지</label>
-						</p>
-						<div class="mk_cont box">
-							<p class="pf_picture">
-								<img src="http://placehold.it/55x55" alt="김덕수님의 프로필 썸네일">
-							</p>
-							<textarea id="" name="" placeholder="김덕수 님, 무슨 생각을 하고 계신가요?"></textarea>
-						</div>
-						<div class="file_thumbnail mk_thumb box">
-							<ul>
-								<!-- <li>
-									<input type="file" id="festaFl3" name="festaFiles" accept="video/*, image/*" multiple="multiple">
-									<label for="festaFl3" class="btn_file"><em class="snd_only">사진/동영상 업로드하기</em></label>
-									<img src="http://placehold.it/80x80" alt="">
-									<button class="btn_cancle" type="button"><em class="snd_only">업로드 취소하기</em></button>
-								</li> -->
-								<li>
-									<input type="file" id="festaFl2" name="festaFiles" accept="video/*, image/*" multiple="multiple">
-									<label for="festaFl2" class="btn_file"><em class="snd_only">사진/동영상 업로드하기</em></label>
-								</li>
-							</ul>
-						</div>
-						<div class="mk_bottom box">
-							<ul class="mk_tags">
-								<li><input type="text" id="" name=""></li>
-								<li><input type="text" id="" name=""></li>
-								<li><input type="text" id="" name=""></li>
-							</ul>
-							<ul class="mk_btns">
-								<li>
-									<input type="file" id="festaFl1" name="festafiles" accept="video/*, image/*" multiple="multiple">
-									<label for="festaFl1" class="btn_file"><em class="snd_only">사진/동영상 업로드하기</em></label>
-								</li>
-								<li>
-									<button type="submit" class="btn_send"><em class="snd_only">피드 게시하기</em></button>
-								</li>
-							</ul>
-						</div>
-					</form>
-				</div>
-				<!-- } #피드만들기 끝 -->
 				<!-- #텍스트+썸네일 피드 시작 { -->
 				<div class="feed_viewer">
 					<div class="tit box">
@@ -162,9 +81,6 @@
 							</dd>
 						</dl>
 						<ul class="feed_options">
-							<li><button class="btn_liked act"><em class="snd_only">하트</em></button></li>
-							<li><a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a></li>
-							<li><a href="/common/maker" class="btn_pop btn_edit"><em class="snd_only">수정하기</em></a></li>
 							<li><button class="btn_delete"><em class="snd_only">삭제하기</em></button></li>
 						</ul>
 					</div>
@@ -254,9 +170,6 @@
 							</dd>
 						</dl>
 						<ul class="feed_options">
-							<li><button class="btn_liked act"><em class="snd_only">하트</em></button></li>
-							<li><a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a></li>
-							<li><a href="/common/maker" class="btn_pop btn_edit"><em class="snd_only">수정하기</em></a></li>
 							<li><button class="btn_delete"><em class="snd_only">삭제하기</em></button></li>
 						</ul>
 					</div>
@@ -311,74 +224,6 @@
 				<!-- } #텍스트 피드 끝 -->
 			</section>
 			<!-- } 컨텐츠영역 끝 -->
-			<!-- 우측 사이드영역 시작 { -->
-			<section class="side_area">
-				<div class="rcmm_list">
-					<h3><em class="snd_only">추천그룹 목록</em>나홀로 캠핑이 심심하신가요?</h3>
-					<ul>
-						<li>
-							<a class="rc_thumb" href="">
-								<img src="http://placehold.it/55x55" alt="입돌아간다 그룹 썸네일">
-							</a>
-							<a class="rc_text" href="">
-								<b class="rc_name">입돌아간다</b>
-								<span class="rc_intro">안녕하세요 ㅇㅇㅇ입니다. 안녕하세요</span>
-							</a>
-						</li>
-						<li>
-							<a class="rc_thumb" href="">
-								<img src="http://placehold.it/55x55" alt="그룹 썸네일">
-							</a>
-							<a class="rc_text" href="">
-								<b class="rc_name">그룹</b>
-								<span class="rc_intro">그룹 소개글을 작성해주세요.</span>
-							</a>
-						</li>
-						<li>
-							<a class="rc_thumb" href="">
-								<img src="http://placehold.it/55x55" alt="그룹 썸네일">
-							</a>
-							<a class="rc_text" href="">
-								<b class="rc_name">그룹</b>
-								<span class="rc_intro">그룹 소개글을 작성해주세요.</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="rcmm_list">
-					<h3><em class="snd_only">추천캠핑장 목록</em>이 캠핑장에도 가보셨나요?</h3>
-					<ul>
-						<li>
-							<a class="rc_thumb" href="">
-								<img src="http://placehold.it/55x55" alt="바다애캠핑장 썸네일">
-							</a>
-							<a class="rc_text" href="">
-								<b class="rc_name">바다애캠핑장</b>
-								<span class="rc_hashtag">경기도</span>
-							</a>
-						</li>
-						<li>
-							<a class="rc_thumb" href="">
-								<img src="http://placehold.it/55x55" alt="캠핑장 썸네일">
-							</a>
-							<a class="rc_text" href="">
-								<b class="rc_name">캠핑장</b>
-								<span class="rc_hashtag">경기도</span>
-							</a>
-						</li>
-						<li>
-							<a class="rc_thumb" href="">
-								<img src="http://placehold.it/55x55" alt="캠핑장 썸네일">
-							</a>
-							<a class="rc_text" href="">
-								<b class="rc_name">캠핑장</b>
-								<span class="rc_hashtag">경기도</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<!-- } 우측 사이드영역 끝 -->
 		</div>
 	</div>
 	<!-- } 서브페이지 -->

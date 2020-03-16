@@ -147,10 +147,10 @@ function btnPop(button) {
 		console.log(layerCnt);
 		var url = $(this).attr('href');
 		if (url == undefined) {
-			var content = $(this).data('content');
-			layer = $('.'+content).parent('.fstPop');
-			layer.addClass('pop'+layerCnt);
 			// <button>태그 (내부 컨텐츠)
+			var layer = $(this).data('layer');
+			layer = $('#'+layer);
+			layer.addClass('pop'+layerCnt);
 			layer.bPopup({
 				positionStyle: 'fixed',
 				closeClass: 'btn_close',
@@ -189,10 +189,10 @@ function btnPop(button) {
 /* } #레이어 팝업 */
 
 // #하트 CSS
-function btnLiked() {
-	$('.btn_liked').on('click', function() {
-		var liked = $(this).hasClass('act');
-		if (liked) {
+function btnToggle(target) {
+	$('.'+target).on('click', function() {
+		var active = $(this).hasClass('act');
+		if (active) {
 			$(this).removeClass('act');
 		} else {
 			$(this).addClass('act');
@@ -207,6 +207,21 @@ function btnFollow() {
 			$(this).removeClass('act').text('팔로우');
 		} else {
 			$(this).addClass('act').text('팔로잉');
+		}
+	});
+}
+
+// #로그인 CSS
+function loginMove() {
+	var section = $('.login_wrap section');
+	$('.btn_move').on('click', function() {
+		section.removeClass('act');
+
+		var layer = $(this).data('layer');
+		if (layer == undefined) {
+			$('#log1').addClass('act');
+		} else {
+			$('#'+layer).addClass('act');
 		}
 	});
 }
@@ -254,8 +269,13 @@ $(document).ready(function() {
 		myList();
 	});
 
+	formTagCss();
+	formRequired();
+
 	// 하트 CSS
-	btnLiked();
+	btnToggle('btn_liked');
+	// 북마크 CSS
+	btnToggle('btn_bookmark');
 	// 팔로잉 CSS
 	btnFollow();
 });
@@ -321,8 +341,7 @@ function main() {
 var form, input, inputT, inputR, inputC, inputF, select, textarea, label, submit;
 var value, result, required;
 
-var formTags = function(formTag) {
-	form = $('.'+formTag);
+var formTags = function() {
 	inputT = form.find('input[type=text], input[type=email], input[type=password]');
 	inputR = form.find('input[type=radio]');
 	inputC = form.find('input[type=checkbox]');
@@ -332,18 +351,7 @@ var formTags = function(formTag) {
 	submit = form.find('.comm_btn.sbm[type=button]');
 };
 
-var labelSet = function(target, value) {
-	label = target.siblings('.comm_label');
-	if (value == '') {
-		label.removeClass('size_s');
-	} else {
-		label.addClass('size_s');
-	}
-}
-var selectCss = function(target, value) {
-	var println = target.siblings('.comm_sel_label');
-	println.text(value);
-}
+
 // 하나의 값만 받는 폼의 버튼 처리
 var submitBtnActive1 = function(value) {
 	if (value != '') {
@@ -352,32 +360,83 @@ var submitBtnActive1 = function(value) {
 		submit.attr('type', 'button');
 	}
 }
-// 회원가입 폼 CSS
-function joinFormCss() {
-	formTags('comm_form');
+function formTagCss() {
+	var inputT = $('input[type=text], input[type=email], input[type=password]');
+	var select = $('.comm_sel');
 	
+	var labelSet = function(target, value) {
+		label = target.siblings('.comm_label');
+		if (value == '') {
+			label.removeClass('size_s');
+		} else {
+			label.addClass('size_s');
+		}
+	}
+	var selectCss = function(target, value) {
+		var name = target.attr('name');
+		var label = target.siblings('.comm_sel_label');
+		if (value == '') {
+			value = $('select[name='+name+'] option:selected').text();
+		}
+		label.text(value);
+	}
+
+	// 작은라벨 CSS
 	inputT.on('change', function() {
 		value = $(this).val();
 		labelSet($(this), value);
+	});
+
+	// 셀렉박스 CSS
+	select.each(function() {
+		value = $(this).val();
+		labelSet($(this), value);
+		selectCss($(this), value);
 	});
 	select.on('change', function() {
 		value = $(this).val();
 		labelSet($(this), value);
 		selectCss($(this), value);
 	});
+
+	// 전체선택 기능
+	inputAllChecked();
 }
-// 그룹가입 폼 CSS + 유효성검사
-function groupForm() {
-	formTags('comm_form');
-	
-	inputT.on('change', function() {
-		value = $(this).val();
-		labelSet($(this), value);
+
+// 전체선택 기능
+function inputAllChecked() {
+	var form = $('.comm_form, .set_form'),
+		inputChk = form.find('input[type=checkbox]'),
+		inputAll = form.find('input[name=allChecked]');
+	var chkSize = inputChk.length - 1,
+		chkTrue = 0;
+	inputChk.on('change', function() {
+		var name = $(this).attr('name');
+		var checked = $(this).prop('checked');
+		if (name == 'allChecked') {
+			if (checked) {
+				inputChk.prop('checked', true);
+			} else {
+				inputChk.prop('checked', false);
+			}
+		} else {
+			if (checked) {
+				chkTrue++;
+			} else {
+				chkTrue--;
+			}
+			if (chkTrue == chkSize) {
+				inputAll.prop('checked', true);
+			} else {
+				inputAll.prop('checked', false);
+			}
+		}
 	});
-	inputT.on('focusout', function() {
-		submitBtnActive1($(this), value);
-	});
+
 }
+
+function formRequired() {}
+
 // 신고하기 폼 CSS + 유효성검사
 function reportForm() {
 	formTags('report_form');
@@ -398,16 +457,8 @@ function reportForm() {
 		submitBtnActive1(value);
 	});
 }
-// 톱니바퀴 폼 CSS
-function setFormCss() {
-	formTags('set_form');
-	select.on('change', function() {
-		value = $(this).val();
-		labelSet($(this), value);
-		selectCss($(this), value);
-	});
-	addInputs();
-}
+
+// 유저관리-캠핑장 시설안내 추가 CSS
 function addInputs() {
 	var field, tag,
 		num = 1;
@@ -484,76 +535,6 @@ function fileThumbnail() {
 	}
 }
 
-function validation() {
-	var label, result;
-	var value, required;
-	var form = $('.comm_form'),
-		input = {
-			all: form.find('input').not(':input[type=radio]'),
-			id: form.find('#userId'),
-			name: form.find('#userName'),
-			pw1: form.find('#userPw1'),
-			pw2: form.find('#userPw2'),
-			btd: form.find('#userBtd'),
-			loc: form.find('#userLoc'),
-			job: form.find('#userJob'),
-			jnd: form.find('#userJndr')
-		},
-		select = {
-			all: form.find('select'),
-		},
-		radio = form.find('input[type=radio]'),
-		check = {};
-	var msgs = {
-		errNull: '필수 입력사항입니다.',
-		errId: '올바른 형식의 아이디가 아닙니다.',
-		errPw1: '8~13자 이내, 영문(대소문자), 숫자를 사용하세요.',
-		errPw2: '비밀번호가 일치하지 않습니다.',
-		errBtd: '생년월일을 올바르게 입력해주세요.',
-	};
-
-	// 필수입력
-	input.all.on('change', function() {
-		result = $(this).siblings('.f_message');
-		required = $(this).attr('required');
-
-		if (value == '' && required == 'required') {
-			result.text(msgs.errNull);
-		}
-	});
-	
-	// 아이디 이메일형식
-	input.id.on('change', function() {
-		var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-		if (value != '') {
-			if (!re.test(value)) {
-				result.text(msgs.errId);
-			} else {
-				result.text('');
-			}
-		}
-	});
-
-	// 비밀번호 일치
-	function password(pwThis, pwPair) {
-		var pwThis = pwThis.val(),
-			pwPair = pwPair.val();
-		var result = input.pw2.siblings('.f_message');
-		if (pwThis != '') {
-			if (pwThis != pwPair) {
-				result.text(msgs.errPw2);
-			} else {
-				result.text('');
-			}
-		}
-	}
-	input.pw1.on('change', function() {
-		password(input.pw1, input.pw2);
-	});
-	input.pw2.on('change', function() {
-		password(input.pw2, input.pw1);
-	});
-}
 /* } 폼 */
 
 /* 캠핑장 정보 (메인, 상세) { */
@@ -629,7 +610,7 @@ function userInform() {
 // 카카오 맵API
 function kakaoMap() {
 	var address = $('#mapAddress').text();
-	var imageSrc = '../images/ico/shp_marker.png',
+	var imageSrc = '/images/ico/shp_marker.png',
 		imageSize = new daum.maps.Size(27, 39),	// 39, 51
 		imageOption = {offset: new daum.maps.Point(12, 40)};
 	var kakaoMap = document.getElementById('map'),

@@ -52,37 +52,37 @@
 					<div class="input_wrap">
 						<div>
 							<div class="ip_id ip_box">
-								<input type="email" id="userId" name="userId" required="required">
-								<label for="userId" class="comm_label">아이디<span> (이메일)</span></label>
+								<input type="email" id="festa1" name="" required="required">
+								<label for="festa1" class="comm_label">아이디<span> (이메일)</span></label>
 								<button type="button" class="btn_id">중복확인</button>
 								<!-- 유효성검사 후 메세지 출력 { -->
 								<p class="f_message"></p>
 								<!-- } 유효성검사 후 메세지 출력 -->
 							</div>
-							<div class="ip_name ip_box">
-								<input type="text" id="userName" name="userName" required="required">
-								<label for="userName" class="comm_label">이름</label>
+							<div class="ip_box">
+								<input type="text" id="festa2" name="" required="required">
+								<label for="festa2" class="comm_label">이름</label>
 								<p class="f_message"></p>
 							</div>
-							<div class="ip_pw ip_box">
-								<input type="password" id="userPw1" name="userPw1" required="required">
-								<label for="userPw1" class="comm_label">비밀번호<span> 8~13자 이내, 영문(대소문자)+숫자 조합</span></label>
+							<div class="ip_box">
+								<input type="password" id="festa3" name="" required="required">
+								<label for="festa3" class="comm_label">비밀번호<span> 8~13자 이내, 영문(대소문자)+숫자 조합</span></label>
 								<p class="f_message"></p>
 							</div>
-							<div class="ip_pw ip_box">
-								<input type="password" id="userPw2" name="userPw2" required="required">
-								<label for="userPw2" class="comm_label">비밀번호 확인</label>
+							<div class="ip_box">
+								<input type="password" id="festa4" name="" required="required">
+								<label for="festa4" class="comm_label">비밀번호 확인</label>
 								<p class="f_message"></p>
 							</div>
 						</div>
 						<div>
-							<div class="ip_btd ip_box">
-								<input type="text" id="userBtd" name="userBtd" required="required">
-								<label for="userBtd" class="comm_label">생년월일<span>을 입력해주세요 (예: 19940415)</span></label>
+							<div class="ip_box">
+								<input type="text" id="festa5" name="" required="required">
+								<label for="festa5" class="comm_label">생년월일<span>을 입력해주세요 (예: 19940415)</span></label>
 								<p class="f_message"></p>
 							</div>
-							<div class="sel_loc sel_box">
-								<select class="comm_sel" id="userLoc" name="userLoc" required="required">
+							<div class="sel_box">
+								<select class="comm_sel" id="festa6" name="festa6" required="required">
 									<option value="">관심지역</option>
 									<option value="서울">서울</option>
 									<option value="경기도">경기도</option>
@@ -98,14 +98,14 @@
 									<option value="광주">광주</option>
 									<option value="대전">대전</option>
 								</select>
-								<label for="userLoc" class="comm_label">관심지역</label>
+								<label for="festa6" class="comm_label">관심지역</label>
 								<!-- 셀렉트박스 선택값 출력 { -->
 								<p class="comm_sel_label"></p>
 								<!-- } 셀렉트박스 선택값 출력 -->
 								<p class="f_message"></p>
 							</div>
-							<div class="sel_job sel_box">
-								<select class="comm_sel" id="userJob" name="userJob">
+							<div class="sel_box">
+								<select class="comm_sel" id="festa7" name="festa7">
 									<option value="">(선택) 직종</option>
 									<option value="경영·사무">경영·사무</option>
 									<option value="영업·고객상담">영업·고객상담</option>
@@ -123,7 +123,7 @@
 									<option value="학생">학생</option>
 									<option value="기타">기타</option>
 								</select>
-								<label for="userJob" class="comm_label"><span>(선택) </span>직종</label>
+								<label for="festa7" class="comm_label"><span>(선택) </span>직종</label>
 								<!-- 셀렉트박스 선택값 출력 { -->
 								<p class="comm_sel_label"></p>
 								<!-- } 셀렉트박스 선택값 출력 -->
@@ -132,12 +132,12 @@
 								<dl>
 									<dt>성별</dt>
 									<dd>
-										<input type="radio" class="comm_rdo" id="userJnd1" name="userJnd" value="남성">
-										<label for="userJnd1">남성</label>
+										<input type="radio" class="comm_rdo" id="festa8" name="festaJnd" value="남성">
+										<label for="festa8">남성</label>
 									</dd>
 									<dd>
-										<input type="radio" class="comm_rdo" id="userJnd2" name="userJnd" value="여성">
-										<label for="userJnd2">여성</label>
+										<input type="radio" class="comm_rdo" id="festa9" name="festaJnd" value="여성">
+										<label for="festa9">여성</label>
 									</dd>
 								</dl>
 								<p class="f_message"></p>
@@ -147,19 +147,19 @@
 					<div class="check_wrap">
 						<dl>
 							<dt>
-								<input type="checkbox" class="comm_chk" id="userTermsAll" name="userTermsAll">
-								<label for="userTermsAll">전체 동의</label>
+								<input type="checkbox" class="comm_chk" id="festa10" name="allChecked">
+								<label for="festa10">전체 동의</label>
 							</dt>
 							<dd>
-								<input type="checkbox" class="comm_chk" id="userTerms1" name="userTerms1">
-								<label for="userTerms1">페스타 이용약관 동의</label>
+								<input type="checkbox" class="comm_chk" id="festa11" name="">
+								<label for="festa11">페스타 이용약관 동의</label>
 								<div class="scrBar">
 									이용약관을 입력해주세요.
 								</div>
 							</dd>
 							<dd>
-								<input type="checkbox" class="comm_chk" id="userTerms2" name="userTerms2">
-								<label for="userTerms2">개인정보 수집 및 이용에 동의</label>
+								<input type="checkbox" class="comm_chk" id="festa12" name="">
+								<label for="festa12">개인정보 수집 및 이용에 동의</label>
 								<div class="scrBar">
 									개인정보 처리방침을 입력해주세요.
 								</div>
@@ -198,10 +198,5 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	// validation();
-	joinFormCss();
-</script>
 </body>
 </html>

@@ -40,29 +40,37 @@
 		<!-- 프로필영역 시작 { -->
 		<section class="profile_area">
 			<div class="container">
-				<dl class="info_box gp">
-					<dt class="pf_tit">
-						<b class="pf_name">입돌아간다</b>
-						<!-- 캠핑장 공식그룹일 경우 { -->
-						<span class="gp_official"></span>
-						<!-- } 캠핑장 공식그룹일 경우 -->
-						<a href="/common/report" class="pf_opt btn_pop btn_report"><em class="snd_only">신고하기</em></a>
-					</dt>
-					<dd class="pf_intro">안녕하세요 ㅇㅇㅇ입니다. 그룹 소개글을 입력해주세요. 그룹 소개글을 입력해주세요.</dd>
-					<dd class="pf_hashtag">
-						<a href="">해시태그</a>
-						<a href="">해시태그</a>
-						<a href="">해시태그</a>
-					</dd>
-					<dd class="gp_list">
-						<span>그룹장 : 고재현</span>
-						<a class="btn_pop btn_member" href="/group/member">멤버 : 33명</a>
-						<span>개설일 : 2020년 02월 03일</span>
-					</dd>
-					<dd class="pf_picture">
-						<img src="http://placehold.it/120x120" alt="입돌아간다 그룹 썸네일">
-					</dd>
-				</dl>
+				<div class="info_box">
+					<dl>
+						<dt class="pf_tit">
+							<b class="pf_name">입돌아간다</b>
+							<!-- 캠핑장 공식그룹일 경우 { -->
+							<span class="gp_official"></span>
+							<!-- } 캠핑장 공식그룹일 경우 -->
+							<!-- 그룹장일 경우 톱니바퀴 버튼 { -->
+							<a class="pf_opt go_settings" href="/group/profile.html"><em class="snd_only">설정</em></a>
+							<!-- } 그룹장일 경우 톱니바퀴 버튼 -->
+						</dt>
+						<dd class="pf_intro">안녕하세요 ㅇㅇㅇ입니다. 그룹 소개글을 입력해주세요. 그룹 소개글을 입력해주세요.</dd>
+						<dd class="pf_hashtag">
+							<a href="">해시태그</a>
+							<a href="">해시태그</a>
+							<a href="">해시태그</a>
+						</dd>
+						<dd class="gp_list">
+							<span>그룹장 : 고재현</span>
+							<a class="btn_pop btn_member" href="/group/member">멤버 : 33명</a>
+							<span>개설일 : 2020년 02월 03일</span>
+							<a class="btn_pop btn_out" href="/group/out">탈퇴</a>
+						</dd>
+						<dd class="pf_picture">
+							<img src="http://placehold.it/120x120" alt="입돌아간다 그룹 썸네일">
+						</dd>
+					</dl>
+				</div>
+				<p class="social_btns">
+					<button type="button" class="btn_chat">그룹채팅</button>
+				</p>
 			</div>
 		</section>
 		<!-- } 프로필영역 끝 -->
@@ -192,9 +200,5 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	setFormCss();
-</script>
 </body>
 </html>

@@ -20,15 +20,9 @@
 				<h1>
 					<a href="/"><em class="snd_only">FESTA</em></a>
 				</h1>
-				<form class="search_box">
-					<input type="text" placeholder="캠핑장 또는 그룹을 검색해보세요!">
-					<button type="submit"><img src="/images/ico/btn_search.png" alt="검색"></button>
-				</form>
 				<ul id="gnb">
-					<li><a href="/camp/">캠핑정보</a></li>
-					<li><a href="/hot/">인기피드</a></li>
-					<li><a href="/news/">뉴스피드</a></li>
-					<li><a href="/member/login" class="btn_pop">로그인</a></li>
+					<li><a href="/admin/"><b>관리자</b></a></li>
+					<li><a href="/member/logout" class="btn_pop">로그아웃</a></li>
 				</ul>
 				<button type="button" id="btnTop"><em class="snd_only">맨 위로</em></button>
 			</div>
@@ -53,11 +47,12 @@
 						<ul class="cp_options">
 							<li>
 								<b class="cp_liked">99</b>
-								<button class="btn_liked btn_pop"><em class="snd_only">하트</em></button>
+								<button class="btn_liked"><em class="snd_only">하트</em></button>
 								<!-- 하트 누른 경우 {
 								<button class="btn_liked act"><em class="snd_only">하트</em></button>
 								} 하트 누른 경우 -->
 							</li>
+							<li><button class="btn_bookmark"><em class="snd_only">저장하기</em></button></li>
 							<li><a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a></li>
 							<li><a class="btn_back" href="/camp/"><em class="snd_only">목록으로</em></a></li>
 						</ul>
@@ -125,22 +120,19 @@
 					<li>
 						<!-- # 프로필 이미지 없음 { -->
 						<a class="pf_picture" href="">
-							<img src="../images/thumb/no_profile.png" alt="김덕수님의 프로필 썸네일">
+							<img src="/images/thumb/no_profile.png" alt="김덕수님의 프로필 썸네일">
 						</a>
 						<!-- } # 프로필 이미지 없음 -->
+						<!-- 관리자-삭제버튼 {
 						<p class="rt_option">
-							<!-- 사용자-신고버튼 { -->
-							<a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a>
-							<!-- } 사용자-신고버튼 -->
-							<!-- 관리자-삭제버튼 {
 							<button type="button" class="btn_delete"><em class="snd_only">삭제하기</em></button>
-							} 관리자-삭제버튼 -->
 						</p>
+						} 관리자-삭제버튼 -->
 						<p class="rt_user">
 							<a class="rt_name" href="">
 								<b>김덕수</b>
 							</a>
-							<span class="rt_star"><img src="../images/ico/shp_star5.png" alt="별 5개"></span>
+							<span class="rt_star"><img src="/images/ico/shp_star5.png" alt="별 5개"></span>
 						</p>
 						<p class="rt_cont">한줄평을 작성해주세요. 한줄평을 작성해주세요. 한줄평을 작성해주세요. 한줄평을 작성해주세요. 한줄평을 작성해주세요. 한줄평을 작성해주세요. 한줄평을 작성해주세요. 한줄평을 작성해주세요. 한줄평을 작성해주세요. 한줄평을 작성해주세요.</p>
 						<p class="rt_date">2020년 01월 01일 11:59:59</p>
@@ -149,14 +141,11 @@
 						<a class="pf_picture" href="">
 							<img src="http://placehold.it/80x80" alt="작성자님의 프로필 썸네일">
 						</a>
-						<p class="rt_option">
-							<a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a>
-						</p>
 						<p class="rt_user">
 							<a class="rt_name" href="">
 								<b>작성자명</b>
 							</a>
-							<span class="rt_star"><img src="../images/ico/shp_star4.png" alt="별 4개"></span>
+							<span class="rt_star"><img src="/images/ico/shp_star4.png" alt="별 4개"></span>
 						</p>
 						<p class="rt_cont">한줄평을 작성해주세요.</p>
 						<p class="rt_date">2020년 01월 01일 11:59:59</p>
@@ -165,14 +154,11 @@
 						<a class="pf_picture" href="">
 							<img src="http://placehold.it/80x80" alt="작성자님의 프로필 썸네일">
 						</a>
-						<p class="rt_option">
-							<a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a>
-						</p>
 						<p class="rt_user">
 							<a class="rt_name" href="">
 								<b>작성자명</b>
 							</a>
-							<span class="rt_star"><img src="../images/ico/shp_star3.png" alt="별 3개"></span>
+							<span class="rt_star"><img src="/images/ico/shp_star3.png" alt="별 3개"></span>
 						</p>
 						<p class="rt_cont">한줄평을 작성해주세요.</p>
 						<p class="rt_date">2020년 01월 01일 11:59:59</p>
@@ -181,14 +167,11 @@
 						<a class="pf_picture" href="">
 							<img src="http://placehold.it/80x80" alt="작성자님의 프로필 썸네일">
 						</a>
-						<p class="rt_option">
-							<a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a>
-						</p>
 						<p class="rt_user">
 							<a class="rt_name" href="">
 								<b>작성자명</b>
 							</a>
-							<span class="rt_star"><img src="../images/ico/shp_star2.png" alt="별 2개"></span>
+							<span class="rt_star"><img src="/images/ico/shp_star2.png" alt="별 2개"></span>
 						</p>
 						<p class="rt_cont">한줄평을 작성해주세요.</p>
 						<p class="rt_date">2020년 01월 01일 11:59:59</p>
@@ -197,14 +180,11 @@
 						<a class="pf_picture" href="">
 							<img src="http://placehold.it/80x80" alt="작성자님의 프로필 썸네일">
 						</a>
-						<p class="rt_option">
-							<a href="/common/report" class="btn_pop btn_report"><em class="snd_only">신고하기</em></a>
-						</p>
 						<p class="rt_user">
 							<a class="rt_name" href="">
 								<b>작성자명</b>
 							</a>
-							<span class="rt_star"><img src="../images/ico/shp_star1.png" alt="별 1개"></span>
+							<span class="rt_star"><img src="/images/ico/shp_star1.png" alt="별 1개"></span>
 						</p>
 						<p class="rt_cont">한줄평을 작성해주세요.</p>
 						<p class="rt_date">2020년 01월 01일 11:59:59</p>

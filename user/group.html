@@ -40,35 +40,30 @@
 		<!-- 프로필영역 시작 { -->
 		<section class="profile_area">
 			<div class="container">
-				<dl class="info_box">
-					<dt class="pf_tit">
-						<b class="pf_name">김덕수</b>
-						<!-- 마이페이지일 경우 톱니바퀴 버튼 { -->
-						<a class="pf_opt go_settings" href="/user/profile.html"><em class="snd_only">설정</em></a>
-						<!-- } 마이페이지일 경우 톱니바퀴 버튼 -->
-						<!-- 유저페이지일 경우 신고하기 { -->
-						<a href="/common/report" class="pf_opt btn_pop btn_report"><em class="snd_only">신고하기</em></a>
-						<!-- } 유저페이지일 경우 신고하기 -->
-					</dt>
-					<dd class="pf_intro">나는 정자동 어둠의 빵쟁이다</dd>
-					<dd class="pf_hashtag">
-						<a href="">경기도</a>
-					</dd>
-					<dd class="pf_picture">
-						<img src="http://placehold.it/120x120" alt="김덕수님의 프로필 썸네일">
-					</dd>
-				</dl>
-				<ul class="cnt_list">
-					<li>피드<b>102</b></li>
-					<li>팔로워<a class="btn_pop" href="/user/follower">50</a></li>
-					<li>팔로우<a class="btn_pop" href="/user/following">9</a></li>
-				</ul>
-				<p class="social_btns">
-					<button type="button" class="btn_follow">팔로우</button>
-					<!-- 이미 팔로우 했을 때 버튼 {
-					<button type="button" class="btn_follow act">팔로잉</button>
-					} 이미 팔로우 했을 때 버튼 -->
-				</p>
+				<div class="info_box">
+					<dl>
+						<dt class="pf_tit">
+							<b class="pf_name">김덕수</b>
+							<!-- 마이페이지일 경우 톱니바퀴 버튼 {  -->
+							<a class="pf_opt go_settings" href="/user/profile.html"><em class="snd_only">설정</em></a>
+							<!-- } 마이페이지일 경우 톱니바퀴 버튼 -->
+						</dt>
+						<dd class="pf_intro">나는 정자동 어둠의 빵쟁이다</dd>
+						<dd class="pf_hashtag">
+							<a href="">경기도</a>
+						</dd>
+						<dd class="pf_picture">
+							<img src="http://placehold.it/120x120" alt="김덕수님의 프로필 썸네일">
+						</dd>
+					</dl>
+				</div>
+				<div class="cnt_list">
+					<ul>
+						<li>피드<b>102</b></li>
+						<li>팔로워<a class="btn_pop" href="/user/follower">50</a></li>
+						<li>팔로우<a class="btn_pop" href="/user/following">9</a></li>
+					</ul>
+				</div>
 			</div>
 		</section>
 		<!-- } 프로필영역 끝 -->
@@ -192,9 +187,5 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	setFormCss();
-</script>
 </body>
 </html>

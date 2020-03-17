@@ -4148,6 +4148,28 @@ img {
   margin: 30px auto 50px;
 }
 
+.offer_wrap .comm_btn {
+  position: relative;
+  width: auto;
+  padding-right: 40px;
+  padding-left: 75px;
+  overflow: hidden;
+}
+
+.offer_wrap .comm_btn:before {
+  content: url(../images/ico/shp_home.png);
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  height: 25px;
+  line-height: 25px;
+  margin-top: -12px;
+}
+
+.offer_wrap a.comm_btn {
+  color: #fff;
+}
+
 .readme_wrap .set_tit:before {
   width: 150px;
 }
@@ -4168,6 +4190,10 @@ img {
 
 .readme_wrap .comm_buttons {
   margin-top: 50px;
+}
+
+.readme_wrap .comm_btn:before {
+  content: url(../images/ico/shp_edit.png);
 }
 
 .profile_area .container, .banner_area .container {

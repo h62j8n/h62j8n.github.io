@@ -182,7 +182,7 @@
 						<li class="set_chk box">
 							<p>계정 설정</p>
 							<div>
-								<input type="radio" class="comm_rdo" id="festa9" name="festa9">
+								<input type="checkbox" class="comm_rdo rdo_pop" id="festa9" name="festa9" data-url="/user/inactive">
 								<label for="festa9">계정 비활성화</label>
 								<p class="txt_explan">
 									계정 비활성화 시 프로필 및 공유한 피드를 볼 수 없습니다.<br>
@@ -192,7 +192,7 @@
 						</li>
 						<li class="set_chk box">
 							<div>
-								<input type="radio" class="comm_rdo" id="festa10" name="festa10">
+								<input type="checkbox" class="comm_rdo rdo_pop" id="festa10" name="festa10" data-url="/user/out">
 								<label for="festa10">계정 탈퇴</label>
 								<p class="txt_explan">
 									계정 탈퇴 시 프로필 및 공유한 피드가 모두 삭제됩니다.<br>
@@ -233,5 +233,8 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	rdoPop();
+</script>
 </body>
 </html>

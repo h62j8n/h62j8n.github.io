@@ -32,13 +32,12 @@
 				<div class="info_box">
 					<dl>
 						<dt class="pf_tit">
-							<b class="pf_name">입돌아간다</b>
+							<a class="pf_name" href="">
+								<b>입돌아간다</b>
+							</a>
 							<!-- 캠핑장 공식그룹일 경우 { -->
 							<span class="gp_official"></span>
 							<!-- } 캠핑장 공식그룹일 경우 -->
-							<!-- 그룹페이지일 경우 신고하기 { -->
-							<a href="/common/report" class="pf_opt btn_pop btn_report"><em class="snd_only">신고하기</em></a>
-							<!-- } 그룹페이지일 경우 신고하기 -->
 						</dt>
 						<dd class="pf_intro">안녕하세요 ㅇㅇㅇ입니다. 그룹 소개글을 입력해주세요. 그룹 소개글을 입력해주세요.</dd>
 						<dd class="pf_hashtag">
@@ -48,7 +47,7 @@
 						</dd>
 						<dd class="gp_list">
 							<span>그룹장 : 고재현</span>
-							<a class="btn_pop btn_member" href="/group/member">멤버 : 33명</a>
+							<a class="btn_pop btn_member" href="/admin/group/member">멤버 : 33명</a>
 							<span>개설일 : 2020년 02월 03일</span>
 						</dd>
 						<dd class="pf_picture">
@@ -66,11 +65,11 @@
 				<div class="feed_notice">
 					<h3>공지사항</h3>
 					<ul>
-						<li><a class="btn_pop" href="/common/feed">공지사항을 입력해주세요. 공지사항을 입력해주세요. 공지사항을 입력해주세요. 공지사항을 입력해주세요. 공지사항을 입력해주세요.</a></li>
-						<li><a class="btn_pop" href="/common/feed">공지사항을 입력해주세요.</a></li>
-						<li><a class="btn_pop" href="/common/feed">공지사항을 입력해주세요.</a></li>
-						<li><a class="btn_pop" href="/common/feed">공지사항을 입력해주세요.</a></li>
-						<li><a class="btn_pop" href="/common/feed">공지사항을 입력해주세요.</a></li>
+						<li><a class="btn_pop" href="/admin/group/feed">공지사항을 입력해주세요. 공지사항을 입력해주세요. 공지사항을 입력해주세요. 공지사항을 입력해주세요. 공지사항을 입력해주세요.</a></li>
+						<li><a class="btn_pop" href="/admin/group/feed">공지사항을 입력해주세요.</a></li>
+						<li><a class="btn_pop" href="/admin/group/feed">공지사항을 입력해주세요.</a></li>
+						<li><a class="btn_pop" href="/admin/group/feed">공지사항을 입력해주세요.</a></li>
+						<li><a class="btn_pop" href="/admin/group/feed">공지사항을 입력해주세요.</a></li>
 						<!-- 공지사항이 없을 경우 {
 						<li class="fstEmpty">등록된 공지사항이 없습니다.</li>
 						} 공지사항이 없을 경우 -->
@@ -119,7 +118,7 @@
 										<a href="" class="cmt_name">김진혁</a>
 										댓글을 입력해주세요.
 										<span class="cmt_date">2020년 01월 01일 12시 59분</span>
-										<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
+										<button class="btn_delete"><em class="snd_only">삭제하기</em></button>
 									</p>
 								</li>
 								<li>
@@ -130,21 +129,12 @@
 										<a href="" class="cmt_name">고재현</a>
 										댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요.
 										<span class="cmt_date">2020년 01월 01일 12시 59분</span>
-										<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
+										<button class="btn_delete"><em class="snd_only">삭제하기</em></button>
 									</p>
 								</li>
 							</ul>
 							<button class="cmt_btn_more">3개의 댓글 더 보기</button>
 						</div>
-						<form class="message_form">
-							<a class="pf_picture" href="">
-								<img src="http://placehold.it/30x30" alt="나의 프로필 썸네일">
-							</a>
-							<p class="msg_input">
-								<textarea id="" name="" placeholder="메세지를 입력해주세요"></textarea>
-								<button type="submit" class="btn_send"><em class="snd_only">전송</em></button>
-							</p>
-						</form>
 					</div>
 					<!-- # 썸네일 영역 { -->
 					<div class="img box">
@@ -208,7 +198,7 @@
 										<a href="" class="cmt_name">김진혁</a>
 										댓글을 입력해주세요.
 										<span class="cmt_date">2020년 01월 01일 12시 59분</span>
-										<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
+										<button class="btn_delete"><em class="snd_only">삭제하기</em></button>
 									</p>
 								</li>
 								<li>
@@ -219,21 +209,12 @@
 										<a href="" class="cmt_name">고재현</a>
 										댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요. 댓글을 입력해주세요.
 										<span class="cmt_date">2020년 01월 01일 12시 59분</span>
-										<button class="cmt_btn_option"><em class="snd_only">댓글 옵션</em></button>
+										<button class="btn_delete"><em class="snd_only">삭제하기</em></button>
 									</p>
 								</li>
 							</ul>
 							<button class="cmt_btn_more">3개의 댓글 더 보기</button>
 						</div>
-						<form class="message_form">
-							<a class="pf_picture" href="">
-								<img src="http://placehold.it/30x30" alt="나의 프로필 썸네일">
-							</a>
-							<p class="msg_input">
-								<textarea id="" name="" placeholder="메세지를 입력해주세요"></textarea>
-								<button type="submit" class="btn_send"><em class="snd_only">전송</em></button>
-							</p>
-						</form>
 					</div>
 				</div>
 				<!-- } #텍스트 피드 끝 -->

@@ -1128,8 +1128,8 @@ form input[type=text], form input[type=email], form input[type=password] {
 form .f_message {
   clear: both;
   padding: 5px 10px 0;
-  text-align: left;
-  font-size: 14px;
+  text-align: left !important;
+  font-size: 14px !important;
   color: #ff0000;
 }
 
@@ -2806,13 +2806,12 @@ img {
   color: #b7b7b7;
 }
 
-.feed_viewer .comment_list .cmt_btn_option {
+.feed_viewer .comment_list .btn_delete {
   position: absolute;
   right: 12px;
-  top: 5px;
+  top: 3px;
   width: 20px;
   height: 20px;
-  background: url(../images/ico/btn_option.png) no-repeat center;
 }
 
 .feed_viewer .comment_list .cmt_btn_more {
@@ -5222,6 +5221,22 @@ img {
   font-size: 14px;
 }
 
+.adm .feed_viewer.half .text.box .scrBar {
+  max-height: 285px;
+}
+
+.adm .feed_viewer .text.box .scrBar {
+  max-height: 265px;
+}
+
+.adm .follow_wrap li {
+  padding: 0;
+}
+
+.adm .follow_wrap li .fw_name, .adm .follow_wrap li .fw_intro {
+  width: 240px;
+}
+
 #fstLoad {
   position: absolute;
   top: 50%;
@@ -5320,6 +5335,10 @@ img {
 
 .pop_wrap .info_box li:first-child {
   margin: 0;
+}
+
+.pop_wrap .comm_for {
+  margin-top: 15px;
 }
 
 .pop_wrap .comm_btn {
@@ -5661,10 +5680,6 @@ img {
   font-family: "noto-sans-scott-dl";
 }
 
-.gp_join_wrap .comm_form {
-  margin-top: 15px;
-}
-
 .gp_join_wrap .ip_box label span:first-child {
   color: #ff0000;
 }
@@ -5735,5 +5750,19 @@ img {
 
 .report_viewer .rpv_img img {
   max-width: 100%;
+}
+
+.out_wrap .info_box {
+  margin-bottom: 30px;
+}
+
+.out_wrap > p {
+  margin-bottom: 10px;
+}
+
+.out_wrap .out_words {
+  margin-bottom: 15px;
+  text-decoration: underline;
+  font-size: 15px;
 }
 /*# sourceMappingURL=site.css.map */

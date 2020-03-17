@@ -114,26 +114,6 @@ function thumbnail() {
 		allowTouchMove: false,
 	});
 }
-// 댓글-더보기 버튼 (미완)
-function commentOption() {
-	var btnMore = $('.cmt_btn_option');
-	var optionBox = '<ul class="cmt_options fstLyr"></ul>';
-	var btnReport = '<li><button class="btn_report"><em class="snd_only">신고</em></button></li>',
-		btnDelete = '<li><button class="btn_delete"><em class="snd_only">삭제</em></button></li>';
-	btnMore.on('click', function() {
-		var viewBox = $(this).parent();
-		viewBox.append(optionBox);
-		optionBox = viewBox.find('.cmt_options');
-		// if (관계 없는 사용자) {
-			optionBox.append(btnReport);
-		// } else (해당 댓글 작성자) {
-			optionBox.append(btnDelete);
-		// } else () {
-			// 해당 피드 작성자는 버튼 모두 출력
-		// }
-		optionBox.show();
-	});
-}
 /* } #피드 */
 
 var layerCnt = 0;
@@ -147,7 +127,7 @@ function btnPop(button) {
 		var url = $(this).attr('href');
 		if (url == undefined) {
 			// <button>태그 (내부 컨텐츠)
-			var layer = $(this).data('layer');
+			layer = $(this).data('layer');
 			layer = $('#'+layer);
 			layer.addClass('pop'+layerCnt);
 			layer.bPopup({
@@ -185,9 +165,38 @@ function btnPop(button) {
 		}
 	});
 }
+// 라디오버튼 클릭 시
+function rdoPop() {
+	var url;
+	var layer = '<div class="fstPop pop'+layerCnt+'"></div>';
+	var spiner = '<p id="fstLoad"><i class="xi-spinner-5 xi-spin"></i></p>';
+	$('.rdo_pop').on('change', function() {
+		url = $(this).data('url') + '.html';
+		var checked = $(this).prop('checked');
+		var radio = $(this);
+		if (checked) {
+			$(layer).bPopup({
+				positionStyle: 'fixed',
+				closeClass: 'btn_close',
+				opacity: 0.6,
+				loadUrl: url,
+				onOpen: function() {
+					$(this).append(spiner);
+				},
+				onClose: function() {
+					$(this).remove();
+					layerCnt--;
+					radio.prop('checked', false);
+				},
+			}, function() {
+				$('#fstLoad').remove();
+			});
+		}
+	});
+}
 /* } #레이어 팝업 */
 
-// #하트 CSS
+// #하트, 북마크 CSS
 function btnToggle(target) {
 	$('.'+target).on('click', function() {
 		var active = $(this).hasClass('act');
@@ -233,7 +242,6 @@ $(document).ready(function() {
 	scrX();
 	scrBar();
 	thumbnail();
-	commentOption();
 	setMyList();
 
 	// 맨 위로
@@ -269,7 +277,6 @@ $(document).ready(function() {
 	});
 
 	formTagCss();
-	formRequired();
 
 	// 하트 CSS
 	btnToggle('btn_liked');
@@ -425,10 +432,46 @@ function inputAllChecked() {
 			}
 		}
 	});
-
 }
 
-function formRequired() {}
+// 필수값 유효성검사
+function formRequired(form) {
+	var form = $('.'+form);
+	var submit = form.find('button[type=submit]');
+	var required = [],
+		all = [];
+	all.push(
+		form.find('input'),
+		form.find('select'),
+		form.find('textarea')
+	);
+	for (var i=0; i<all.length; i++) {
+		for (var j=0; j<all[i].length; j++) {
+			var target = all[i][j];
+			if ($(target).prop('required')) {
+				required.push(target);
+			}
+		}
+	}
+	for (var i=0; i<required.length; i++) {
+		var target = required[i];
+		var msgBox,
+			msg = '필수 입력사항입니다.';
+		$(target).on('change', function() {
+			var value = $(this).val();
+			msgBox = $(this).siblings('.f_message');
+			console.log(value);
+			if (value == '') {
+				msgBox.text(msg);
+			} else {
+				msgBox.text();
+			}
+		});
+	}
+	// $(submit).on('click', function() {});
+}
+
+
 
 // 유저관리-캠핑장 시설안내 추가
 function addInputs() {

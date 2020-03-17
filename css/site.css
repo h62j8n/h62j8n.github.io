@@ -5490,6 +5490,10 @@ img {
   margin: 0 auto;
 }
 
+.confirm_wrap .pop_txt {
+  margin-top: 25px;
+}
+
 .confirm_wrap .comm_buttons {
   margin-top: 50px;
 }

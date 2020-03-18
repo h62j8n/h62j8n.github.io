@@ -72,14 +72,14 @@
 			<section class="side_area">
 				<ul class="lnb_list">
 					<li><a href="/user/profile.html">프로필 관리</a></li>
-					<li><a href="/user/adm.html">계정 관리</a></li>
+					<li><a href="/user/adm.html" class="act">계정 관리</a></li>
 					<!-- 그룹장이 아닌 경우 { -->
 					<li><a href="/user/group.html">그룹 생성</a></li>
 					<!-- } 그룹장이 아닌 경우 -->
-					<li><a href="/user/venture/add.html" class="act">사업자 계정 신청</a></li>
-					<!-- 사업자계정 신청 후 {
 					<li><a href="/user/venture/">사업자 계정 관리</a></li>
-					사업자계정 신청 후 { -->
+					<!-- 사업자계정 신청 전 {
+					<li><a href="/user/venture/add.html">사업자 계정 신청</a></li>
+					사업자계정 신청 전 { -->
 					<li><a href="/user/camp/">캠핑장 관리</a></li>
 					<!-- 캠핑장 등록 전 {
 					<li><a href="/user/camp/add.html">캠핑장 등록</a></li>
@@ -89,16 +89,17 @@
 			<!-- } 좌측 사이드메뉴 시작 -->
 			<!-- 컨텐츠영역 시작 { -->
 			<section class="content_area">
-				<h2 class="set_tit">사업자 계정 신청</h2>
-				<div class="set_standby">
-					<dl>
-						<dt>사업자 계정 신청이 완료되었습니다.</dt>
-						<dd>신청하신 사업자 정보를 확인하고 있습니다.</dd>
-						<dd>관리자 승인 후 사업자 계정 관리 및 캠핑장 등록이 가능합니다.</dd>
-					</dl>
-					<p class="comm_buttons">
-						<a class="btn_home comm_btn cfm" href="/user/">마이페이지로 돌아가기</a>
-					</p>
+				<h2 class="set_tit">계정 관리</h2>
+				<div class="set_check">
+					<h3>비밀번호 확인</h3>
+					<p>회원님의 정보를 안전하게 보호하기 위해<br>비밀번호를 한번 더 입력해주세요.</p>
+					<form class="comm_form">
+						<div class="ip_box">
+							<input type="password" id="festa4" name="" required="required">
+							<label for="festa4" class="comm_label">비밀번호 확인</label>
+						</div>
+						<button type="button" class="comm_btn sbm">확인</button>
+					</form>
 				</div>
 			</section>
 			<!-- } 컨텐츠영역 끝 -->
@@ -127,10 +128,5 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript" src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript">
-	kakaoAddr();
-</script>
 </body>
 </html>

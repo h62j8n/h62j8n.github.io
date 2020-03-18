@@ -4374,6 +4374,35 @@ img {
   font-family: "noto-sans-scott-m";
 }
 
+.set_check {
+  text-align: center;
+}
+
+.set_check h3 {
+  margin-bottom: 15px;
+  font-family: "noto-sans-scott-b";
+  font-size: 22px;
+}
+
+.set_check h3:before {
+  content: url(../images/sub/lock.png);
+  display: block;
+  margin-bottom: 20px;
+}
+
+.set_check > p {
+  font-size: 15px;
+}
+
+.set_check .ip_box {
+  width: 400px;
+  margin: 35px auto !important;
+}
+
+.set_check .comm_btn {
+  margin: 0 auto;
+}
+
 .profile_area .container, .banner_area .container {
   height: inherit;
 }

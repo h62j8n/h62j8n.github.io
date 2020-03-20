@@ -122,7 +122,7 @@ function btnPop(button) {
 	var layer;
 	var closeBtn = '<button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>';
 	var spiner = '<p id="fstLoad"><i class="xi-spinner-5 xi-spin"></i></p>';
-	$('.'+button).on('click', function(e) {
+	$(document).on('click', '.'+button, function(e) {
 		layerCnt++;
 		var url = $(this).attr('href');
 		if (url == undefined) {
@@ -460,7 +460,6 @@ function formRequired(form) {
 		$(target).on('change', function() {
 			var value = $(this).val();
 			msgBox = $(this).siblings('.f_message');
-			console.log(value);
 			if (value == '') {
 				msgBox.text(msg);
 			} else {
@@ -510,46 +509,105 @@ function fileName() {
 	});
 }
 
-function fileThumbnail() {
-	var file = document.getElementsByName(name);
-	$(file).on('change', upload);
+function fileThumbnail(id, name) {
+	var file = $('input[name="'+name+'"]');
+	var box = $('.mk_thumb'),
+		ul = box.find('ul');
+	var cancleBtn = '.btn_cancle';
 	
-	function upload(e) {
-		var files;
-		var images = [],
-			imagesLength = 0;
+	
+	$(document).on('click', cancleBtn, function() {
+		var box = $(this).parents('.thumb_box');
+		var file = $(this).data('file'),
+			fileBox = box.find('#'+file).parent('li');
+		$('#'+file).val('');
+		fileBox.remove();
+		box.remove();
+	}); 
 
-		files = e.target.files;
+	function upload() {
+		var myfile = $('input[name="'+name+'"]');
+			cnt = myfile.length + 1;
 
+		// 버튼 처리
+		var btnOrigin = $('.mk_btns').find('label');
+		btnOrigin.attr('for', id+cnt);
+
+		var btnAdd = '<li>'
+		+ '<input type="file" id="'+id+cnt+'" name="'+name+'" accept="video/*, image/*">'
+		+ '<label for="'+id+cnt+'" class="btn_file"><em class="snd_only">사진/동영상 업로드하기</em></label>'
+		+ '</li>';
+		if (cnt-1 > 1) {
+			var btnExist = $('#'+id+(cnt-1)).parent('li');
+			btnExist.hide();
+		}
+
+		var images = [];
 		var imgFile, vdoFile, fileSize;
 		var megabyte5 = 5242880;
-		for (var i=0; i<files.length; i++) {
-			imgFile = files[i].type.match('image.*');
-			vdoFile = files[i].type.match('video.*');
-			fileSize = files[i].size;
-			
-			if (fileSize == megabyte5) {
-				continue;
-			} else {
-				if ((imgFile || vdoFile) && (imagesLength < 5)) {
-					imagesLength++;
-					images.push(files[i]);
+		for (var i=0; i<myfile.length; i++) {
+			for (var j=0; j<myfile[i].files.length; j++) {
+				var f = myfile[i].files[j];
+				imgFile = f.type.match('image.*');
+				vdoFile = f.type.match('video.*');
+				fileSize = f.size;
+
+				if ((i < 5) && (fileSize < megabyte5) && (imgFile || vdoFile)) {
+					images.push(f);
 				}
 			}
 		}
-	
-		function imgTag(e) {
-			var src = e.target.result;
-			var container = $('.wr_thumb ul');
-			var tag = '<li><img src="'+src+'" alt=""></li>';
-			container.append(tag);
-		}
-		
+
+		var thumbBox = box.find('.thumb_box');
+		// 기존 썸네일 삭제
+		thumbBox.remove();
 		for (var i=0; i<images.length; i++) {
-			console.log(images[i]);
 			var fileReader = new FileReader();
 			fileReader.onload = imgTag;
 			fileReader.readAsDataURL(images[i]);
+		}
+		
+		if (images.length > 0) {
+			box.show();
+		} else {
+			box.hide();
+		}
+		setTimeout(function() {
+			if (images.length < 5) {
+				ul.append(btnAdd)
+			}
+			imgTrim();
+			
+		}, 250);
+		// setTimeout(function() {}, 250);
+	};
+
+//+ '<button class="btn_cancle" type="button" data-file="'+id+(cnt-1)+'"><em class="snd_only">업로드 취소하기</em></button>'
+	$(document).on('change', file, upload);
+
+	function imgTag(e) {
+		var src = e.target.result;
+		var tag = '<li class="thumb_box">'
+		+ '<img src="'+src+'" alt="">'
+		+ '</li>';
+		ul.prepend(tag);
+	}
+	function imgTrim() {
+		$('.thumb_box').each(function() {
+			var max = 80;
+			var img = $(this).find('img'),
+				imgW = img.width(),
+				imgH = img.height();
+			if (imgW > imgH) {
+				img.height(max);
+			} else {
+				img.width(max);
+			}
+		});
+		var thumbBox = box.find('.thumb_box');
+		for (var i=0; i<thumbBox.length; i++) {
+			var tag = '<button class="btn_cancle" type="button" data-file="'+id+(i+1)+'"><em class="snd_only">업로드 취소하기</em></button>';
+			$(thumbBox[i]).append(tag);
 		}
 	}
 }
@@ -638,6 +696,157 @@ function userInform() {
 	});
 }
 /* } 채팅창 */
+
+/* 관리자 대시보드 { */
+function dashboard() {
+	var timeTag = $('.tt_time').find('span');
+	var date = new Date(),
+		current = date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월 ' + date.getDate() + '일 '
+		+ date.getHours() + '시 ' + date.getMinutes() + '분 ' + date.getSeconds() + '초 ';
+	timeTag.text(current);
+	chart();
+}
+function chart() {
+	var colors = {
+		green: 'rgba(7, 161, 131, 1)',
+		greenBg: 'rgba(170, 255, 238, .5)',
+		mint: 'rgba(30, 220, 184, 1)',
+		pink: 'rgba(255, 128, 185, 1)',
+		skyblue: 'rgba(34, 209, 246, 1)',
+		mustard: 'rgba(246, 185, 37, 1)',
+		coral: 'rgba(255, 146, 128, 1)',
+		shadow: 'rgba(0, 0, 0, 0.2)',
+	};
+
+	var newChart = document.getElementById('newChart').getContext('2d');
+	var newList = $('#newData li');
+	var newLabels = [],
+		newValue = [];
+	for (var i=0; i<newList.length; i++) {
+		var l = newList[i].getAttribute('data-label');
+		var v = newList[i].innerText;
+		newLabels.push(l);
+		newValue.push(v);
+	}
+	var chart1 = new Chart(newChart, {
+		type: 'line',
+		data: {
+			labels: newLabels,
+			datasets: [{
+				data: newValue,
+				backgroundColor: [colors.greenBg],
+				borderColor: [colors.green],
+				borderWidth: 1,
+				pointBackgroundColor: [
+					colors.green,
+					colors.green,
+					colors.green,
+					colors.green,
+					colors.green,
+					colors.green,
+					colors.green,
+				],
+			}],
+		},
+		options: {
+			elements: {
+				line: {
+					tension: 0,
+				}
+			},
+			legend: {
+				display: false,
+			}
+		},
+	});
+
+	var ageChart = document.getElementById('ageChart').getContext('2d');
+	var ageDt = $('#ageData dt'),
+		ageDd = $('#ageData dd');
+	var ageLabels = [],
+		ageValue = [];
+	for (var i=0; i<ageDt.length; i++) {
+		var l = ageDt[i].innerText;
+		var v = ageDd[i].innerText;
+		ageLabels.push(l);
+		ageValue.push(v);
+	}
+	var chart2 = new Chart(ageChart, {
+		type: 'doughnut',
+		data: {
+			labels: ageLabels,
+			datasets: [{
+				data: ageValue,
+				backgroundColor: [
+					colors.mint,
+					colors.pink,
+					colors.skyblue,
+					colors.mustard,
+					colors.coral,
+				],
+			}],
+		},
+		options: {
+			legend: {
+				display: false,
+			}
+		},
+	});
+
+	var locationChart = document.getElementById('locationChart').getContext('2d');
+	var locationDt = $('#locationData dt'),
+		locationDd = $('#locationData dd');
+	var locationLabels = [],
+		locationValue = [];
+	for (var i=0; i<locationDt.length; i++) {
+		var l = locationDt[i].innerText;
+		var v = locationDd[i].innerText;
+		locationLabels.push(l);
+		locationValue.push(v);
+	}
+	var chart3 = new Chart(locationChart, {
+		type: 'horizontalBar',
+		data: {
+			labels: locationLabels,
+			datasets: [{
+				data: locationValue,
+				backgroundColor: [
+					colors.mint,
+					colors.pink,
+					colors.pink,
+					colors.pink,
+					colors.pink,
+				],
+			}],
+		},
+		options: {
+			scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+					},
+					ticks: {
+						display: false,
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+					},
+					ticks: {
+						fontSize: 14,
+						fontColor: '#222',
+						fontFamily: 'noto-sans-scott-r',
+					}
+				}]
+			},
+			legend: {
+				display: false,
+			}
+		},
+	});
+}
+/* } 관리자 대시보드 */
 
 /* API { */
 // 카카오 맵API

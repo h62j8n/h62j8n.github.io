@@ -3849,6 +3849,10 @@ img {
   background: url(../images/ico/shp_caution.png) no-repeat left center;
 }
 
+.search_wrap {
+  padding-bottom: 0 !important;
+}
+
 .search_wrap .sub_tit {
   margin-bottom: 50px;
   background-image: url(../images/bg/shp_diagonal.png);
@@ -5377,6 +5381,10 @@ img {
   width: 120px;
 }
 
+.set_form table .w140 {
+  width: 140px;
+}
+
 .set_form table td {
   padding: 8px 10px;
   color: #666;
@@ -5485,6 +5493,14 @@ img {
 
 .set_form .adm.us_table p {
   width: 120px;
+}
+
+.set_form .adm.us_table .comm_btn.sbm {
+  cursor: pointer;
+}
+
+.set_form .adm.us_table .comm_btn.cfm {
+  cursor: default;
 }
 
 .set_form .adm.gp_table p, .set_form .adm.cp_table p {

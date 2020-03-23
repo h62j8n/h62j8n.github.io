@@ -117,33 +117,20 @@ function thumbnail() {
 /* } #피드 */
 
 var layerCnt = 0;
+var popCloseBtn = '<button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>';
+var popSpiner = '<p id="fstLoad"><i class="xi-spinner-5 xi-spin"></i></p>';
 /* #레이어 팝업 { */
 function btnPop(button) {
 	var layer;
-	var closeBtn = '<button type="button" class="btn_close"><em class="snd_only">창 닫기</em></button>';
-	var spiner = '<p id="fstLoad"><i class="xi-spinner-5 xi-spin"></i></p>';
 	$(document).on('click', '.'+button, function(e) {
-		layerCnt++;
 		var url = $(this).attr('href');
 		if (url == undefined) {
 			// <button>태그 (내부 컨텐츠)
 			layer = $(this).data('layer');
-			layer = $('#'+layer);
-			layer.addClass('pop'+layerCnt);
-			layer.bPopup({
-				positionStyle: 'fixed',
-				closeClass: 'btn_close',
-				opacity: 0.6,
-				onOpen: function() {
-					$('#fstLoad').remove();
-					$(this).append(closeBtn);
-					layerCnt--;
-				},
-			}, function() {
-				$('#fstLoad').remove();
-			});
+			openPop(layer);
 		} else {
-			url += '.html';
+			layerCnt++;
+			// url += '.html';
 			layer = '<div class="fstPop pop'+layerCnt+'"></div>';
 			// <a>태그 (외부 컨텐츠 로드)
 			e.preventDefault();
@@ -153,7 +140,7 @@ function btnPop(button) {
 				opacity: 0.6,
 				loadUrl: url,
 				onOpen: function() {
-					$(this).append(spiner);
+					$(this).append(popSpiner);
 				},
 				onClose: function() {
 					$(this).remove();
@@ -165,12 +152,31 @@ function btnPop(button) {
 		}
 	});
 }
+function openPop(layer) {
+	layerCnt++;
+	layer = $('#'+layer);
+	layer.addClass('pop'+layerCnt);
+	layer.bPopup({
+		positionStyle: 'fixed',
+		closeClass: 'btn_close',
+		opacity: 0.6,
+		onOpen: function() {
+			$('#fstLoad').remove();
+			$(this).append(popCloseBtn);
+		},
+		onClose: function() {
+			layerCnt--;
+		},
+	}, function() {
+		$('#fstLoad').remove();
+	});
+}
 // 라디오버튼 클릭 시
 function rdoPop() {
 	var url;
 	var layer = '<div class="fstPop pop'+layerCnt+'"></div>';
-	var spiner = '<p id="fstLoad"><i class="xi-spinner-5 xi-spin"></i></p>';
 	$('.rdo_pop').on('change', function() {
+		layerCnt++;
 		url = $(this).data('url') + '.html';
 		var checked = $(this).prop('checked');
 		var radio = $(this);
@@ -181,7 +187,7 @@ function rdoPop() {
 				opacity: 0.6,
 				loadUrl: url,
 				onOpen: function() {
-					$(this).append(spiner);
+					$(this).append(popSpiner);
 				},
 				onClose: function() {
 					$(this).remove();
@@ -511,10 +517,9 @@ function fileName() {
 
 function fileThumbnail(id, name) {
 	var file = $('input[name="'+name+'"]');
-	var box = $('.mk_thumb'),
+	var box = $('.file_thumbnail'),
 		ul = box.find('ul');
 	var cancleBtn = '.btn_cancle';
-	
 	
 	$(document).on('click', cancleBtn, function() {
 		var box = $(this).parents('.thumb_box');
@@ -523,7 +528,7 @@ function fileThumbnail(id, name) {
 		$('#'+file).val('');
 		fileBox.remove();
 		box.remove();
-	}); 
+	});
 
 	function upload() {
 		var myfile = $('input[name="'+name+'"]');
@@ -537,26 +542,31 @@ function fileThumbnail(id, name) {
 		+ '<input type="file" id="'+id+cnt+'" name="'+name+'" accept="video/*, image/*">'
 		+ '<label for="'+id+cnt+'" class="btn_file"><em class="snd_only">사진/동영상 업로드하기</em></label>'
 		+ '</li>';
-		if (cnt-1 > 1) {
-			var btnExist = $('#'+id+(cnt-1)).parent('li');
+		var btnExist = box.find('#'+id+(cnt-1)).parent('li');
 			btnExist.hide();
-		}
 
+		var ids = [];
+		var errors = [];
 		var images = [];
 		var imgFile, vdoFile, fileSize;
 		var megabyte5 = 5242880;
 		for (var i=0; i<myfile.length; i++) {
-			for (var j=0; j<myfile[i].files.length; j++) {
-				var f = myfile[i].files[j];
-				imgFile = f.type.match('image.*');
-				vdoFile = f.type.match('video.*');
-				fileSize = f.size;
+			var myId = $(myfile[i]).attr('id');
+			var f = myfile[i].files[0];
+			imgFile = f.type.match('image.*');
+			vdoFile = f.type.match('video.*');
+			fileSize = f.size;
 
-				if ((i < 5) && (fileSize < megabyte5) && (imgFile || vdoFile)) {
-					images.push(f);
-				}
+			if ((i < 5) && (fileSize < megabyte5) && (imgFile || vdoFile)) {
+				images.push(f);
+				ids.push(myId);
+			} else {
+				errors.push(myId);
 			}
 		}
+		// for (var i=0; i<errors.length; i++) {
+		// 	$('#'+errors[i]).val('');
+		// }
 
 		var thumbBox = box.find('.thumb_box');
 		// 기존 썸네일 삭제
@@ -576,13 +586,15 @@ function fileThumbnail(id, name) {
 			if (images.length < 5) {
 				ul.append(btnAdd)
 			}
+			var thumbBox = box.find('.thumb_box');
+			for (var i=0; i<thumbBox.length; i++) {
+				var tag = '<button class="btn_cancle" type="button" data-file="'+ids[i]+'"><em class="snd_only">업로드 취소하기</em></button>';
+				$(thumbBox[i]).append(tag);
+			}
 			imgTrim();
-			
 		}, 250);
-		// setTimeout(function() {}, 250);
-	};
+	}
 
-//+ '<button class="btn_cancle" type="button" data-file="'+id+(cnt-1)+'"><em class="snd_only">업로드 취소하기</em></button>'
 	$(document).on('change', file, upload);
 
 	function imgTag(e) {
@@ -604,11 +616,6 @@ function fileThumbnail(id, name) {
 				img.width(max);
 			}
 		});
-		var thumbBox = box.find('.thumb_box');
-		for (var i=0; i<thumbBox.length; i++) {
-			var tag = '<button class="btn_cancle" type="button" data-file="'+id+(i+1)+'"><em class="snd_only">업로드 취소하기</em></button>';
-			$(thumbBox[i]).append(tag);
-		}
 	}
 }
 /* } 폼 */

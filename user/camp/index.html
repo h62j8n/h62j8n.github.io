@@ -181,15 +181,9 @@
 							<p>캠핑장 사진</p>
 							<div class="file_thumbnail">
 								<ul>
-									<!-- <li>
-										<input type="file" id="festaFl3" name="festaFiles" accept="video/*, image/*" multiple="multiple">
-										<label for="festaFl3" class="btn_file"><em class="snd_only">사진/동영상 업로드하기</em></label>
-										<img src="http://placehold.it/80x80" alt="">
-										<button class="btn_cancle" type="button"><em class="snd_only">업로드 취소하기</em></button>
-									</li> -->
 									<li>
-										<input type="file" id="festaFl2" name="festaFiles" accept="video/*, image/*" multiple="multiple">
-										<label for="festaFl2" class="btn_file"><em class="snd_only">사진/동영상 업로드하기</em></label>
+										<input type="file" id="file1" name="files" accept="video/*, image/*">
+										<label for="file1" class="btn_file"><em class="snd_only">사진/동영상 업로드하기</em></label>
 									</li>
 								</ul>
 								<p class="txt_explan">파일 크기 00MB 이하, 최대 5개까지 업로드 가능합니다.</p>
@@ -242,6 +236,7 @@
 </div>
 <script type="text/javascript">
 	addInputs();
+	fileThumbnail('file', 'files');
 </script>
 </body>
 </html>

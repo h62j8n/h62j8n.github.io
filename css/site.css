@@ -2343,6 +2343,7 @@ img {
 .file_thumbnail ul {
   position: relative;
   display: table;
+  margin-left: -10px;
 }
 
 .file_thumbnail ul:after {
@@ -2352,6 +2353,7 @@ img {
 }
 
 .file_thumbnail li {
+  display: none;
   position: relative;
   float: left;
   margin-left: 10px;
@@ -2359,10 +2361,6 @@ img {
   height: 80px;
   border-radius: 10px;
   overflow: hidden;
-}
-
-.file_thumbnail li:first-child {
-  margin: 0;
 }
 
 .file_thumbnail li:before {
@@ -2426,6 +2424,14 @@ img {
   width: 4px;
   height: 22px;
   margin: -11px 0 0 -2px;
+}
+
+.file_thumbnail .ft_thumb .btn_file {
+  display: none;
+}
+
+.file_thumbnail .ft_btn .btn_cancle, .file_thumbnail .ft_btn img {
+  display: none;
 }
 
 .feed_maker, .feed_notice {
@@ -5796,6 +5802,10 @@ img {
   background-image: url(../images/ico/btn_close.png);
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.fstPop .feed_viewer {
+  margin: 0;
 }
 
 .fstPop .feed_viewer .feed_options {

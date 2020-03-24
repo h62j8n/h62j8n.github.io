@@ -102,6 +102,8 @@ function feedType(target) {
 			$(this).addClass('half');
 		}
 	});
+	// function addHash
+	// $('.fd_hashtag')
 }
 function thumbnail() {
 	var swiper = new Swiper('.thumb_slide', {
@@ -130,7 +132,7 @@ function btnPop(button) {
 			openPop(layer);
 		} else {
 			layerCnt++;
-			// url += '.html';
+			url += '.html';
 			layer = '<div class="fstPop pop'+layerCnt+'"></div>';
 			// <a>태그 (외부 컨텐츠 로드)
 			e.preventDefault();
@@ -514,111 +516,115 @@ function fileName() {
 		label.html(name);
 	});
 }
+function fileRemove() {
+	var container = $('.file_thumbnail'),
+		ul = container.find('ul');
+	var thumbBox = container.find('.ft_thumb');
+	var commBtn = $('.mk_btns .btn_file');
+	var my = $(this),
+		file = my.siblings($('input[type=file]')),
+		id = file.attr('id'),
+		img = my.siblings('img'),
+		box = my.parent('li');
+	var btnBox = container.find('.ft_btn:visible');
+	var feed = container.hasClass('mk_thumb');
+	if (btnBox.length > 0) {
+		btnBox.hide();
+	}
+	if (feed && thumbBox.length == 1) {
+		container.hide();
+	}
+	box.attr('class', 'ft_btn').appendTo(ul);
+	commBtn.attr('for', id);
+	file.val('');
+	img.removeAttr('src').removeAttr('alt');
+}
+function fileUpload() {
+	var container = $('.file_thumbnail'),
+		ul = container.find('ul');
+	var commBtn = $('.mk_btns .btn_file');
+	var my = $(this),
+		img = my.siblings('img'),
+		box = my.parent('li');
+	var btnBox = container.find('.ft_btn').not(box).first(),
+		next = btnBox.find($('input[type=file]')).attr('id');
+	var f = this.files[0];
+	var limit = 5242880,	// 5MB
+		imgFile = f.type.match('image.*'),
+		vdoFile = f.type.match('video.*');
+	if ((f.size < limit) && imgFile || vdoFile) {
+		var visible = container.is(':visible');
+		if (!visible) {
+			container.show();
+		}
+		fileThumbnail(f, img);
+		box.attr('class', 'ft_thumb').appendTo(ul).show();
+		if (btnBox.length > 0) {
+			commBtn.attr('for', next);
+			btnBox.appendTo(ul).show();
+		} else {
+			commBtn.attr('for', '');
+		}
+	} else {
+		this.value = '';
+	}
+}
+function fileThumbnail(file, img) {
+	var fileReader = new FileReader();
+	fileReader.onload = function(e) {
+		var src = e.target.result;
+		img.attr('src', src).attr('alt', file.name);
+	};
+	fileReader.readAsDataURL(file);
+	setTimeout(function() {
+		if (img.width() > img.height()) {
+			img.height(80);
+		} else {
+			img.width(80);
+		}
+	}, 200);
+}
 
-function fileThumbnail(id, name) {
-	var file = $('input[name="'+name+'"]');
-	var box = $('.file_thumbnail'),
-		ul = box.find('ul');
-	var cancleBtn = '.btn_cancle';
-	
-	$(document).on('click', cancleBtn, function() {
-		var box = $(this).parents('.thumb_box');
-		var file = $(this).data('file'),
-			fileBox = box.find('#'+file).parent('li');
-		$('#'+file).val('');
-		fileBox.remove();
-		box.remove();
+function setFile() {
+	var file = $('input[type=file]');
+	var cancleBtn = $('.btn_cancle');
+
+	$(file).on('change', fileUpload);
+	$(cancleBtn).on('click', fileRemove);
+
+	$(file).each(function() {
+		var my = $(this),
+			img = my.siblings('img');
+		var v = $(this).val();
+		if (v != '') {
+			var f = this.files[0];
+			fileThumbnail(f, img);
+		}
 	});
 
-	function upload() {
-		var myfile = $('input[name="'+name+'"]');
-			cnt = myfile.length + 1;
-
-		// 버튼 처리
-		var btnOrigin = $('.mk_btns').find('label');
-		btnOrigin.attr('for', id+cnt);
-
-		var btnAdd = '<li>'
-		+ '<input type="file" id="'+id+cnt+'" name="'+name+'" accept="video/*, image/*">'
-		+ '<label for="'+id+cnt+'" class="btn_file"><em class="snd_only">사진/동영상 업로드하기</em></label>'
-		+ '</li>';
-		var btnExist = box.find('#'+id+(cnt-1)).parent('li');
-			btnExist.hide();
-
-		var ids = [];
-		var errors = [];
-		var images = [];
-		var imgFile, vdoFile, fileSize;
-		var megabyte5 = 5242880;
-		for (var i=0; i<myfile.length; i++) {
-			var myId = $(myfile[i]).attr('id');
-			var f = myfile[i].files[0];
-			imgFile = f.type.match('image.*');
-			vdoFile = f.type.match('video.*');
-			fileSize = f.size;
-
-			if ((i < 5) && (fileSize < megabyte5) && (imgFile || vdoFile)) {
-				images.push(f);
-				ids.push(myId);
-			} else {
-				errors.push(myId);
-			}
-		}
-		// for (var i=0; i<errors.length; i++) {
-		// 	$('#'+errors[i]).val('');
-		// }
-
-		var thumbBox = box.find('.thumb_box');
-		// 기존 썸네일 삭제
-		thumbBox.remove();
-		for (var i=0; i<images.length; i++) {
-			var fileReader = new FileReader();
-			fileReader.onload = imgTag;
-			fileReader.readAsDataURL(images[i]);
-		}
-		
-		if (images.length > 0) {
-			box.show();
-		} else {
-			box.hide();
-		}
-		setTimeout(function() {
-			if (images.length < 5) {
-				ul.append(btnAdd)
-			}
-			var thumbBox = box.find('.thumb_box');
-			for (var i=0; i<thumbBox.length; i++) {
-				var tag = '<button class="btn_cancle" type="button" data-file="'+ids[i]+'"><em class="snd_only">업로드 취소하기</em></button>';
-				$(thumbBox[i]).append(tag);
-			}
-			imgTrim();
-		}, 250);
-	}
-
-	$(document).on('change', file, upload);
-
-	function imgTag(e) {
-		var src = e.target.result;
-		var tag = '<li class="thumb_box">'
-		+ '<img src="'+src+'" alt="">'
-		+ '</li>';
-		ul.prepend(tag);
-	}
-	function imgTrim() {
-		$('.thumb_box').each(function() {
-			var max = 80;
-			var img = $(this).find('img'),
-				imgW = img.width(),
-				imgH = img.height();
-			if (imgW > imgH) {
-				img.height(max);
-			} else {
-				img.width(max);
-			}
-		});
+	if ($('.mk_btns .btn_file').length == 0) {
+		$('.file_thumbnail li').first().show();
 	}
 }
 /* } 폼 */
+function imgTrim(tag, max) {
+	var tagName = $(tag).prop('tagName');
+	var img;
+	if (tagName == 'IMG') {
+		img = $(tag);
+	} else {
+		img = $(tag).find('img');
+	}
+	img.each(function() {
+		var imgW = $(this).width(),
+			imgH = $(this).height();
+		if (imgW > imgH) {
+			$(this).height(max);
+		} else {
+			$(this).width(max);
+		}
+	});
+}
 
 // 댓글입력/채팅입력 CSS
 function shortMessage() {

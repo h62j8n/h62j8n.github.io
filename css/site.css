@@ -2057,6 +2057,15 @@ img {
   overflow: hidden;
 }
 
+.camp_list .fstEmpty {
+  float: none;
+  width: 100%;
+  padding-top: 100px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: none;
+}
+
 .camp_list .cp_thumb {
   position: relative;
   display: block;
@@ -2065,7 +2074,7 @@ img {
 .camp_list .cp_text {
   display: block;
   height: 85px;
-  padding: 15px 25px 0;
+  padding: 15px 25px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -2084,7 +2093,7 @@ img {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   font-size: 20px;
 }
 
@@ -2682,11 +2691,19 @@ img {
   font-size: 20px;
 }
 
+.feed_viewer .feed_inform dt a {
+  float: left;
+}
+
+.feed_viewer .feed_inform dt span {
+  display: block;
+}
+
 .feed_viewer .feed_inform dd {
   line-height: 25px;
 }
 
-.feed_viewer .feed_inform span, .feed_viewer .feed_inform b {
+.feed_viewer .feed_inform dd span, .feed_viewer .feed_inform dd b {
   float: left;
 }
 

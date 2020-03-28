@@ -102,8 +102,8 @@ function feedType(target) {
 			$(this).addClass('half');
 		}
 	});
-	// function addHash
-	// $('.fd_hashtag')
+	var images = $('.thumb_slide').find('image');
+	imgTrim(images, 290);
 }
 function thumbnail() {
 	var swiper = new Swiper('.thumb_slide', {
@@ -123,40 +123,20 @@ var popCloseBtn = '<button type="button" class="btn_close"><em class="snd_only">
 var popSpiner = '<p id="fstLoad"><i class="xi-spinner-5 xi-spin"></i></p>';
 /* #레이어 팝업 { */
 function btnPop(button) {
-	var layer;
 	$(document).on('click', '.'+button, function(e) {
 		var url = $(this).attr('href');
 		if (url == undefined) {
 			// <button>태그 (내부 컨텐츠)
-			layer = $(this).data('layer');
+			var layer = $(this).data('layer');
 			openPop(layer);
 		} else {
-			layerCnt++;
-			url += '.html';
-			layer = '<div class="fstPop pop'+layerCnt+'"></div>';
-			// <a>태그 (외부 컨텐츠 로드)
-			e.preventDefault();
-			$(layer).bPopup({
-				positionStyle: 'fixed',
-				closeClass: 'btn_close',
-				opacity: 0.6,
-				loadUrl: url,
-				onOpen: function() {
-					$(this).append(popSpiner);
-				},
-				onClose: function() {
-					$(this).remove();
-					layerCnt--;
-				},
-			}, function() {
-				$('#fstLoad').remove();
-			});
+			openLayer(e, url);
 		}
 	});
 }
 function openPop(layer) {
 	layerCnt++;
-	layer = $('#'+layer);
+	var layer = $('#'+layer);
 	layer.addClass('pop'+layerCnt);
 	layer.bPopup({
 		positionStyle: 'fixed',
@@ -167,6 +147,29 @@ function openPop(layer) {
 			$(this).append(popCloseBtn);
 		},
 		onClose: function() {
+			layer.removeClass('pop'+layerCnt);
+			layerCnt--;
+		},
+	}, function() {
+		$('#fstLoad').remove();
+	});
+}
+function openLayer(e, url) {
+	e.preventDefault();
+	layerCnt++;
+	var url = url;
+	// var url = url + '.html';
+	var layer = '<div class="fstPop pop'+layerCnt+'"></div>';
+	$(layer).bPopup({
+		positionStyle: 'fixed',
+		closeClass: 'btn_close',
+		opacity: 0.6,
+		loadUrl: url,
+		onOpen: function() {
+			$(this).append(popSpiner);
+		},
+		onClose: function() {
+			$(this).remove();
 			layerCnt--;
 		},
 	}, function() {
@@ -178,8 +181,8 @@ function rdoPop() {
 	var url;
 	var layer = '<div class="fstPop pop'+layerCnt+'"></div>';
 	$('.rdo_pop').on('change', function() {
+		url = $(this).data('url');	/* + '.html'*/
 		layerCnt++;
-		url = $(this).data('url') + '.html';
 		var checked = $(this).prop('checked');
 		var radio = $(this);
 		if (checked) {
@@ -206,7 +209,7 @@ function rdoPop() {
 
 // #하트, 북마크 CSS
 function btnToggle(target) {
-	$('.'+target).on('click', function() {
+	$(document).on('click', '.'+target, function() {
 		var active = $(this).hasClass('act');
 		if (active) {
 			$(this).removeClass('act');
@@ -865,7 +868,7 @@ function chart() {
 // 카카오 맵API
 function kakaoMap() {
 	var address = $('#mapAddress').text();
-	var imageSrc = '/images/ico/shp_marker.png',
+	var imageSrc = '/festa/resources/images/ico/shp_marker.png',
 		imageSize = new daum.maps.Size(27, 39),	// 39, 51
 		imageOption = {offset: new daum.maps.Point(12, 40)};
 	var kakaoMap = document.getElementById('map'),

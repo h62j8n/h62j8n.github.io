@@ -102,7 +102,7 @@ function feedType(target) {
 			$(this).addClass('half');
 		}
 	});
-	var images = $('.thumb_slide').find('image');
+	var images = $('.thumb_slide').find('img');
 	imgTrim(images, 290);
 }
 function thumbnail() {
@@ -610,7 +610,8 @@ function setFile() {
 	}
 }
 /* } 폼 */
-function imgTrim(tag, max) {
+function imgTrim(tag, maxW, maxH) {
+	var maxH = maxH;
 	var tagName = $(tag).prop('tagName');
 	var img;
 	if (tagName == 'IMG') {
@@ -621,10 +622,14 @@ function imgTrim(tag, max) {
 	img.each(function() {
 		var imgW = $(this).width(),
 			imgH = $(this).height();
-		if (imgW > imgH) {
-			$(this).height(max);
+		if (maxH == undefined) {
+			if (imgW > imgH) {
+				$(this).height(maxH);
+			} else {
+				$(this).width(maxW);
+			}
 		} else {
-			$(this).width(max);
+			$(this).width(maxW);
 		}
 	});
 }
@@ -666,6 +671,8 @@ function campSlider() {
 		preventClicks: false,
 		allowTouchMove: false,
 	});
+	var images = $('.camp_list').find('img');
+	imgTrim(images, 320, 180);
 }
 // 시설안내 CSS
 function numbering(target) {

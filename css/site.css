@@ -1901,7 +1901,7 @@ form .f_message.ok {
 .pf_picture {
   display: block;
   position: relative;
-  border-radius: 50%;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -1915,11 +1915,17 @@ form .f_message.ok {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 1px solid #bfbfbf;
-  border-radius: 50%;
+  border-radius: 10px;
+  z-index: 2;
 }
 
 .pf_picture img {
-  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: none;
 }
 
 .cmt_options {
@@ -2220,9 +2226,19 @@ form .f_message.ok {
   top: 0;
   left: 0;
   width: 110px;
+  height: 110px;
   border-radius: 20px;
   overflow: hidden;
   z-index: 1;
+}
+
+.group_list .gp_thumb img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: none;
 }
 
 .group_list .gp_text {
@@ -2574,6 +2590,8 @@ form .f_message.ok {
   top: 25px;
   left: 25px;
   width: 55px;
+  width: 55px;
+  height: 55px;
 }
 
 .feed_maker textarea {
@@ -2949,8 +2967,33 @@ form .f_message.ok {
   position: absolute;
   top: 0;
   left: 0;
+  width: 55px;
+  height: 55px;
   border-radius: 10px;
   overflow: hidden;
+}
+
+.rcmm_list ul .rc_thumb:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #bfbfbf;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.rcmm_list ul img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: none;
 }
 
 .rcmm_list ul .rc_text {
@@ -3224,6 +3267,21 @@ form .f_message.ok {
 #main .camp_area dt {
   position: relative;
   z-index: 0;
+}
+
+#main .camp_area dt span {
+  display: block;
+  width: 492px;
+  height: 223px;
+}
+
+#main .camp_area dt img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: none;
 }
 
 #main .camp_area dd {
@@ -3689,6 +3747,10 @@ form .f_message.ok {
 
 .camp_wrap.detail .rate_area {
   padding: 60px 0 90px;
+}
+
+.camp_wrap.detail .others_area {
+  padding-top: 80px;
 }
 
 .camp_wrap.detail .fstPage {
@@ -4571,6 +4633,7 @@ form .f_message.ok {
   top: 50%;
   left: 0;
   width: 120px;
+  height: 120px;
   margin-top: -60px;
   border-radius: 20px;
 }

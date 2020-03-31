@@ -93,7 +93,7 @@ function myListOff() {
 }
 /* } #나의 메뉴 (상단 더보기) */
 /* #썸네일슬라이드 { */
-function commSlider(w, h) {
+function commSlider() {
 	var swiper = new Swiper('.thumb_slide', {
 		pagination: {
 			el: '.swiper-pagination',
@@ -103,8 +103,6 @@ function commSlider(w, h) {
 		preventClicks: false,
 		allowTouchMove: false,
 	});
-	var images = $('.thumb_slide').find('img');
-	// imgTrim(images, w, h);
 }
 /* } #썸네일슬라이드 */
 /* #피드 { */
@@ -116,10 +114,7 @@ function feedType(target) {
 			$(this).addClass('half');
 		}
 	});
-
 	commSlider(290);
-
-	// imgTrim('.rc_thumb', 55);
 }
 /* } #피드 */
 
@@ -239,7 +234,6 @@ function loginMove() {
 	var section = $('.login_wrap section');
 	$('.btn_move').on('click', function() {
 		section.removeClass('act');
-
 		var layer = $(this).data('layer');
 		if (layer == undefined) {
 			$('#log1').addClass('act');
@@ -299,13 +293,6 @@ $(document).ready(function() {
 	btnToggle('btn_bookmark');
 	// 팔로잉 CSS
 	btnFollow();
-
-	// images('.pf_picture');
-	// $('.pf_picture').each(function() {
-	// 	var w = $(this).width(),
-	// 		images = $(this).find('img');
-	// 	imgTrim(images, w);
-	// });
 });
 
 function square() {
@@ -352,6 +339,17 @@ function popSquare() {
 	};
 	squareArrTrim(popSquare);
 }
+function squareTrim(img, size) {
+	img.each(function() {
+		var w = $(this).width(),
+			h = $(this).height();
+		if (w > h) {
+			$(this).height(size);
+		} else {
+			$(this).width(size);
+		}
+	});
+}
 function squareArrTrim(arrays) {
 	var size = Object.keys(arrays),
 		square = Object.values(arrays);
@@ -359,23 +357,15 @@ function squareArrTrim(arrays) {
 		var mySize = size[i];
 		for (var j=0; j<square[i].length; j++) {
 			var img = $(square[i][j]).find('img');
-			img.each(function() {
-				var w = $(this).width(),
-					h = $(this).height();
-				if (w > h) {
-					$(this).height(mySize);
-				} else {
-					$(this).width(mySize);
-				}
-			});
+			squareTrim(img, mySize);
 		}
 	}
 }
 function rectangleArrTrim() {
 	var rectangle = [
-		// [$('.camp_area .cp_thumb'), 492, 223],
-		// [$('.camp_list'), 320, 180],
-		[$('.thumb_slide .swiper-slide'), 720, 380],
+		[$('#main .camp_area'), 492, 223],
+		[$('.camp_list'), 320, 180],
+		[$('.thumb_slide'), 720, 380],
 	];
 	for (var i=0; i<rectangle.length; i++) {
 		var img = $(rectangle[i][0]).find('img');
@@ -393,15 +383,6 @@ function rectangleArrTrim() {
 			}
 		});
 	}
-}
-var imgTag = {
-	// main: $('') 
-};
-
-function images(tag) {
-		// : [$('.'), , ],
-	var w = $(tag).width();
-	// imgTrim(tag, w);
 }
 
 /*
@@ -429,8 +410,7 @@ function mainSlider() {
 		preventClicks: false,
 		allowTouchMove: false,
 	});
-	var images = $('.camp_area .slide_box').find('img');
-	// imgTrim(images, 492, 223);
+	rectangleArrTrim();
 }
 function headerBg(scrTop) {
 	var visualH = $('.visual_area').height(),
@@ -454,9 +434,6 @@ function main() {
 	});
 	
 	mainSlider();
-
-	var images = $('.gp_thumb').find('img');
-	// imgTrim(images, 110);
 }
 
 /*
@@ -669,10 +646,12 @@ function fileUpload() {
 	if ((f.size < limit) && imgFile || vdoFile) {
 		if (feed) {
 			fileThumbnail(f, img, 80);
+			setTimeout(function() {squareTrim(img, 80)}, 150);
 			box.attr('class', 'ft_thumb');
 			fileBoxControll(container);
 		} else {
 			fileThumbnail(f, img, 140);
+			setTimeout(function() {squareTrim(img, 140)}, 150);
 		}
 	} else {
 		if (feed) {
@@ -690,13 +669,6 @@ function fileThumbnail(file, img, size) {
 		img.attr('src', src).attr('alt', file.name);
 	};
 	fileReader.readAsDataURL(file);
-	setTimeout(function() {
-		if (img.width() > img.height()) {
-			img.height(size);
-		} else {
-			img.width(size);
-		}
-	}, 200);
 }
 function setFile() {
 	var container, file, cancleBtn;
@@ -718,8 +690,10 @@ function setOneFile() {
 	var container = $('.set_file1'),
 		file = container.find('input[type=file]'),
 		cancleBtn = container.find('.btn_cancle');
+	var img = container.find('img');
 	$(cancleBtn).on('click', profileRemove);
 	$(file).on('change', fileUpload);
+	squareTrim(img, 140);
 }
 
 function fileBoxControll(container) {
@@ -775,19 +749,7 @@ function oirginImgTrim(tag, max) {
 }
 
 // 댓글입력/채팅입력 CSS
-function shortMessage() {
-	// formTags('message_form');
-	// textarea.on('keydown', function(e) {
-		// var scrHeight = textarea.prop('scrollHeight');
-		// textarea.css('height', scrHeight);
-		// console.log(scrHeight);
-		// console.log(e.which);
-		// if (e.which == )
-	// });
-	// textarea.keypress(function(e) {
-	// 	console.log(e.which);
-	// });
-};
+function shortMessage() {};
 
 /* 캠핑장 정보 (메인, 상세) { */
 function campDetail() {
@@ -795,7 +757,7 @@ function campDetail() {
 	numbering('info_list');
 	starRating();
 	kakaoMap();
-	commSlider(720, 380);
+	commSlider();
 }
 function campSlider() {
 	var swiper = new Swiper('.camp_slide > div', {

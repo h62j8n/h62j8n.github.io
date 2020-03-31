@@ -104,7 +104,7 @@ function commSlider(w, h) {
 		allowTouchMove: false,
 	});
 	var images = $('.thumb_slide').find('img');
-	imgTrim(images, w, h);
+	// imgTrim(images, w, h);
 }
 /* } #썸네일슬라이드 */
 /* #피드 { */
@@ -119,7 +119,7 @@ function feedType(target) {
 
 	commSlider(290);
 
-	imgTrim('.rc_thumb', 55);
+	// imgTrim('.rc_thumb', 55);
 }
 /* } #피드 */
 
@@ -164,6 +164,7 @@ function openPop(layer, open, close, content) {
 			if (methods3) close();
 		},
 	}, function() {
+		popSquare();
 		$('#fstLoad').remove();
 		if (methods4) content();
 	});
@@ -191,6 +192,7 @@ function openLayer(e, url, open, close, content) {
 			if (methods4) close();
 		},
 	}, function() {
+		popSquare();
 		$('#fstLoad').remove();
 		if (methods5) content();
 	});
@@ -255,6 +257,7 @@ $(document).ready(function() {
 	scrX();
 	scrBar();
 	setMyList();
+	square();
 
 	// 맨 위로
 	topBtn.on('click', function() {
@@ -305,15 +308,100 @@ $(document).ready(function() {
 	// });
 });
 
+function square() {
+	var commSquare = {
+		30: [
+			$('.comment_list .pf_picture'),
+		],
+		45: [
+			$('.my_list'),
+		],
+		55: [
+			$('.feed_maker .pf_picture'),
+			$('.feed_viewer .tit .pf_picture'),
+			$('.rcmm_list .rc_thumb'),
+		],
+		80: [
+			$('.rate_list .pf_picture'),
+		],
+		110: [
+			$('#main .gp_thumb'),
+		],
+		120: [
+			$('.profile_area .pf_picture'),
+		],
+	};
+	squareArrTrim(commSquare);
+}
+function popSquare() {
+	console.log('popSquare');
+	var popSquare = {
+		30: [
+			$('.comment_list .pf_picture'),
+		],
+		50: [
+			$('.follow_wrap .pf_picture'),
+		],
+		55: [
+			$('.feed_maker .pf_picture'),
+			$('.feed_viewer .tit .pf_picture'),
+		],
+		80: [
+			$('.feed_maker .ft_thumb'),
+		],
+	};
+	squareArrTrim(popSquare);
+}
+function squareArrTrim(arrays) {
+	var size = Object.keys(arrays),
+		square = Object.values(arrays);
+	for (var i=0; i<square.length; i++) {
+		var mySize = size[i];
+		for (var j=0; j<square[i].length; j++) {
+			var img = $(square[i][j]).find('img');
+			img.each(function() {
+				var w = $(this).width(),
+					h = $(this).height();
+				if (w > h) {
+					$(this).height(mySize);
+				} else {
+					$(this).width(mySize);
+				}
+			});
+		}
+	}
+}
+function rectangleArrTrim() {
+	var rectangle = [
+		// [$('.camp_area .cp_thumb'), 492, 223],
+		// [$('.camp_list'), 320, 180],
+		[$('.thumb_slide .swiper-slide'), 720, 380],
+	];
+	for (var i=0; i<rectangle.length; i++) {
+		var img = $(rectangle[i][0]).find('img');
+		img.each(function() {
+			var w = rectangle[i][1],
+				h = rectangle[i][2];
+			var myW = $(this).width(),
+				myH = $(this).height();
+			var testH = (myH * w) / myW;
+			// console.log(testH, testH < h);
+			if (testH < h) {
+				$(this).height(h);
+			} else {
+				$(this).width(w);
+			}
+		});
+	}
+}
 var imgTag = {
 	// main: $('') 
 };
+
 function images(tag) {
-	var tag = [
-		// $()
-	];
+		// : [$('.'), , ],
 	var w = $(tag).width();
-	imgTrim(tag, w);
+	// imgTrim(tag, w);
 }
 
 /*
@@ -342,7 +430,7 @@ function mainSlider() {
 		allowTouchMove: false,
 	});
 	var images = $('.camp_area .slide_box').find('img');
-	imgTrim(images, 492, 223);
+	// imgTrim(images, 492, 223);
 }
 function headerBg(scrTop) {
 	var visualH = $('.visual_area').height(),
@@ -368,7 +456,7 @@ function main() {
 	mainSlider();
 
 	var images = $('.gp_thumb').find('img');
-	imgTrim(images, 110);
+	// imgTrim(images, 110);
 }
 
 /*
@@ -562,7 +650,7 @@ function profileRemove() {
 		file = container.find('input[type=file]'),
 		hidden = container.find('input[type=hidden]'),
 		img = container.find('.pf_picture img');
-	var noImg = '/images/thumb/no_profile.png';	// /festa/resources
+	var noImg = '/festa/resources/images/thumb/no_profile.png';
 	file.val('');
 	hidden.remove();
 	img.attr('src', noImg).removeAttr('alt');
@@ -573,7 +661,7 @@ function fileUpload() {
 		box = my.parent('li'),
 		container = my.parents('.file_thumbnail'),
 		feed = container.length > 0;
-	var noImg = '/images/thumb/no_profile.png';	// /festa/resources
+	var noImg = '/festa/resources/images/thumb/no_profile.png';
 	var f = this.files[0];
 	var limit = 5242880,	// 5MB
 		imgFile = f.type.match('image.*'),
@@ -662,7 +750,7 @@ function fileBoxControll(container) {
 	lastThumbBox.appendTo(ul).after(btnBoxes);
 }
 /* } 폼 */
-function imgTrim(tag, max) {
+function oirginImgTrim(tag, max) {
 	var rectangle = arguments[2];
 	var tagName = $(tag).prop('tagName');
 	var img;
@@ -724,8 +812,7 @@ function campSlider() {
 		preventClicks: false,
 		allowTouchMove: false,
 	});
-	var images = $('.camp_list').find('img');
-	imgTrim(images, 320, 180);
+	rectangleArrTrim();
 }
 // 시설안내 CSS
 function numbering(target) {

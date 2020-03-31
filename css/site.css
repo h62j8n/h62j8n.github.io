@@ -2391,7 +2391,6 @@ form .f_message.ok {
 }
 
 .file_thumbnail li {
-  display: none;
   position: relative;
   float: left;
   margin-left: 10px;
@@ -2413,6 +2412,18 @@ form .f_message.ok {
   border: 2px dashed #ddd;
   border-radius: 10px;
   z-index: 0;
+}
+
+.file_thumbnail li.ft_btn {
+  display: none;
+}
+
+.file_thumbnail li.ft_thumb {
+  display: block;
+}
+
+.file_thumbnail li.ft_thumb + .ft_btn {
+  display: block;
 }
 
 .file_thumbnail img {

@@ -119,11 +119,7 @@ function feedType(target) {
 
 	commSlider(290);
 
-	$('.rc_thumb').each(function() {
-		var w = $(this).width(),
-			images = $(this).find('img');
-		imgTrim(images, w);
-	});
+	imgTrim('.rc_thumb', 55);
 }
 /* } #피드 */
 
@@ -301,14 +297,24 @@ $(document).ready(function() {
 	// 팔로잉 CSS
 	btnFollow();
 
-	$('.pf_picture').each(function() {
-		var w = $(this).width(),
-			images = $(this).find('img');
-		imgTrim(images, w);
-	});
+	// images('.pf_picture');
+	// $('.pf_picture').each(function() {
+	// 	var w = $(this).width(),
+	// 		images = $(this).find('img');
+	// 	imgTrim(images, w);
+	// });
 });
 
-function profileImg() {}
+var imgTag = {
+	// main: $('') 
+};
+function images(tag) {
+	var tag = [
+		// $()
+	];
+	var w = $(tag).width();
+	imgTrim(tag, w);
+}
 
 /*
 ---------------------------------------------------------------
@@ -539,60 +545,57 @@ function fileName() {
 	});
 }
 function fileRemove() {
-	var container = $(this).parents('.file_thumbnail'),
-		ul = container.find('ul');
-	var thumbBox = container.find('.ft_thumb');
-	var commBtn = $('.mk_btns .btn_file');
 	var my = $(this),
-		file = my.siblings($('input[type=file]')),
-		id = file.attr('id'),
+		file = my.siblings('input[type=file]'),
+		hidden = my.siblings('input[type=hidden]'),
 		img = my.siblings('img'),
-		box = my.parent('li');
-	var btnBox = container.find('.ft_btn:visible');
-	var feed = container.hasClass('mk_thumb');
-	if (btnBox.length > 0) {
-		btnBox.hide();
-	}
-	if (feed && thumbBox.length == 1) {
-		container.hide();
-	}
-	box.attr('class', 'ft_btn').appendTo(ul);
-	commBtn.attr('for', id);
+		box = my.parent('li'),
+		container = my.parents('.file_thumbnail');
+	box.attr('class', 'ft_btn');
 	file.val('');
+	hidden.remove();
 	img.removeAttr('src').removeAttr('alt');
+	fileBoxControll(container);
+}
+function profileRemove() {
+	var container = $('.set_file1'),
+		file = container.find('input[type=file]'),
+		hidden = container.find('input[type=hidden]'),
+		img = container.find('.pf_picture img');
+	var noImg = '/images/thumb/no_profile.png';	// /festa/resources
+	file.val('');
+	hidden.remove();
+	img.attr('src', noImg).removeAttr('alt');
 }
 function fileUpload() {
-	var container = $(this).parents('.file_thumbnail'),
-	ul = container.find('ul');
-	console.log(container);
-	var commBtn = $('.mk_btns .btn_file');
 	var my = $(this),
 		img = my.siblings('img'),
-		box = my.parent('li');
-	var btnBox = container.find('.ft_btn').not(box).first(),
-		next = btnBox.find($('input[type=file]')).attr('id');
+		box = my.parent('li'),
+		container = my.parents('.file_thumbnail'),
+		feed = container.length > 0;
+	var noImg = '/images/thumb/no_profile.png';	// /festa/resources
 	var f = this.files[0];
 	var limit = 5242880,	// 5MB
 		imgFile = f.type.match('image.*'),
 		vdoFile = f.type.match('video.*');
 	if ((f.size < limit) && imgFile || vdoFile) {
-		var visible = container.is(':visible');
-		if (!visible) {
-			container.show();
-		}
-		fileThumbnail(f, img);
-		box.attr('class', 'ft_thumb').appendTo(ul).show();
-		if (btnBox.length > 0) {
-			commBtn.attr('for', next);
-			btnBox.appendTo(ul).show();
+		if (feed) {
+			fileThumbnail(f, img, 80);
+			box.attr('class', 'ft_thumb');
+			fileBoxControll(container);
 		} else {
-			commBtn.attr('for', '');
+			fileThumbnail(f, img, 140);
 		}
 	} else {
+		if (feed) {
+			img.removeAttr('src').removeAttr('alt');
+		} else {
+			img.attr('src', noImg).removeAttr('alt');
+		}
 		this.value = '';
 	}
 }
-function fileThumbnail(file, img) {
+function fileThumbnail(file, img, size) {
 	var fileReader = new FileReader();
 	fileReader.onload = function(e) {
 		var src = e.target.result;
@@ -601,32 +604,62 @@ function fileThumbnail(file, img) {
 	fileReader.readAsDataURL(file);
 	setTimeout(function() {
 		if (img.width() > img.height()) {
-			img.height(80);
+			img.height(size);
 		} else {
-			img.width(80);
+			img.width(size);
 		}
 	}, 200);
 }
-
 function setFile() {
-	var file = $('input[type=file]');
-	var cancleBtn = $('.btn_cancle');
+	var container, file, cancleBtn;
+	var pop = $('.fstPop').is(':visible');
+	if (pop) {
+		container = $('.fstPop').find('.file_thumbnail');
+		file = container.find('input[type=file]');
+		cancleBtn = container.find('.btn_cancle');
+	} else {
+		container = $('#wrap').find('.file_thumbnail');
+		file = container.find('input[type=file]');
+		cancleBtn = container.find('.btn_cancle');
+	}
+	fileBoxControll(container);
 	$(file).on('change', fileUpload);
 	$(cancleBtn).on('click', fileRemove);
+}
+function setOneFile() {
+	var container = $('.set_file1'),
+		file = container.find('input[type=file]'),
+		cancleBtn = container.find('.btn_cancle');
+	$(cancleBtn).on('click', profileRemove);
+	$(file).on('change', fileUpload);
+}
 
-	$(file).each(function() {
-		var my = $(this),
-			img = my.siblings('img');
-		var v = $(this).val();
-		if (v != '') {
-			var f = this.files[0];
-			fileThumbnail(f, img);
+function fileBoxControll(container) {
+	var ul = container.find('ul'),
+		thumbBoxes = container.find('.ft_thumb'),
+		lastThumbBox = thumbBoxes.last(),
+		btnBoxes = container.find('.ft_btn'),
+		firstBtnBox = btnBoxes.first();
+	var commLabel = container.siblings('.mk_bottom').find('.btn_file'),
+		fileId = firstBtnBox.find('input[type=file]').attr('id');
+	
+	var feed = $('.maker_form').length > 0;
+		if (feed) {
+		if (thumbBoxes.length > 0) {
+			container.show();
+		} else {
+			container.hide();
 		}
-	});
-
-	if ($('.mk_btns .btn_file').length == 0) {
-		$('.file_thumbnail li').first().show();
+		if (thumbBoxes.length == 5) {
+			commLabel.removeAttr('for');
+		}
+	} else {
+		if (thumbBoxes.length == 0) {
+			firstBtnBox.show();
+		}
 	}
+	commLabel.attr('for', fileId);
+	lastThumbBox.appendTo(ul).after(btnBoxes);
 }
 /* } 폼 */
 function imgTrim(tag, max) {

@@ -830,6 +830,10 @@ img {
   max-width: 100%;
 }
 
+pre {
+  font-family: "noto-sans-scott-dl";
+}
+
 button, input[type=submit] {
   border: none;
   background: none;

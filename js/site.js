@@ -502,7 +502,14 @@ function reportForm() {
 			r = form.find('input[name="'+radioName+'"]:checked').val(),
 			t = textarea.val();
 		console.log('f '+f, '\nr '+r, '\nt '+t);
-		if (f != '') {
+		if (f != '' && r != '기타') {
+			submitBtn.attr('type', 'submit');
+		} else if (f != '' && (r == '기타' && t != '')) {
+			submitBtn.attr('type', 'submit');
+		} else {
+			submitBtn.attr('type', 'button');
+		}
+		/*if (f != '') {
 			if (r != '기타') {
 				submitBtn.attr('type', 'submit');
 			} else if (r == '기타' && t != '') {
@@ -512,7 +519,7 @@ function reportForm() {
 			}
 		} else {
 			submitBtn.attr('type', 'button');
-		}
+		}*/
 	}
 	file.on('change', function() {
 		setTimeout(required, 150);

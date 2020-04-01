@@ -5925,6 +5925,15 @@ form .f_message.ok {
   width: 600px;
 }
 
+.fstPop .feed_maker .btn_send {
+  position: relative;
+  top: auto;
+  right: auto;
+  width: 30px;
+  height: 50px;
+  background: url(../images/ico/btn_send.png) no-repeat center;
+}
+
 .pop_wrap {
   border-radius: 30px 0 30px 0;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

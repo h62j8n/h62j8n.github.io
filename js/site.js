@@ -492,22 +492,24 @@ function formTagCss() {
 function reportForm() {
 	var form = $('.comm_form'),
 		radioName = form.find('input[type=radio]').attr('name');
-	var tags = [
-		form.find('input[type=file]'),
-		form.find('input[name="'+radioName+'"]'),
-		form.find('textarea'),
-	];
-	var file = tags[0],
-		radio = tags[1],
-		textarea = tags[2];
+	var file = form.find('input[type=file]'),
+		radio = form.find('input[name="'+radioName+'"]'),
+		textarea = form.find('textarea');
 	var txtBox = textarea.parent('.txt_box');
 	var submitBtn = form.find('.comm_buttons .comm_btn.sbm');
 	function required() {
-		var f = tags[0].val(),
-			r = tags[1].val(),
-			t = tags[2].val();
-		if (f != '' && r != '') {
-			submitBtn.attr('type', 'submit');
+		var f = file.val(),
+			r = form.find('input[name="'+radioName+'"]:checked').val(),
+			t = textarea.val();
+		console.log('f '+f, '\nr '+r, '\nt '+t);
+		if (f != '') {
+			if (r != '기타') {
+				submitBtn.attr('type', 'submit');
+			} else if (r == '기타' && t != '') {
+				submitBtn.attr('type', 'submit');
+			} else {
+				submitBtn.attr('type', 'button');
+			}
 		} else {
 			submitBtn.attr('type', 'button');
 		}
@@ -527,6 +529,7 @@ function reportForm() {
 		required();
 	});
 	textarea.on('change', required);
+	textarea.on('keyup', required);
 }
 // 전체선택 기능
 function inputAllChecked() {

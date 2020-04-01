@@ -321,7 +321,6 @@ function square() {
 	squareArrTrim(commSquare);
 }
 function popSquare() {
-	console.log('popSquare');
 	var popSquare = {
 		30: [
 			$('.comment_list .pf_picture'),
@@ -339,6 +338,7 @@ function popSquare() {
 	};
 	squareArrTrim(popSquare);
 }
+
 function squareTrim(img, size) {
 	img.each(function() {
 		var w = $(this).width(),
@@ -491,18 +491,42 @@ function formTagCss() {
 // 신고 폼 CSS
 function reportForm() {
 	var form = $('.comm_form'),
-		inputR = form.find('input[type=radio]'),
-		textarea = form.find('textarea');
-	var target = textarea.parent('.txt_box');
-	inputR.on('change', function() {
+		radioName = form.find('input[type=radio]').attr('name');
+	var tags = [
+		form.find('input[type=file]'),
+		form.find('input[name="'+radioName+'"]'),
+		form.find('textarea'),
+	];
+	var file = tags[0],
+		radio = tags[1],
+		textarea = tags[2];
+	var txtBox = textarea.parent('.txt_box');
+	var submitBtn = form.find('.comm_buttons .comm_btn.sbm');
+	function required() {
+		var f = tags[0].val(),
+			r = tags[1].val(),
+			t = tags[2].val();
+		if (f != '' && r != '') {
+			submitBtn.attr('type', 'submit');
+		} else {
+			submitBtn.attr('type', 'button');
+		}
+	}
+	file.on('change', function() {
+		setTimeout(required, 150);
+	});
+	radio.on('change', function() {
 		var value = $(this).val();
 		if (value == '기타') {
-			target.slideDown(250);
+			txtBox.slideDown(250);
 			textarea.focus();
 		} else {
-			target.hide();
+			txtBox.hide();
+			textarea.val('');
 		}
+		required();
 	});
+	textarea.on('change', required);
 }
 // 전체선택 기능
 function inputAllChecked() {
@@ -593,20 +617,30 @@ function addInputs() {
 
 // 파일 업로드 시 파일명 출력
 function fileName() {
-	var name;
-	var inputF = $('.fl_name'),
-		label = inputF.siblings('.txt_hf');
+	var file = $('.fl_name'),
+		label = file.siblings('.txt_hf');
 	var resetText = label.html();
-	inputF.on('change', function(e) {
-		var file = e.target.files;
-		if (file.length == 0) {
-			name = resetText;
-			label.addClass('plc_holder');
+	var form = file.parents('form');
+	file.on('change', function(e) {
+		var v = this.value;
+		if (v != '') {
+			var f = this.files[0];
+			var limit = 5242880,	// 5MB
+				imgFile = f.type.match('image.*');
+			if ((f.size < limit) && imgFile) {
+				label.removeClass('plc_holder').text(f.name);
+			} else {
+				this.value = '';
+				if (form.hasClass('set_form')) {
+					label.addClass('plc_holder').text(resetText);
+					$(this).siblings('.f_message').text('5MB이하의 이미지파일만 업로드 가능합니다');
+				} else {
+					label.addClass('plc_holder').html('<span>(필수)</span> 5MB이하의 이미지파일만 업로드 가능합니다');
+				}
+			}
 		} else {
-			name = file[0].name;
-			label.removeClass('plc_holder');
+			label.addClass('plc_holder').html(resetText);
 		}
-		label.html(name);
 	});
 }
 function fileRemove() {

@@ -999,12 +999,12 @@ textarea:focus {
 .comm_buttons {
   display: table;
   margin: 25px auto 0;
+  overflow: hidden;
 }
 
 .comm_buttons li {
-  display: table-cell;
-  vertical-align: middle;
-  padding: 0 15px;
+  float: left;
+  margin: 0 15px;
 }
 
 .comm_btn {
@@ -2335,6 +2335,7 @@ form .f_message.ok {
   top: 9px;
   left: 15px;
   width: 30px;
+  height: 30px;
 }
 
 .message_form .msg_input {

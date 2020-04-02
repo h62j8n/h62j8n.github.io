@@ -299,6 +299,7 @@ function square() {
 	var commSquare = {
 		30: [
 			$('.comment_list .pf_picture'),
+			$('.feed_list .pf_picture'),
 		],
 		45: [
 			$('.my_list'),
@@ -311,8 +312,11 @@ function square() {
 		80: [
 			$('.rate_list .pf_picture'),
 		],
+		100: [
+			$('.fd_thumb'),
+		],
 		110: [
-			$('#main .gp_thumb'),
+			$('.gp_thumb'),
 		],
 		120: [
 			$('.profile_area .pf_picture'),
@@ -509,17 +513,6 @@ function reportForm() {
 		} else {
 			submitBtn.attr('type', 'button');
 		}
-		/*if (f != '') {
-			if (r != '기타') {
-				submitBtn.attr('type', 'submit');
-			} else if (r == '기타' && t != '') {
-				submitBtn.attr('type', 'submit');
-			} else {
-				submitBtn.attr('type', 'button');
-			}
-		} else {
-			submitBtn.attr('type', 'button');
-		}*/
 	}
 	file.on('change', function() {
 		setTimeout(required, 150);

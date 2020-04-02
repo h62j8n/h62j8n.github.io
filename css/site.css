@@ -1966,7 +1966,7 @@ form .f_message.ok {
   background: url(../images/ico/shp_campfire.png) no-repeat center;
 }
 
-.btn_liked, .btn_report, .btn_edit, .btn_delete, .btn_back, .btn_bookmark {
+.btn_liked, .btn_liked2, .btn_report, .btn_edit, .btn_delete, .btn_back, .btn_bookmark, .btn_bookmark2 {
   display: block;
   width: 30px;
   height: 30px;
@@ -1975,12 +1975,12 @@ form .f_message.ok {
   background-size: 100%;
 }
 
-.btn_liked {
+.btn_liked, .btn_liked2 {
   background-image: url(../images/ico/btn_liked.png);
   background-position: top center;
 }
 
-.btn_liked.act {
+.btn_liked.act, .btn_liked2.act {
   background-position: bottom center;
 }
 
@@ -2000,12 +2000,12 @@ form .f_message.ok {
   background-image: url(../images/ico/btn_back.png);
 }
 
-.btn_bookmark {
+.btn_bookmark, .btn_bookmark2 {
   background-image: url(../images/ico/btn_bookmark.png);
   background-position: top center;
 }
 
-.btn_bookmark.act {
+.btn_bookmark.act, .btn_bookmark2.act {
   background-position: bottom center;
 }
 
@@ -3797,6 +3797,10 @@ form .f_message.ok {
   border-bottom: 1px solid #eee;
 }
 
+.camp_wrap .rate_list li.fstEmpty {
+  padding-left: 0;
+}
+
 .camp_wrap .rate_list .pf_picture {
   position: absolute;
   top: 50%;
@@ -3869,7 +3873,10 @@ form .f_message.ok {
 }
 
 .camp_wrap .rate_form > div {
+  height: 135px;
   padding: 15px 25px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .camp_wrap .rate_form .rt_name, .camp_wrap .rate_form .rt_rates {
@@ -3929,6 +3936,11 @@ form .f_message.ok {
   padding: 10px 0;
   font-size: 16px;
   border: none;
+}
+
+.camp_wrap .rate_form .rt_input.fstEmpty {
+  background: #fff;
+  text-align: left;
 }
 
 .camp_wrap .rate_form .rt_btn_send {
@@ -4042,6 +4054,22 @@ form .f_message.ok {
 
 .search_wrap .feed_list .thumb.box {
   float: right;
+}
+
+.search_wrap .feed_list .thumb.box .fd_thumb {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.search_wrap .feed_list .thumb.box img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: none;
 }
 
 .search_wrap .feed_list .info.box {

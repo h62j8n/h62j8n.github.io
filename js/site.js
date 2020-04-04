@@ -195,7 +195,6 @@ function openPop(layer, open, close, content) {
 		},
 	}, function() {
 		$('#fstLoad').remove();
-		// popSquare();
 		if (methods4) content();
 	});
 }
@@ -349,6 +348,7 @@ function square() {
 		30: [
 			$('.comment_list .pf_picture'),
 			$('.feed_list .pf_picture'),
+			$('.message_form .pf_picture'),
 		],
 		45: [
 			$('.my_list'),
@@ -380,6 +380,7 @@ function popSquare() {
 	var popSquare = {
 		30: [
 			$('.fstPop .comment_list .pf_picture'),
+			$('.fstPop .message_form .pf_picture'),
 		],
 		50: [
 			$('.follow_wrap .pf_picture'),
@@ -388,9 +389,6 @@ function popSquare() {
 			$('.fstPop .feed_maker .pf_picture'),
 			$('.fstPop .feed_viewer .tit .pf_picture'),
 		],
-		// 80: [
-		// 	$('.fstPop .feed_maker .ft_thumb'),
-		// ],
 		290: [
 			$('.fstPop .feed_viewer .swiper-slide'),
 		],
@@ -700,7 +698,6 @@ function fileName() {
 	});
 }
 function fileRemove() {
-	console.log('fileRemove');
 	var my = $(this),
 		file = my.siblings('input[type=file]'),
 		hidden = my.siblings('input[type=hidden]'),
@@ -724,7 +721,6 @@ function profileRemove() {
 	img.attr('src', noImg).removeAttr('alt');
 }
 function fileUpload() {
-	console.log('fileUpload');
 	var my = $(this),
 		img = my.siblings('img'),
 		box = my.parent('li'),
@@ -768,10 +764,7 @@ function setFile() {
 		file = container.find('input[type=file]');
 		cancleBtn = container.find('.btn_cancle');
 		var img = container.find('.ft_thumb').find('img');
-		console.log(img);
-		setTimeout(function() {
-			squareTrim(img, 80);
-		}, 150);
+		setTimeout(function() {squareTrim(img, 80)}, 150);
 	} else {
 		container = $('#wrap').find('.file_thumbnail');
 		file = container.find('input[type=file]');
@@ -792,7 +785,6 @@ function setOneFile() {
 }
 
 function fileBoxControll(container) {
-	console.log('fileBoxControll');
 	var ul = container.find('ul'),
 		thumbBoxes = container.find('.ft_thumb'),
 		lastThumbBox = thumbBoxes.last(),

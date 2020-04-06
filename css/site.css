@@ -3577,6 +3577,7 @@ form .f_message.ok {
   position: relative;
   float: left;
   min-width: 30px;
+  min-height: 30px;
   margin-left: 10px;
 }
 

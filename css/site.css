@@ -3576,6 +3576,7 @@ form .f_message.ok {
 .camp_wrap.detail .info_area .cp_options li {
   position: relative;
   float: left;
+  min-width: 30px;
   margin-left: 10px;
 }
 

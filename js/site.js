@@ -156,15 +156,15 @@ function btnPop(button) {
 // 라디오 팝업 버튼
 function rdoPop() {
 	var radio = $('.rdo_pop');
-	var url = radio.data('url'); /* + '.html'*/
 	radio.on('change', function(e) {
-		openLayer(e, url, none, rdoProp)
+	   var url = $(this).data('url'); /* + '.html'*/
+	   openLayer(e, url, none, rdoProp);
 	});
 	function rdoProp() {
-		var radio = $('.rdo_pop');
-		radio.prop('checked', false);
+	   var radio = $('.rdo_pop');
+	   radio.prop('checked', false);
 	}
-}
+ }
 // 피드 팝업 버튼
 function openFeed() {
 	$('.btn_feed').on('click', function(e) {
@@ -231,15 +231,28 @@ function imageLoad(seconds) {
 	if (seconds == undefined) {
 		setTimeout(function() {
 			popSquare();
-			popSlider();
+			// popSlider();
 		}, 1000);
 	} else {
 		setTimeout(function() {
 			popSquare();
-			popSlider();
+			// popSlider();
 		}, seconds);
 	}
 }
+function sliderLoad(target) {
+	var mySlider = target,
+	myPagination = target.find('.swiper-pagination');
+	new Swiper(mySlider, {
+	   pagination: {
+		  el: myPagination,
+		  clickable: true,
+	   },
+	   speed: 600,
+	   preventClicks: false,
+	   allowTouchMove: false,
+	});
+ }
 // 외부팝업 슬라이더
 function popSlider() {
 	var mySlider = $('.fstPop .thumb_slide'),

@@ -121,7 +121,8 @@ function commSlider() {
 /* } #썸네일슬라이드 */
 /* #피드 { */
 function feedType(target) {
-	var feed = $('.' + target);
+	// var feed = $('.' + target);
+	var feed = $(document.getElementsByClassName(target));
 	feed.each(function() {
 		var feedSize = $(this).find('.box').length;
 		if (feedSize == 3) {
@@ -142,7 +143,8 @@ function none() {}
 /* #레이어 팝업 { */
 // 팝업 공통 버튼
 function btnPop(button) {
-	$(document).on('click', '.'+button, function(e) {
+	var popBtn = '.' + button;
+	$(document).on('click', popBtn, function(e) {
 		var url = $(this).attr('href');
 		if (url == undefined) {
 			// <button>태그 (내부 컨텐츠)
@@ -176,7 +178,8 @@ function openPop(layer, open, close, content) {
 	var methods3 = arguments.length == 3;
 	var methods4 = arguments.length == 4;
 	layerCnt++;
-	var layer = $('#'+layer);
+	// var layer = $('#' + layer);
+	var layer = $(document.getElementById(layer));
 	layer.addClass('pop'+layerCnt);
 	layer.bPopup({
 		positionStyle: 'fixed',
@@ -201,7 +204,9 @@ function openPop(layer, open, close, content) {
 function openLayer(e, url, open, close, content) {
 	var methods4 = arguments.length == 4;
 	var methods5 = arguments.length == 5;
-	e.preventDefault();
+	if (e != 'none') {
+		e.preventDefault();
+	}
 	layerCnt++;
 	var url = url;
 	// var url = url + '.html';
@@ -271,7 +276,8 @@ function popSlider() {
 
 // #하트, 북마크 CSS
 function btnToggle(target) {
-	$(document).on('click', '.'+target, function() {
+	var toggleBtn = '.' + target;
+	$(document).on('click', toggleBtn, function() {
 		var active = $(this).hasClass('act');
 		if (active) {
 			$(this).removeClass('act');
@@ -301,7 +307,8 @@ function loginMove() {
 		if (layer == undefined) {
 			$('#log1').addClass('act');
 		} else {
-			$('#'+layer).addClass('act');
+			// $('#' + layer).addClass('act');
+			$(document.getElementById(layer)).addClass('act');
 		}
 	});
 }
@@ -627,43 +634,6 @@ function inputAllChecked() {
 	});
 }
 
-// 필수값 유효성검사
-function formRequired(form) {
-	var form = $('.'+form);
-	var submit = form.find('button[type=submit]');
-	var required = [],
-		all = [];
-	all.push(
-		form.find('input'),
-		form.find('select'),
-		form.find('textarea')
-	);
-	for (var i=0; i<all.length; i++) {
-		for (var j=0; j<all[i].length; j++) {
-			var target = all[i][j];
-			if ($(target).prop('required')) {
-				required.push(target);
-			}
-		}
-	}
-	for (var i=0; i<required.length; i++) {
-		var target = required[i];
-		var msgBox,
-			msg = '필수 입력사항입니다.';
-		$(target).on('change', function() {
-			var value = $(this).val();
-			msgBox = $(this).siblings('.f_message');
-			if (value == '') {
-				msgBox.text(msg);
-			} else {
-				msgBox.text();
-			}
-		});
-	}
-}
-
-
-
 // 유저관리-캠핑장 시설안내 추가
 function addInputs() {
 	var field, tag,
@@ -880,7 +850,8 @@ function campSlider() {
 }
 // 시설안내 CSS
 function numbering(target) {
-	var list = $('.' + target),
+	// var list = $('.' + target),
+	var list = $(document.getElementsByClassName(target)),
 		li = list.find('li:not(".fstEmpty")');
 	for (var i=0; i<li.length; i++) {
 		var l = li.eq(i);
@@ -1115,7 +1086,8 @@ function kakaoAddr() {
 		next = $('.kko_addr2').attr('id'),
 		closeBtn = $('.kko_close');
 
-	$('#'+text).on('click', api);
+	// $('#' + text).on('click', api);
+	$(document.getElementById(text)).on('click', api);
 	searchBtn.on('click', api);
 
 	closeBtn.on('click', function() {

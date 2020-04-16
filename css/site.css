@@ -2356,11 +2356,11 @@ form .f_message.ok {
   overflow: hidden;
 }
 
-.message_form textarea, .message_form button {
+.message_form .msg_txt, .message_form .btn_send {
   float: left;
 }
 
-.message_form textarea {
+.message_form .msg_txt {
   padding: 5px 0;
   height: 30px;
   line-height: 20px;
@@ -2371,23 +2371,23 @@ form .f_message.ok {
   transition: height .1s;
 }
 
-.message_form textarea::-webkit-input-placeholder {
+.message_form .msg_txt::-webkit-input-placeholder {
   font-size: 13px;
 }
 
-.message_form textarea:-ms-input-placeholder {
+.message_form .msg_txt:-ms-input-placeholder {
   font-size: 13px;
 }
 
-.message_form textarea::-ms-input-placeholder {
+.message_form .msg_txt::-ms-input-placeholder {
   font-size: 13px;
 }
 
-.message_form textarea::placeholder {
+.message_form .msg_txt::placeholder {
   font-size: 13px;
 }
 
-.message_form button {
+.message_form .btn_send {
   width: 30px;
   height: 30px;
   background-size: 20px;
@@ -2840,7 +2840,7 @@ form .f_message.ok {
   color: #999;
 }
 
-.feed_viewer .message_form textarea {
+.feed_viewer .message_form .msg_txt {
   width: 603px;
 }
 
@@ -2941,7 +2941,7 @@ form .f_message.ok {
   width: 430px;
 }
 
-.feed_viewer.half .message_form textarea {
+.feed_viewer.half .message_form .msg_txt {
   width: 313px;
 }
 

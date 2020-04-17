@@ -2876,6 +2876,10 @@ form .f_message.ok {
   background: #222;
 }
 
+.feed_viewer .fd_content {
+  white-space: normal;
+}
+
 .feed_viewer .comment_list {
   overflow: hidden;
 }

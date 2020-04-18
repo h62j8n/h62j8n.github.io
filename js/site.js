@@ -128,16 +128,22 @@ function btnPop(button) {
 }
 // 라디오 팝업 버튼
 function rdoPop() {
+	var rdoProp = function() {
+		var radio = $('.rdo_pop, .rdo_pop2');
+		console.log(radio);
+		radio.prop('checked', false);
+	}
 	var radio = $('.rdo_pop');
 	radio.on('change', function(e) {
-	   var url = $(this).data('url'); /* + '.html'*/
-	   openLayer(e, url, none, rdoProp);
+		var url = $(this).data('url'),
+			layer = $(this).data('layer');
+		if (url != undefined) {
+			openLayer(e, url, none, rdoProp);
+		} else {
+			openPop(layer, none, rdoProp);
+		}
 	});
-	function rdoProp() {
-	   var radio = $('.rdo_pop');
-	   radio.prop('checked', false);
-	}
- }
+}
 // 피드 팝업 버튼
 function openFeed() {
 	$('.btn_feed').on('click', function(e) {
@@ -609,6 +615,54 @@ function inputAllChecked() {
 			}
 		}
 	});
+}
+
+function stringValue(form) {
+	var over = false;
+	var textArr = [
+		form.find('textarea'),
+		form.find('input[type=text]'),
+	];
+	
+	for (var i=0; i<textArr.length; i++) {
+		for (var j=0; j<textArr[i].length; j++) {
+			var t = $(textArr[i][j]),
+				n = t.attr('name'),
+				v = t.val();
+			var max, errFocus, message;
+			
+			if (n == 'mccontent' || n == 'gccontent') {
+				max = 500;
+				message = '댓글은 500자 이상 입력할 수 없습니다.';
+			} else if (n == 'mpcontent' || n == 'gpcontent') {
+				max = 500;
+				message = '게시글은 500자 이상 입력할 수 없습니다.';
+			} else if (n == 'rlreport') {
+				max = 500;
+				message = '신고사유는 500자 이상 입력할 수 없습니다.';
+			} else if (n == 'httitle1' || n == 'httitle2' || n == 'httitle3') {
+				max = 20;
+				message = '해시태그는 20자 이상 입력할 수 없습니다.';
+			} else if (n == 'crcontent') {
+				max = 1000;
+				message = '한줄평은 1000자 이상 입력할 수 없습니다.';
+			}
+			
+			if (v.length > max) {
+				$('#alert .pop_tit').text(message);
+				errFocus = function (){
+					t.focus();
+				};
+				openPop('alert', none, errFocus);
+				over = true;
+				break;
+			}
+		}
+		if (over) break;
+	}
+	
+	if (over) return false;
+	else return true;
 }
 
 // 필수값 유효성검사

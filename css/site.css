@@ -3990,6 +3990,7 @@ form .f_message.ok {
   width: 0;
   height: 0;
   overflow: hidden;
+  visibility: hidden;
 }
 
 .camp_wrap .rate_form .rt_rates label {
@@ -4845,7 +4846,7 @@ form .f_message.ok {
 
 .profile_area .cnt_list b, .profile_area .cnt_list a {
   display: block;
-  margin: 0 auto;
+  margin: 10px auto 0;
   height: 1.2em;
   line-height: 1.2em;
   font-family: "GothamM";
@@ -6134,6 +6135,10 @@ form .f_message.ok {
   height: 50px;
   border-radius: 20px;
   font-size: 18px;
+}
+
+.pop_wrap a.comm_btn {
+  line-height: 50px;
 }
 
 .pop_wrap .btn_close.comm_btn {

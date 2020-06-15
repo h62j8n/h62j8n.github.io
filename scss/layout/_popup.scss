@@ -1,0 +1,477 @@
+#fstLoad {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 30px;
+	height: 30px;
+	font-size: 30px;
+	margin: -15px 0 0 -15px;
+	color: #fff;
+	z-index: 10;
+	&.in {
+		color: #999;
+	}
+}
+
+.fstPop {
+	position: relative;
+	display: none;
+	.btn_close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		width: 30px;
+		height: 30px;
+		z-index: 10;
+		background-image:  url(../images/ico/btn_close.png);
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	.feed_viewer {
+		margin: 0;
+		.feed_options {
+			top: auto;
+			bottom: 0;
+		}
+	}
+	.feed_maker {
+		width: 600px;
+		.btn_send {
+			position: relative;
+			top: auto;
+			right: auto;
+			width: 30px;
+			height: 50px;
+			background: url(../images/ico/btn_send.png) no-repeat center;
+		}
+	}
+}
+
+.pop_wrap {
+	@include leafdv;
+	width: 500px;
+	padding: 50px;
+	p {
+		line-height: 1.2em;
+		text-align: center;
+		font-size: 18px;
+	}
+	.pop_tit {
+		margin-bottom: 25px;
+		font-family: $m;
+		font-size: 20px;
+		padding-left: 25px;
+		background: url(../images/ico/shp_tit.png) no-repeat left center;
+		background-size: 17px;
+	}
+	.pop_msg {
+		position: relative;
+		display: table;
+		margin: 0 auto;
+		padding-bottom: 15px;
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 5px;
+			background: #1edeb9;
+			border-radius: 5px 0 5px 0;
+		}
+	}
+	.info_box {
+		p {
+			margin-bottom: 15px;
+			text-align: left;
+			font-family: $r;
+			font-size: 17px;
+		}
+		ul {
+			padding: 15px 20px;
+			background: #eee;
+		}
+		li {
+			margin-top: 5px;
+			color: #666;
+			&:first-child {
+				margin: 0;
+			}
+		}
+	}
+	.comm_for {
+		margin-top: 15px;
+	}
+	.comm_btn {
+		width: 150px;
+		height: 50px;
+		border-radius: 20px;
+		font-size: 18px;
+	}
+	a.comm_btn {
+		line-height: 50px;
+	}
+	.btn_close.comm_btn {
+		position: relative;
+		top: auto;
+		right: auto;
+		background-image: none;
+	}
+}
+
+.feed_maker ~ .btn_close {
+	top: 8px;
+}
+
+.follow_wrap + .btn_close {
+	top: 15px;
+}
+
+.login_wrap {
+	position: relative;
+	width: 400px;
+	height: 500px;
+	overflow: hidden;
+	h2 {
+		text-align: center;
+	}
+	section {
+		position: absolute;
+		top: 50px;
+		left: 50px;
+		display: table;
+		width: 400px;
+		height: 500px;
+		padding-top: 45px;
+		box-sizing: border-box;
+		transition: opacity .1s linear;
+		opacity: 0;
+		z-index: 0;
+		&.act {
+			opacity: 1;
+			z-index: 1;
+		}
+		> div {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+	.f_message.rst {
+		padding-top: 25px;
+		font-size: 15px;
+	}
+	.login_area {
+		.comm_form {
+			margin-top: 65px;
+		}
+		.comm_btn {
+			width: 100%;
+			margin-top: 35px;
+			font-size: 20px;
+		}
+	}
+	.lg_sns, .lg_find {
+		display: table;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+	.lg_sns {
+		margin-top: 35px;
+		dt, dd {
+			float: left;
+		}
+		dt {
+			font-family: $r;
+			line-height: 50px;
+		}
+		dd {
+			margin-left: 25px;
+		}
+	}
+	.lg_find {
+		margin-top: 50px;
+		li {
+			position: relative;
+			float: left;
+			margin-left: 30px;
+			font-family: $r;
+			&:before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: -15px;
+				width: 1px;
+				height: 20px;
+				margin-top: -10px;
+				background: #ddd;
+			}
+			&:first-child {
+				margin: 0;
+				text-align: right;
+				&:before {
+					display: none;
+				}
+			}
+		}
+		button, a {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		button {
+			font-size: 16px;
+		}
+	}
+}
+.id_wrap, .pw_wrap {
+	width: 400px;
+}
+.confirm_wrap {
+	width: 400px;
+	.pop_tit {
+		display: table;
+		margin: 0 auto;
+	}
+	.pop_txt {
+		margin-top: 25px;
+	}
+	.comm_buttons {
+		margin-top: 50px;
+	}
+}
+
+.report_wrap {
+	.file_box {
+		overflow: hidden;
+		.txt_hf {
+			float: left;
+			width: 439px;
+			height: 50px;
+			line-height: 48px;
+			padding: 0 15px;
+			border: 1px solid #ddd;
+			box-sizing: border-box;
+			text-align: left;
+			font-size: 15px;
+			span {
+				color: #ff0000;
+			}
+			&.plc_holder {
+				color: #bbb;
+			}
+		}
+		.btn_hf {
+			float: left;
+			width: 46px;
+			height: 46px;
+			line-height: 46px;
+			margin: 2px 0;
+			margin-left: 15px;
+			background: $festa;
+			border-radius: 18px;
+			text-align: center;
+			font-size: 22px;
+			color: #fff;
+			cursor: pointer;
+		}
+	}
+	.rdo_list {
+		margin-top: 15px;
+		padding: 25px;
+		border: 1px solid #ddd;
+		background: #eee;
+		overflow: hidden;
+		li {
+			float: left;
+			margin-top: 15px;
+			box-sizing: border-box;
+			word-break: keep-all;
+			letter-spacing: -.5px;
+			font-family: $r;
+			&:nth-child(1), &:nth-child(2) {
+				margin: 0;
+			}
+			&:nth-child(odd) {
+				width: 60%;
+			}
+			&:nth-child(even) {
+				width: 40%;
+			}
+		}
+	}
+	.txt_box {
+		display: none;
+		margin-top: -1px;
+		textarea {
+			width: 100%;
+			height: 80px;
+			&:focus {
+				border-color: #ddd;
+			}
+		}
+	}
+	.btn_box {
+		margin-top: 25px;
+	}
+}
+
+.follow_wrap {
+	width: 350px;
+	padding: 0;
+	> div {
+		height: 330px;
+		padding: 20px 25px;
+		padding-right: 0;
+	}
+	.pop_tit {
+		height: 60px;
+		line-height: 60px;
+		margin: 0;
+		padding: 0;
+		background: none;
+		text-align: center;
+		border-bottom: 1px solid #eee;
+		span {
+			padding-left: 25px;
+			background: url(../images/ico/shp_tit.png) no-repeat left center;
+			background-size: 17px;
+		}
+	}
+	li {
+		position: relative;
+		display: table;
+		width: 100%;
+		height: 50px;
+		margin-top: 20px;
+		padding-right: 80px;
+		box-sizing: border-box;
+		&:first-child {
+			margin: 0;
+		}
+		a {
+			position: relative;
+			display: table-cell;
+			vertical-align: middle;
+			width: 100%;
+			padding-left: 60px;
+			box-sizing: border-box;
+		}
+		.pf_picture {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 50px;
+			height: 50px;
+		}
+		.fw_name, .fw_intro {
+			display: block;
+			width: 160px;
+			line-height: 1.2em;
+			@include txt1;
+		}
+		.fw_name {
+			font-family: $r;
+		}
+		.fw_intro {
+			margin-top: 5px;
+			font-size: 13px;
+			color: #999;
+		}
+		.btn_follow {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			margin-top: -15px;
+		}
+	}
+	.fstEmpty {
+		padding: 0;
+		height: 330px;
+		line-height: 330px;
+		text-align: center;
+		font-family: $dl;
+	}
+}
+
+.gp_join_wrap {
+	.ip_box {
+		label span:first-child {
+			color: #ff0000;
+		}
+	}
+}
+
+
+.stop_wrap, .kick_wrap, .report_viewer {
+	dl {
+		margin-top: 30px;
+		background: #eee;
+		border: 1px solid #ddd;
+		&:first-child {
+			margin: 0;
+		}
+	}
+	dt {
+		height: 35px;
+		line-height: 35px;
+		text-align: center;
+		background: #555;
+		color: #fff;
+	}
+	textarea {
+		border: none;
+	}
+	.btn_box {
+		margin-top: 25px;
+	}
+}
+
+.stop_wrap {
+	.rdo_list {
+		overflow: hidden;
+		padding: 0 30px;
+		dt {
+			margin: 0 -30px;
+		}
+		dd {
+			float: left;
+			width: 20%;
+			padding: 20px 0;
+		}
+	}
+}
+.report_viewer {
+	width: 620px;
+	height: 380px;
+	.txt_box {
+		overflow: hidden;
+	}
+	.rpv_txt {
+		padding: 15px 20px;
+		border-bottom: 1px solid #ddd;
+	}
+	.rpv_img {
+		max-height: 235px;
+		text-align: center;
+		.mCustomScrollBox {
+			padding: 0;
+		}
+		img {
+			max-width: 100%;
+		}
+	}
+}
+
+.out_wrap {
+	.info_box {
+		margin-bottom: 30px;
+	}
+	> p {
+		margin-bottom: 10px;
+	}
+	.out_words {
+		margin-bottom: 15px;
+		text-decoration: underline;
+		font-size: 15px;
+	}
+}

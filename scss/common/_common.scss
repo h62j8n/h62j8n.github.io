@@ -1,0 +1,527 @@
+/*
+---------------------------------------------------------------
+*
+* common
+*
+---------------------------------------------------------------
+*/
+
+@font-face {
+	font-family: "noto-sans-scott-t";
+	src: url("../fonts/NotoSansCJKkr-Thin.woff2") format("woff2"),
+		url("../fonts/NotoSansCJKkr-Thin.woff") format("woff"),
+		url("../fonts/NotoSansCJKkr-Thin.otf") format("truetype");
+}
+
+@font-face {
+	font-family: "noto-sans-scott-l";
+	src: url("../fonts/NotoSansCJKkr-Light.woff2") format("woff2"),
+		url("../fonts/NotoSansCJKkr-Light.woff") format("woff"),
+		url("../fonts/NotoSansCJKkr-Light.otf") format("truetype");
+}
+
+@font-face {
+	font-family: "noto-sans-scott-dl";
+	src: url("../fonts/NotoSansCJKkr-DemiLight.woff2") format("woff2"),
+		url("../fonts/NotoSansCJKkr-DemiLight.woff") format("woff"),
+		url("../fonts/NotoSansCJKkr-DemiLight.otf") format("truetype");
+}
+
+@font-face {
+	font-family: "noto-sans-scott-r";
+	src: url("../fonts/NotoSansCJKkr-Regular.woff2") format("woff2"),
+		url("../fonts/NotoSansCJKkr-Regular.woff") format("woff"),
+		url("../fonts/NotoSansCJKkr-Regular.otf") format("truetype");
+}
+
+@font-face {
+	font-family: "noto-sans-scott-m";
+	src: url("../fonts/NotoSansCJKkr-Medium.woff2") format("woff2"),
+		url("../fonts/NotoSansCJKkr-Medium.woff") format("woff"),
+		url("../fonts/NotoSansCJKkr-Medium.otf") format("truetype");
+}
+
+@font-face {
+	font-family: "noto-sans-scott-b";
+	src: url("../fonts/NotoSansCJKkr-Bold.woff2") format("woff2"),
+		url("../fonts/NotoSansCJKkr-Bold.woff") format("woff"),
+		url("../fonts/NotoSansCJKkr-Bold.otf") format("truetype");
+}
+
+@font-face {
+	font-family: "noto-sans-scott-bk";
+	src: url("../fonts/NotoSansCJKkr-Black.woff2") format("woff2"),
+		url("../fonts/NotoSansCJKkr-Black.woff") format("woff"),
+		url("../fonts/NotoSansCJKkr-Black.otf") format("truetype");
+}
+
+@font-face {
+	font-family: "GothamM";
+	src: url("../fonts/GothamMedium.woff2") format("woff2"),
+		url("../fonts/GothamMedium.woff") format("woff"),
+		url("../fonts/GothamMedium.otf") format("truetype");
+}
+
+@font-face {
+	font-family: "GothamB";
+	src: url("../fonts/GothamBold.woff2") format("woff2"),
+		url("../fonts/GothamBold.woff") format("woff"),
+		url("../fonts/GothamBold.otf") format("truetype");
+}
+
+$mw: 1100px;
+
+$t: "noto-sans-scott-t";
+$l: "noto-sans-scott-l";
+$dl: "noto-sans-scott-dl";
+$r: "noto-sans-scott-r";
+$m: "noto-sans-scott-m";
+$b: "noto-sans-scott-b";
+$bk: "noto-sans-scott-bk";
+$gdM: "GothamM";
+$gdB: "GothamB";
+
+$festa: #1edeb9;
+$shadow: 0 2px 5px rgba(0, 0, 0, .1);
+
+@mixin clear {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+@mixin mask {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+@mixin txt1() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+@mixin txt2($h, $t) {
+	max-height: $h*$t;
+	line-height: $h;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+	display: -webkit-box;
+	-webkit-line-clamp: $t;
+	-webkit-box-orient: vertical;
+}
+@mixin imgTrim() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: none;
+}
+
+body {
+	background: #fff;
+	font: {
+		family: $dl;
+		size: 16px;
+	}
+	color: #222;
+}
+a {
+	color: #222;
+}
+th, b, strong {
+	font-family: $m;
+}
+
+::selection {
+	background: $festa;
+	color: #fff;
+}
+::-moz-selection {
+	background: $festa;
+	color: #fff;
+}
+::-webkit-input-placeholder {
+	font-size: 15px;
+	color: #bbb;
+}
+::-moz-placeholder {
+	font-size: 15px;
+	color: #bbb;
+}
+:-ms-input-placeholder {
+	font-size: 15px;
+	color: #bbb;
+}
+
+#wrap {
+	min-width: $mw;
+}
+.container {
+	width: 1024px;
+	margin: 0 auto;
+	&.w720 {
+		width: 720px;
+	}
+}
+.snd_only {
+	position: absolute !important;
+	top: -9999px;
+	left: -9999px;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+img {
+	max-width: 100%;
+}
+
+pre {
+	font-family: $dl;
+}
+
+button, input[type=submit] {
+	border: none;
+	background: none;
+	font-family: $dl;
+	&:focus {
+		outline: none;
+	}
+}
+
+textarea, input[type=text], input[type=password], input[type=email], select {
+	padding: 0 10px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	font-family: $dl;
+	&:focus {
+		outline: none;
+		border-color: $festa;
+	}
+	&.rd_only {
+		background: #eee;
+		&:focus {
+			border-color: #ddd;
+		}
+	}
+}
+
+input[type=text], input[type=password], input[type=email], select {
+	height: 50px;
+}
+
+input[type=file] {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+textarea {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	resize: none;
+	&:focus {
+		outline: none;
+		border-color: $festa;
+	}
+}
+
+.comm_rdo, .comm_chk {
+	position: absolute;
+	visibility: hidden;
+}
+
+.comm_rdo + label, .comm_chk + label {
+	position: relative;
+	display: block;
+	padding-left: 25px;
+	line-height: 20px;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.comm_rdo + label {
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		border-radius: 50%;
+	}
+	&:before {
+		top: 0;
+		left: 0;
+		width: 20px;
+		height: 20px;
+		box-sizing: border-box;
+		border: 1px solid #ddd;
+		background: #fff;
+	}
+	&:after {
+		top: 4px;
+		left: 4px;
+		width: 12px;
+		height: 12px;
+	}
+}
+
+.comm_rdo:checked + label {
+	&:after {
+		background: #666;
+	}
+}
+
+.comm_chk + label {
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		box-sizing: border-box;
+	}
+	&:before {
+		top: 0;
+		left: 0;
+		width: 20px;
+		height: 20px;
+		border: 1px solid #ddd;
+		background: #fff;
+	}
+	&:after {
+		top: 3px;
+		left: 2px;
+		width: 15px;
+		height: 10px;
+		transform: rotate(-45deg);
+	}
+}
+
+.comm_chk:checked + label {
+	&:after {
+		border-left: 3px solid #666;
+		border-bottom: 3px solid #666;
+	}
+}
+
+.comm_buttons_s {
+	overflow: hidden;
+	li {
+		float: left;
+		margin-left: 10px;
+		&:first-child {
+			margin: 0;
+		}
+	}
+	.comm_btn {
+		width: 80px;
+		height: 35px;
+		box-sizing: border-box;
+		border: 1px solid #ddd;
+		border-radius: 15px;
+		font-family: $dl;
+		font-size: 14px;
+		background: #fff;
+		color: #222;
+		&.cfm, &.cnc, &.sbm {
+			line-height: 30px;
+			border: none;
+		}
+		&.cfm, &.cnc {
+			color: #fff;
+		}
+	}
+}
+
+.comm_buttons {
+	display: table;
+	margin: 25px auto 0;
+	overflow: hidden;
+	li {
+		float: left;
+		margin: 0 15px;
+	}
+}
+
+.comm_btn {
+	display: block;
+	width: 200px;
+	height: 55px;
+	border-radius: 25px;
+	font-family: $r;
+	font-size: 20px;
+	color: #fff;
+}
+
+a.comm_btn {
+	line-height: 55px;
+	text-align: center;
+}
+
+.comm_btn.sbm[type=button] {
+	background: #bbb;
+	cursor: default;
+}
+
+.comm_btn.cfm, .comm_btn.sbm[type=submit], a.comm_btn {
+	background: $festa;
+}
+
+.comm_btn.cnc {
+	background: #666;
+}
+
+.comm_sel_label {
+	position: relative;
+	padding: 0 30px 0 15px;
+	height: 50px;
+	line-height: 48px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	font-size: 15px;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: 15px;
+		margin-top: -4px;
+		border-top: 8px solid #888;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+	}
+}
+.comm_sel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 1;
+	&:focus ~ .comm_sel_label {
+		border-color: $festa;
+		&:before {
+			border-top-color: $festa;
+		}
+	}
+}
+
+.comm_form {
+	color: #666;
+	.ip_box, .sel_box, .rdo_box {
+		position: relative;
+		margin-top: 25px;
+		&:first-child {
+			margin: 0;
+		}
+	}
+	.comm_label {
+		position: absolute;
+		top: 13px;
+		left: 10px;
+		height: 24px;
+		line-height: 24px;
+		padding: 0 5px;
+		background: #fff;
+		transition: all .2s;
+		font-size: 15px;
+		z-index: 2;
+		cursor: text;
+		&.size_s {
+			font-size: 13px;
+			top: -12px;
+			span {
+				display: none;
+			}
+		}
+	}
+	input[type=text], input[type=email], input[type=password], select {
+		&:focus ~ .comm_label {
+			font-size: 13px;
+			top: -12px;
+			span {
+				display: none;
+			}
+		}
+	}
+}
+
+form {
+	input[type=text], input[type=email], input[type=password], select, .comm_sel_label {
+		width: 100%;
+	}
+	input[type=text], input[type=email], input[type=password] {
+		padding: 0 15px;
+		font-size: 15px;
+		background: #fff;
+	}
+	.f_message {
+		clear: both;
+		padding: 5px 10px 0;
+		text-align: left !important;
+		font-size: 14px !important;
+		color: #ff0000;
+		&.ok {
+			color: #08a600;
+		}
+	}
+}
+
+.comm_tit {
+	margin-bottom: 60px;
+	font-size: 35px;
+	b {
+		position: relative;
+		color: $festa;
+		&:before {
+			content: '';
+			position: absolute;
+			bottom: 5px;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background: #222;
+		}
+	}
+}
+
+.sub_tit {
+	position: relative;
+	margin-bottom: 25px;
+	padding-bottom: 30px;
+	line-height: 1em;
+	font-family: $m;
+	font-size: 26px;
+	overflow: hidden;
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 30px;
+		height: 5px;
+		border-radius: 5px 0 5px 0;
+		background: $festa;
+	}
+}
+
+.set_tit {
+	position: relative;
+	margin-bottom: 40px;
+	padding: 0 0 25px 30px;
+	line-height: 1.2em;
+	font-size: 26px;
+	font-family: $b;
+	background: url(../images/ico/shp_tit2.png) no-repeat left 5px;
+	background-size: 25px;
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 220px;
+		height: 4px;
+		border-radius: 4px 0 4px 0;
+		background: $festa;
+	}
+}
